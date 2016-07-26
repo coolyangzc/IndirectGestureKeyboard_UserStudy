@@ -1,17 +1,16 @@
 #ifndef VECTOR2_H_
 #define VECTOR2_H_
 
+#include "Common.h"
+
 #include <cmath>
 #include <vector>
-#include <iostream>
 #include <algorithm>
 
 #define rep(i,n) for(int i=0; i<n; ++i)
 #define FOR(i,a,b) for(int i=a; i<=b; ++i)
 
 using namespace std;
-
-const int MAXSAMPLE = 200 + 1;
 
 struct Vector2
 {

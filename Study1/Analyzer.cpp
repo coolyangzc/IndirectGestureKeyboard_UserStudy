@@ -1,21 +1,13 @@
+#include "Common.h"
 #include "Vector2.h"
 
-#include <cmath>
 #include <cstdio>
 #include <vector>
-#include <cstdlib>
 #include <sstream>
 #include <fstream>
 #include <iostream>
 
-#define rep(i,n) for(int i=0; i<n; ++i)
-#define FOR(i,a,b) for(int i=a; i<=b; ++i)
-
 using namespace std;
-
-const int PHRASES = 60;
-const double eps = 1e-6;
-const double inf = 1e10;
 
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
@@ -29,11 +21,20 @@ vector<string> words;
 vector<double> time;
 vector<Vector2> world, relative;
 
-fstream fout;
+string name, userID, disFileName, candFileName, WPMFileName;
+fstream disFout, WPMFout, candFout;
 
-int Random(int mo)
+void InitFstream(string user, string id)
 {
-    return rand() % mo;
+    name = user;
+    userID = id;
+    disFileName = "res/Distance_" + userID + ".csv";
+    WPMFileName = "res/WPM_" + userID + ".csv";
+    candFileName = "res/Candidate_" + userID + ".csv";
+
+    disFout.open(disFileName.c_str(), fstream::out);
+    WPMFout.open(WPMFileName.c_str(), fstream::out);
+    disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
 }
 
 void InitDTW()
@@ -42,22 +43,6 @@ void InitDTW()
         rep(j, MAXSAMPLE)
             dtw[i][j] = inf;
     dtw[0][0] = 0;
-}
-
-bool same(const std::string& input, const std::string& tar)
-{
-    if (input.length() > tar.length()+1) return false;
-    std::string::const_iterator p = input.begin();
-    std::string::const_iterator q = tar.begin();
-
-    while (p != input.end() && q != tar.end() && toupper(*p) == toupper(*q))
-        ++p, ++q;
-    return (p == input.end()) || (q == tar.end());
-}
-
-bool same(const double& x, const double& y)
-{
-    return (fabs(x-y) < eps);
 }
 
 void CalcKeyLayout()
@@ -77,7 +62,6 @@ void CalcKeyLayout()
     {
         keyPos[line3[i]] = Vector2(-0.35 + i * 0.1, -0.333);
     }
-
 }
 
 void LinePushBack(string s, double t, double x = 0, double y = 0, double rx = 0, double ry = 0)
@@ -89,11 +73,11 @@ void LinePushBack(string s, double t, double x = 0, double y = 0, double rx = 0,
     relative.push_back(Vector2(rx, ry));
 }
 
-void ReadData(int id, string user)
+void ReadData(int id)
 {
     stringstream ss;
     ss << id;
-    string fileName = "data/" + user + "_" + ss.str() + ".txt";
+    string fileName = "data/" + name + "_" + ss.str() + ".txt";
     fstream fin;
     fin.open(fileName.c_str(), fstream::in);
     getline(fin, sentence[id]);
@@ -158,24 +142,23 @@ void ReadData(int id, string user)
     fin.close();
 }
 
-void CalcWPM(string fileName, string userID)
+void CalcWPM()
 {
-    fstream fout;
-    fout.open(fileName.c_str(), fstream::out);
-    fout << "user,scale,size,sentence,WPM" << endl;
+    WPMFout << "id,scale,size,sentence,WPM" << endl;
     rep(i, PHRASES)
     {
-        fout<< userID << ","
-            << scale[i] << ","
-            << keyboardSize[i] << ","
-            << sentence[i] << ","
-            << WPM[i] << endl;
+        WPMFout << userID << ","
+                << scale[i] << ","
+                << keyboardSize[i] << ","
+                << sentence[i] << ","
+                << WPM[i] << endl;
     }
-    fout.close();
+    WPMFout.close();
 }
 
-void CalcDistance(int id, vector<int>& sampleNums, fstream& fout, string userID)
+void CalcDistance(int id, vector<int>& sampleNums)
 {
+    fstream& fout = disFout;
     int line = 0;
     double keyWidth = width[id] / 10;
     rep(w, words.size())
@@ -248,27 +231,18 @@ void CalcDistance(int id, vector<int>& sampleNums, fstream& fout, string userID)
 
 int main()
 {
+    InitFstream("yzc", "1");
     InitDTW();
     CalcKeyLayout();
 
-    string user = "yym";
-    string userID = "5";
-    fstream fout;
-    fout.open("res/distance_5.csv", fstream::out);
-    fout << "user,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
-    vector<int> sample;
-    sample.push_back(16);
-    sample.push_back(50);
-    sample.push_back(80);
-    sample.push_back(128);
-    sample.push_back(200);
+    int sampleNums[] = {16, 32, 64, 128, 256};
+    vector<int> sample(sampleNums, sampleNums + 5);
     rep(i, 60)
     {
-        ReadData(i, user);
-        CalcDistance(i, sample, fout, userID);
+        ReadData(i);
+        CalcDistance(i, sample);
     }
-    CalcWPM("res/WPM_5.csv", userID);
-
+    CalcWPM();
     return 0;
 }
 
