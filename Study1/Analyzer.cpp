@@ -376,7 +376,7 @@ void outputCandidate(vector<int> sampleNums)
 
 int main()
 {
-    initFstream("yym", "5");
+    initFstream("xwj", "3");
     initDTW();
     initLexicon();
     calcKeyLayout();
