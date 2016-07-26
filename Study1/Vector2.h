@@ -7,9 +7,6 @@
 #include <vector>
 #include <algorithm>
 
-#define rep(i,n) for(int i=0; i<n; ++i)
-#define FOR(i,a,b) for(int i=a; i<=b; ++i)
-
 using namespace std;
 
 struct Vector2
@@ -85,26 +82,38 @@ enum Formula
     DTW = 1,
 };
 
-double match(const vector<Vector2>& A, vector<Vector2>& B, double dtw[MAXSAMPLE][MAXSAMPLE], Formula formula)
+double match(const vector<Vector2>& A, vector<Vector2>& B,
+             double dtw[MAXSAMPLE][MAXSAMPLE], Formula formula, double terminate = inf)
 {
     if (A.size() != B.size())
-        return -1;
+        return inf;
     double dis = 0;
     int num = A.size();
     switch(formula)
     {
     case (Standard):
         rep(i, num)
+        {
             dis += dist(A[i], B[i]);
+            if (dis > terminate)
+                return inf;
+        }
+
         break;
 
     case (DTW):
         int w = max(num / 0.1, 2.0);
         rep(i, num)
+        {
+            double gap = inf;
             FOR(j, max(0, i - w), min(i + w, num - 1))
             {
                 dtw[i+1][j+1] = dist(A[i], B[j]) + min(dtw[i][j], min(dtw[i][j+1], dtw[i+1][j]));
+                gap = min(dtw[i+1][j+1], gap);
             }
+            if (gap > terminate)
+                return inf;
+        }
         dis = dtw[num][num];
         break;
     }

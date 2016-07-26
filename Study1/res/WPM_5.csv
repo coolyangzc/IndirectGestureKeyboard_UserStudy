@@ -1,4 +1,4 @@
-user,scale,size,sentence,WPM
+id,scale,size,sentence,WPM
 5,1x3,0.75,we run the risk of failure,14.3905
 5,1x3,0.75,the quick brown fox jumps over the lazy dog,13.759
 5,1x3,0.75,an offer you cannot refuse,17.5754
