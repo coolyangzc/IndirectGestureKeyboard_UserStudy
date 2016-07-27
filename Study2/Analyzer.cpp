@@ -16,9 +16,6 @@ double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES
 double WPM[PHRASES];
 Vector2 keyPos[26];
 
-int wordCount[2][3]; //[scale][size]
-double stdCount[2][3][10][11], dtwCount[2][3][10][11]; //[scale][size][num][rank];
-
 string dict[LEXICON_SIZE];
 int freq[LEXICON_SIZE];
 vector<Vector2> path[LEXICON_SIZE];
@@ -68,13 +65,10 @@ void initLexicon()
 vector<Vector2> wordToPath(string word, int id)
 {
     vector<Vector2> pts;
-    int preKey = -1;
     rep(i, word.length())
     {
         int key = word[i] - 'a';
-        if (key != preKey)
-            pts.push_back(Vector2(keyPos[key].x * width[id], keyPos[key].y * height[id]));
-        preKey = key;
+        pts.push_back(Vector2(keyPos[key].x * width[id], keyPos[key].y * height[id]));
     }
     return pts;
 }
@@ -220,7 +214,7 @@ void calcDistance(int id, vector<int>& sampleNums)
             vector<Vector2> location = temporalSampling(pts, num);
             vector<Vector2> stroke = temporalSampling(rawstroke, num);
 
-            double result = match(stroke, location, dtw, Standard) / num;
+            double result = match(location, stroke, dtw, Standard) / num;
             fout<< userID << ","
                 << scale[id] << ","
                 << keyboardSize[id] << ","
@@ -238,7 +232,8 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "keyWidth" << ","
                 << result / keyWidth << endl;
 
-            result = match(stroke, location, dtw, DTW) / num;
+            result = match(location, stroke, dtw, DTW) / num;
+
             fout<< userID << ","
                 << scale[id] << ","
                 << keyboardSize[id] << ","
@@ -298,8 +293,8 @@ void calcCandidate(int id, vector<int>& sampleNums)
             vector<Vector2> location = temporalSampling(pts, num);
             vector<Vector2> stroke = temporalSampling(rawstroke, num);
 
-            double result = match(stroke, location, dtw, Standard);
-            double resultDTW = match(stroke, location, dtw, DTW);
+            double result = match(location, stroke, dtw, Standard);
+            double resultDTW = match(location, stroke, dtw, DTW);
             int stdRank = 1, dtwRank = 1;
 
             rep(j, LEXICON_SIZE)
@@ -309,13 +304,13 @@ void calcCandidate(int id, vector<int>& sampleNums)
                 pts = wordToPath(dict[j], id);
                 location = temporalSampling(pts, num);
 
-                if (stdRank <= 10 && match(stroke, location, dtw, Standard, result) < result)
+                if (stdRank <= 10 && match(location, stroke, dtw, Standard, result) < result)
                 {
                     stdRank++;
                     if (stdRank > 10 && dtwRank > 10)
                         break;
                 }
-                if (dtwRank <= 10 && match(stroke, location, dtw, DTW, resultDTW) < resultDTW)
+                if (dtwRank <= 10 && match(location, stroke, dtw, DTW, resultDTW) < resultDTW)
                 {
                     dtwRank++;
                     if (stdRank > 10 && dtwRank > 10)
@@ -349,10 +344,11 @@ void outputCandidate(vector<int> sampleNums)
             {
                 For(j, 10)
                 {
+                    cout << stdCount[p][q][i][j] << " ";
                     stdCount[p][q][i][j] += stdCount[p][q][i][j-1];
                     dtwCount[p][q][i][j] += dtwCount[p][q][i][j-1];
                 }
-
+                cout << endl;
                 fout<< userID << ","
                     << scale << ","
                     << keyboardSize << ","
@@ -377,15 +373,14 @@ void outputCandidate(vector<int> sampleNums)
 
 int main()
 {
-    initFstream("yzp", "2");
+    initFstream("xwj", "3");
     initDTW();
     initLexicon();
     calcKeyLayout();
 
     int sampleNums[] = {16, 32, 64, 128, 256};
-    int candSamples[] = {16, 24, 32, 50, 64};
     vector<int> sample(sampleNums, sampleNums + 5);
-    vector<int> candSample(candSamples, candSamples + 1);
+    vector<int> candSample(sampleNums, sampleNums + 3);
 
     rep(i, PHRASES)
     {

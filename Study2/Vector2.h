@@ -5,7 +5,6 @@
 
 #include <cmath>
 #include <vector>
-#include <iostream>
 #include <algorithm>
 
 using namespace std;
@@ -81,32 +80,15 @@ enum Formula
 {
     Standard = 0,
     DTW = 1,
-    DTWL = 2,
 };
-
-inline double det(const Vector2& a, const Vector2& b, const Vector2& c)
-{
-    return (b.x-a.x) * (c.y-a.y) - (b.y-a.y) * (c.x-a.x);
-}
-
-double pointToSeg(const Vector2& p, const Vector2& a, const Vector2& b)
-{
-    double cross = (b.x-a.x) * (p.x-a.x) + (b.y-a.y) * (p.y-a.y);
-    if (cross <= 0)
-        return dist(p, a);
-    double segLen = dist(a, b);
-    if (cross >= segLen * dist(p, a))
-        return dist(p, b);
-    return fabs(det(a, b, p)) / segLen;
-}
 
 double match(const vector<Vector2>& A, vector<Vector2>& B,
              double dtw[MAXSAMPLE][MAXSAMPLE], Formula formula, double terminate = inf)
 {
-    if (A.size() != B.size() && formula != DTWL)
+    if (A.size() != B.size())
         return inf;
     double dis = 0;
-    int num = A.size(), w;
+    int num = A.size();
     switch(formula)
     {
     case (Standard):
@@ -118,35 +100,21 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
         }
 
         break;
+
     case (DTW):
-        w = max(num / 0.1, 2.0);
-        For(i, num)
+        int w = max(num / 0.1, 2.0);
+        rep(i, num)
         {
             double gap = inf;
-            FOR(j, max(1, i - w), min(i + w, num))
+            FOR(j, max(0, i - w), min(i + w, num - 1))
             {
-                dtw[i][j] = dist(A[i-1], B[j-1]) + min(dtw[i-1][j-1], min(dtw[i][j-1], dtw[i-1][j]));
-                gap = min(dtw[i][j], gap);
+                dtw[i+1][j+1] = dist(A[i], B[j]) + min(dtw[i][j], min(dtw[i][j+1], dtw[i+1][j]));
+                gap = min(dtw[i+1][j+1], gap);
             }
             if (gap > terminate)
                 return inf;
         }
         dis = dtw[num][num];
-        break;
-    case (DTWL):
-        int len = B.size() - 1;
-        For(i, num)
-        {
-            double gap = inf;
-            For(j, min(i, len))
-            {
-                dtw[i][j] = min(dtw[i-1][j-1], dtw[i-1][j]) + pointToSeg(A[i-1], B[j-1], B[j]);
-                gap = min(gap, dtw[i][j]);
-            }
-            //if (gap > terminate)
-                //return inf;
-        }
-        dis = dtw[num][len];
         break;
     }
     return dis;
