@@ -9,7 +9,7 @@
 #define For(i,n) for (int i=1; i<=n; ++i)
 #define FOR(i,a,b) for (int i=a; i<=b; ++i)
 
-const int PHRASES = 60;
+const int PHRASES =20;
 const double eps = 1e-6;
 const double inf = 1e10;
 const int MAXSAMPLE = 300 + 1;

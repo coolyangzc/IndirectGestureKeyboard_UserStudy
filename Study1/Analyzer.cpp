@@ -146,10 +146,15 @@ void readData(int id)
     world.clear(); relative.clear();
 
     string s;
-    double t, x, y, rx, ry;
+    double t, x, y, rx, ry, lastT;
     while (fin >> s)
     {
         fin >> t;
+        if (s == "PhraseEnd")
+        {
+            linePushBack(s, t);
+            break;
+        }
         if (s == "Backspace")
         {
             startTime = -1;
@@ -158,11 +163,7 @@ void readData(int id)
             linePushBack(s, t);
             continue;
         }
-        if (s == "PhraseEnd")
-        {
-            linePushBack(s, t);
-            continue;
-        }
+        lastT = t;
         fin >> x >> y >> rx >> ry;
         linePushBack(s, t, x, y, rx, ry);
         if (s == "Began")
@@ -172,11 +173,11 @@ void readData(int id)
         }
     }
 
-    WPM[id] = alpha / (t - startTime) * 12;
+    WPM[id] = alpha / (lastT - startTime) * 12;
     fin.close();
 }
 
-void calcWPM()
+void outputWPM()
 {
     WPMFout << "id,scale,size,sentence,WPM" << endl;
     rep(i, PHRASES)
@@ -377,15 +378,15 @@ void outputCandidate(vector<int> sampleNums)
 
 int main()
 {
-    initFstream("yzp", "2");
+    initFstream("yzc", "1");
     initDTW();
     initLexicon();
     calcKeyLayout();
 
     int sampleNums[] = {16, 32, 64, 128, 256};
-    int candSamples[] = {16, 24, 32, 50, 64};
+    int candSamples[] = {16, 32, 64};
     vector<int> sample(sampleNums, sampleNums + 5);
-    vector<int> candSample(candSamples, candSamples + 1);
+    vector<int> candSample(candSamples, candSamples + 3);
 
     rep(i, PHRASES)
     {
@@ -393,7 +394,7 @@ int main()
         calcDistance(i, sample);
         calcCandidate(i, candSample);
     }
-    calcWPM();
+    outputWPM();
     outputCandidate(candSample);
     return 0;
 }
