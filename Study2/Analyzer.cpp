@@ -116,6 +116,8 @@ void readData(int id)
     fin.open(fileName.c_str(), fstream::in);
     getline(fin, sentence[id]);
     getline(fin, userText[id]);
+    if (sentence[id] != userText[id])
+        cout << "diff" << endl;
     fin >> mode[id];
     fin >> widthRatio[id] >> heightRatio[id];
     fin >> width[id] >> height[id];
@@ -142,6 +144,7 @@ void readData(int id)
         }
     if (word.length() > 0)
         words.push_back(word);
+    alpha = sentence[id].length();
     double startTime = -1;
     cmd.clear(); time.clear();
     world.clear(); relative.clear();
@@ -396,7 +399,7 @@ void outputCandidate(vector<int> sampleNums)
 
 int main()
 {
-    initFstream("maye", "1");
+    initFstream("xwj", "6");
     initDTW();
     initLexicon();
     calcKeyLayout();

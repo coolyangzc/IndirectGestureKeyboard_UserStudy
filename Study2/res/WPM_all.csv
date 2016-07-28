@@ -1,0 +1,121 @@
+id,mode,sentence,WPM
+1,Basic,stiff penalty for staying out late,20.7433
+1,Basic,do not lie in court or else,17.4757
+1,Basic,communicate through email,21.7549
+1,Basic,consequences of a wrong turn,25.5125
+1,Basic,you want to eat your cake,22.0394
+1,Basic,protect your environment,28.3492
+1,Basic,question that must be answered,28.8092
+1,Basic,with each step forward,24.7725
+1,Basic,well connected with people,30.6273
+1,Basic,the winner of the race,20.3327
+1,FixStart,they might find your comment offensive,20.2712
+1,FixStart,you are a wonderful example,25.4897
+1,FixStart,the imagination of the nation,20.473
+1,FixStart,that is a very odd question,19.9078
+1,FixStart,a picture is worth many words,21.1255
+1,FixStart,no exchange without a bill,18.3131
+1,FixStart,hands on experience with a job,18.3927
+1,FixStart,the fax machine is broken,21.4011
+1,FixStart,the children are playing,25.5319
+1,FixStart,space is a high priority,21.7786
+2,FixStart,call for more details,26.7402
+2,FixStart,you must be getting old,32.4591
+2,FixStart,just what the doctor ordered,35.9589
+2,FixStart,prescription drugs require a note,36.8612
+2,FixStart,construction makes traveling difficult,41.2782
+2,FixStart,gas bills are sent monthly,23.1403
+2,FixStart,suburbs are sprawling up everywhere,23.8949
+2,FixStart,please provide your date of birth,27.4238
+2,FixStart,did you have a good time,26.7583
+2,FixStart,an offer you cannot refuse,29.8507
+2,Basic,the acceptance speech was boring,30.9877
+2,Basic,would you like to come to my house,23.7951
+2,Basic,the second largest country,37.7404
+2,Basic,do not walk too quickly,34.5207
+2,Basic,most judges are very honest,28.8215
+2,Basic,he is just like everyone else,27.0819
+2,Basic,did you see that spectacular explosion,30.2225
+2,Basic,the fourth edition was better,39.6617
+2,Basic,the elevator door appears to be stuck,33.63
+2,Basic,file all complaints in writing,29.1659
+3,Basic,interactions between men and women,11.0945
+3,Basic,you should visit a doctor,12.7578
+3,Basic,the generation gap gets wider,15.5454
+3,Basic,space is a high priority,11.7527
+3,Basic,would you like to come to my house,11.316
+3,Basic,no exchange without a bill,14.5157
+3,Basic,beautiful paintings in the gallery,15.0748
+3,Basic,we run the risk of failure,15.25
+3,Basic,fish are jumping,18.993
+3,Basic,a picture is worth many words,12.5723
+3,FixStart,space is a high priority,13.0828
+3,FixStart,express delivery is very fast,11.178
+3,FixStart,that land is owned by the government,16.287
+3,FixStart,with each step forward,17.5917
+3,FixStart,that is a very nasty cut,10.2296
+3,FixStart,medieval times were very hard,20.0919
+3,FixStart,file all complaints in writing,20.3112
+3,FixStart,our silver anniversary is coming,17.7921
+3,FixStart,medieval times were very hard,10.9223
+3,FixStart,file all complaints in writing,12.141
+4,FixStart,breathing is difficult,16.5575
+4,FixStart,just in time for the party,15.4716
+4,FixStart,that land is owned by the government,20.0865
+4,FixStart,the treasury department is broken,21.155
+4,FixStart,valid until the end of the year,14.2256
+4,FixStart,jumping right out of the water,20.76
+4,FixStart,the force is with you,12.2544
+4,FixStart,important news always seems to be late,17.1519
+4,FixStart,an offer you cannot refuse,20.1942
+4,FixStart,all work and no play,17.0515
+4,Basic,universally understood to be wrong,21.5743
+4,Basic,rent is paid at the beginning of the month,15.0215
+4,Basic,the second largest country,25.0474
+4,Basic,sign the withdrawal slip,20.6897
+4,Basic,the location of the crime,25.3402
+4,Basic,do not feel too bad about it,13.7116
+4,Basic,this phenomenon will never occur,20.8038
+4,Basic,experience is hard to come by,13.4363
+4,Basic,communicate through email,26.1329
+4,Basic,effort is what it will take,21.5602
+5,FixStart,just what the doctor ordered,21.1467
+5,FixStart,fish are jumping,22.7031
+5,FixStart,historic meeting without a result,23.8612
+5,FixStart,do not drink the water,19.2743
+5,FixStart,what goes up must come down,17.8768
+5,FixStart,the fax machine is broken,21.0202
+5,FixStart,elections bring out the best,21.6676
+5,FixStart,well connected with people,23.8514
+5,FixStart,the bathroom is good for reading,19.6068
+5,FixStart,safe to walk the streets in the evening,20.2116
+5,Basic,the fourth edition was better,19.993
+5,Basic,vote according to your conscience,21.7986
+5,Basic,the rationale behind the decision,22.1361
+5,Basic,we run the risk of failure,17.2718
+5,Basic,this camera takes nice photographs,18.9909
+5,Basic,traveling requires a lot of fuel,23.5068
+5,Basic,you have my sympathy,20.2574
+5,Basic,we better investigate this,26.2258
+5,Basic,the world is a stage,18.6104
+5,Basic,do not walk too quickly,18.7717
+6,Basic,the food at this restaurant,25.4497
+6,Basic,get your priorities in order,21.1654
+6,Basic,questioning the wisdom of the courts,24.2234
+6,Basic,we accept personal checks,24.9563
+6,Basic,my car always breaks in the winter,22.2319
+6,Basic,the living is easy,23.9176
+6,Basic,express delivery is very fast,23.458
+6,Basic,the music is better than it sounds,19.3246
+6,Basic,go out for some pizza and beer,19.7878
+6,Basic,teaching services will help,28.3613
+6,FixStart,nobody cares anymore,29.3682
+6,FixStart,this watch is too expensive,25.6433
+6,FixStart,the elevator door appears to be stuck,27.7306
+6,FixStart,shall we play a round of cards,22.3236
+6,FixStart,prescription drugs require a note,27.6322
+6,FixStart,staying up all night is a bad idea,21.9973
+6,FixStart,elections bring out the best,25.4567
+6,FixStart,please provide your date of birth,20.0165
+6,FixStart,a dog is the best friend of a man,20.0135
+6,FixStart,toss the ball around,24.9724
