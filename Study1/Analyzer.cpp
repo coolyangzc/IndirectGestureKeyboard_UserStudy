@@ -43,7 +43,7 @@ void initFstream(string user, string id)
     disFout.open(disFileName.c_str(), fstream::out);
     WPMFout.open(WPMFileName.c_str(), fstream::out);
     candFout.open(candFileName.c_str(), fstream::out);
-    disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
+    disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance,firstKeyDistance,lastKeyDistance" << endl;
 
 }
 
@@ -126,7 +126,7 @@ void readData(int id)
     keyboardSize[id] = widthRatio[id] / 0.8;
 
     words.clear();
-    int alpha = sentece[id].length();
+    int alpha = sentence[id].length();
     string word = "";
     rep(i, sentence[id].length())
         if (sentence[id][i] >= 'a' && sentence[id][i] <= 'z')
@@ -212,6 +212,8 @@ void calcDistance(int id, vector<int>& sampleNums)
         vector<Vector2> pts = wordToPath(word, id);
         if (rawstroke.size() <= 1)
             return;
+        double firstKeyDis = dist(pts[0], rawstroke[0]);
+        double lastKeyDis = dist(pts[pts.size() - 1], rawstroke[rawstroke.size() - 1]);
         rep(i, sampleNums.size())
         {
             int &num = sampleNums[i];
@@ -226,7 +228,9 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "Standard" << ","
                 << num << ","
                 << "pixel" << ","
-                << result << endl;
+                << result << ","
+                << firstKeyDis << ","
+                << lastKeyDis << "," << endl;
             fout<< userID << ","
                 << scale[id] << ","
                 << keyboardSize[id] << ","
@@ -234,7 +238,9 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "Standard" << ","
                 << num << ","
                 << "keyWidth" << ","
-                << result / keyWidth << endl;
+                << result / keyWidth << ","
+                << firstKeyDis / keyWidth << ","
+                << lastKeyDis / keyWidth << "," << endl;
 
             result = match(stroke, location, dtw, DTW) / num;
             fout<< userID << ","
@@ -244,7 +250,9 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "DTW" << ","
                 << num << ","
                 << "pixel" << ","
-                << result << endl;
+                << result << ","
+                << firstKeyDis << ","
+                << lastKeyDis << "," << endl;
             fout<< userID << ","
                 << scale[id] << ","
                 << keyboardSize[id] << ","
@@ -252,7 +260,9 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "DTW" << ","
                 << num << ","
                 << "keyWidth" << ","
-                << result / keyWidth << endl;
+                << result / keyWidth << ","
+                << firstKeyDis / keyWidth << ","
+                << lastKeyDis / keyWidth << "," << endl;
         }
     }
 }
@@ -375,7 +385,7 @@ void outputCandidate(vector<int> sampleNums)
 
 int main()
 {
-    initFstream("yzc", "1");
+    initFstream("maye", "4");
     initDTW();
     initLexicon();
     calcKeyLayout();
@@ -389,10 +399,10 @@ int main()
     {
         readData(i);
         calcDistance(i, sample);
-        calcCandidate(i, candSample);
+        //calcCandidate(i, candSample);
     }
     outputWPM();
-    outputCandidate(candSample);
+    //outputCandidate(candSample);
     return 0;
 }
 

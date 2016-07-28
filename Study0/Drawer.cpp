@@ -60,10 +60,10 @@ void draw(string outputFileName)
         int id = x.size() * 0.10f;
         double minX = x[id], maxX = x[x.size() - id - 1], minY = y[y.size() - id - 1], maxY = y[id];
         Scalar color = Scalar(0, 0, 255);
-        drawLine(img, Point(minX, minY), Point(minX, maxY), 4, &color);
-        drawLine(img, Point(minX, minY), Point(maxX, minY), 4, &color);
-        drawLine(img, Point(maxX, maxY), Point(minX, maxY), 4, &color);
-        drawLine(img, Point(maxX, maxY), Point(maxX, minY), 4, &color);
+        drawLine(img, Point(minX, minY), Point(minX, maxY), 8, &color);
+        drawLine(img, Point(minX, minY), Point(maxX, minY), 8, &color);
+        drawLine(img, Point(maxX, maxY), Point(minX, maxY), 8, &color);
+        drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &color);
         stringstream ss;
         ss << cnt++;
         imwrite(outputFileName + ss.str() + ".jpg", img);
@@ -105,10 +105,10 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
         int id = x.size() * 0.10f;
         minX += x[id], maxX += x[x.size() - id - 1], minY += y[y.size() - id - 1], maxY += y[id];
-        drawLine(img, Point(x[id], y[y.size() - id - 1]), Point(x[id], y[id]), 4, &color);
-        drawLine(img, Point(x[id], y[y.size() - id - 1]), Point(x[x.size() - id - 1], y[y.size() - id - 1]), 4, &color);
-        drawLine(img, Point(x[x.size() - id - 1], y[id]), Point(x[id], y[id]), 4, &color);
-        drawLine(img, Point(x[x.size() - id - 1], y[id]), Point(x[x.size() - id - 1], y[y.size() - id - 1]), 4, &color);
+        //drawLine(img, Point(x[id], y[y.size() - id - 1]), Point(x[id], y[id]), 3, &color);
+        //drawLine(img, Point(x[id], y[y.size() - id - 1]), Point(x[x.size() - id - 1], y[y.size() - id - 1]), 3, &color);
+        //drawLine(img, Point(x[x.size() - id - 1], y[id]), Point(x[id], y[id]), 3, &color);
+        //drawLine(img, Point(x[x.size() - id - 1], y[id]), Point(x[x.size() - id - 1], y[y.size() - id - 1]), 3, &color);
         cnt++;
     }
     minX /= cnt;
@@ -126,13 +126,13 @@ int main()
 {
     string name[] = {"maye", "yixin", "yxc", "mzy", "xwj", "yuntao"};
     int User = 6;
-    /*
-    string file = name[5];
+
+    /*string file = name[4];
     string dir = "data/refine/" + file + ".txt";
     freopen(dir.c_str(), "r", stdin);
     draw(file.c_str());
-    fclose(stdin);
-    */
+    fclose(stdin);*/
+
 
     //freopen("maye2.txt", "r", stdin);
     //draw("out");

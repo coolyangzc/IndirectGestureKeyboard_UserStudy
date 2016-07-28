@@ -1,0 +1,22 @@
+Began 706 450
+Stationary 706 450
+Stationary 706 450
+Stationary 706 450
+Stationary 706 450
+Stationary 706 450
+Stationary 706 450
+Moved 693.388 450
+Moved 687.954 450
+Moved 669.987 450
+Stationary 669.987 450
+Moved 659.999 450
+Moved 637.017 460.098
+Moved 624.682 460.996
+Moved 609.028 464.993
+Moved 590.273 469.322
+Moved 567.904 472.746
+Moved 611.229 1166.37
+Moved 657.743 1096.77
+Moved 663.737 1072.74
+Ended 674.005 440.998
+
