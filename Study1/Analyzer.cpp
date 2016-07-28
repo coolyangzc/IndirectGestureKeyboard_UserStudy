@@ -126,14 +126,11 @@ void readData(int id)
     keyboardSize[id] = widthRatio[id] / 0.8;
 
     words.clear();
-    int alpha = 0;
+    int alpha = sentece[id].length();
     string word = "";
     rep(i, sentence[id].length())
         if (sentence[id][i] >= 'a' && sentence[id][i] <= 'z')
-        {
-            alpha++;
             word += sentence[id][i];
-        }
         else
         {
             words.push_back(word);

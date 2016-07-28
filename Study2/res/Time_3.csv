@@ -1,0 +1,11 @@
+id,mode,kind,time
+3,Basic,gesture,0.569604
+3,Basic,select,0.238913
+3,Basic,cancel,0.0250203
+3,Basic,delete,0
+3,Basic,rest,0.166463
+3,FixStart,gesture,0.515348
+3,FixStart,select,0.272831
+3,FixStart,cancel,0.0225494
+3,FixStart,delete,0
+3,FixStart,rest,0.189272

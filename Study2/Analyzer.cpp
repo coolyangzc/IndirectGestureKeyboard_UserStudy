@@ -13,11 +13,10 @@ double dtw[MAXSAMPLE][MAXSAMPLE];
 
 string sentence[PHRASES], userText[PHRASES], mode[PHRASES], scale[PHRASES];
 double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
-double WPM[PHRASES];
+double WPM[PHRASES], totTime[PHRASES];
 Vector2 keyPos[26];
 
-int wordCount[2][3]; //[scale][size]
-double stdCount[2][3][10][11], dtwCount[2][3][10][11]; //[scale][size][num][rank];
+double gestureTime[2], selectTime[2], cancelTime[2], deleteTime[2], restTime[2];
 
 string dict[LEXICON_SIZE];
 int freq[LEXICON_SIZE];
@@ -29,18 +28,21 @@ vector<string> words;
 vector<double> time;
 vector<Vector2> world, relative;
 
-string name, userID, disFileName, candFileName, WPMFileName;
-fstream disFout, WPMFout, candFout;
+string name, userID, disFileName, timeFileName, candFileName, WPMFileName;
+fstream disFout, timeFout, WPMFout, candFout;
 
 void initFstream(string user, string id)
 {
     name = user;
     userID = id;
     WPMFileName = "res/WPM_" + userID + ".csv";
+    timeFileName = "res/Time_" + userID + ".csv";
     //disFileName = "res/Distance_" + userID + ".csv";
     //candFileName = "res/Candidate_" + userID + ".csv";
 
     WPMFout.open(WPMFileName.c_str(), fstream::out);
+    timeFout.open(timeFileName.c_str(), fstream::out);
+    timeFout << "id,mode,kind,time" << endl;
     //disFout.open(disFileName.c_str(), fstream::out);
     //candFout.open(candFileName.c_str(), fstream::out);
     //disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
@@ -129,14 +131,11 @@ void readData(int id)
     keyboardSize[id] = widthRatio[id] / 0.8;
 
     words.clear();
-    int alpha = 0;
+    int alpha = sentence[id].length();
     string word = "";
     rep(i, sentence[id].length())
         if (sentence[id][i] >= 'a' && sentence[id][i] <= 'z')
-        {
-            alpha++;
             word += sentence[id][i];
-        }
         else
         {
             words.push_back(word);
@@ -144,7 +143,6 @@ void readData(int id)
         }
     if (word.length() > 0)
         words.push_back(word);
-    alpha = sentence[id].length();
     double startTime = -1;
     cmd.clear(); time.clear();
     world.clear(); relative.clear();
@@ -166,6 +164,7 @@ void readData(int id)
             fin >> num;
             rep(i, num)
                 fin >> unUsed;
+            linePushBack(s, t);
             continue;
         }
         if (s == "Backspace")
@@ -195,8 +194,79 @@ void readData(int id)
                 startTime = t;
         }
     }
-    WPM[id] = alpha / (lastT - startTime) * 12;
+    totTime[id] = lastT - startTime;
+    WPM[id] = alpha / totTime[id] * 12;
     fin.close();
+}
+
+void calcTimeDistribution(int id)
+{
+    fstream& fout = timeFout;
+    double startTime = -1, endTime = -1;
+    bool inRest = false, inCandidates = false;
+    int m = 0;
+    if (mode[id] == "FixStart")
+        m = 1;
+    rep(line, cmd.size())
+    {
+        string& s = cmd[line];
+        if (s == "Candidates")
+        {
+            cout << "Gesture:" << startTime << " " << endTime << endl;
+            gestureTime[m] += endTime - startTime;
+            inCandidates = true;
+            startTime = time[line];
+        }
+        else if (s == "Delete")
+        {
+            cout << "Delete:" << startTime << " " << endTime << endl;
+            deleteTime[m] += endTime - startTime;
+            inRest = true;
+            startTime = endTime;
+        }
+        else if (s == "SingleKey")
+        {
+            cout << "SingleKey:" << startTime << " " << endTime << endl;
+            gestureTime[m] += endTime - startTime;
+            inRest = true;
+            startTime = endTime;
+        }
+        else if (s == "Accept")
+        {
+            cout << "Accept:" << startTime << " " << endTime << endl;
+            selectTime[m] += endTime - startTime;
+            inRest = true;
+            inCandidates = false;
+            startTime = endTime;
+        }
+        else if (s == "Cancel")
+        {
+            cout << "Cancel:" << startTime << " " << endTime << endl;
+            cancelTime[m] += endTime - startTime;
+            inRest = true;
+            inCandidates = false;
+            startTime = endTime;
+        }
+
+        else if (s == "Began")
+        {
+            if (inRest)
+            {
+                cout << "Rest:" << startTime << " " << time[line] << endl;
+                restTime[m] += time[line] - startTime;
+                inRest = false;
+                startTime = time[line];
+            }
+            else
+                endTime = time[line];
+            if (startTime == -1)
+                startTime = time[line];
+        }
+        else
+            endTime = time[line];
+    }
+
+
 }
 
 void outputWPM()
@@ -210,6 +280,31 @@ void outputWPM()
                 << WPM[i] << endl;
     }
     WPMFout.close();
+}
+
+void outputTimeDistribution()
+{
+    rep(i, 2)
+    {
+        double tot = gestureTime[i] + selectTime[i] + cancelTime[i] + deleteTime[i] + restTime[i];
+        string mode = ((i==0)?"Basic":"FixStart");
+        timeFout<< userID << "," << mode << ","
+                << "gesture" << ","
+                << gestureTime[i] / tot << endl;
+        timeFout<< userID << "," << mode << ","
+                << "select" << ","
+                << selectTime[i] / tot << endl;
+        timeFout<< userID << "," << mode << ","
+                << "cancel" << ","
+                << cancelTime[i] / tot << endl;
+        timeFout<< userID << "," << mode << ","
+                << "delete" << ","
+                << deleteTime[i] / tot << endl;
+        timeFout<< userID << "," << mode << ","
+                << "rest" << ","
+                << restTime[i] / tot << endl;
+    }
+
 }
 
 void calcDistance(int id, vector<int>& sampleNums)
@@ -281,142 +376,32 @@ void calcDistance(int id, vector<int>& sampleNums)
     }
 }
 
-void calcCandidate(int id, vector<int>& sampleNums)
-{
-    fstream& fout = candFout;
-    int line = 0, p = 0, q = 0;
 
-    if (scale[id] == "1x3")
-        p = 1;
-    if (same(keyboardSize[id], 0.75))
-        q = 1;
-    else if (same(keyboardSize[id], 1))
-        q = 2;
-    cout << endl << id << endl;
-    rep(w, words.size())
-    {
-        string word = words[w];
-        cout << word << " ";
-        vector<Vector2> rawstroke;
-        while (line < cmd.size())
-        {
-            string s = cmd[line];
-            Vector2 p(relative[line].x * width[id], relative[line].y * height[id]);
-            line++;
-            if (rawstroke.size() == 0 || dist(rawstroke[rawstroke.size()-1], p) > eps)
-                rawstroke.push_back(p);
-            if (s == "Ended")
-                break;
-        }
-        if (word.length() == 1)
-            continue;
-        if (rawstroke.size() <= 1)
-            return;
-        wordCount[p][q]++;
-        rep(i, sampleNums.size())
-        {
-            int& num = sampleNums[i];
-            vector<Vector2> pts = wordToPath(word, id);
-            vector<Vector2> location = temporalSampling(pts, num);
-            vector<Vector2> stroke = temporalSampling(rawstroke, num);
 
-            double result = match(stroke, location, dtw, Standard);
-            double resultDTW = match(stroke, location, dtw, DTW);
-            int stdRank = 1, dtwRank = 1;
-
-            rep(j, LEXICON_SIZE)
-            {
-                if (word == dict[j])
-                    continue;
-                pts = wordToPath(dict[j], id);
-                location = temporalSampling(pts, num);
-
-                if (stdRank <= 10 && match(stroke, location, dtw, Standard, result) < result)
-                {
-                    stdRank++;
-                    if (stdRank > 10 && dtwRank > 10)
-                        break;
-                }
-                if (dtwRank <= 10 && match(stroke, location, dtw, DTW, resultDTW) < resultDTW)
-                {
-                    dtwRank++;
-                    if (stdRank > 10 && dtwRank > 10)
-                        break;
-                }
-            }
-            if (stdRank <= 10)
-                stdCount[p][q][i][stdRank]++;
-            if (dtwRank <= 10)
-                dtwCount[p][q][i][dtwRank]++;
-        }
-    }
-}
-
-void outputCandidate(vector<int> sampleNums)
-{
-    fstream& fout = candFout;
-    fout << "id,scale,size,algorithm,sampleNum,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10" << endl;
-    cout << endl;
-    rep(p, 2)
-    {
-        string scale = (p==0)?"1x1":"1x3";
-        rep(q, 3)
-        {
-            string keyboardSize = "0.5";
-            if (q == 1)
-                keyboardSize = "0.75";
-            else if (q == 2)
-                keyboardSize = "1";
-            rep(i, sampleNums.size())
-            {
-                For(j, 10)
-                {
-                    stdCount[p][q][i][j] += stdCount[p][q][i][j-1];
-                    dtwCount[p][q][i][j] += dtwCount[p][q][i][j-1];
-                }
-
-                fout<< userID << ","
-                    << scale << ","
-                    << keyboardSize << ","
-                    << "standard" << ","
-                    << sampleNums[i];
-                For(j, 10)
-                    fout << "," << stdCount[p][q][i][j] / wordCount[p][q];
-                fout << endl;
-                fout<< userID << ","
-                    << scale << ","
-                    << keyboardSize << ","
-                    << "DTW" << ","
-                    << sampleNums[i];
-                For(j, 10)
-                    fout << "," << dtwCount[p][q][i][j] / wordCount[p][q];
-                fout << endl;
-            }
-        }
-    }
-    fout.close();
-}
 
 int main()
 {
-    initFstream("xwj", "6");
-    initDTW();
-    initLexicon();
-    calcKeyLayout();
+    initFstream("yyk", "6");
+    //initDTW();
+    //initLexicon();
+    //calcKeyLayout();
 
-    int sampleNums[] = {16, 32, 64, 128, 256};
-    int candSamples[] = {16, 32, 64};
-    vector<int> sample(sampleNums, sampleNums + 5);
-    vector<int> candSample(candSamples, candSamples + 3);
-
+    //int sampleNums[] = {16, 32, 64, 128, 256};
+    //int candSamples[] = {16, 32, 64};
+    //vector<int> sample(sampleNums, sampleNums + 5);
+    //vector<int> candSample(candSamples, candSamples + 3);
+    //readData(0);
+    //calcTimeDistribution(0);
     rep(i, PHRASES)
     {
         readData(i);
+        calcTimeDistribution(i);
         //calcDistance(i, sample);
         //calcCandidate(i, candSample);
     }
+
     outputWPM();
-    //outputCandidate(candSample);
+    outputTimeDistribution();
     return 0;
 }
 

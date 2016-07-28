@@ -1,21 +1,21 @@
 id,mode,sentence,WPM
-3,Basic,interactions between men and women,11.0945
-3,Basic,you should visit a doctor,12.7578
-3,Basic,the generation gap gets wider,15.5454
-3,Basic,space is a high priority,11.7527
-3,Basic,would you like to come to my house,11.316
-3,Basic,no exchange without a bill,14.5157
-3,Basic,beautiful paintings in the gallery,15.0748
-3,Basic,we run the risk of failure,15.25
-3,Basic,fish are jumping,18.993
-3,Basic,a picture is worth many words,12.5723
-3,FixStart,space is a high priority,13.0828
-3,FixStart,express delivery is very fast,11.178
-3,FixStart,that land is owned by the government,16.287
-3,FixStart,with each step forward,17.5917
-3,FixStart,that is a very nasty cut,10.2296
-3,FixStart,medieval times were very hard,20.0919
-3,FixStart,file all complaints in writing,20.3112
-3,FixStart,our silver anniversary is coming,17.7921
-3,FixStart,medieval times were very hard,10.9223
-3,FixStart,file all complaints in writing,12.141
+3,Basic,the food at this restaurant,25.4497
+3,Basic,get your priorities in order,21.1654
+3,Basic,questioning the wisdom of the courts,24.2234
+3,Basic,we accept personal checks,24.9563
+3,Basic,my car always breaks in the winter,22.2319
+3,Basic,the living is easy,23.9176
+3,Basic,express delivery is very fast,23.458
+3,Basic,the music is better than it sounds,19.3246
+3,Basic,go out for some pizza and beer,19.7878
+3,Basic,teaching services will help,28.3613
+3,FixStart,nobody cares anymore,29.3682
+3,FixStart,this watch is too expensive,25.6433
+3,FixStart,the elevator door appears to be stuck,27.7306
+3,FixStart,shall we play a round of cards,22.3236
+3,FixStart,prescription drugs require a note,27.6322
+3,FixStart,staying up all night is a bad idea,21.9973
+3,FixStart,elections bring out the best,25.4567
+3,FixStart,please provide your date of birth,20.0165
+3,FixStart,a dog is the best friend of a man,20.0135
+3,FixStart,toss the ball around,24.9724
