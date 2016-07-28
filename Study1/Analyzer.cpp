@@ -43,7 +43,7 @@ void initFstream(string user, string id)
     disFout.open(disFileName.c_str(), fstream::out);
     WPMFout.open(WPMFileName.c_str(), fstream::out);
     candFout.open(candFileName.c_str(), fstream::out);
-    disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance,firstKeyDistance,lastKeyDistance" << endl;
+    disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
 
 }
 
@@ -228,9 +228,7 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "Standard" << ","
                 << num << ","
                 << "pixel" << ","
-                << result << ","
-                << firstKeyDis << ","
-                << lastKeyDis << "," << endl;
+                << result << endl;
             fout<< userID << ","
                 << scale[id] << ","
                 << keyboardSize[id] << ","
@@ -238,9 +236,7 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "Standard" << ","
                 << num << ","
                 << "keyWidth" << ","
-                << result / keyWidth << ","
-                << firstKeyDis / keyWidth << ","
-                << lastKeyDis / keyWidth << "," << endl;
+                << result / keyWidth << endl;
 
             result = match(stroke, location, dtw, DTW) / num;
             fout<< userID << ","
@@ -250,9 +246,7 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "DTW" << ","
                 << num << ","
                 << "pixel" << ","
-                << result << ","
-                << firstKeyDis << ","
-                << lastKeyDis << "," << endl;
+                << result << "," << endl;
             fout<< userID << ","
                 << scale[id] << ","
                 << keyboardSize[id] << ","
@@ -260,9 +254,7 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << "DTW" << ","
                 << num << ","
                 << "keyWidth" << ","
-                << result / keyWidth << ","
-                << firstKeyDis / keyWidth << ","
-                << lastKeyDis / keyWidth << "," << endl;
+                << result / keyWidth << endl;
         }
     }
 }
@@ -385,7 +377,7 @@ void outputCandidate(vector<int> sampleNums)
 
 int main()
 {
-    initFstream("maye", "4");
+    initFstream("yym", "5");
     initDTW();
     initLexicon();
     calcKeyLayout();
