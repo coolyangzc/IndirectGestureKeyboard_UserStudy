@@ -1,21 +1,21 @@
-id,mode,sentence,WPM
-4,FixStart,call for more details,26.7402
-4,FixStart,you must be getting old,32.4591
-4,FixStart,just what the doctor ordered,35.9589
-4,FixStart,prescription drugs require a note,36.8612
-4,FixStart,construction makes traveling difficult,41.2782
-4,FixStart,gas bills are sent monthly,23.1403
-4,FixStart,suburbs are sprawling up everywhere,23.8949
-4,FixStart,please provide your date of birth,27.4238
-4,FixStart,did you have a good time,26.7583
-4,FixStart,an offer you cannot refuse,29.8507
-4,Basic,the acceptance speech was boring,30.9877
-4,Basic,would you like to come to my house,23.7951
-4,Basic,the second largest country,37.7404
-4,Basic,do not walk too quickly,34.5207
-4,Basic,most judges are very honest,28.8215
-4,Basic,he is just like everyone else,27.0819
-4,Basic,did you see that spectacular explosion,30.2225
-4,Basic,the fourth edition was better,39.6617
-4,Basic,the elevator door appears to be stuck,33.63
-4,Basic,file all complaints in writing,29.1659
+id,order,mode,sentence,WPM
+4,0,FixStart,call for more details,26.7402
+4,1,FixStart,you must be getting old,32.4591
+4,2,FixStart,just what the doctor ordered,35.9589
+4,3,FixStart,prescription drugs require a note,36.8612
+4,4,FixStart,construction makes traveling difficult,41.2782
+4,5,FixStart,gas bills are sent monthly,23.1403
+4,6,FixStart,suburbs are sprawling up everywhere,23.8949
+4,7,FixStart,please provide your date of birth,27.4238
+4,8,FixStart,did you have a good time,26.7583
+4,9,FixStart,an offer you cannot refuse,29.8507
+4,0,Basic,the acceptance speech was boring,30.9877
+4,1,Basic,would you like to come to my house,23.7951
+4,2,Basic,the second largest country,37.7404
+4,3,Basic,do not walk too quickly,34.5207
+4,4,Basic,most judges are very honest,28.8215
+4,5,Basic,he is just like everyone else,27.0819
+4,6,Basic,did you see that spectacular explosion,30.2225
+4,7,Basic,the fourth edition was better,39.6617
+4,8,Basic,the elevator door appears to be stuck,33.63
+4,9,Basic,file all complaints in writing,29.1659

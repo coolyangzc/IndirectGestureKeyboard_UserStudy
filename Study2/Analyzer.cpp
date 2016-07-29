@@ -271,10 +271,11 @@ void calcTimeDistribution(int id)
 
 void outputWPM()
 {
-    WPMFout << "id,mode,sentence,WPM" << endl;
+    WPMFout << "id,order,mode,sentence,WPM" << endl;
     rep(i, PHRASES)
     {
         WPMFout << userID << ","
+                << (i%10) << ","
                 << mode[i] << ","
                 << sentence[i] << ","
                 << WPM[i] << endl;

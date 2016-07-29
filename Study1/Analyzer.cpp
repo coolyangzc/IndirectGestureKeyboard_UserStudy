@@ -29,21 +29,24 @@ vector<string> words;
 vector<double> time;
 vector<Vector2> world, relative;
 
-string name, userID, disFileName, candFileName, WPMFileName;
-fstream disFout, WPMFout, candFout;
+string name, userID, disFileName, keyFileName, candFileName, WPMFileName;
+fstream disFout, keyFout, WPMFout, candFout;
 
 void initFstream(string user, string id)
 {
     name = user;
     userID = id;
     disFileName = "res/Distance_" + userID + ".csv";
+    keyFileName = "res/Key_" + userID + ".csv";
     WPMFileName = "res/WPM_" + userID + ".csv";
     candFileName = "res/Candidate_" + userID + ".csv";
 
-    disFout.open(disFileName.c_str(), fstream::out);
-    WPMFout.open(WPMFileName.c_str(), fstream::out);
-    candFout.open(candFileName.c_str(), fstream::out);
-    disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
+    //disFout.open(disFileName.c_str(), fstream::out);
+    keyFout.open(keyFileName.c_str(), fstream::out);
+    keyFout << "id,scale,size,word,kind,keyWidth" << endl;
+    //WPMFout.open(WPMFileName.c_str(), fstream::out);
+    //candFout.open(candFileName.c_str(), fstream::out);
+    //disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
 
 }
 
@@ -214,6 +217,19 @@ void calcDistance(int id, vector<int>& sampleNums)
             return;
         double firstKeyDis = dist(pts[0], rawstroke[0]);
         double lastKeyDis = dist(pts[pts.size() - 1], rawstroke[rawstroke.size() - 1]);
+        keyFout << userID << ","
+                << scale[id] << ","
+                << keyboardSize[id] << ","
+                << word << ","
+                << "FirstKey" << ","
+                << firstKeyDis / keyWidth << endl;
+        keyFout << userID << ","
+                << scale[id] << ","
+                << keyboardSize[id] << ","
+                << word << ","
+                << "LastKey" << ","
+                << lastKeyDis / keyWidth << endl;
+
         rep(i, sampleNums.size())
         {
             int &num = sampleNums[i];
@@ -237,6 +253,13 @@ void calcDistance(int id, vector<int>& sampleNums)
                 << num << ","
                 << "keyWidth" << ","
                 << result / keyWidth << endl;
+            if (i == sampleNums.size() - 1)
+                keyFout << userID << ","
+                        << scale[id] << ","
+                        << keyboardSize[id] << ","
+                        << word << ","
+                        << "Average" << ","
+                        << result / keyWidth << endl;
 
             result = match(stroke, location, dtw, DTW) / num;
             fout<< userID << ","
