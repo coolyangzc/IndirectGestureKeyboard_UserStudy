@@ -4,7 +4,8 @@
 #include "opencv2/opencv.hpp"
 #define rep(i,n) for(int i=0; i<n; i++)
 
-int H, W;
+const int H = 1280;
+const int W = 720;
 
 using namespace cv;
 using namespace std;
@@ -28,10 +29,9 @@ void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NUL
 void draw(string outputFileName)
 {
     string s, buffer;
-    double X, Y, T;
+    double X, Y;
     vector<double> x, y;
     int cnt = 0;
-    cin >> H >> W;
     while (cin >> s)
     {
         x.clear();
@@ -39,7 +39,7 @@ void draw(string outputFileName)
         buffer = "";
         while (true)
         {
-            scanf("%lf%lf%lf", &T, &X, &Y);
+            scanf("%lf%lf", &X, &Y);
             Y = H - Y;
             x.push_back(X);
             y.push_back(Y);
@@ -66,8 +66,8 @@ void draw(string outputFileName)
         drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &color);
         stringstream ss;
         ss << cnt++;
-        imwrite(outputFileName + "_" + ss.str() + ".jpg", img);
-        string fileName = outputFileName + "_" + ss.str() + ".txt";
+        imwrite(outputFileName + ss.str() + ".jpg", img);
+        string fileName = outputFileName + ss.str() + ".txt";
         freopen(fileName.c_str(), "w", stdout);
         cout << buffer << endl;
         fclose(stdout);
@@ -124,11 +124,8 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
 int main()
 {
-    freopen("data/raw/1440P/1.txt", "r", stdin);
-    draw("1");
-
-    //string name[] = {"maye", "yixin", "yxc", "mzy", "xwj", "yuntao"};
-    //int User = 6;
+    string name[] = {"maye", "yixin", "yxc", "mzy", "xwj", "yuntao"};
+    int User = 6;
 
     /*string file = name[4];
     string dir = "data/refine/" + file + ".txt";
@@ -140,7 +137,7 @@ int main()
     //freopen("maye2.txt", "r", stdin);
     //draw("out");
 
-    /*Mat img = Mat::zeros(H, W, CV_8UC3);
+    Mat img = Mat::zeros(H, W, CV_8UC3);
     rep(i, User)
     {
         Scalar color(Random(255), Random(255), Random(255));
@@ -160,8 +157,8 @@ int main()
     drawLine(img, Point(minX, minY), Point(maxX, minY), 8, &red);
     drawLine(img, Point(maxX, maxY), Point(minX, maxY), 8, &red);
     drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &red);
-    imwrite("Merge.jpg", img);*/
+    imwrite("Merge.jpg", img);
 
-    //waitKey();
+    waitKey();
     return 0;
 }
