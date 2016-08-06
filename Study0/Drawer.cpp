@@ -50,6 +50,12 @@ void draw(string outputFileName)
                 break;
             cin >> s;
         }
+        if (x.size() <= 30)
+        {
+            cout << x.size() << endl;
+            continue;
+        }
+
         Mat img = Mat::zeros(H, W, CV_8UC3);
         rep(i, x.size() - 1)
             drawLine(img, Point(x[i], y[i]), Point(x[i+1], y[i+1]));
@@ -65,12 +71,13 @@ void draw(string outputFileName)
         drawLine(img, Point(maxX, maxY), Point(minX, maxY), 8, &color);
         drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &color);
         stringstream ss;
+        cout << cnt << ":" << x.size() << endl;
         ss << cnt++;
         imwrite(outputFileName + "_" + ss.str() + ".jpg", img);
         string fileName = outputFileName + "_" + ss.str() + ".txt";
-        freopen(fileName.c_str(), "w", stdout);
-        cout << buffer << endl;
-        fclose(stdout);
+        fstream fout;
+        fout.open(fileName.c_str(), fstream::out);
+        fout << buffer << endl;
     }
     puts("Finish");
 }
@@ -124,8 +131,8 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
 int main()
 {
-    freopen("data/raw/1440P/1.txt", "r", stdin);
-    draw("1");
+    freopen("data/raw/1440P/6.txt", "r", stdin);
+    draw("6");
 
     //string name[] = {"maye", "yixin", "yxc", "mzy", "xwj", "yuntao"};
     //int User = 6;
