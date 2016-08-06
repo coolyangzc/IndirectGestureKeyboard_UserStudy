@@ -131,8 +131,8 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
 int main()
 {
-    freopen("data/raw/1440P/6.txt", "r", stdin);
-    draw("6");
+    freopen("data/raw/720P/10.txt", "r", stdin);
+    draw("10");
 
     //string name[] = {"maye", "yixin", "yxc", "mzy", "xwj", "yuntao"};
     //int User = 6;
@@ -169,6 +169,5 @@ int main()
     drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &red);
     imwrite("Merge.jpg", img);*/
 
-    //waitKey();
-    return 0;
+    //waitKey();    return 0;
 }
