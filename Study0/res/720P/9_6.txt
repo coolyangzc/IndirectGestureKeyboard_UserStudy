@@ -1,20 +1,6 @@
 1280
 720
 Began 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
-Stationary 709 775
 Moved 691.293 770.72
 Moved 675.643 764.129
 Moved 658.667 761.278
@@ -95,7 +81,6 @@ Moved 671.81 1127.19
 Moved 680.581 1109.84
 Moved 695.538 1063.66
 Moved 701.676 1018.19
-Stationary 701.676 1018.19
 Moved 702 990.289
 Moved 704.591 966.885
 Moved 707.476 939.476
@@ -105,9 +90,5 @@ Moved 707 874.537
 Moved 708 851.424
 Moved 709.099 826.214
 Moved 709.541 796.017
-Moved 710 763.509
-Moved 710 750.163
-Moved 710 727.429
-Moved 710 715.523
-Ended 710 715
+Ended 710 763.509
 

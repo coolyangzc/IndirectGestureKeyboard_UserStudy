@@ -1,13 +1,6 @@
 1280
 720
 Began 444 645
-Stationary 444 645
-Stationary 444 645
-Stationary 444 645
-Stationary 444 645
-Stationary 444 645
-Stationary 444 645
-Stationary 444 645
 Moved 427.643 645
 Moved 411.852 645
 Moved 385.762 651.315
@@ -52,14 +45,5 @@ Moved 522.757 707.514
 Moved 514.5 692.5
 Moved 486.932 661.932
 Moved 465.138 646.603
-Stationary 465.138 646.603
-Moved 442.928 632.455
-Moved 423.21 622.804
-Moved 400.774 614.165
-Moved 383.5 610.5
-Moved 366.197 610
-Moved 346.86 610
-Moved 321 622
-Moved 303 630
-Ended 303 630
+Ended 442.928 632.455
 

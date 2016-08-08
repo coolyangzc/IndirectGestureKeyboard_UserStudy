@@ -1,11 +1,6 @@
 1280
 720
 Began 597 734
-Stationary 597 734
-Stationary 597 734
-Stationary 597 734
-Stationary 597 734
-Stationary 597 734
 Moved 585.367 734
 Moved 571.297 734
 Moved 529.254 723.295
@@ -78,5 +73,4 @@ Moved 593.193 759.352
 Moved 591.756 753.025
 Moved 590.306 750.306
 Moved 588.861 747.723
-Ended 588.861 747.723
 

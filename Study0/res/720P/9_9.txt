@@ -1,23 +1,6 @@
 1280
 720
-Began 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Stationary 629 708
-Moved 629 719.484
-Moved 629 722.621
-Moved 629 724.267
-Moved 624.037 728.127
-Moved 618.529 731.314
+Began 618.529 731.314
 Moved 612.043 734.774
 Moved 600.752 738.055
 Moved 588.001 739.444
@@ -88,11 +71,5 @@ Moved 620.199 1031.33
 Moved 609.205 981.026
 Moved 601.403 937.673
 Moved 597.451 858.342
-Moved 597 778.769
-Moved 597 695.197
-Moved 607.475 627.777
-Moved 610.621 577.442
-Moved 610.75 575.001
-Moved 611 573.086
-Ended 611 572.5
+Ended 597 778.769
 

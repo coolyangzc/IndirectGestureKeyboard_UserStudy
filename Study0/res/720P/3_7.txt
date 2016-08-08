@@ -1,27 +1,6 @@
 1280
 720
-Began 12 541
-Stationary 12 541
-Stationary 12 541
-Stationary 12 541
-Stationary 12 541
-Stationary 12 541
-Stationary 12 541
-Stationary 12 541
-Stationary 12 541
-Stationary 12 541
-Moved 19.6013 550.773
-Moved 22.3277 557.983
-Stationary 22.3277 557.983
-Moved 22.7541 563.016
-Moved 24.2006 570.003
-Moved 25.2593 575.296
-Moved 25 581.844
-Moved 25 588.992
-Moved 25 597.187
-Moved 25 604.337
-Moved 25 614.476
-Moved 25 621.655
+Began 25 621.655
 Moved 25 630.206
 Moved 25 650.598
 Moved 25 662.108
@@ -57,11 +36,8 @@ Moved 30.1665 973.167
 Moved 30 974.605
 Moved 31.0434 976.043
 Moved 31 977.485
-Stationary 31 977.485
 Moved 32 978.018
-Stationary 32 978
 Moved 33.5 978
-Moved 34.1704 978
 Moved 35.7858 978
 Moved 39.823 978
 Moved 47.9252 978
@@ -119,9 +95,7 @@ Moved 704.73 1010.27
 Moved 705 1008.83
 Moved 706 1007.39
 Moved 707.048 1005.95
-Stationary 707.048 1005.95
 Moved 708 1004.07
-Moved 708 1003.5
 Moved 708 1002.5
 Moved 708.94 1001.06
 Moved 709 998.247
@@ -162,12 +136,7 @@ Moved 713 628.064
 Moved 713 622.704
 Moved 713 621.5
 Moved 713 619.051
-Moved 713 618.5
 Moved 713 618
-Stationary 713 618
-Stationary 713 618
-Stationary 713 618
-Stationary 713 618
 Moved 705.328 626.344
 Moved 701.673 630.327
 Moved 700.5 633
@@ -214,11 +183,8 @@ Moved 17.4496 652
 Moved 16.0137 652
 Moved 14.5739 652
 Moved 13.1391 652
-Moved 12.5 652
 Moved 11.8245 652
 Moved 10.5 652
-Moved 9.85874 652
-Stationary 9.85874 652
 Moved 7.83429 652
 Moved 6.39549 639.977
 Ended 6 638

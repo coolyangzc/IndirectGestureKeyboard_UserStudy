@@ -1,9 +1,6 @@
 1280
 720
 Began 390 643
-Stationary 390 643
-Stationary 390 643
-Stationary 390 643
 Moved 376.58 643
 Moved 370.145 643
 Moved 361 643
@@ -74,5 +71,4 @@ Moved 360.877 652
 Moved 356.519 652
 Moved 355.106 652
 Moved 353.706 652
-Ended 353.706 652
 

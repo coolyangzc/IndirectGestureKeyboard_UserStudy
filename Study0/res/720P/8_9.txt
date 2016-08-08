@@ -1,19 +1,6 @@
 1280
 720
 Began 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
-Stationary 353 657
 Moved 336.661 657
 Moved 318.971 657
 Moved 288.382 648.128
@@ -84,7 +71,6 @@ Moved 637.332 1192
 Moved 638.604 1192
 Moved 640.043 1192
 Moved 642.955 1192
-Moved 643.586 1192
 Moved 645.024 1192
 Moved 647.893 1192
 Moved 649.726 1192
@@ -136,5 +122,4 @@ Moved 32.1696 777.237
 Moved 28.2829 777
 Moved 23.9725 777
 Moved 20.7599 777
-Ended 20.7599 777
 

@@ -1,14 +1,6 @@
 1280
 720
 Began 60 476
-Stationary 60 476
-Stationary 60 476
-Stationary 60 476
-Stationary 60 476
-Stationary 60 476
-Stationary 60 476
-Stationary 60 476
-Stationary 60 476
 Moved 60 483.082
 Moved 60 496.051
 Moved 64.6914 524.766
@@ -98,6 +90,4 @@ Moved 226.159 565
 Moved 221.192 565
 Moved 217.92 565
 Moved 216.519 565
-Stationary 217 565
-Ended 217 565
 

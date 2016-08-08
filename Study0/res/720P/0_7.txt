@@ -1,11 +1,6 @@
 1280
 720
 Began 248 664
-Stationary 248 664
-Stationary 248 664
-Stationary 248 664
-Stationary 248 664
-Stationary 248 664
 Moved 236.91 664
 Moved 229.5 664
 Moved 212.563 672.089
@@ -62,12 +57,5 @@ Moved 360.22 623.918
 Moved 321.521 613.398
 Moved 298.08 609.077
 Moved 270.152 610
-Moved 242.516 618.283
-Moved 211.101 625.758
-Moved 185.864 634.401
-Moved 167.671 641.959
-Moved 149.206 651.706
-Moved 137.58 659.3
-Moved 132.511 663.489
-Ended 131 665
+Ended 242.516 618.283
 

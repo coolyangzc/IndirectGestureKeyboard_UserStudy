@@ -1,10 +1,6 @@
 1280
 720
 Began 494 1099
-Stationary 494 1099
-Stationary 494 1099
-Stationary 494 1099
-Stationary 494 1099
 Moved 484.758 1099
 Moved 469.861 1108.71
 Moved 460.96 1109.45
@@ -55,5 +51,4 @@ Moved 420.314 1128.67
 Moved 412.443 1129
 Moved 407.334 1129
 Moved 403.012 1129
-Ended 403 1129
 

@@ -1,11 +1,7 @@
 1280
 720
 Began 431 658
-Stationary 431 658
-Stationary 431 658
-Stationary 431 658
 Moved 414 658
-Stationary 414 658
 Moved 402.484 658
 Moved 393.5 658
 Moved 384.018 658
@@ -69,16 +65,12 @@ Moved 507.325 651.328
 Moved 491.159 647.348
 Moved 477.088 644.418
 Moved 462 642
-Stationary 462 642
 Moved 434.21 641
 Moved 420.29 641
 Moved 410.731 641
 Moved 397.5 641
 Moved 385.703 641
 Moved 372 641
-Stationary 372 641
 Moved 363.264 641
 Moved 361 641
-Stationary 361 641
-Ended 361 641
 

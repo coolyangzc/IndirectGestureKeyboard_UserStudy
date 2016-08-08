@@ -1,8 +1,6 @@
 1280
 720
 Began 694 886
-Stationary 694 886
-Stationary 694 886
 Moved 681.227 886
 Moved 677.03 886
 Moved 671.707 886
@@ -75,7 +73,6 @@ Moved 117.141 1258.71
 Moved 122.193 1261.52
 Moved 133 1266
 Moved 160 1269
-Stationary 160 1269
 Moved 177.091 1269
 Moved 190 1269
 Moved 231.886 1269
@@ -120,16 +117,5 @@ Moved 662 897.124
 Moved 662 887.651
 Moved 662 879.933
 Moved 662 872
-Moved 662 867.333
-Moved 662 860.271
-Moved 662 854.516
-Moved 662 847.562
-Moved 662 840.386
-Moved 662 836.082
-Moved 660.588 833.176
-Moved 661 830.989
-Moved 661 825.195
-Moved 661 824.5
-Moved 661 825
-Ended 661 825
+Ended 662 867.333
 

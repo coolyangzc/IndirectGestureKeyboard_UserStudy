@@ -1,13 +1,6 @@
 1280
 720
 Began 644 827
-Stationary 644 827
-Stationary 644 827
-Stationary 644 827
-Stationary 644 827
-Stationary 644 827
-Stationary 644 827
-Stationary 644 827
 Moved 633.277 827
 Moved 627.378 827
 Moved 620.225 827
@@ -69,7 +62,6 @@ Moved 233.446 1276.52
 Moved 267.931 1278.21
 Moved 286 1278
 Moved 541 1271
-Stationary 541 1271
 Moved 554.52 1265.83
 Moved 558.612 1264.85
 Moved 567.581 1259.71
@@ -93,13 +85,5 @@ Moved 605.142 965.744
 Moved 602.103 922.982
 Moved 599.31 882.345
 Moved 598.5 850
-Moved 598 824.301
-Moved 598 801.992
-Moved 597 788.142
-Moved 595.795 778.77
-Moved 596 774.077
-Moved 596 770.849
-Moved 596 769.504
-Moved 596 768.428
-Ended 596 768
+Ended 598 824.301
 

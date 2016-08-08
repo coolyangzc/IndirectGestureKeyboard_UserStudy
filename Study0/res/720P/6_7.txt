@@ -1,12 +1,6 @@
 1280
 720
 Began 73 797
-Stationary 73 797
-Stationary 73 797
-Stationary 73 797
-Stationary 73 797
-Stationary 73 797
-Stationary 73 797
 Moved 95.8391 797
 Moved 123.322 783.382
 Moved 195.836 774.503
@@ -22,7 +16,6 @@ Moved 660.455 782
 Moved 666.735 782
 Moved 669.75 782
 Moved 671.814 782
-Moved 672.5 782
 Moved 673.175 782
 Moved 674.841 784.683
 Moved 677.543 791.358
@@ -73,6 +66,4 @@ Moved 58 745.851
 Moved 58 742.58
 Moved 58 740.961
 Moved 58 739.507
-Stationary 58 739.507
-Ended 58 740
 

@@ -1,8 +1,6 @@
 1280
 720
 Began 464 757
-Stationary 464 757
-Stationary 464 757
 Moved 444.815 757
 Moved 428.929 757
 Moved 410.653 765.898
@@ -18,7 +16,6 @@ Moved 236.269 808.898
 Moved 210.04 817.362
 Moved 187.117 825.831
 Moved 171 833
-Stationary 171 833
 Moved 146.5 849.5
 Moved 138.864 854.757
 Moved 131.916 860.067

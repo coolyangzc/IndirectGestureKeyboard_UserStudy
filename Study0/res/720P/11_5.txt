@@ -1,8 +1,6 @@
 1280
 720
 Began 201 917
-Stationary 201 917
-Stationary 201 917
 Moved 201 921.771
 Moved 201 933.406
 Moved 201 954.312
@@ -76,13 +74,9 @@ Moved 110.104 909
 Moved 108.112 909.888
 Moved 106.674 910
 Moved 105.5 910
-Moved 104.898 910
 Moved 105 911.5
-Stationary 105 911.5
 Moved 103.944 911
 Moved 104 912.5
 Moved 102.967 912
-Stationary 102.967 912
-Stationary 102.967 912
 Ended 103 913
 

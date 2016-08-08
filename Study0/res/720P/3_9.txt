@@ -92,14 +92,9 @@ Moved 710 603.097
 Moved 710 595.914
 Moved 710 593.432
 Moved 710 590.428
-Moved 710 589.5
 Moved 710 587.149
 Moved 710 585.718
 Moved 710 584.5
-Moved 710 583.919
-Stationary 710 584
-Stationary 710 584
-Stationary 710 584
 Moved 699.741 584
 Moved 693.954 584
 Moved 689.5 584
@@ -144,9 +139,7 @@ Moved 23.4986 571
 Moved 22.0572 571
 Moved 20.6078 571
 Moved 19.5943 571
-Stationary 19.5943 571
 Moved 17.5885 571
 Moved 15.3302 571
 Moved 11.0949 556.681
-Ended 11.0949 556.681
 

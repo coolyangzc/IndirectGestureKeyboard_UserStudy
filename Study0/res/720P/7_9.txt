@@ -1,12 +1,6 @@
 1280
 720
 Began 148 503
-Stationary 148 503
-Stationary 148 503
-Stationary 148 503
-Stationary 148 503
-Stationary 148 503
-Stationary 148 503
 Moved 148 524
 Moved 141.85 545.692
 Moved 137.052 578.269
@@ -94,5 +88,4 @@ Moved 215.751 535
 Moved 205.653 535
 Moved 200.397 535
 Moved 196.5 535
-Ended 197 535
 

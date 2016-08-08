@@ -1,12 +1,6 @@
 1280
 720
 Began 356 691
-Stationary 356 691
-Stationary 356 691
-Stationary 356 691
-Stationary 356 691
-Stationary 356 691
-Stationary 356 691
 Moved 342.217 691
 Moved 326.745 698.572
 Moved 309.808 708.862
@@ -49,9 +43,5 @@ Moved 462.706 676.424
 Moved 429.875 663.212
 Moved 400.578 656.014
 Moved 369.249 652.659
-Moved 337 653
-Moved 296.158 667.574
-Moved 239.665 687.685
-Moved 191 713
-Ended 191 713
+Ended 337 653
 

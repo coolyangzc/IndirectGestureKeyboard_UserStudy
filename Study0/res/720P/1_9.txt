@@ -1,14 +1,6 @@
 1280
 720
 Began 522 835
-Stationary 522 835
-Stationary 522 835
-Stationary 522 835
-Stationary 522 835
-Stationary 522 835
-Stationary 522 835
-Stationary 522 835
-Stationary 522 835
 Moved 508.848 835
 Moved 497.517 835
 Moved 478.821 835
@@ -16,8 +8,6 @@ Moved 451.232 835
 Moved 412.824 835
 Moved 385.934 835
 Moved 202.729 825
-Stationary 202.729 825
-Stationary 202.729 825
 Moved 130.28 840.535
 Moved 107.08 840.728
 Moved 74.8882 842.171
@@ -76,8 +66,5 @@ Moved 602.516 938.568
 Moved 603 904.092
 Moved 603 880.5
 Moved 603 850.644
-Moved 594.684 823.615
-Moved 592.744 800.466
-Moved 590.947 783.361
-Ended 590.947 783.361
+Ended 594.684 823.615
 

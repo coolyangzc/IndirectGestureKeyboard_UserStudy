@@ -3,8 +3,6 @@
 Began 476 1154
 Moved 406.164 1162
 Moved 392.248 1162
-Stationary 392.248 1162
-Stationary 392.248 1162
 Moved 367.703 1148.48
 Moved 355.422 1144.86
 Moved 343.91 1139.96
@@ -81,6 +79,4 @@ Moved 374.21 1171
 Moved 367.097 1171
 Moved 364.52 1171
 Moved 362.083 1171
-Stationary 362 1171
-Ended 362 1171
 

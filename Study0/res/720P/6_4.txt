@@ -1,10 +1,6 @@
 1280
 720
 Began 110 760
-Stationary 110 760
-Stationary 110 760
-Stationary 110 760
-Stationary 110 760
 Moved 119.859 760
 Moved 144.082 760
 Moved 175.887 760
@@ -43,7 +39,6 @@ Moved 626.059 1139.64
 Moved 624.618 1146.91
 Moved 624 1149.48
 Moved 622.725 1153.82
-Stationary 623 1154.25
 Moved 621.215 1158.57
 Moved 619.777 1161.45
 Moved 617.665 1163.34
@@ -90,13 +85,7 @@ Moved 73 742.143
 Moved 73 738.546
 Moved 73 735.665
 Moved 73 733.391
-Stationary 73 733
 Moved 73 731.508
-Stationary 73 731.508
-Moved 73 730.626
-Stationary 73 731
-Stationary 73 731
 Moved 63.3785 731
 Moved 64.6337 731
-Ended 64.6337 731
 

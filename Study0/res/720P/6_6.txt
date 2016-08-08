@@ -1,12 +1,6 @@
 1280
 720
 Began 50 784
-Stationary 50 784
-Stationary 50 784
-Stationary 50 784
-Stationary 50 784
-Stationary 50 784
-Stationary 50 784
 Moved 63.0226 784
 Moved 87.8636 770.447
 Moved 122.902 764.752
@@ -28,7 +22,6 @@ Moved 680.809 758
 Moved 683.67 758
 Moved 684.783 758
 Moved 686.223 758
-Stationary 686.223 758
 Moved 687.374 758
 Moved 688.078 766.627
 Moved 688.625 772.753
@@ -105,5 +98,4 @@ Moved 688.151 784
 Moved 691 784
 Moved 693.967 784
 Moved 695.425 784
-Ended 696 784
 

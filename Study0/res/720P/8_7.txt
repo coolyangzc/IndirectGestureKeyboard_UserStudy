@@ -1,15 +1,6 @@
 1280
 720
 Began 360 625
-Stationary 360 625
-Stationary 360 625
-Stationary 360 625
-Stationary 360 625
-Stationary 360 625
-Stationary 360 625
-Stationary 360 625
-Stationary 360 625
-Stationary 360 625
 Moved 360 631.943
 Moved 360 635.212
 Moved 360 637.652
@@ -41,11 +32,8 @@ Moved 44.68 653
 Moved 42.8 653
 Moved 39.9192 653
 Moved 37.03 653
-Moved 36.0788 653
 Moved 34.6384 653
-Stationary 35 653
 Moved 33.0694 653
-Moved 32.5 653
 Moved 31.1939 662.418
 Moved 31 669.25
 Moved 27.9306 685.347
