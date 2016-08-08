@@ -25,21 +25,21 @@ void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NUL
     //circle(img, v, 10, Scalar(0, 0, 255));
 }
 
-void draw(string outputFileName)
+void draw(fstream& fin, string outputFileName)
 {
     string s, buffer;
     double X, Y, T;
     vector<double> x, y;
     int cnt = 0;
-    cin >> H >> W;
-    while (cin >> s)
+    fin >> H >> W;
+    while (fin >> s)
     {
         x.clear();
         y.clear();
         buffer = "";
         while (true)
         {
-            scanf("%lf%lf%lf", &T, &X, &Y);
+            fin >> T >> X >> Y;
             Y = H - Y;
             x.push_back(X);
             y.push_back(Y);
@@ -48,7 +48,7 @@ void draw(string outputFileName)
             buffer += s + " " + sX.str() + " " + sY.str() + "\n";
             if (s[0] == 'E')
                 break;
-            cin >> s;
+            fin >> s;
         }
         if (x.size() <= 30)
         {
@@ -77,6 +77,7 @@ void draw(string outputFileName)
         string fileName = outputFileName + "_" + ss.str() + ".txt";
         fstream fout;
         fout.open(fileName.c_str(), fstream::out);
+        fout << H << endl << W << endl;
         fout << buffer << endl;
     }
     puts("Finish");
@@ -131,8 +132,18 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
 int main()
 {
-    freopen("data/raw/720P/10.txt", "r", stdin);
-    draw("10");
+    rep(i, 12)
+    {
+        stringstream ss;
+        ss << i;
+        string fileName = "data/raw/1440P/" + ss.str() + ".txt";
+        cout << fileName << endl;
+        fstream fin;
+        fin.open(fileName.c_str());
+        draw(fin, ss.str());
+    }
+    //freopen("data/raw/720P/10.txt", "r", stdin);
+    //draw("10");
 
     //string name[] = {"maye", "yixin", "yxc", "mzy", "xwj", "yuntao"};
     //int User = 6;
