@@ -9,6 +9,9 @@
 
 using namespace std;
 
+const double W_720P = 62, H_720P = 126;
+const double W_1440P = 77.8, H_1440P = 159.3;
+
 double H, W;
 string line;
 fstream qnFin, fout;
@@ -32,11 +35,29 @@ void Analyse(fstream& fin)
 
     int id = x.size() * 0.10f;
     double minX = x[id], maxX = x[x.size() - id - 1], minY = y[id], maxY = y[y.size() - id - 1];
+    double dist = 0, height = 0, width = 0;
+    bool is720P = false;
+    if (W == 720)
+        is720P = true;
     X = (minX + maxX) * 0.5 / W;
     Y = (minY + maxY) * 0.5 / H;
     H = (maxY - minY) / H;
     W = (maxX - minX) / W;
-    fout << X << "," << Y << "," << H << "," << W << endl;
+    if (is720P)
+    {
+        dist = (1 - X) * W_720P;
+        height = H * H_720P;
+        width = W * W_720P;
+    }
+    else
+    {
+        dist = (1 - X) * W_1440P;
+        height = H * H_1440P;
+        width = W * W_1440P;
+    }
+
+    fout << X << "," << Y << "," << H << "," << W << ","
+         << height << "," << width << "," << dist << endl;
 }
 
 int main()
@@ -44,7 +65,7 @@ int main()
     qnFin.open("data/Questionnaire_Data.csv");
     qnFin >> line;
     fout.open("Study0.csv", fstream::out);
-    fout << line << ",Phone,Usage,X,Y,Height,Width" << endl;
+    fout << line << ",Phone,Usage,X,Y,Height,Width,Height(mm),Width(mm),Dist2Right(mm)" << endl;
     rep(i, 12)
     {
         qnFin >> line;
