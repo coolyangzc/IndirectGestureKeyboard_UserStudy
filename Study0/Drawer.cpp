@@ -24,7 +24,7 @@ void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NUL
     if (!color)
         color = new Scalar(0, 255, 255);
     line(img, u, v, *color, thickness, lineType);
-    circle(img, v, 10, Scalar(0, 0, 255));
+    circle(img, v, 15, Scalar(0, 0, 255), 4);
 }
 
 void draw(fstream& fin, string outputFileName)
@@ -57,7 +57,7 @@ void draw(fstream& fin, string outputFileName)
                 break;
             fin >> s;
         }
-        if (x.size() <= 30)
+        if (x.size() <= 28)
         {
             cout << x.size() << endl;
             continue;
@@ -139,7 +139,7 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
 int main()
 {
-    FOR(i, 0, 11)
+    FOR(i, 11, 11)
     {
         stringstream ss;
         ss << i;

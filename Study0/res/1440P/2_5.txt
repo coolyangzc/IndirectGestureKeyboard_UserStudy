@@ -1,9 +1,6 @@
 2560
 1440
 Began 734 1415
-Stationary 734 1415
-Stationary 734 1415
-Stationary 734 1415
 Moved 664.748 1433.1
 Moved 619.131 1459.52
 Moved 554.998 1511.92

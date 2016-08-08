@@ -1,20 +1,6 @@
 2560
 1440
-Began 90 1089
-Stationary 90 1089
-Stationary 90 1089
-Stationary 90 1089
-Stationary 90 1089
-Stationary 90 1089
-Moved 90.4211 1093.68
-Moved 91 1101.27
-Moved 91 1114.97
-Moved 92.2913 1134.79
-Moved 92.913 1167
-Moved 93 1212.27
-Moved 93 1266.88
-Moved 94 1326.98
-Moved 94 1409.66
+Began 94 1409.66
 Moved 91.996 1475.22
 Moved 91 1541.88
 Moved 88.5166 1610.43
@@ -51,7 +37,6 @@ Moved 1281.14 2040.79
 Moved 1291.68 2041
 Moved 1296.1 2041
 Moved 1298.66 2042
-Moved 1299.5 2042
 Moved 1300 2041
 Moved 1300.51 2039.49
 Moved 1302.14 2036.72
@@ -99,13 +84,5 @@ Moved 407.5 1371
 Moved 320.966 1380.92
 Moved 244.666 1390.61
 Moved 171.369 1398.81
-Moved 95.1295 1412.14
-Moved 37.1688 1430.83
-Moved -5.51677 1455.01
-Moved 0 1456.73
-Moved 0 1458.48
-Stationary 0 1458.48
-Moved 0 1445.68
-Moved 0 1430.47
-Ended 0 1422
+Ended 95.1295 1412.14
 

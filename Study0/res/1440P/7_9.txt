@@ -1,10 +1,6 @@
 2560
 1440
 Began 223 1642
-Stationary 223 1642
-Stationary 223 1642
-Stationary 223 1642
-Stationary 223 1642
 Moved 223.836 1649.6
 Moved 228.169 1682.41
 Moved 229 1711.16

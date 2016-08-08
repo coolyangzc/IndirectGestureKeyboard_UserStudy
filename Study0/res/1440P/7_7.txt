@@ -1,9 +1,6 @@
 2560
 1440
 Began 86 1223
-Stationary 86 1223
-Stationary 86 1223
-Stationary 86 1223
 Moved 87 1261
 Moved 91.5813 1371.81
 Moved 94.956 1463.29

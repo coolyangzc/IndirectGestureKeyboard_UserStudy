@@ -1,10 +1,6 @@
 2560
 1440
 Began 785 1655
-Stationary 785 1655
-Stationary 785 1655
-Stationary 785 1655
-Stationary 785 1655
 Moved 775.071 1655.79
 Moved 754.828 1658.02
 Moved 728.408 1662.25

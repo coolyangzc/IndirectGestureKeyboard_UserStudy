@@ -1,10 +1,6 @@
 2560
 1440
 Began 113 1654
-Stationary 113 1654
-Stationary 113 1654
-Stationary 113 1654
-Stationary 113 1654
 Moved 115.122 1654
 Moved 117.203 1654
 Moved 121.395 1655.8
@@ -67,13 +63,9 @@ Moved 913.45 2180
 Moved 915.093 2181.09
 Moved 915.699 2182
 Moved 918.648 2184.65
-Stationary 918.648 2184.65
-Stationary 918.648 2184.65
-Stationary 919 2185
 Moved 920.784 2185.78
 Moved 922.41 2186
 Moved 923.5 2186
-Stationary 923.5 2186
 Moved 925 2186
 Moved 926.875 2186
 Moved 928.5 2186
@@ -98,7 +90,6 @@ Moved 884.723 1779.7
 Moved 881.449 1762.25
 Moved 880 1756.37
 Moved 880 1755
-Stationary 880 1755
 Moved 881.725 1754.27
 Moved 883.358 1754
 Moved 887.932 1755.98
@@ -109,9 +100,7 @@ Moved 898.462 1764.46
 Moved 902.159 1766.08
 Moved 903.345 1767.67
 Moved 905 1768.5
-Moved 905 1768.93
 Moved 906.5 1770.5
-Moved 907 1770
 Moved 908.779 1771.78
 Moved 910.401 1772
 Moved 908.967 1769.93
@@ -136,20 +125,5 @@ Moved 132.229 1692.61
 Moved 125.214 1690.4
 Moved 119.741 1690
 Moved 119.947 1689
-Moved 118.5 1689
-Stationary 118.5 1689
-Moved 116.195 1688.1
-Moved 114.5 1688
-Moved 113.5 1688
-Stationary 113.5 1688
-Stationary 113.5 1688
-Stationary 113.5 1688
-Stationary 113.5 1688
-Stationary 113.5 1688
-Stationary 113.5 1688
-Stationary 113.5 1688
-Stationary 113.5 1688
-Moved 111.604 1690.79
-Moved 104.319 1700.02
-Ended 114 1696
+Ended 118.5 1689
 

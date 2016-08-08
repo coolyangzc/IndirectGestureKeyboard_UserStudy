@@ -1,18 +1,9 @@
 2560
 1440
 Began 356 971
-Stationary 356 971
-Stationary 356 971
-Stationary 356 971
-Stationary 356 971
-Stationary 356 971
-Stationary 356 971
 Moved 355 970
 Moved 354 969
-Stationary 354 969
 Moved 353 968
-Stationary 353 968
-Stationary 353 968
 Moved 352 970.476
 Moved 351.023 976.908
 Moved 351.594 986.563
@@ -138,7 +129,6 @@ Moved 1301.07 901.729
 Moved 1301 897.669
 Moved 1301 895.694
 Moved 1301 894.5
-Moved 1301 895
 Moved 1300 895
 Moved 1298.25 895
 Moved 1295.24 896.38
@@ -176,18 +166,5 @@ Moved 446.825 966.144
 Moved 415.376 969.228
 Moved 392.065 971.371
 Moved 365.297 974.948
-Moved 340.652 976.596
-Moved 322.621 978.238
-Moved 305.897 979
-Moved 286.52 983.37
-Moved 268.058 985.171
-Moved 255.868 987.689
-Moved 247.391 989.322
-Moved 244.063 989.937
-Moved 240.94 990
-Moved 239 990
-Stationary 239 990
-Moved 240.398 979.008
-Moved 244.028 963.917
-Ended 248 949
+Ended 340.652 976.596
 

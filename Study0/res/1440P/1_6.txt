@@ -1,10 +1,6 @@
 2560
 1440
 Began 279 1453
-Stationary 279 1453
-Stationary 279 1453
-Stationary 279 1453
-Stationary 279 1453
 Moved 305.446 1449.49
 Moved 359.941 1444.95
 Moved 450.634 1441.35

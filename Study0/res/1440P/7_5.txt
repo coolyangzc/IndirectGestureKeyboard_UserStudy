@@ -1,10 +1,6 @@
 2560
 1440
 Began 244 1423
-Stationary 244 1423
-Stationary 244 1423
-Stationary 244 1423
-Stationary 244 1423
 Moved 241.62 1423
 Moved 237.095 1429.84
 Moved 220.5 1463
@@ -43,12 +39,7 @@ Moved 1248.71 2243.24
 Moved 1263.19 2240.96
 Moved 1270.97 2241
 Moved 1275.52 2241
-Moved 1276.5 2241
 Moved 1277 2242
-Moved 1278 2242
-Stationary 1278 2242
-Stationary 1278 2242
-Stationary 1278 2242
 Moved 1275.5 2215.5
 Moved 1281.85 2118.95
 Moved 1284.62 2008.8
@@ -74,5 +65,4 @@ Moved 366.783 1368.87
 Moved 289.579 1390.27
 Moved 210.8 1421.61
 Moved 184.071 1425.42
-Ended 184 1426
 

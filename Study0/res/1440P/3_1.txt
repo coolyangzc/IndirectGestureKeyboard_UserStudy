@@ -1,17 +1,7 @@
 2560
 1440
 Began 372 1158
-Stationary 372 1158
-Stationary 372 1158
-Stationary 372 1158
-Stationary 372 1158
-Stationary 372 1158
-Stationary 372 1158
-Stationary 372 1158
-Stationary 372 1158
-Moved 372 1157
 Moved 371 1156
-Stationary 371 1156
 Moved 367.322 1155
 Moved 364.093 1154
 Moved 360.301 1155
@@ -102,10 +92,7 @@ Moved 1103.35 1584.45
 Moved 1109.19 1584
 Moved 1111.34 1585
 Moved 1113.3 1585
-Stationary 1113.3 1585
-Moved 1114 1585
 Moved 1114 1584
-Stationary 1114 1584
 Moved 1115 1576.47
 Moved 1115 1571
 Moved 1114 1565.58
@@ -199,14 +186,6 @@ Moved 371.62 1102.62
 Moved 369.004 1101
 Moved 366.798 1101
 Moved 365 1101
-Stationary 365 1101
-Moved 366 1101
-Stationary 366 1101
-Moved 365 1101
-Stationary 365 1101
-Stationary 365 1101
-Stationary 365 1101
-Stationary 365 1101
 Moved 366 1097.47
 Moved 367.395 1094.21
 Moved 368 1090.97

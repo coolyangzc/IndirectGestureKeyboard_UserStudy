@@ -1,10 +1,6 @@
 2560
 1440
 Began 1114 1249
-Stationary 1114 1249
-Stationary 1114 1249
-Stationary 1114 1249
-Moved 1113 1249
 Moved 1105.52 1243.64
 Moved 1095.7 1238.85
 Moved 1084.4 1232.52

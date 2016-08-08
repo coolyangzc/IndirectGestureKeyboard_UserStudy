@@ -1,10 +1,6 @@
 2560
 1440
 Began 285 1042
-Stationary 285 1042
-Stationary 285 1042
-Stationary 285 1042
-Stationary 285 1042
 Moved 284 1044.24
 Moved 284 1047.51
 Moved 281.3 1053.4
@@ -172,18 +168,14 @@ Moved 313.718 1187
 Moved 313.113 1188.89
 Moved 311.493 1190.51
 Moved 311 1192.13
-Stationary 311 1192.13
 Moved 310 1193
-Moved 309 1193
 Moved 308.42 1194
 Moved 306.786 1194
 Moved 306.192 1195
-Moved 305.5 1195
 Moved 305 1195
 Moved 304.325 1195.67
 Moved 302.701 1196
 Moved 301.5 1196
-Stationary 301.5 1196
 Moved 299.844 1195
 Moved 293.969 1186.45
 Moved 286.69 1169.38

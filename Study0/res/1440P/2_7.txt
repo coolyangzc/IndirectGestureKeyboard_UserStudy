@@ -1,14 +1,6 @@
 2560
 1440
-Began 805 1322
-Stationary 805 1322
-Stationary 805 1322
-Stationary 805 1322
-Stationary 805 1322
-Moved 804 1321
-Moved 797.46 1320
-Moved 785.321 1321.34
-Moved 707.649 1347.02
+Began 707.649 1347.02
 Moved 635.759 1387.53
 Moved 559.512 1441.32
 Moved 487.399 1508.79

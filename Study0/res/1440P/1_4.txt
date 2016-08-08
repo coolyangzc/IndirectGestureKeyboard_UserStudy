@@ -1,15 +1,10 @@
 2560
 1440
 Began 403 1664
-Stationary 403 1664
-Stationary 403 1664
-Stationary 403 1664
-Stationary 403 1664
 Moved 507.072 1623.69
 Moved 628.241 1569.98
 Moved 785.317 1534.02
 Moved 1012.39 1549.77
-Stationary 1012.39 1549.77
 Moved 1079.54 1571.26
 Moved 1134.63 1592.3
 Moved 1161.91 1612.93
@@ -69,7 +64,5 @@ Moved 370 1788.91
 Moved 370 1767.9
 Moved 370 1761.19
 Moved 370 1758
-Stationary 370 1758
-Stationary 370 1758
 Ended 374 1762
 

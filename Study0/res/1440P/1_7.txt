@@ -1,11 +1,6 @@
 2560
 1440
 Began 449 1553
-Stationary 449 1553
-Stationary 449 1553
-Stationary 449 1553
-Stationary 449 1553
-Moved 449.795 1553
 Moved 455.339 1553
 Moved 509.911 1551.94
 Moved 576.69 1547.33

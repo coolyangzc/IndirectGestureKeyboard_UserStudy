@@ -1,9 +1,6 @@
 2560
 1440
 Began 355 1508
-Stationary 355 1508
-Stationary 355 1508
-Stationary 355 1508
 Moved 356 1507
 Moved 429.52 1495.55
 Moved 512.213 1485.14
@@ -66,6 +63,5 @@ Moved 406.236 1666.72
 Moved 403.005 1641.54
 Moved 403 1629.15
 Moved 402.279 1622.56
-Moved 402 1622
 Ended 399 1621
 
