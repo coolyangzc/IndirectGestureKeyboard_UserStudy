@@ -1,0 +1,13 @@
+User ID,Name,Age,Dominant,Daily,Thumb(mm),Index(mm),3.5"(T),4.3"(T),5.1"(T),5.7"(T),3.5"(I),4.3"(I),5.1"(I),5.7"(I),Own(")
+1,YiXin,25,Right,TwoThumbs,68,78,5,6,6,4,4,5,7,6,5.1
+2,SunKe,24,Right,TwoThumbs,65,70,6,7,4,2,3,5,7,5,5.5
+3,YangTianLong,20,Right,TwoThumbs,66,72,5,6,6,5,4,4,6,5,5.15
+4,PanXingYu,20,Right,TwoThumbs,69,75,4,7,6,4,3,5,7,6,4.7
+5,YanYuKang,24,Right,TwoThumbs,68,80,5,6,6,4,5,5,6,6,4.7
+6,YangZhiCan,21,Right,TwoThumbs,71,78,6,7,5,3,4,6,6,5,4.3
+7,ZhuYeShuang,25,Right,OneThumb,63,72,7,6,3,1,5,6,6,6,4.0
+8,MaYe,21,Right,OneThumb,63,67,6,7,5,2,4,5,7,2,5.0
+9,YeZiPeng,20,Right,OneThumb,64,69,7,5,6,4,6,7,4,4,4.7
+10,YangXiaoCheng,20,Right,OneThumb,74,84,3,5,6,4,3,4,6,5,5.5
+11,JiangTianJian,21,Right,OneIndexFinger,65,73,5,6,7,6,4,5,6,7,5.5
+12,HuangHaoShuo,20,Right,TwoThumbs,67,75,3,5,7,4,4,5,6,5,5.2
