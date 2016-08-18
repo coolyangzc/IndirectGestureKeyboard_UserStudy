@@ -9,7 +9,5 @@ User ID,Name,Age,Dominant,Daily,Thumb(mm),Index(mm),3.5"(T),4.3"(T),5.1"(T),5.7"
 8,MaYe,21,Right,OneThumb,63,67,6,7,5,2,4,5,7,2,5.0
 9,YeZiPeng,20,Right,OneThumb,64,69,7,5,6,4,6,7,4,4,4.7
 10,YangXiaoCheng,20,Right,OneThumb,74,84,3,5,6,4,3,4,6,5,5.5
-11,JiangTianJian,21,Right,OneIndexFinger,65,73,5,6,7,6,4,5,6,7,5.5
 12,HuangHaoShuo,20,Right,TwoThumbs,67,75,3,5,7,4,4,5,6,5,5.2
-13,GaoShengHan,21,Right,OneIndexFinger,60,73,5,6,4,2,3,4,5,5,4.7
-14,WuXiaoYang,24,Right,OneIndexFinger,63,69,7,3,5,5,7,6,6,4,4.0
+15,ShiWeiNan,21,Right,TwoThumbs,65,70,5,6,5,4,5,6,6,5,4.7
