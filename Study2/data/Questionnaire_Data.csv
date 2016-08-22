@@ -1,10 +1,14 @@
 User ID,Name,Age,Dominant,Thumb(mm),Index(mm)
-0,YangZhiCan,21,Right,71,78
-1,JiangTianJian,21,Left,65,73
-2,MaYe,21,Right,63,68
-3,LiuZhengNing,21,Right,65,76
-4,QiaoBenyou,20,Right,62,72
-5,YeZiPeng,20,Right,64,69
+1,YangZhiCan,21,Right,71,78
+2,JiangTianJian,21,Left,65,73
+3,MaYe,21,Right,63,68
+4,LiuZhengNing,21,Right,65,76
+5,QiaoBenyou,20,Right,62,72
+6,YeZiPeng,20,Right,64,69
+7,YuMoHan,20,Right,70,79
+8,GuYiZheng,21,Right,74,84
+9,YanYuKang,24,Right,68,80
+10,GaoShengHan,21,Right,60,73
 
 UserID,Name,Thumb,Index,Dominant
 0,YangZhican,69,97,Right

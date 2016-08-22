@@ -10,12 +10,13 @@ using namespace std;
 
 const double DELTA = 1;
 
+bool is1440P = false;
 int H, W, cnt;
 double CX[2], CY[2];
 
 int Random(int mo)
 {
-    return rand() % mo;
+    return (rand() << 15 ^ rand()) % mo;
 }
 
 void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NULL)
@@ -23,61 +24,112 @@ void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NUL
     int lineType = 8;
     if (!color)
         color = new Scalar(0, 255, 255);
-    line(img, u, v, *color, thickness, lineType);
-    //circle(img, u, 10, Scalar(0, 0, 255), 1);
-    //circle(img, v, 10, Scalar(0, 0, 255), 1);
+    if (is1440P)
+    {
+        line(img, u, v, *color, thickness * 2, lineType);
+        circle(img, u, 20, Scalar(0, 0, 255), 4);
+        circle(img, v, 20, Scalar(0, 0, 255), 4);
+    }
+    else
+    {
+        line(img, u, v, *color, thickness, lineType);
+        circle(img, u, 10, Scalar(0, 0, 255), 2);
+        circle(img, v, 10, Scalar(0, 0, 255), 2);
+    }
+
 }
 
-void draw(fstream& fin, string outputFileName)
+bool getFormat(string fileName)
 {
+    fstream fin;
+    fin.open(fileName.c_str());
+    string s;
+    while(fin >> s)
+        if (s == "Start")
+            return true;
+    return false;
+}
+
+void draw(fstream& fin, string outputFileName, bool newFormat = true)
+{
+    if (newFormat) puts("New Format");
+              else puts("Old Format");
     string s, buffer, fileBuffer;
     double X, Y, T;
     vector<double> x, y, sx, sy;
     int cnt = 0;
     fin >> H >> W;
+    if (W == 720) is1440P = false;
+             else is1440P = true;
     while (fin >> s)
     {
-        if (s != "Start")
+        if (newFormat && s != "Start")
             continue;
         Mat img = Mat::zeros(H, W, CV_8UC3);
         x.clear(); y.clear();
         sx.clear(); sy.clear();
         double PreX = -1, PreY = -1;
-        buffer = "";
+        buffer = fileBuffer = "";
         while (true)
         {
-            fin >> s;
-            if (s == "Finish")
-                break;
-            fin >> T >> X >> Y;
-            Y = H - Y;
-            if (fabs(X - PreX) + fabs(Y - PreY) > DELTA)
+            if (newFormat)
             {
-                x.push_back(X);
-                y.push_back(Y);
-                stringstream sX, sY;
-                sX << X; sY << Y;
-                PreX = X; PreY = Y;
-                buffer += s + " " + sX.str() + " " + sY.str() + "\n";
-            }
-            if (s == "Ended")
-            {
-                if (x.size() > 10)
+                fin >> s;
+                if (s == "Finish")
+                    break;
+                fin >> T >> X >> Y;
+                Y = H - Y;
+                if (fabs(X - PreX) + fabs(Y - PreY) > DELTA)
                 {
-                    rep(i, x.size() - 1)
-                        drawLine(img, Point(x[i], y[i]), Point(x[i+1], y[i+1]));
-                    rep(i, x.size())
-                    {
-                        sx.push_back(x[i]);
-                        sy.push_back(y[i]);
-                    }
-                    fileBuffer += buffer;
+                    x.push_back(X);
+                    y.push_back(Y);
+                    stringstream sX, sY;
+                    sX << X; sY << Y;
+                    PreX = X; PreY = Y;
+                    buffer += s + " " + sX.str() + " " + sY.str() + "\n";
                 }
-                x.clear(); y.clear();
-                PreX = -1, PreY = -1;
-                buffer = "";
+                if (s == "Ended")
+                {
+                    if (x.size() > 10)
+                    {
+                        rep(i, x.size() - 1)
+                            drawLine(img, Point(x[i], y[i]), Point(x[i+1], y[i+1]));
+                        rep(i, x.size())
+                        {
+                            sx.push_back(x[i]);
+                            sy.push_back(y[i]);
+                        }
+                        fileBuffer += buffer;
+                    }
+                    x.clear(); y.clear();
+                    PreX = -1, PreY = -1;
+                    buffer = "";
+                }
+            }
+            else
+            {
+                fin >> T >> X >> Y;
+                Y = H - Y;
+                if (fabs(X - PreX) + fabs(Y - PreY) > DELTA)
+                {
+                    sx.push_back(X);
+                    sy.push_back(Y);
+                    stringstream sX, sY;
+                    sX << X; sY << Y;
+                    PreX = X; PreY = Y;
+                    fileBuffer += s + " " + sX.str() + " " + sY.str() + "\n";
+                }
+                if (s == "Ended")
+                    break;
+                fin >> s;
             }
         }
+
+        if (!newFormat && sx.size() <= 25)
+            continue;
+        if (!newFormat)
+            rep(i, sx.size() - 1)
+                drawLine(img, Point(sx[i], sy[i]), Point(sx[i+1], sy[i+1]));
 
         sort(sx.begin(), sx.end());
         sort(sy.begin(), sy.end());
@@ -85,14 +137,14 @@ void draw(fstream& fin, string outputFileName)
         int id = sx.size() * 0.10f;
         double minX = sx[id], maxX = sx[sx.size() - id - 1], minY = sy[sy.size() - id - 1], maxY = sy[id];
         Scalar color = Scalar(0, 0, 255);
-        drawLine(img, Point(minX, minY), Point(minX, maxY), 6, &color);
-        drawLine(img, Point(minX, minY), Point(maxX, minY), 6, &color);
-        drawLine(img, Point(maxX, maxY), Point(minX, maxY), 6, &color);
-        drawLine(img, Point(maxX, maxY), Point(maxX, minY), 6, &color);
+        drawLine(img, Point(minX, minY), Point(minX, maxY), 4, &color);
+        drawLine(img, Point(minX, minY), Point(maxX, minY), 4, &color);
+        drawLine(img, Point(maxX, maxY), Point(minX, maxY), 4, &color);
+        drawLine(img, Point(maxX, maxY), Point(maxX, minY), 4, &color);
 
         stringstream ss;
-        cout << cnt << endl;
-        ss << cnt++;
+        cout << ++cnt << endl;
+        ss << cnt;
         imwrite(outputFileName + "_" + ss.str() + ".jpg", img);
         string fileName = outputFileName + "_" + ss.str() + ".txt";
         fstream fout;
@@ -100,6 +152,7 @@ void draw(fstream& fin, string outputFileName)
         fout << H << endl << W << endl;
         fout << fileBuffer << endl;
     }
+
     puts("Finish");
 }
 
@@ -164,35 +217,15 @@ void DrawMerge()
 
 int main()
 {
-
-    //DrawMerge();
     FOR(i, 5, 5)
     {
         stringstream ss;
         ss << i;
-        string fileName = "data/raw/720P/" + ss.str() + ".txt";
+        string fileName = "data/refine/1440P/" + ss.str() + ".txt";
         cout << fileName << endl;
         fstream fin;
         fin.open(fileName.c_str());
-        draw(fin, ss.str());
+        draw(fin, ss.str(), getFormat(fileName));
     }
-    //freopen("data/raw/720P/10.txt", "r", stdin);
-    //draw("10");
-
-    //string name[] = {"maye", "yixin", "yxc", "mzy", "xwj", "yuntao"};
-    //int User = 6;
-
-    /*string file = name[4];
-    string dir = "data/refine/" + file + ".txt";
-    freopen(dir.c_str(), "r", stdin);
-    draw(file.c_str());
-    fclose(stdin);*/
-
-
-    //freopen("maye2.txt", "r", stdin);
-    //draw("out");
-
-
-
-    //waitKey();    return 0;
+    return 0;
 }
