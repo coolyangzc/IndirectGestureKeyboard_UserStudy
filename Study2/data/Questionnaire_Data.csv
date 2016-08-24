@@ -10,6 +10,7 @@ User ID,Name,Age,Dominant,Thumb(mm),Index(mm)
 9,YanYuKang,24,Right,68,80
 10,GaoShengHan,21,Right,60,73
 11,ZhuyeShuang,25,Right,63,72
+12,ZhongMingYuan,20,Right,65,72
 
 UserID,Name,Thumb,Index,Dominant
 0,YangZhican,69,97,Right
