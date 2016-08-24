@@ -3,6 +3,7 @@
 #include <iostream>
 #include "opencv2/opencv.hpp"
 #define rep(i,n) for(int i=0; i<n; i++)
+#define For(i,n) for(int i=1; i<=n; i++)
 #define FOR(i,a,b) for(int i=a; i<=b; i++)
 
 using namespace cv;
@@ -27,14 +28,14 @@ void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NUL
     if (is1440P)
     {
         line(img, u, v, *color, thickness * 2, lineType);
-        circle(img, u, 20, Scalar(0, 0, 255), 4);
-        circle(img, v, 20, Scalar(0, 0, 255), 4);
+        //circle(img, u, 20, Scalar(0, 0, 255), 4);
+        //circle(img, v, 20, Scalar(0, 0, 255), 4);
     }
     else
     {
         line(img, u, v, *color, thickness, lineType);
-        circle(img, u, 10, Scalar(0, 0, 255), 2);
-        circle(img, v, 10, Scalar(0, 0, 255), 2);
+        //circle(img, u, 10, Scalar(0, 0, 255), 2);
+        //circle(img, v, 10, Scalar(0, 0, 255), 2);
     }
 
 }
@@ -162,23 +163,23 @@ void Merge(Mat& img, fstream& fin, Scalar color)
     double X, Y;
     vector<double> x, y;
     fin >> H >> W;
+    if (W == 720) is1440P = false;
+             else is1440P = true;
     while (fin >> s)
     {
         fin >> X >> Y;
         x.push_back(X);
         y.push_back(Y);
-        if (s[0] == 'E')
-            break;
     }
     sort(x.begin(), x.end());
     sort(y.begin(), y.end());
 
     int id = x.size() * 0.10f;
     double minX = x[id], maxX = x[x.size() - id - 1], minY = y[id], maxY = y[y.size() - id - 1];
-    drawLine(img, Point(minX, minY), Point(minX, maxY), 4, &color);
-    drawLine(img, Point(minX, minY), Point(maxX, minY), 4, &color);
-    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 4, &color);
-    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 4, &color);
+    drawLine(img, Point(minX, minY), Point(minX, maxY), 2, &color);
+    drawLine(img, Point(minX, minY), Point(maxX, minY), 2, &color);
+    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 2, &color);
+    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 2, &color);
     cnt++;
     CX[0] += minX;
     CX[1] += maxX;
@@ -187,15 +188,15 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
 }
 
-void DrawMerge()
+void DrawMerge(int num)
 {
     Mat img = Mat::zeros(2560, 1440, CV_8UC3);
-    rep(i, 12)
+    For(i, num)
     {
         Scalar color(Random(255), Random(255), Random(255));
         stringstream ss_id;
         ss_id << i;
-        FOR(j, 0, 4)
+        FOR(j, 6, 10)
         {
             stringstream ss_num;
             ss_num << j;
@@ -208,24 +209,25 @@ void DrawMerge()
     }
     Scalar red = Scalar(0, 0, 255);
     double minX = CX[0] / cnt, maxX = CX[1] / cnt, minY = CY[0] / cnt, maxY = CY[1] / cnt;
-    drawLine(img, Point(minX, minY), Point(minX, maxY), 16, &red);
-    drawLine(img, Point(minX, minY), Point(maxX, minY), 16, &red);
-    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 16, &red);
-    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 16, &red);
+    drawLine(img, Point(minX, minY), Point(minX, maxY), 8, &red);
+    drawLine(img, Point(minX, minY), Point(maxX, minY), 8, &red);
+    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 8, &red);
+    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &red);
     imwrite("Merge.jpg", img);
 }
 
 int main()
 {
-    FOR(i, 5, 5)
+    DrawMerge(12);
+    /*FOR(i, 12, 12)
     {
         stringstream ss;
         ss << i;
-        string fileName = "data/refine/1440P/" + ss.str() + ".txt";
+        string fileName = "data/refine/720P/" + ss.str() + ".txt";
         cout << fileName << endl;
         fstream fin;
         fin.open(fileName.c_str());
         draw(fin, ss.str(), getFormat(fileName));
-    }
+    }*/
     return 0;
 }
