@@ -20,7 +20,7 @@ int Random(int mo)
     return (rand() << 15 ^ rand()) % mo;
 }
 
-void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NULL)
+void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NULL, bool drawCircle = true)
 {
     int lineType = 8;
     if (!color)
@@ -28,14 +28,16 @@ void drawLine(Mat& img, Point u, Point v, int thickness = 5, Scalar* color = NUL
     if (is1440P)
     {
         line(img, u, v, *color, thickness * 2, lineType);
-        //circle(img, u, 20, Scalar(0, 0, 255), 4);
-        //circle(img, v, 20, Scalar(0, 0, 255), 4);
+        if (!drawCircle) return;
+        circle(img, u, 20, Scalar(0, 0, 255), 4);
+        circle(img, v, 20, Scalar(0, 0, 255), 4);
     }
     else
     {
         line(img, u, v, *color, thickness, lineType);
-        //circle(img, u, 10, Scalar(0, 0, 255), 2);
-        //circle(img, v, 10, Scalar(0, 0, 255), 2);
+        if (!drawCircle) return;
+        circle(img, u, 10, Scalar(0, 0, 255), 2);
+        circle(img, v, 10, Scalar(0, 0, 255), 2);
     }
 
 }
@@ -138,10 +140,10 @@ void draw(fstream& fin, string outputFileName, bool newFormat = true)
         int id = sx.size() * 0.10f;
         double minX = sx[id], maxX = sx[sx.size() - id - 1], minY = sy[sy.size() - id - 1], maxY = sy[id];
         Scalar color = Scalar(0, 0, 255);
-        drawLine(img, Point(minX, minY), Point(minX, maxY), 4, &color);
-        drawLine(img, Point(minX, minY), Point(maxX, minY), 4, &color);
-        drawLine(img, Point(maxX, maxY), Point(minX, maxY), 4, &color);
-        drawLine(img, Point(maxX, maxY), Point(maxX, minY), 4, &color);
+        drawLine(img, Point(minX, minY), Point(minX, maxY), 4, &color, false);
+        drawLine(img, Point(minX, minY), Point(maxX, minY), 4, &color, false);
+        drawLine(img, Point(maxX, maxY), Point(minX, maxY), 4, &color, false);
+        drawLine(img, Point(maxX, maxY), Point(maxX, minY), 4, &color, false);
 
         stringstream ss;
         cout << ++cnt << endl;
@@ -176,10 +178,10 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
     int id = x.size() * 0.10f;
     double minX = x[id], maxX = x[x.size() - id - 1], minY = y[id], maxY = y[y.size() - id - 1];
-    drawLine(img, Point(minX, minY), Point(minX, maxY), 2, &color);
-    drawLine(img, Point(minX, minY), Point(maxX, minY), 2, &color);
-    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 2, &color);
-    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 2, &color);
+    drawLine(img, Point(minX, minY), Point(minX, maxY), 2, &color, false);
+    drawLine(img, Point(minX, minY), Point(maxX, minY), 2, &color, false);
+    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 2, &color, false);
+    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 2, &color, false);
     cnt++;
     CX[0] += minX;
     CX[1] += maxX;
@@ -190,18 +192,18 @@ void Merge(Mat& img, fstream& fin, Scalar color)
 
 void DrawMerge(int num)
 {
-    Mat img = Mat::zeros(2560, 1440, CV_8UC3);
+    Mat img = Mat::zeros(1280, 720, CV_8UC3);
     For(i, num)
     {
         Scalar color(Random(255), Random(255), Random(255));
         stringstream ss_id;
         ss_id << i;
-        FOR(j, 6, 10)
+        FOR(j, 1, 5)
         {
             stringstream ss_num;
             ss_num << j;
             fstream fin;
-            string fileName = "res/1440P/" + ss_id.str() + "_" + ss_num.str() + ".txt";
+            string fileName = "res/720P/" + ss_id.str() + "_" + ss_num.str() + ".txt";
             fin.open(fileName.c_str(), fstream::in );
             Merge(img, fin, color);
             fin.close();
@@ -209,17 +211,17 @@ void DrawMerge(int num)
     }
     Scalar red = Scalar(0, 0, 255);
     double minX = CX[0] / cnt, maxX = CX[1] / cnt, minY = CY[0] / cnt, maxY = CY[1] / cnt;
-    drawLine(img, Point(minX, minY), Point(minX, maxY), 8, &red);
-    drawLine(img, Point(minX, minY), Point(maxX, minY), 8, &red);
-    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 8, &red);
-    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &red);
+    drawLine(img, Point(minX, minY), Point(minX, maxY), 8, &red, false);
+    drawLine(img, Point(minX, minY), Point(maxX, minY), 8, &red, false);
+    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 8, &red, false);
+    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &red, false);
     imwrite("Merge.jpg", img);
 }
 
 int main()
 {
-    DrawMerge(12);
-    /*FOR(i, 12, 12)
+    DrawMerge(16);
+    /*FOR(i, 1, 16)
     {
         stringstream ss;
         ss << i;
