@@ -220,8 +220,8 @@ void DrawMerge(int num)
 
 int main()
 {
-    DrawMerge(16);
-    /*FOR(i, 1, 16)
+    //DrawMerge(16);
+    FOR(i, 16, 16)
     {
         stringstream ss;
         ss << i;
@@ -230,6 +230,6 @@ int main()
         fstream fin;
         fin.open(fileName.c_str());
         draw(fin, ss.str(), getFormat(fileName));
-    }*/
+    }
     return 0;
 }
