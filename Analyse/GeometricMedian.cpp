@@ -8,9 +8,9 @@
 #define rep(i,n) for(int i=0; i<n; i++)
 #define length(x,y) sqrt((x)*(x) + (y)*(y))
 
-const int LEXICON_SIZE = 100;
+const int LEXICON_SIZE = 50000;
 
-/*
+
 // 1:1
 const int H = 720;
 const int W = 1280;
@@ -19,9 +19,9 @@ const double keyHeight = 1.0;
 const double keyWidth = 1.0;
 const double fontDX = keyWidth * 0.11d * SCALE;
 const double fontDY = keyHeight * 0.11d * SCALE;
-*/
 
 
+/*
 //1:3
 const int H = 720;
 const int W = 1280;
@@ -30,7 +30,7 @@ const double keyHeight = 3.0;
 const double keyWidth = 1.0;
 const double fontDX = keyWidth * 0.2d * SCALE;
 const double fontDY = keyHeight * 0.11d * SCALE;
-
+*/
 
 const double X_OFFSET = (W - keyWidth * 10 * SCALE) / 2;
 const double Y_OFFSET = (H - keyHeight * 3 * SCALE) / 2;
@@ -97,7 +97,7 @@ void initKeyLayout(Mat& img, double keyWidth, double keyHeight)
 void initLexicon()
 {
     fstream fin;
-    fin.open("corpus.txt", fstream::in);
+    fin.open("corpus-written.txt", fstream::in);
     string s;
     rep(i, LEXICON_SIZE)
         fin >> dict[i] >> freq[i];
