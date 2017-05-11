@@ -1,0 +1,15 @@
+Variance,Factor,ExactF,Prob>F
+X,Finger,1.5465,0.2341
+X,Phone,4.6495,0.0489*
+Y,Finger,2.6989,0.1227
+Y,Phone,4.3128,0.0567
+Height,Finger,41.4131,<.0001*
+Height,Phone,0.7977,0.3869
+Width,Finger,59.8064,<.0001*
+Width,Phone,0.3109,0.5860
+Height(mm),Finger,42.1587,<.0001*
+Height(mm),Phone,36.3023,<.0001*
+Width(mm),Finger,61.7537,<.0001*
+Width(mm),Phone,35.9223,<.0001*
+Dist2Right(mm),Finger,1.5210,0.2378
+Dist2Right(mm),Phone,139.5006,<.0001*
