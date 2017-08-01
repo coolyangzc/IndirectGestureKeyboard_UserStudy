@@ -7,7 +7,7 @@
 #include <fstream>
 
 const int LEXICON_SIZE = 50000;
-const int SAMPLE_NUM = 50;
+const int SAMPLE_NUM = 40;
 
 // 1:1
 const float keyHeight = 1.0;
@@ -26,11 +26,13 @@ Vector2 keyPos[2][26];
 
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
-string word[LEXICON_SIZE];
+string word[LEXICON_SIZE], origin_word[LEXICON_SIZE];
 int freq[LEXICON_SIZE];
 
 float x[LEXICON_SIZE][SAMPLE_NUM], y[LEXICON_SIZE][SAMPLE_NUM];
 vector<Vector2> pts[LEXICON_SIZE];
+
+pair<float, char> clarity[26];
 
 void initKeyLayout()
 {
@@ -55,7 +57,7 @@ void initKeyLayout()
 void initLexicon()
 {
     fstream fin;
-    fin.open("corpus-written.txt", fstream::in);
+    fin.open("corpus-written-noduplicate.txt", fstream::in);
     rep(i, LEXICON_SIZE)
         fin >> word[i] >> freq[i];
     fin.close();
@@ -83,27 +85,53 @@ float calcGestureClarity(int lexicon_size, const Vector2* keyPos)
         vector<Vector2> path = wordToPath(word[i], keyPos);
         pts[i] = temporalSampling(path, SAMPLE_NUM);
     }
+    double clarity = 0, totFreq = 0;
     rep(i, lexicon_size)
     {
-        double dist = inf;
-        int best = -1;
+        double best = inf;
         rep(j, lexicon_size)
         {
             if (i == j) continue;
-            double now = match(pts[i], pts[j], dtw, Standard, dist);
-            if (now < dist)
-                dist = now, best = j;
+            if (dist(pts[i][0], pts[j][0]) > 1.9 ||
+                dist(pts[i][SAMPLE_NUM - 1], pts[j][SAMPLE_NUM - 1]) > 1.9)
+                continue;
+            double now = match(pts[i], pts[j], dtw, Standard, best);
+            best = min(best, now);
         }
-        cout << word[i] << ": " << word[best] << " " << dist / SAMPLE_NUM << endl;
-
+        totFreq += freq[i];
+        clarity += best * freq[i];
     }
+    clarity /= totFreq * SAMPLE_NUM;
+    return clarity;
+}
 
+bool cmp(const pair<float, char> &a, const pair<float, char> &b)
+{
+    if (a.first > b.first)
+        return true;
+    else
+        return false;
 }
 
 int main()
 {
     initKeyLayout();
     initLexicon();
-    calcGestureClarity(100, keyPos[1]);
+
+    cout << calcGestureClarity(10000, keyPos[1]) << endl;
+    rep(i, LEXICON_SIZE)
+        origin_word[i] = word[i];
+    rep(i, 26)
+    {
+        char ch = i + 'a';
+        rep(j, 10000)
+            word[j] = ch + origin_word[j];
+        clarity[i] = make_pair(calcGestureClarity(10000, keyPos[1]), ch);
+        cout << ch << ":" << clarity[i].first << endl;
+    }
+    cout << endl;
+    sort(clarity, clarity + 26, cmp);
+    rep(i, 26)
+        cout << clarity[i].second << ":" << clarity[i].first << endl;
     return 0;
 }
