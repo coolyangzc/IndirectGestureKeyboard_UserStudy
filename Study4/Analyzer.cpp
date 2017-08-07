@@ -265,6 +265,8 @@ void calcTimeDistribution(int id)
 
 void outputWPM()
 {
+    int m = 0;
+    double maxWPM[2] = {0, 0};
     rep(i, PHRASES)
     {
         WPMFout << userID << ","
@@ -272,8 +274,22 @@ void outputWPM()
                 << mode[i] << ","
                 << sentence[i] << ","
                 << WPM[i] << endl;
+        if (mode[i] == "Basic")
+            m = 0;
+        else
+            m = 1;
+        maxWPM[m] = max(WPM[i], maxWPM[m]);
     }
-    WPMFout.close();
+    WPMFout << userID << ","
+            << "N/A" << ","
+            << "max(Basic)" << ","
+            << "N/A" << ","
+            << maxWPM[0] << endl;
+    WPMFout << userID << ","
+            << "N/A" << ","
+            << "max(FixStart)" << ","
+            << "N/A" << ","
+            << maxWPM[1] << endl;
 }
 
 void outputTimeDistribution()

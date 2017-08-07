@@ -19,3 +19,115 @@ id,order,mode,sentence,WPM
 1,7,Basic,the fourth edition was better,39.6617
 1,8,Basic,the elevator door appears to be stuck,33.63
 1,9,Basic,file all complaints in writing,29.1659
+1,N/A,max(Basic),N/A,39.6617
+1,N/A,max(FixStart),N/A,41.2782
+2,0,Basic,stiff penalty for staying out late,20.7433
+2,1,Basic,do not lie in court or else,17.4757
+2,2,Basic,communicate through email,21.7549
+2,3,Basic,consequences of a wrong turn,25.5125
+2,4,Basic,you want to eat your cake,22.0394
+2,5,Basic,protect your environment,28.3492
+2,6,Basic,question that must be answered,28.8092
+2,7,Basic,with each step forward,24.7725
+2,8,Basic,well connected with people,30.6273
+2,9,Basic,the winner of the race,20.3327
+2,0,FixStart,they might find your comment offensive,20.2712
+2,1,FixStart,you are a wonderful example,25.4897
+2,2,FixStart,the imagination of the nation,20.473
+2,3,FixStart,that is a very odd question,19.9078
+2,4,FixStart,a picture is worth many words,21.1255
+2,5,FixStart,no exchange without a bill,18.3131
+2,6,FixStart,hands on experience with a job,18.3927
+2,7,FixStart,the fax machine is broken,21.4011
+2,8,FixStart,the children are playing,25.5319
+2,9,FixStart,space is a high priority,21.7786
+2,N/A,max(Basic),N/A,30.6273
+2,N/A,max(FixStart),N/A,25.5319
+3,0,Basic,interactions between men and women,11.0945
+3,1,Basic,you should visit a doctor,12.7578
+3,2,Basic,the generation gap gets wider,15.5454
+3,3,Basic,space is a high priority,11.7527
+3,4,Basic,would you like to come to my house,11.316
+3,5,Basic,no exchange without a bill,14.5157
+3,6,Basic,beautiful paintings in the gallery,15.0748
+3,7,Basic,we run the risk of failure,15.25
+3,8,Basic,fish are jumping,18.993
+3,9,Basic,a picture is worth many words,12.5723
+3,0,FixStart,space is a high priority,13.0828
+3,1,FixStart,express delivery is very fast,11.178
+3,2,FixStart,that land is owned by the government,16.287
+3,3,FixStart,with each step forward,17.5917
+3,4,FixStart,that is a very nasty cut,10.2296
+3,5,FixStart,medieval times were very hard,20.0919
+3,6,FixStart,file all complaints in writing,20.3112
+3,7,FixStart,our silver anniversary is coming,17.7921
+3,8,FixStart,medieval times were very hard,10.9223
+3,9,FixStart,file all complaints in writing,12.141
+3,N/A,max(Basic),N/A,18.993
+3,N/A,max(FixStart),N/A,20.3112
+4,0,Basic,the food at this restaurant,25.4497
+4,1,Basic,get your priorities in order,21.1654
+4,2,Basic,questioning the wisdom of the courts,24.2234
+4,3,Basic,we accept personal checks,24.9563
+4,4,Basic,my car always breaks in the winter,22.2319
+4,5,Basic,the living is easy,23.9176
+4,6,Basic,express delivery is very fast,23.458
+4,7,Basic,the music is better than it sounds,19.3246
+4,8,Basic,go out for some pizza and beer,19.7878
+4,9,Basic,teaching services will help,28.3613
+4,0,FixStart,nobody cares anymore,29.3682
+4,1,FixStart,this watch is too expensive,25.6433
+4,2,FixStart,the elevator door appears to be stuck,27.7306
+4,3,FixStart,shall we play a round of cards,22.3236
+4,4,FixStart,prescription drugs require a note,27.6322
+4,5,FixStart,staying up all night is a bad idea,21.9973
+4,6,FixStart,elections bring out the best,25.4567
+4,7,FixStart,please provide your date of birth,20.0165
+4,8,FixStart,a dog is the best friend of a man,20.0135
+4,9,FixStart,toss the ball around,24.9724
+4,N/A,max(Basic),N/A,28.3613
+4,N/A,max(FixStart),N/A,29.3682
+5,0,FixStart,just what the doctor ordered,21.1467
+5,1,FixStart,fish are jumping,22.7031
+5,2,FixStart,historic meeting without a result,23.8612
+5,3,FixStart,do not drink the water,19.2743
+5,4,FixStart,what goes up must come down,17.8768
+5,5,FixStart,the fax machine is broken,21.0202
+5,6,FixStart,elections bring out the best,21.6676
+5,7,FixStart,well connected with people,23.8514
+5,8,FixStart,the bathroom is good for reading,19.6068
+5,9,FixStart,safe to walk the streets in the evening,20.2116
+5,0,Basic,the fourth edition was better,19.993
+5,1,Basic,vote according to your conscience,21.7986
+5,2,Basic,the rationale behind the decision,22.1361
+5,3,Basic,we run the risk of failure,17.2718
+5,4,Basic,this camera takes nice photographs,18.9909
+5,5,Basic,traveling requires a lot of fuel,23.5068
+5,6,Basic,you have my sympathy,20.2574
+5,7,Basic,we better investigate this,26.2258
+5,8,Basic,the world is a stage,18.6104
+5,9,Basic,do not walk too quickly,18.7717
+5,N/A,max(Basic),N/A,26.2258
+5,N/A,max(FixStart),N/A,23.8612
+6,0,FixStart,breathing is difficult,16.5575
+6,1,FixStart,just in time for the party,15.4716
+6,2,FixStart,that land is owned by the government,20.0865
+6,3,FixStart,the treasury department is broken,21.155
+6,4,FixStart,valid until the end of the year,14.2256
+6,5,FixStart,jumping right out of the water,20.76
+6,6,FixStart,the force is with you,12.2544
+6,7,FixStart,important news always seems to be late,17.1519
+6,8,FixStart,an offer you cannot refuse,20.1942
+6,9,FixStart,all work and no play,17.0515
+6,0,Basic,universally understood to be wrong,21.5743
+6,1,Basic,rent is paid at the beginning of the month,15.0215
+6,2,Basic,the second largest country,25.0474
+6,3,Basic,sign the withdrawal slip,20.6897
+6,4,Basic,the location of the crime,25.3402
+6,5,Basic,do not feel too bad about it,13.7116
+6,6,Basic,this phenomenon will never occur,20.8038
+6,7,Basic,experience is hard to come by,13.4363
+6,8,Basic,communicate through email,26.1329
+6,9,Basic,effort is what it will take,21.5602
+6,N/A,max(Basic),N/A,26.1329
+6,N/A,max(FixStart),N/A,21.155
