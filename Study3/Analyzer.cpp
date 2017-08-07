@@ -45,7 +45,7 @@ void initFstream(string user, string id)
     keyFout.open(keyFileName.c_str(), fstream::out);
     keyFout << "id,scale,size,word,kind,keyWidth" << endl;
     //WPMFout.open(WPMFileName.c_str(), fstream::out);
-    //candFout.open(candFileName.c_str(), fstream::out);
+    candFout.open(candFileName.c_str(), fstream::out);
     //disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
 
 }
@@ -406,18 +406,19 @@ int main()
     calcKeyLayout();
 
     int sampleNums[] = {16, 32, 64, 128, 256};
-    int candSamples[] = {16, 32, 64};
+    //int candSamples[] = {16, 32, 64};
+    int candSamples[] = {32};
     vector<int> sample(sampleNums, sampleNums + 5);
-    vector<int> candSample(candSamples, candSamples + 3);
+    vector<int> candSample(candSamples, candSamples + 1);
 
     rep(i, PHRASES)
     {
         readData(i);
-        calcDistance(i, sample);
-        //calcCandidate(i, candSample);
+        //calcDistance(i, sample);
+        calcCandidate(i, candSample);
     }
-    outputWPM();
-    //outputCandidate(candSample);
+    //outputWPM();
+    outputCandidate(candSample);
     return 0;
 }
 

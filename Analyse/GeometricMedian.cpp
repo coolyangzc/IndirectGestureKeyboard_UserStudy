@@ -97,7 +97,7 @@ void initKeyLayout(Mat& img, double keyWidth, double keyHeight)
 void initLexicon()
 {
     fstream fin;
-    fin.open("corpus-written.txt", fstream::in);
+    fin.open("corpus-written-noduplicate.txt", fstream::in);
     string s;
     rep(i, LEXICON_SIZE)
         fin >> dict[i] >> freq[i];
