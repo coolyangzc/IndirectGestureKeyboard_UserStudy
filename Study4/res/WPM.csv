@@ -1,0 +1,21 @@
+id,order,mode,sentence,WPM
+1,0,FixStart,call for more details,26.7402
+1,1,FixStart,you must be getting old,32.4591
+1,2,FixStart,just what the doctor ordered,35.9589
+1,3,FixStart,prescription drugs require a note,36.8612
+1,4,FixStart,construction makes traveling difficult,41.2782
+1,5,FixStart,gas bills are sent monthly,23.1403
+1,6,FixStart,suburbs are sprawling up everywhere,23.8949
+1,7,FixStart,please provide your date of birth,27.4238
+1,8,FixStart,did you have a good time,26.7583
+1,9,FixStart,an offer you cannot refuse,29.8507
+1,0,Basic,the acceptance speech was boring,30.9877
+1,1,Basic,would you like to come to my house,23.7951
+1,2,Basic,the second largest country,37.7404
+1,3,Basic,do not walk too quickly,34.5207
+1,4,Basic,most judges are very honest,28.8215
+1,5,Basic,he is just like everyone else,27.0819
+1,6,Basic,did you see that spectacular explosion,30.2225
+1,7,Basic,the fourth edition was better,39.6617
+1,8,Basic,the elevator door appears to be stuck,33.63
+1,9,Basic,file all complaints in writing,29.1659

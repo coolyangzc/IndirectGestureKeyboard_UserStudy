@@ -9,6 +9,10 @@
 
 using namespace std;
 
+const int USER_NUM = 6;
+string user[USER_NUM] = {"yzc", "maye", "ssy", "xwj", "yyk", "yzp"};
+string id[USER_NUM] = {"1", "2", "3", "4", "5", "6"};
+
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
 string sentence[PHRASES], userText[PHRASES], mode[PHRASES], scale[PHRASES];
@@ -28,25 +32,17 @@ vector<string> words;
 vector<double> time;
 vector<Vector2> world, relative;
 
-string name, userID, disFileName, timeFileName, candFileName, WPMFileName;
-fstream disFout, timeFout, WPMFout, candFout;
+string name, userID, timeFileName, WPMFileName;
+fstream timeFout, WPMFout;
 
-void initFstream(string user, string id)
+void initFstream()
 {
-    name = user;
-    userID = id;
-    WPMFileName = "res/WPM_" + userID + ".csv";
-    timeFileName = "res/Time_" + userID + ".csv";
-    //disFileName = "res/Distance_" + userID + ".csv";
-    //candFileName = "res/Candidate_" + userID + ".csv";
-
+    WPMFileName = "res/WPM.csv";
+    timeFileName = "res/Time.csv";
     WPMFout.open(WPMFileName.c_str(), fstream::out);
     timeFout.open(timeFileName.c_str(), fstream::out);
+    WPMFout << "id,order,mode,sentence,WPM" << endl;
     timeFout << "id,mode,kind,time" << endl;
-    //disFout.open(disFileName.c_str(), fstream::out);
-    //candFout.open(candFileName.c_str(), fstream::out);
-    //disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
-
 }
 
 void initDTW()
@@ -265,13 +261,10 @@ void calcTimeDistribution(int id)
         else
             endTime = time[line];
     }
-
-
 }
 
 void outputWPM()
 {
-    WPMFout << "id,order,mode,sentence,WPM" << endl;
     rep(i, PHRASES)
     {
         WPMFout << userID << ","
@@ -308,101 +301,21 @@ void outputTimeDistribution()
 
 }
 
-void calcDistance(int id, vector<int>& sampleNums)
-{
-    fstream& fout = disFout;
-    int line = 0;
-    double keyWidth = width[id] / 10;
-    rep(w, words.size())
-    {
-        string word = words[w];
-        vector<Vector2> rawstroke;
-        while (line < cmd.size())
-        {
-            string s = cmd[line];
-            Vector2 p(relative[line].x * width[id], relative[line].y * height[id]);
-            line++;
-            if (rawstroke.size() == 0 || dist(rawstroke[rawstroke.size()-1], p) > eps)
-                rawstroke.push_back(p);
-            if (s == "Ended")
-                break;
-        }
-        if (word.length() == 1)
-            continue;
-        vector<Vector2> pts = wordToPath(word, id);
-        if (rawstroke.size() <= 1)
-            return;
-        rep(i, sampleNums.size())
-        {
-            int &num = sampleNums[i];
-            vector<Vector2> location = temporalSampling(pts, num);
-            vector<Vector2> stroke = temporalSampling(rawstroke, num);
-
-            double result = match(stroke, location, dtw, Standard) / num;
-            fout<< userID << ","
-                << scale[id] << ","
-                << keyboardSize[id] << ","
-                << word << ","
-                << "Standard" << ","
-                << num << ","
-                << "pixel" << ","
-                << result << endl;
-            fout<< userID << ","
-                << scale[id] << ","
-                << keyboardSize[id] << ","
-                << word << ","
-                << "Standard" << ","
-                << num << ","
-                << "keyWidth" << ","
-                << result / keyWidth << endl;
-
-            result = match(stroke, location, dtw, DTW) / num;
-            fout<< userID << ","
-                << scale[id] << ","
-                << keyboardSize[id] << ","
-                << word << ","
-                << "DTW" << ","
-                << num << ","
-                << "pixel" << ","
-                << result << endl;
-            fout<< userID << ","
-                << scale[id] << ","
-                << keyboardSize[id] << ","
-                << word << ","
-                << "DTW" << ","
-                << num << ","
-                << "keyWidth" << ","
-                << result / keyWidth << endl;
-        }
-    }
-}
-
-
-
-
 int main()
 {
-    initFstream("yyk", "6");
-    //initDTW();
-    //initLexicon();
-    //calcKeyLayout();
-
-    //int sampleNums[] = {16, 32, 64, 128, 256};
-    //int candSamples[] = {16, 32, 64};
-    //vector<int> sample(sampleNums, sampleNums + 5);
-    //vector<int> candSample(candSamples, candSamples + 3);
-    //readData(0);
-    //calcTimeDistribution(0);
-    rep(i, PHRASES)
+    initFstream();
+    rep(p, USER_NUM)
     {
-        readData(i);
-        calcTimeDistribution(i);
-        //calcDistance(i, sample);
-        //calcCandidate(i, candSample);
+        name = user[p];
+        userID = id[p];
+        rep(i, PHRASES)
+        {
+            readData(i);
+            calcTimeDistribution(i);
+        }
+        outputWPM();
+        outputTimeDistribution();
     }
-
-    outputWPM();
-    outputTimeDistribution();
     return 0;
 }
 
