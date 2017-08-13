@@ -43,11 +43,11 @@ double dist(const Vector2& p, const Vector2& q)
 
 vector<Vector2> temporalSampling(vector<Vector2> stroke, int num)
 {
+    double length = 0;
     int cnt = stroke.size();
     if (cnt == 1)
         return stroke;
     vector<Vector2> vec(num);
-    double length = 0;
     rep(i, cnt-1)
         length += dist(stroke[i], stroke[i+1]);
     double increment = length / (num - 1);
@@ -107,6 +107,7 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
         return inf;
     double dis = 0;
     int num = A.size(), w;
+    terminate *= num;
     switch(formula)
     {
     case (Standard):
@@ -119,7 +120,7 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
 
         break;
     case (DTW):
-        w = max(num / 0.1, 2.0);
+        w = max(num / 0.1, 3.0);
         For(i, num)
         {
             double gap = inf;
@@ -149,7 +150,7 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
         dis = dtw[num][len];
         break;
     }
-    return dis;
+    return dis / num;
 }
 
 

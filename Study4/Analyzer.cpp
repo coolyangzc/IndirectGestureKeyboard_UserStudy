@@ -10,8 +10,8 @@
 using namespace std;
 
 const int USER_NUM = 6;
-string user[USER_NUM] = {"yzc", "maye", "ssy", "xwj", "yyk", "yzp"};
-string id[USER_NUM] = {"1", "2", "3", "4", "5", "6"};
+const string user[USER_NUM] = {"yzc", "maye", "ssy", "xwj", "yyk", "yzp"};
+const string id[USER_NUM] = {"1", "2", "3", "4", "5", "6"};
 
 double dtw[MAXSAMPLE][MAXSAMPLE];
 

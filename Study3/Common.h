@@ -8,6 +8,7 @@
 #define rep(i,n) for (int i=0; i<n; ++i)
 #define For(i,n) for (int i=1; i<=n; ++i)
 #define FOR(i,a,b) for (int i=a; i<=b; ++i)
+#define sqr(x) ((x)*(x))
 
 const int PHRASES = 60;
 const double eps = 1e-6;

@@ -29,8 +29,8 @@ vector<string> words;
 vector<double> time;
 vector<Vector2> world, relative;
 
-string name, userID, disFileName, keyFileName, candFileName, WPMFileName;
-fstream disFout, keyFout, WPMFout, candFout;
+string name, userID, disFileName, keyFileName, WPMFileName;
+fstream disFout, keyFout, WPMFout;
 
 void initFstream(string user, string id)
 {
@@ -39,29 +39,19 @@ void initFstream(string user, string id)
     disFileName = "res/Distance_" + userID + ".csv";
     keyFileName = "res/Key_" + userID + ".csv";
     WPMFileName = "res/WPM_" + userID + ".csv";
-    candFileName = "res/Candidate_" + userID + ".csv";
 
     //disFout.open(disFileName.c_str(), fstream::out);
     keyFout.open(keyFileName.c_str(), fstream::out);
     keyFout << "id,scale,size,word,kind,keyWidth" << endl;
     //WPMFout.open(WPMFileName.c_str(), fstream::out);
-    candFout.open(candFileName.c_str(), fstream::out);
     //disFout << "id,scale,size,word,algorithm,sampleNum,coor,distance" << endl;
 
-}
-
-void initDTW()
-{
-    rep(i, MAXSAMPLE)
-        rep(j, MAXSAMPLE)
-            dtw[i][j] = inf;
-    dtw[0][0] = 0;
 }
 
 void initLexicon()
 {
     fstream fin;
-    fin.open("corpus.txt", fstream::in);
+    fin.open("ANC-written-noduplicate.txt", fstream::in);
     string s;
     rep(i, LEXICON_SIZE)
         fin >> dict[i] >> freq[i];
@@ -282,131 +272,13 @@ void calcDistance(int id, vector<int>& sampleNums)
     }
 }
 
-void calcCandidate(int id, vector<int>& sampleNums)
-{
-    fstream& fout = candFout;
-    int line = 0, p = 0, q = 0;
-
-    if (scale[id] == "1x3")
-        p = 1;
-    if (same(keyboardSize[id], 0.75))
-        q = 1;
-    else if (same(keyboardSize[id], 1))
-        q = 2;
-    cout << endl << id << endl;
-    rep(w, words.size())
-    {
-        string word = words[w];
-        cout << word << " ";
-        vector<Vector2> rawstroke;
-        while (line < cmd.size())
-        {
-            string s = cmd[line];
-            Vector2 p(relative[line].x * width[id], relative[line].y * height[id]);
-            line++;
-            if (rawstroke.size() == 0 || dist(rawstroke[rawstroke.size()-1], p) > eps)
-                rawstroke.push_back(p);
-            if (s == "Ended")
-                break;
-        }
-        if (word.length() == 1)
-            continue;
-        if (rawstroke.size() <= 1)
-            return;
-        wordCount[p][q]++;
-        rep(i, sampleNums.size())
-        {
-            int& num = sampleNums[i];
-            vector<Vector2> pts = wordToPath(word, id);
-            vector<Vector2> location = temporalSampling(pts, num);
-            vector<Vector2> stroke = temporalSampling(rawstroke, num);
-
-            double result = match(stroke, location, dtw, Standard);
-            double resultDTW = match(stroke, location, dtw, DTW);
-            int stdRank = 1, dtwRank = 1;
-
-            rep(j, LEXICON_SIZE)
-            {
-                if (word == dict[j])
-                    continue;
-                pts = wordToPath(dict[j], id);
-                location = temporalSampling(pts, num);
-
-                if (stdRank <= 10 && match(stroke, location, dtw, Standard, result) < result)
-                {
-                    stdRank++;
-                    if (stdRank > 10 && dtwRank > 10)
-                        break;
-                }
-                if (dtwRank <= 10 && match(stroke, location, dtw, DTW, resultDTW) < resultDTW)
-                {
-                    dtwRank++;
-                    if (stdRank > 10 && dtwRank > 10)
-                        break;
-                }
-            }
-            if (stdRank <= 10)
-                stdCount[p][q][i][stdRank]++;
-            if (dtwRank <= 10)
-                dtwCount[p][q][i][dtwRank]++;
-        }
-    }
-}
-
-void outputCandidate(vector<int> sampleNums)
-{
-    fstream& fout = candFout;
-    fout << "id,scale,size,algorithm,sampleNum,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10" << endl;
-    cout << endl;
-    rep(p, 2)
-    {
-        string scale = (p==0)?"1x1":"1x3";
-        rep(q, 3)
-        {
-            string keyboardSize = "0.5";
-            if (q == 1)
-                keyboardSize = "0.75";
-            else if (q == 2)
-                keyboardSize = "1";
-            rep(i, sampleNums.size())
-            {
-                For(j, 10)
-                {
-                    stdCount[p][q][i][j] += stdCount[p][q][i][j-1];
-                    dtwCount[p][q][i][j] += dtwCount[p][q][i][j-1];
-                }
-
-                fout<< userID << ","
-                    << scale << ","
-                    << keyboardSize << ","
-                    << "standard" << ","
-                    << sampleNums[i];
-                For(j, 10)
-                    fout << "," << stdCount[p][q][i][j] / wordCount[p][q];
-                fout << endl;
-                fout<< userID << ","
-                    << scale << ","
-                    << keyboardSize << ","
-                    << "DTW" << ","
-                    << sampleNums[i];
-                For(j, 10)
-                    fout << "," << dtwCount[p][q][i][j] / wordCount[p][q];
-                fout << endl;
-            }
-        }
-    }
-    fout.close();
-}
-
 int main()
 {
     initFstream("yym", "5");
-    initDTW();
     initLexicon();
     calcKeyLayout();
 
     int sampleNums[] = {16, 32, 64, 128, 256};
-    //int candSamples[] = {16, 32, 64};
     int candSamples[] = {32};
     vector<int> sample(sampleNums, sampleNums + 5);
     vector<int> candSample(candSamples, candSamples + 1);
@@ -414,11 +286,9 @@ int main()
     rep(i, PHRASES)
     {
         readData(i);
-        //calcDistance(i, sample);
-        calcCandidate(i, candSample);
+        calcDistance(i, sample);
     }
-    //outputWPM();
-    outputCandidate(candSample);
+    outputWPM();
     return 0;
 }
 
