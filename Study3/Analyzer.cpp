@@ -9,10 +9,6 @@
 
 using namespace std;
 
-const int USER_NUM = 11;
-const string id[USER_NUM] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
-const string user[USER_NUM] = {"yzc", "maye", "xwj", "yym", "yzp", "cool", "wjh", "yyk", "wrl", "gyz", "yezp"};
-
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
 string sentence[PHRASES], mode[PHRASES], scale[PHRASES];

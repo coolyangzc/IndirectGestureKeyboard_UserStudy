@@ -12,12 +12,13 @@
 
 using namespace std;
 
-const int USER_L = 11;
+const int USER_L = 1;
 
-const int ALG_NUM = 6;
-int rk[ALG_NUM];
-double result[ALG_NUM];
-double rkCount[2][3][ALG_NUM][11]; //[scale][size][std;dtw;dtw*freq][rank]
+const int THETA_NUM = 100;
+const double DELTA_T = 0.0005;
+int rk[THETA_NUM];
+double result[THETA_NUM];
+double rkCount[2][3][THETA_NUM][13]; //[scale][size][][rank]
 
 const int SAMPLE_NUM = 32;
 
@@ -28,7 +29,6 @@ double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES
 Vector2 keyPos[26];
 
 int wordCount[2][3]; //[scale][size]
-
 
 string dict[LEXICON_SIZE];
 int freq[LEXICON_SIZE];
@@ -102,9 +102,9 @@ void calcKeyLayout()
 
 void init()
 {
-    candFileName = "res/Candidate_Study1.csv";
+    candFileName = "res/Freq_Study1.csv";
     candFout.open(candFileName.c_str(), fstream::out);
-    candFout << "id,scale,size,algorithm,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10" << endl;
+    candFout << "id,scale,size,theta(keywidth),top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
     initDTW();
     calcKeyLayout();
     initLexicon();
@@ -219,7 +219,6 @@ void calcCandidate(int id)
         wordCount[p][q]++;
         int num = SAMPLE_NUM;
         vector<Vector2> location = temporalSampling(wordToPath(word, sc), num);
-        vector<Vector2> stroke = temporalSampling(rawstroke, num);
 
         int l = 0, r = rawstroke.size() - 1;
 
@@ -230,65 +229,30 @@ void calcCandidate(int id)
             stroke_cut.push_back(rawstroke[i]);
         vector<Vector2> stroke_c = temporalSampling(stroke_cut, num);
 
-        result[0] = match(stroke, location, dtw, Standard);
-        result[1] = match(stroke, location, dtw, DTW);
         double f = dict_map[word];
         if (f == 0) f = freq[LEXICON_SIZE - 1];
-        result[2] = exp(-0.5 * sqr(result[0] / 0.015)) * f;
-        result[3] = exp(-0.5 * sqr(result[1] / 0.015)) * f;
-        result[4] = match(stroke_c, location, dtw, Standard);
-        result[5] = match(stroke_c, location, dtw, DTW);
-
-        rep(alg, ALG_NUM)
-            rk[alg] = 1;
+        result[0] = match(stroke_c, location, dtw, DTW);
+        FOR(i, 3, THETA_NUM - 1)
+            result[i] = exp(-0.5 * sqr(result[0] / (DELTA_T * i))) * f;
+        rep(i, THETA_NUM)
+            rk[i] = 1;
         rep(j, LEXICON_SIZE)
         {
             if (word == dict[j])
                 continue;
             vector<Vector2>& location = dict_location[j][p];
-            if (dist(location.back(), stroke.back()) > 0.3)
+            if (dist(location.back(), stroke_c.back()) > 0.3)
                 continue;
-            double disSHARK = match(stroke, location, dtw, Standard);
-            double disDTW = match(stroke, location, dtw, DTW);
-            rep(alg, ALG_NUM)
-            {
-                if (rk[alg] > 10)
-                    continue;
-                switch(alg)
-                {
-                case 0:
-                    if (disSHARK < result[alg])
-                        rk[alg]++;
-                    break;
-                case 1:
-                    if (disDTW < result[alg])
-                        rk[alg]++;
-                    break;
-                case 2:
-                    if ((exp(-0.5 * sqr(disSHARK / 0.015)) * freq[j]) > result[alg])
-                        rk[alg]++;
-                    break;
-                case 3:
-                    if ((exp(-0.5 * sqr(disDTW / 0.015)) * freq[j]) > result[alg])
-                        rk[alg]++;
-                    break;
-                case 4:
-                    if (match(stroke_c, location, dtw, Standard, result[alg]) < result[alg])
-                        rk[alg]++;
-                    break;
-                case 5:
-                    if (match(stroke_c, location, dtw, DTW, result[alg]) < result[alg])
-                        rk[alg]++;
-                    break;
-                }
-            }
+            double disDTW = match(stroke_c, location, dtw, DTW);
+            if (disDTW < result[0]) rk[0]++;
+            FOR(i, 3, THETA_NUM - 1)
+                if (exp(-0.5 * sqr(disDTW / (DELTA_T * i))) * freq[j] > result[i])
+                    rk[i]++;
         }
-        rep(i, ALG_NUM)
-            if (rk[i] <= 10)
+        rep(i, THETA_NUM)
+            if (rk[i] <= 12)
                 rkCount[p][q][i][rk[i]]++;
-        cout << rk[1] << ":" << dict_map[word] << endl;
-        cout << rk[3] << ":" << dict_map[word] << endl;
-        cout << rk[5] << ":" << dict_map[word] << endl;
+        cout << rk[0] << ":" << dict_map[word] << endl;
     }
     cout << endl;
 }
@@ -308,21 +272,17 @@ void outputCandidate()
             else if (q == 2)
                 keyboardSize = "1";
 
-            rep(alg, ALG_NUM)
+            rep(i, THETA_NUM)
             {
-                For(j, 10)
-                    rkCount[p][q][alg][j] += rkCount[p][q][alg][j-1];
+                if (i == 1 || i == 2) continue;
+                For(j, 12)
+                    rkCount[p][q][i][j] += rkCount[p][q][i][j-1];
                 fout<< userID << ","
                     << scale << ","
-                    << keyboardSize << ",";
-                if (alg == 0) fout << "SHARK2";
-                if (alg == 1) fout << "DTW";
-                if (alg == 2) fout << "SHARK2*freq";
-                if (alg == 3) fout << "DTW*freq";
-                if (alg == 4) fout << "SHARK2(cut)";
-                if (alg == 5) fout << "DTW(cut)";
-                For(j, 10)
-                    fout << "," << rkCount[p][q][alg][j] / wordCount[p][q];
+                    << keyboardSize << ","
+                    << i * DELTA_T / 0.1;
+                For(j, 12)
+                    fout << "," << rkCount[p][q][i][j] / wordCount[p][q];
                 fout << endl;
             }
         }
