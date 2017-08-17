@@ -12,12 +12,12 @@
 
 using namespace std;
 
-const int USER_L = 9;
+const int USER_L = 1;
 const int USER_NUM = 11;
 const string id[USER_NUM] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
 const string user[USER_NUM] = {"yzc", "maye", "xwj", "yym", "yzp", "cool", "wjh", "yyk", "wrl", "gyz", "yezp"};
 
-const int ALG_NUM = 3;
+const int ALG_NUM = 6;
 int rk[ALG_NUM];
 double result[ALG_NUM];
 double rkCount[2][3][ALG_NUM][11]; //[scale][size][std;dtw;dtw*freq][rank]
@@ -72,7 +72,7 @@ vector<Vector2> wordToPath(string word, float scale)
 void initLexicon()
 {
     fstream fin;
-    fin.open("ANC-written-noduplicate.txt", fstream::in);
+    fin.open("ANC-written-noduplicate+pangram.txt", fstream::in);
     string s;
     rep(i, LEXICON_SIZE)
     {
@@ -188,6 +188,11 @@ void readData(int id)
     fin.close();
 }
 
+bool outKeyboard(Vector2 v, float sc)
+{
+    return v.x > 0.5 || v.x < -0.5 || v.y > (0.5 * 0.3 * sc) || v.y < -(0.5 * 0.3 * sc);
+}
+
 void calcCandidate(int id)
 {
     fstream& fout = candFout;
@@ -213,21 +218,29 @@ void calcCandidate(int id)
             if (s == "Ended")
                 break;
         }
-        if (word.length() == 1)
-            continue;
-        if (rawstroke.size() <= 1)
-            return;
         cout << word << " ";
         wordCount[p][q]++;
         int num = SAMPLE_NUM;
         vector<Vector2> location = temporalSampling(wordToPath(word, sc), num);
         vector<Vector2> stroke = temporalSampling(rawstroke, num);
 
+        int l = 0, r = rawstroke.size() - 1;
+
+        while (outKeyboard(rawstroke[l], sc) && l < r) l++;
+        while (outKeyboard(rawstroke[r], sc) && l < r) r--;
+        vector <Vector2> stroke_cut;
+        FOR(i, l, r)
+            stroke_cut.push_back(rawstroke[i]);
+        vector<Vector2> stroke_c = temporalSampling(stroke_cut, num);
+
         result[0] = match(stroke, location, dtw, Standard);
         result[1] = match(stroke, location, dtw, DTW);
         double f = dict_map[word];
         if (f == 0) f = freq[LEXICON_SIZE - 1];
-        result[2] = exp(-0.5 * sqr(result[1] / 0.015)) * f;
+        result[2] = exp(-0.5 * sqr(result[0] / 0.015)) * f;
+        result[3] = exp(-0.5 * sqr(result[1] / 0.015)) * f;
+        result[4] = match(stroke_c, location, dtw, Standard);
+        result[5] = match(stroke_c, location, dtw, DTW);
 
         rep(alg, ALG_NUM)
             rk[alg] = 1;
@@ -238,6 +251,7 @@ void calcCandidate(int id)
             vector<Vector2>& location = dict_location[j][p];
             if (dist(location.back(), stroke.back()) > 0.3)
                 continue;
+            double disSHARK = match(stroke, location, dtw, Standard);
             double disDTW = match(stroke, location, dtw, DTW);
             rep(alg, ALG_NUM)
             {
@@ -246,7 +260,7 @@ void calcCandidate(int id)
                 switch(alg)
                 {
                 case 0:
-                    if (match(stroke, location, dtw, Standard, result[alg]) < result[alg])
+                    if (disSHARK < result[alg])
                         rk[alg]++;
                     break;
                 case 1:
@@ -254,25 +268,30 @@ void calcCandidate(int id)
                         rk[alg]++;
                     break;
                 case 2:
+                    if ((exp(-0.5 * sqr(disSHARK / 0.015)) * freq[j]) > result[alg])
+                        rk[alg]++;
+                    break;
+                case 3:
                     if ((exp(-0.5 * sqr(disDTW / 0.015)) * freq[j]) > result[alg])
+                        rk[alg]++;
+                    break;
+                case 4:
+                    if (match(stroke_c, location, dtw, Standard, result[alg]) < result[alg])
+                        rk[alg]++;
+                    break;
+                case 5:
+                    if (match(stroke_c, location, dtw, DTW, result[alg]) < result[alg])
                         rk[alg]++;
                     break;
                 }
             }
-            bool jump = true;
-            rep(i, ALG_NUM)
-                if (rk[i] <= 10)
-                {
-                    jump = false;
-                    break;
-                }
-            if (jump)
-                break;
         }
         rep(i, ALG_NUM)
             if (rk[i] <= 10)
                 rkCount[p][q][i][rk[i]]++;
-        cout << rk[2] << ":" << dict_map[word] << endl;
+        cout << rk[1] << ":" << dict_map[word] << endl;
+        cout << rk[3] << ":" << dict_map[word] << endl;
+        cout << rk[5] << ":" << dict_map[word] << endl;
     }
     cout << endl;
 }
@@ -301,7 +320,10 @@ void outputCandidate()
                     << keyboardSize << ",";
                 if (alg == 0) fout << "SHARK2";
                 if (alg == 1) fout << "DTW";
-                if (alg == 2) fout << "DTW*freq";
+                if (alg == 2) fout << "SHARK2*freq";
+                if (alg == 3) fout << "DTW*freq";
+                if (alg == 4) fout << "SHARK2(cut)";
+                if (alg == 5) fout << "DTW(cut)";
                 For(j, 10)
                     fout << "," << rkCount[p][q][alg][j] / wordCount[p][q];
                 fout << endl;

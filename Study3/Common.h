@@ -13,7 +13,7 @@
 const int PHRASES = 60;
 const double eps = 1e-6;
 const double inf = 1e10;
-const int MAXSAMPLE = 300 + 1;
+const int MAXSAMPLE = 200 + 1;
 const int LEXICON_SIZE = 10000;
 
 int Random(int mo)
