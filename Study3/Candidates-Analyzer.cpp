@@ -12,9 +12,10 @@
 
 using namespace std;
 
-const int USER_NUM = 5;
-const string user[USER_NUM] = {"yzc", "maye", "xwj", "yym", "yzp"};
-const string id[USER_NUM] = {"1", "2", "3", "4", "5"};
+const int USER_L = 9;
+const int USER_NUM = 11;
+const string id[USER_NUM] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+const string user[USER_NUM] = {"yzc", "maye", "xwj", "yym", "yzp", "cool", "wjh", "yyk", "wrl", "gyz", "yezp"};
 
 const int ALG_NUM = 3;
 int rk[ALG_NUM];
@@ -318,7 +319,7 @@ void clean()
 int main()
 {
     init();
-    rep(p, USER_NUM)
+    FOR(p, USER_L - 1, USER_NUM - 1)
     {
         name = user[p];
         userID = id[p];
