@@ -86,7 +86,8 @@ enum Formula
 {
     Standard = 0,
     DTW = 1,
-    DTWL = 2,
+    DTW_H = 2,
+    DTWL = 3,
 };
 
 inline double det(const Vector2& a, const Vector2& b, const Vector2& c)
@@ -122,10 +123,11 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
             if (dis > terminate)
                 return inf;
         }
-
         break;
+
     case (DTW):
-        w = max(num / 0.1, 3.0);
+        //w = max(num * 0.1, 3.0);
+        w = 32;
         For(i, num)
         {
             double gap = inf;
@@ -139,6 +141,26 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
         }
         dis = dtw[num][num];
         break;
+
+    case (DTW_H):
+        w = max(num * 0.1, 3.0);
+        For(i, num)
+        {
+            double gap = inf;
+            FOR(j, max(1, i - w), min(i + w, num))
+            {
+                double d = dist(A[i-1], B[j-1]);
+                if (i + j < 10)
+                    d *= (i+j) * 0.1;
+                dtw[i][j] = d + min(dtw[i-1][j-1], min(dtw[i][j-1], dtw[i-1][j]));
+                gap = min(dtw[i][j], gap);
+            }
+            if (gap > terminate)
+                return inf;
+        }
+        dis = dtw[num][num];
+        break;
+
     case (DTWL):
         int len = B.size() - 1;
         For(i, num)

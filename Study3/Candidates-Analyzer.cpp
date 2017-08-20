@@ -12,12 +12,12 @@
 
 using namespace std;
 
-const int USER_L = 11;
+const int USER_L = 15;
 
 const int ALG_NUM = 6;
 int rk[ALG_NUM];
 double result[ALG_NUM];
-double rkCount[2][3][ALG_NUM][11]; //[scale][size][std;dtw;dtw*freq][rank]
+double rkCount[2][3][ALG_NUM][13]; //[scale][size][std;dtw;dtw*freq][rank]
 
 const int SAMPLE_NUM = 32;
 
@@ -104,7 +104,7 @@ void init()
 {
     candFileName = "res/Candidate_Study1.csv";
     candFout.open(candFileName.c_str(), fstream::out);
-    candFout << "id,scale,size,algorithm,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10" << endl;
+    candFout << "id,scale,size,algorithm,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
     initDTW();
     calcKeyLayout();
     initLexicon();
@@ -197,9 +197,9 @@ void calcCandidate(int id)
 
     if (scale[id] == "1x3")
         p = 1, sc = 3;
-    if (same(keyboardSize[id], 0.75))
+    if (same(keyboardSize[id], 1))
         q = 1;
-    else if (same(keyboardSize[id], 1))
+    else if (same(keyboardSize[id], 1.25))
         q = 2;
     rep(w, words.size())
     {
@@ -226,8 +226,11 @@ void calcCandidate(int id)
         while (outKeyboard(rawstroke[l], sc) && l < r) l++;
         while (outKeyboard(rawstroke[r], sc) && l < r) r--;
         vector <Vector2> stroke_cut;
-        FOR(i, l, r)
-            stroke_cut.push_back(rawstroke[i]);
+        if (l < r)
+            FOR(i, l, r)
+                stroke_cut.push_back(rawstroke[i]);
+        else
+            stroke_cut = rawstroke;
         vector<Vector2> stroke_c = temporalSampling(stroke_cut, num);
 
         result[0] = match(stroke, location, dtw, Standard);
@@ -252,7 +255,7 @@ void calcCandidate(int id)
             double disDTW = match(stroke, location, dtw, DTW);
             rep(alg, ALG_NUM)
             {
-                if (rk[alg] > 10)
+                if (rk[alg] > 12)
                     continue;
                 switch(alg)
                 {
@@ -284,11 +287,9 @@ void calcCandidate(int id)
             }
         }
         rep(i, ALG_NUM)
-            if (rk[i] <= 10)
+            if (rk[i] <= 12)
                 rkCount[p][q][i][rk[i]]++;
-        cout << rk[1] << ":" << dict_map[word] << endl;
         cout << rk[3] << ":" << dict_map[word] << endl;
-        cout << rk[5] << ":" << dict_map[word] << endl;
     }
     cout << endl;
 }
@@ -302,15 +303,15 @@ void outputCandidate()
         string scale = (p==0)?"1x1":"1x3";
         rep(q, 3)
         {
-            string keyboardSize = "0.5";
+            string keyboardSize = "0.75";
             if (q == 1)
-                keyboardSize = "0.75";
+                keyboardSize = "1.0";
             else if (q == 2)
-                keyboardSize = "1";
+                keyboardSize = "1.25";
 
             rep(alg, ALG_NUM)
             {
-                For(j, 10)
+                For(j, 12)
                     rkCount[p][q][alg][j] += rkCount[p][q][alg][j-1];
                 fout<< userID << ","
                     << scale << ","
@@ -321,7 +322,7 @@ void outputCandidate()
                 if (alg == 3) fout << "DTW*freq";
                 if (alg == 4) fout << "SHARK2(cut)";
                 if (alg == 5) fout << "DTW(cut)";
-                For(j, 10)
+                For(j, 12)
                     fout << "," << rkCount[p][q][alg][j] / wordCount[p][q];
                 fout << endl;
             }
