@@ -12,7 +12,7 @@
 
 using namespace std;
 
-const int USER_L = 18;
+const int USER_L = 1;
 
 const int ALG_NUM = 6;
 int rk[ALG_NUM];
@@ -237,8 +237,8 @@ void calcCandidate(int id)
         result[1] = match(stroke, location, dtw, DTW);
         double f = dict_map[word];
         if (f == 0) f = freq[LEXICON_SIZE - 1];
-        result[2] = exp(-0.5 * sqr(result[0] / 0.015)) * f;
-        result[3] = exp(-0.5 * sqr(result[1] / 0.015)) * f;
+        result[2] = exp(-0.5 * sqr(result[0] / 0.025)) * f;
+        result[3] = exp(-0.5 * sqr(result[1] / 0.025)) * f;
         result[4] = match(stroke_c, location, dtw, Standard);
         result[5] = match(stroke_c, location, dtw, DTW);
 
@@ -268,11 +268,11 @@ void calcCandidate(int id)
                         rk[alg]++;
                     break;
                 case 2:
-                    if ((exp(-0.5 * sqr(disSHARK / 0.015)) * freq[j]) > result[alg])
+                    if ((exp(-0.5 * sqr(disSHARK / 0.025)) * freq[j]) > result[alg])
                         rk[alg]++;
                     break;
                 case 3:
-                    if ((exp(-0.5 * sqr(disDTW / 0.015)) * freq[j]) > result[alg])
+                    if ((exp(-0.5 * sqr(disDTW / 0.025)) * freq[j]) > result[alg])
                         rk[alg]++;
                     break;
                 case 4:

@@ -20,7 +20,7 @@ const int USER_NUM = 18;
 const std::string id[USER_NUM] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"};
 const std::string user[USER_NUM] =
 {"yzc", "maye", "xwj", "yym", "yzp", "cool", "wjh", "yyk", "wrl", "gyz", "yezp", "lyq", "dyp", "plh", "wcj", "ry", "zc", "zmy"};
-//  1       2      3      4      5       6      7      8      9     10      11     12     13     14     15    16    17
+//  1       2      3      4      5       6      7      8      9     10      11     12     13     14     15    16    17     18
 
 int Random(int mo)
 {
