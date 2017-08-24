@@ -232,7 +232,7 @@ void calcCandidate(int id)
         double f = dict_map[word];
         if (f == 0) f = freq[LEXICON_SIZE - 1];
         result[0] = match(stroke_c, location, dtw, DTW);
-        FOR(i, 3, THETA_NUM - 1)
+        FOR(i, 6, THETA_NUM - 1)
             result[i] = exp(-0.5 * sqr(result[0] / (DELTA_T * i))) * f;
         rep(i, THETA_NUM)
             rk[i] = 1;
@@ -245,8 +245,8 @@ void calcCandidate(int id)
                 continue;
             double disDTW = match(stroke_c, location, dtw, DTW);
             if (disDTW < result[0]) rk[0]++;
-            FOR(i, 3, THETA_NUM - 1)
-                if (exp(-0.5 * sqr(disDTW / (DELTA_T * i))) * freq[j] > result[i])
+            FOR(i, 6, THETA_NUM - 1)
+                if (rk[i] <=12 && exp(-0.5 * sqr(disDTW / (DELTA_T * i))) * freq[j] > result[i])
                     rk[i]++;
         }
         rep(i, THETA_NUM)
@@ -274,7 +274,7 @@ void outputCandidate()
 
             rep(i, THETA_NUM)
             {
-                if (i == 1 || i == 2) continue;
+                if (i < 6) continue;
                 For(j, 12)
                     rkCount[p][q][i][j] += rkCount[p][q][i][j-1];
                 fout<< userID << ","

@@ -9,15 +9,14 @@
 
 using namespace std;
 
-double dtw[MAXSAMPLE][MAXSAMPLE];
+const int SAMPLE_NUM = 32;
 
 string sentence[PHRASES], mode[PHRASES], scale[PHRASES];
 double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
 double WPM[PHRASES];
 Vector2 keyPos[26];
 
-int wordCount[2][3]; //[scale][size]
-double stdCount[2][3][10][11], dtwCount[2][3][10][11]; //[scale][size][num][rank];
+double dtw[MAXSAMPLE][MAXSAMPLE];
 
 vector<string> cmd;
 vector<string> words;
@@ -25,8 +24,8 @@ vector<string> words;
 vector<double> time;
 vector<Vector2> world, relative;
 
-string name, userID, keyFileName, WPMFileName;
-fstream keyFout, WPMFout;
+string name, userID, keyFileName, WPMFileName, disFileName;
+fstream keyFout, WPMFout, disFout;
 
 void calcKeyLayout()
 {
@@ -51,11 +50,14 @@ void initFstream()
 {
     keyFileName = "res/Key_Study1.csv";
     WPMFileName = "res/WPM_Study1.csv";
+    disFileName = "res/Distance_Study1.csv";
 
     keyFout.open(keyFileName.c_str(), fstream::out);
     keyFout << "id,scale,size,word,kind,keyWidth" << endl;
     WPMFout.open(WPMFileName.c_str(), fstream::out);
     WPMFout << "id,scale,size,sentence,WPM" << endl;
+    disFout.open(disFileName.c_str(), fstream::out);
+    disFout << "id,scale,size,word,algorithm,distance" << endl;
 }
 
 void init()
@@ -191,6 +193,12 @@ void calcDistance(int id)
             return;
         double firstKeyDis = dist(pts[0], rawstroke[0]);
         double lastKeyDis = dist(pts[pts.size() - 1], rawstroke[rawstroke.size() - 1]);
+        vector<Vector2> location = temporalSampling(pts, SAMPLE_NUM);
+        vector<Vector2> stroke = temporalSampling(rawstroke, SAMPLE_NUM);
+        double middleKeyDis = 0;
+        FOR(i, 1, SAMPLE_NUM - 2)
+            middleKeyDis += dist(location[i], stroke[i]);
+        middleKeyDis /= (SAMPLE_NUM - 2);
         keyFout << userID << ","
                 << scale[id] << ","
                 << keyboardSize[id] << ","
@@ -201,8 +209,26 @@ void calcDistance(int id)
                 << scale[id] << ","
                 << keyboardSize[id] << ","
                 << word << ","
+                << "MiddleKey" << ","
+                << middleKeyDis / keyWidth << endl;
+        keyFout << userID << ","
+                << scale[id] << ","
+                << keyboardSize[id] << ","
+                << word << ","
                 << "LastKey" << ","
                 << lastKeyDis / keyWidth << endl;
+        disFout << userID << ","
+                << scale[id] << ","
+                << keyboardSize[id] << ","
+                << word << ","
+                << "SHARK2" << ","
+                << match(location, stroke, dtw, Standard) / keyWidth << endl;
+        disFout << userID << ","
+                << scale[id] << ","
+                << keyboardSize[id] << ","
+                << word << ","
+                << "DTW" << ","
+                << match(location, stroke, dtw, DTW) / keyWidth << endl;
     }
 }
 

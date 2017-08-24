@@ -12,7 +12,7 @@
 
 using namespace std;
 
-const int USER_L = 15;
+const int USER_L = 18;
 
 const int ALG_NUM = 6;
 int rk[ALG_NUM];
