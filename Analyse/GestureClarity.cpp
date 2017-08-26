@@ -9,15 +9,17 @@
 const int LEXICON_SIZE = 50000;
 const int SAMPLE_NUM = 40;
 
-// 1:1
-const float keyHeight = 1.0;
-const float keyWidth = 1.0;
+const int LAYOUT = 0;
 
-/*
+// 1:1
+//const float keyHeight = 1.0;
+//const float keyWidth = 1.0;
+
+
 //1:3
 const float keyHeight = 3.0;
 const float keyWidth = 1.0;
-*/
+
 
 using namespace std;
 
@@ -88,6 +90,8 @@ float calcGestureClarity(int lexicon_size, const Vector2* keyPos)
     double clarity = 0, totFreq = 0;
     rep(i, lexicon_size)
     {
+        if (i % 1000 == 0)
+            cout << (i / 100) << "% ";
         double best = inf;
         rep(j, lexicon_size)
         {
@@ -118,7 +122,7 @@ int main()
     initKeyLayout();
     initLexicon();
 
-    cout << calcGestureClarity(10000, keyPos[1]) << endl;
+    cout << calcGestureClarity(10000, keyPos[LAYOUT]) << endl;
     rep(i, LEXICON_SIZE)
         origin_word[i] = word[i];
     rep(i, 26)
@@ -126,7 +130,7 @@ int main()
         char ch = i + 'a';
         rep(j, 10000)
             word[j] = ch + origin_word[j];
-        clarity[i] = make_pair(calcGestureClarity(10000, keyPos[1]), ch);
+        clarity[i] = make_pair(calcGestureClarity(10000, keyPos[LAYOUT]), ch);
         cout << ch << ":" << clarity[i].first << endl;
     }
     cout << endl;

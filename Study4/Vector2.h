@@ -5,6 +5,7 @@
 
 #include <cmath>
 #include <vector>
+#include <iostream>
 #include <algorithm>
 
 using namespace std;
@@ -42,11 +43,16 @@ double dist(const Vector2& p, const Vector2& q)
 
 vector<Vector2> temporalSampling(vector<Vector2> stroke, int num)
 {
-    int cnt = stroke.size();
-    if (cnt == 1)
-        return stroke;
-    vector<Vector2> vec(num);
     double length = 0;
+    int cnt = stroke.size();
+    vector<Vector2> vec(num);
+    if (cnt == 1)
+    {
+        rep(i, num)
+            vec[i] = stroke[0];
+        return vec;
+    }
+
     rep(i, cnt-1)
         length += dist(stroke[i], stroke[i+1]);
     double increment = length / (num - 1);
@@ -80,15 +86,34 @@ enum Formula
 {
     Standard = 0,
     DTW = 1,
+    DTW_H = 2,
+    DTWL = 3,
 };
+
+inline double det(const Vector2& a, const Vector2& b, const Vector2& c)
+{
+    return (b.x-a.x) * (c.y-a.y) - (b.y-a.y) * (c.x-a.x);
+}
+
+double pointToSeg(const Vector2& p, const Vector2& a, const Vector2& b)
+{
+    double cross = (b.x-a.x) * (p.x-a.x) + (b.y-a.y) * (p.y-a.y);
+    if (cross <= 0)
+        return dist(p, a);
+    double segLen = dist(a, b);
+    if (cross >= segLen * dist(p, a))
+        return dist(p, b);
+    return fabs(det(a, b, p)) / segLen;
+}
 
 double match(const vector<Vector2>& A, vector<Vector2>& B,
              double dtw[MAXSAMPLE][MAXSAMPLE], Formula formula, double terminate = inf)
 {
-    if (A.size() != B.size())
+    if (A.size() != B.size() && formula != DTWL)
         return inf;
     double dis = 0;
-    int num = A.size();
+    int num = A.size(), w;
+    terminate *= num;
     switch(formula)
     {
     case (Standard):
@@ -98,26 +123,61 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
             if (dis > terminate)
                 return inf;
         }
-
         break;
 
     case (DTW):
-        int w = max(num / 0.1, 2.0);
-        rep(i, num)
+        //w = max(num * 0.1, 3.0);
+        w = 32;
+        For(i, num)
         {
             double gap = inf;
-            FOR(j, max(0, i - w), min(i + w, num - 1))
+            FOR(j, max(1, i - w), min(i + w, num))
             {
-                dtw[i+1][j+1] = dist(A[i], B[j]) + min(dtw[i][j], min(dtw[i][j+1], dtw[i+1][j]));
-                gap = min(dtw[i+1][j+1], gap);
+                dtw[i][j] = dist(A[i-1], B[j-1]) + min(dtw[i-1][j-1], min(dtw[i][j-1], dtw[i-1][j]));
+                gap = min(dtw[i][j], gap);
             }
             if (gap > terminate)
                 return inf;
         }
         dis = dtw[num][num];
         break;
+
+    case (DTW_H):
+        w = max(num * 0.1, 3.0);
+        For(i, num)
+        {
+            double gap = inf;
+            FOR(j, max(1, i - w), min(i + w, num))
+            {
+                double d = dist(A[i-1], B[j-1]);
+                if (i + j < 10)
+                    d *= (i+j) * 0.1;
+                dtw[i][j] = d + min(dtw[i-1][j-1], min(dtw[i][j-1], dtw[i-1][j]));
+                gap = min(dtw[i][j], gap);
+            }
+            if (gap > terminate)
+                return inf;
+        }
+        dis = dtw[num][num];
+        break;
+
+    case (DTWL):
+        int len = B.size() - 1;
+        For(i, num)
+        {
+            double gap = inf;
+            For(j, min(i, len))
+            {
+                dtw[i][j] = min(dtw[i-1][j-1], dtw[i-1][j]) + pointToSeg(A[i-1], B[j-1], B[j]);
+                gap = min(gap, dtw[i][j]);
+            }
+            //if (gap > terminate)
+                //return inf;
+        }
+        dis = dtw[num][len];
+        break;
     }
-    return dis;
+    return dis / num;
 }
 
 

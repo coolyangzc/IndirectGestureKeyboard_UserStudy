@@ -3,46 +3,91 @@
 
 #include <cstdio>
 #include <vector>
+#include <cstring>
 #include <sstream>
 #include <fstream>
 #include <iostream>
 
 using namespace std;
 
-const int USER_NUM = 6;
-const string user[USER_NUM] = {"yzc", "maye", "ssy", "xwj", "yyk", "yzp"};
-const string id[USER_NUM] = {"1", "2", "3", "4", "5", "6"};
-
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
 string sentence[PHRASES], userText[PHRASES], mode[PHRASES], scale[PHRASES];
 double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
 double WPM[PHRASES], totTime[PHRASES];
+int top[12];
 Vector2 keyPos[26];
 
-double gestureTime[2], selectTime[2], cancelTime[2], deleteTime[2], restTime[2];
-
+string algorithm;
 string dict[LEXICON_SIZE];
 int freq[LEXICON_SIZE];
 vector<Vector2> path[LEXICON_SIZE];
 
-vector<string> cmd;
-vector<string> words;
-
+vector<string> cmd, para, words;
+vector<int> para0;
 vector<double> time;
+
+enum Type
+{
+    Gesture = 0,
+    Select = 1,
+    Cancel = 2,
+    Delete = 3,
+    Rest = 4,
+    TYPENUM = 5,
+};
+
+double timeCount[TYPENUM], timeBlock[TYPENUM];
+
+string typeToString(int type)
+{
+    switch(type)
+    {
+        case Gesture: return "Gesture";
+        case Select: return "Select";
+        case Cancel: return "Cancel";
+        case Delete: return "Delete";
+        case Rest: return "Rest";
+    }
+}
+struct TimeSpan
+{
+    Type type;
+    double startTime, endTime;
+    int n;
+    string para;
+};
+
+vector<TimeSpan> span;
 vector<Vector2> world, relative;
 
-string name, userID, timeFileName, WPMFileName;
-fstream timeFout, WPMFout;
+string name, userID, timeFileName, timeRatioFileName, WPMFileName, candFileName;
+fstream timeFout, timeRatioFout, WPMFout, candFout;
 
 void initFstream()
 {
-    WPMFileName = "res/WPM.csv";
-    timeFileName = "res/Time.csv";
+    WPMFileName = "res/WPM_Study2.csv";
+    timeFileName = "res/Time_Study2.csv";
+    timeRatioFileName = "res/Time_Ratio_Study2.csv";
+    candFileName = "res/Candidates_Study2.csv";
     WPMFout.open(WPMFileName.c_str(), fstream::out);
     timeFout.open(timeFileName.c_str(), fstream::out);
-    WPMFout << "id,order,mode,sentence,WPM" << endl;
-    timeFout << "id,mode,kind,time" << endl;
+    timeRatioFout.open(timeRatioFileName.c_str(), fstream::out);
+    candFout.open(candFileName.c_str(), fstream::out);
+
+    WPMFout << "id,algorithm,block,mode,sentence,WPM,correct,uncorrected,cancel,delete" << endl;
+    timeFout << "id,algorithm,block,mode,sentence";
+    timeRatioFout << "id,algorithm,block,mode";
+    rep(i, TYPENUM)
+    {
+        timeFout << "," << typeToString(i);
+        timeRatioFout << "," << typeToString(i) << "(ratio)";
+    }
+    timeFout << endl;
+    timeRatioFout << endl;
+    candFout << "id,algorithm,block,mode,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,";
+    candFout << "top1(ratio),top2(ratio),top3(ratio),top4(ratio),top5(ratio),top6(ratio),"
+             << "top7(ratio),top8(ratio),top9(ratio),top10(ratio),top11(ratio),top12(ratio)," << endl;
 }
 
 void initDTW()
@@ -61,6 +106,21 @@ void initLexicon()
     rep(i, LEXICON_SIZE)
         fin >> dict[i] >> freq[i];
     fin.close();
+}
+
+void sentenceToWords(string sentence, vector<string>& words)
+{
+    string word = "";
+    rep(i, sentence.length())
+        if (sentence[i] >= 'a' && sentence[i] <= 'z')
+            word += sentence[i];
+        else
+        {
+            words.push_back(word);
+            word = "";
+        }
+    if (word.length() > 0)
+        words.push_back(word);
 }
 
 vector<Vector2> wordToPath(string word, int id)
@@ -96,11 +156,22 @@ void calcKeyLayout()
     }
 }
 
+void linePushBack(string s, double t, string p, int p0 = 0)
+{
+    cmd.push_back(s);
+    time.push_back(t);
+    para0.push_back(p0);
+    para.push_back(p);
+    world.push_back(Vector2(0, 0));
+    relative.push_back(Vector2(0, 0));
+}
+
 void linePushBack(string s, double t, double x = 0, double y = 0, double rx = 0, double ry = 0)
 {
     cmd.push_back(s);
     time.push_back(t);
-
+    para0.push_back(0);
+    para.push_back("");
     world.push_back(Vector2(x, y));
     relative.push_back(Vector2(rx, ry));
 }
@@ -114,8 +185,13 @@ void readData(int id)
     fin.open(fileName.c_str(), fstream::in);
     getline(fin, sentence[id]);
     getline(fin, userText[id]);
+    cout << id << ": " << sentence[id] << endl;
     if (sentence[id] != userText[id])
-        cout << "diff" << endl;
+    {
+        cout << id << ": diff" << endl;
+        cout << id << ": " << userText[id] << endl;
+    }
+
     fin >> mode[id];
     fin >> widthRatio[id] >> heightRatio[id];
     fin >> width[id] >> height[id];
@@ -124,26 +200,18 @@ void readData(int id)
     else
         scale[id] = "1x3";
 
-    keyboardSize[id] = widthRatio[id] / 0.8;
+    keyboardSize[id] = (widthRatio[id] / 0.8) + 0.25f;
 
     words.clear();
-    int alpha = sentence[id].length();
-    string word = "";
-    rep(i, sentence[id].length())
-        if (sentence[id][i] >= 'a' && sentence[id][i] <= 'z')
-            word += sentence[id][i];
-        else
-        {
-            words.push_back(word);
-            word = "";
-        }
-    if (word.length() > 0)
-        words.push_back(word);
+    sentenceToWords(sentence[id], words);
+
     double startTime = -1;
     cmd.clear(); time.clear();
+    para.clear(); para0.clear();
     world.clear(); relative.clear();
 
-    string s, unUsed;
+    int n;
+    string s, pa, unUsed;
     double t, x, y, rx, ry, lastT;
     while (fin >> s)
     {
@@ -154,30 +222,30 @@ void readData(int id)
             break;
         }
         lastT = t;
-        if (s == "Candidates")
+        if (s == "Candidates" || s == "Accept")
         {
-            int num;
-            fin >> num;
-            rep(i, num)
-                fin >> unUsed;
-            linePushBack(s, t);
+            fin >> n;
+            getline(fin, pa);
+            if (pa.length() > 0)
+                pa = pa.substr(1, pa.length() - 1);
+            linePushBack(s, t, pa, n);
             continue;
         }
         if (s == "Backspace")
         {
             startTime = -1;
             cmd.clear(); time.clear();
+            para.clear(); para0.clear();
             world.clear(); relative.clear();
-            linePushBack(s, t);
             continue;
         }
-        if (s == "Accept" || s == "SingleKey")
+        if (s == "Delete")
         {
-            fin >> unUsed;
-            linePushBack(s, t);
+            fin >> pa;
+            linePushBack(s, t, pa);
             continue;
         }
-        if (s == "Cancel" || s == "Delete")
+        if (s == "Cancel" || s == "NextCandidatePanel")
         {
             linePushBack(s, t);
             continue;
@@ -191,6 +259,7 @@ void readData(int id)
         }
     }
     totTime[id] = lastT - startTime;
+    int alpha = userText[id].length();
     WPM[id] = alpha / totTime[id] * 12;
     fin.close();
 }
@@ -198,121 +267,188 @@ void readData(int id)
 void calcTimeDistribution(int id)
 {
     fstream& fout = timeFout;
-    double startTime = -1, endTime = -1;
+    double s = -1, t = -1;
     bool inRest = false, inCandidates = false;
-    int m = 0;
-    if (mode[id] == "FixStart")
-        m = 1;
+    span.clear();
+    TimeSpan cnt;
+    cnt.startTime = cnt.endTime = -1;
     rep(line, cmd.size())
     {
-        string& s = cmd[line];
-        if (s == "Candidates")
+        cnt.para = para[line];
+        cnt.n = para0[line];
+        if (cmd[line] == "Candidates")
         {
-            cout << "Gesture:" << startTime << " " << endTime << endl;
-            gestureTime[m] += endTime - startTime;
+            if (para0[line] == 0)
+                continue;
+            cnt.type = Gesture;
+            span.push_back(cnt);
+            cnt.startTime = cnt.endTime;
+            inRest = false;
             inCandidates = true;
-            startTime = time[line];
         }
-        else if (s == "Delete")
+        else if (cmd[line] == "Delete")
         {
-            cout << "Delete:" << startTime << " " << endTime << endl;
-            deleteTime[m] += endTime - startTime;
-            inRest = true;
-            startTime = endTime;
-        }
-        else if (s == "SingleKey")
-        {
-            cout << "SingleKey:" << startTime << " " << endTime << endl;
-            gestureTime[m] += endTime - startTime;
-            inRest = true;
-            startTime = endTime;
-        }
-        else if (s == "Accept")
-        {
-            cout << "Accept:" << startTime << " " << endTime << endl;
-            selectTime[m] += endTime - startTime;
-            inRest = true;
-            inCandidates = false;
-            startTime = endTime;
-        }
-        else if (s == "Cancel")
-        {
-            cout << "Cancel:" << startTime << " " << endTime << endl;
-            cancelTime[m] += endTime - startTime;
+            cnt.type = Delete;
+            if (para[line] == "LeftSwipe")
+            {
+                cnt.startTime = span.back().startTime;
+                span.pop_back(); //Rest
+                span.push_back(cnt);
+            }
+            else if (para[line] == "DoubleClick")
+            {
+                span.pop_back(); //Cancel
+                span.pop_back(); //Gesture
+                cnt.startTime = span.back().startTime;
+                span.pop_back(); //Rest
+                span.push_back(cnt);
+            }
+            else cout << "Unkonwn para for Delete: " << para[line] << line << endl;
             inRest = true;
             inCandidates = false;
-            startTime = endTime;
+            cnt.startTime = cnt.endTime;
         }
-
-        else if (s == "Began")
+        else if (cmd[line] == "Accept")
+        {
+            cnt.type = Select;
+            span.push_back(cnt);
+            cnt.startTime = cnt.endTime;
+            inRest = true;
+            inCandidates = false;
+        }
+        else if (cmd[line] == "Cancel")
+        {
+            cnt.type = Cancel;
+            span.push_back(cnt);
+            cnt.startTime = cnt.endTime;
+            inRest = true;
+            inCandidates = false;
+        }
+        else if (cmd[line] == "Began")
         {
             if (inRest)
             {
-                cout << "Rest:" << startTime << " " << time[line] << endl;
-                restTime[m] += time[line] - startTime;
+                cnt.endTime = time[line];
+                cnt.type = Rest;
+                span.push_back(cnt);
                 inRest = false;
-                startTime = time[line];
+                cnt.startTime = time[line];
             }
-            else
-                endTime = time[line];
-            if (startTime == -1)
-                startTime = time[line];
+            if (cnt.startTime == -1)
+                cnt.startTime = time[line];
+        }
+        else if (cmd[line] == "Stationary" || cmd[line] == "Moved")
+        {
+
+        }
+        else if (cmd[line] == "Ended")
+            cnt.endTime = time[line];
+        else if (cmd[line] == "NextCandidatePanel" || cmd[line] == "PhraseEnd")
+        {
+
         }
         else
-            endTime = time[line];
+            cout << "Unknown cmd: " << cmd[line] << endl;
     }
+    memset(timeCount, 0, sizeof(timeCount));
+    rep(i, span.size())
+    {
+        timeCount[span[i].type] += span[i].endTime - span[i].startTime;
+        timeBlock[span[i].type] += span[i].endTime - span[i].startTime;
+    }
+    timeFout << userID << ","
+             << algorithm << ","
+             << (id / 6) % 8 + 1 << ","
+             << mode[id] << ","
+             << sentence[id];
+    rep(i, TYPENUM)
+        timeFout << "," << timeCount[i];
+    timeFout << endl;
+
+    if ((id+1) % 6 == 0)
+    {
+        double tot = 0;
+        rep(i, TYPENUM)
+            tot += timeBlock[i];
+        timeRatioFout << userID << ","
+                      << algorithm << ","
+                      << (id / 6) % 8 + 1 << ","
+                      << mode[id];
+        rep(i, TYPENUM)
+            timeRatioFout << "," << timeBlock[i] / tot;
+        timeRatioFout << endl;
+        memset(timeBlock, 0, sizeof(timeBlock));
+    }
+
+
+    /*
+    rep(i, span.size())
+    {
+        cout << typeToString(span[i].type) << "\t"
+             << span[i].startTime << " - " << span[i].endTime << " ";
+        if (span[i].type == Select)
+            cout << "\t" << span[i].n << " " << span[i].para;
+        if (span[i].type == Delete)
+            cout << "\t" << span[i].para;
+        puts("");
+    }
+    puts("");
+    */
 }
 
-void outputWPM()
+void outputWPM(int id)
 {
-    int m = 0;
-    double maxWPM[2] = {0, 0};
-    rep(i, PHRASES)
-    {
-        WPMFout << userID << ","
-                << (i%10) << ","
-                << mode[i] << ","
-                << sentence[i] << ","
-                << WPM[i] << endl;
-        if (mode[i] == "Basic")
-            m = 0;
+    //double maxWPM[2] = {0, 0};
+    int deleteCnt = 0, cancelCnt = 0, correct = 0, uncorrected = 0;
+    rep(i, span.size())
+        if (span[i].type == Delete)
+            deleteCnt++;
+        else if (span[i].type == Cancel)
+            cancelCnt++;
+
+    vector<string> inputWords;
+    sentenceToWords(userText[id], inputWords);
+    rep(i, words.size())
+        if (i >= inputWords.size() || words[i] != inputWords[i])
+            uncorrected++;
         else
-            m = 1;
-        maxWPM[m] = max(WPM[i], maxWPM[m]);
-    }
+            correct++;
+
     WPMFout << userID << ","
-            << "N/A" << ","
-            << "max(Basic)" << ","
-            << "N/A" << ","
-            << maxWPM[0] << endl;
-    WPMFout << userID << ","
-            << "N/A" << ","
-            << "max(FixStart)" << ","
-            << "N/A" << ","
-            << maxWPM[1] << endl;
+            << algorithm << ","
+            << (id / 6) % 8 + 1 << ","
+            << mode[id] << ","
+            << sentence[id] << "," << WPM[id] << ","
+            << correct << "," << uncorrected << ","
+            << cancelCnt << "," << deleteCnt
+            << endl;
 }
 
-void outputTimeDistribution()
+void outputCandidates(int id)
 {
-    rep(i, 2)
+    vector<int> tops;
+    rep(i, span.size())
+        if (span[i].type == Select)
+            tops.push_back(span[i].n);
+        else if (span[i].type == Delete && !tops.empty())
+            tops.pop_back();
+    rep(i, tops.size())
+        top[tops[i]]++;
+
+    if ((id+1) % 6 == 0)
     {
-        double tot = gestureTime[i] + selectTime[i] + cancelTime[i] + deleteTime[i] + restTime[i];
-        string mode = ((i==0)?"Basic":"FixStart");
-        timeFout<< userID << "," << mode << ","
-                << "gesture" << ","
-                << gestureTime[i] / tot << endl;
-        timeFout<< userID << "," << mode << ","
-                << "select" << ","
-                << selectTime[i] / tot << endl;
-        timeFout<< userID << "," << mode << ","
-                << "cancel" << ","
-                << cancelTime[i] / tot << endl;
-        timeFout<< userID << "," << mode << ","
-                << "delete" << ","
-                << deleteTime[i] / tot << endl;
-        timeFout<< userID << "," << mode << ","
-                << "rest" << ","
-                << restTime[i] / tot << endl;
+        For(i, 11)
+            top[i] += top[i-1];
+        candFout << userID << ","
+                 << algorithm << ","
+                 << (id / 6) % 8 + 1 << ","
+                 << mode[id];
+        rep(i, 12)
+            candFout << "," << top[i];
+        rep(i, 12)
+            candFout << "," << (float)top[i] / top[11];
+        candFout << endl;
+        memset(top, 0, sizeof(top));
     }
 
 }
@@ -324,13 +460,15 @@ int main()
     {
         name = user[p];
         userID = id[p];
+        if (p < 6)
+            algorithm = "DTW";
         rep(i, PHRASES)
         {
             readData(i);
             calcTimeDistribution(i);
+            outputWPM(i);
+            outputCandidates(i);
         }
-        outputWPM();
-        outputTimeDistribution();
     }
     return 0;
 }
