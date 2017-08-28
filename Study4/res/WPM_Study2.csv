@@ -287,3 +287,483 @@ id,algorithm,block,mode,sentence,WPM,correct,uncorrected,cancel,delete
 3,DTW,8,Basic,no exchange without a bill,23.0275,5,0,0,0
 3,DTW,8,Basic,good jobs for those with education,27.3715,6,0,0,0
 3,DTW,8,Basic,completely sold out of that,28.431,4,1,0,0
+4,DTW,1,FixStart,where can my little dog be,12.6762,6,0,1,0
+4,DTW,1,FixStart,love means many things,16.5491,4,0,1,0
+4,DTW,1,FixStart,the force is with you,17.0836,5,0,0,0
+4,DTW,1,FixStart,just what the doctor ordered,23.3801,5,0,0,0
+4,DTW,1,FixStart,do not drink too much,20.8748,5,0,0,0
+4,DTW,1,FixStart,did you have a good time,18.895,6,0,0,0
+4,DTW,2,FixStart,the postal service is very slow,17.1238,5,1,1,0
+4,DTW,2,FixStart,my favorite place to visit,22.4847,5,0,0,0
+4,DTW,2,FixStart,a subject one can really enjoy,18.2601,6,0,0,0
+4,DTW,2,FixStart,an airport is a very busy place,21.2798,7,0,0,0
+4,DTW,2,FixStart,a much higher risk of getting cancer,21.4528,7,0,0,0
+4,DTW,2,FixStart,the food at this restaurant,22.2356,5,0,0,0
+4,DTW,3,FixStart,nothing wrong with his style,16.9449,5,0,1,0
+4,DTW,3,FixStart,important news always seems to be late,17.3714,7,0,1,0
+4,DTW,3,FixStart,he is just like everyone else,21.7799,6,0,0,0
+4,DTW,3,FixStart,a good response to the question,21.1388,6,0,0,0
+4,DTW,3,FixStart,the capital of our nation,17.336,5,0,0,0
+4,DTW,3,FixStart,the location of the crime,22.214,5,0,0,0
+4,DTW,4,FixStart,world population is growing,22.9267,4,0,0,0
+4,DTW,4,FixStart,hands on experience with a job,22.1212,6,0,0,0
+4,DTW,4,FixStart,the postal service is very slow,23.1862,6,0,0,0
+4,DTW,4,FixStart,for murder you get a long prison sentence,23.72,8,0,0,0
+4,DTW,4,FixStart,we missed your birthday,25.2956,4,0,0,0
+4,DTW,4,FixStart,the world is a stage,23.2446,5,0,0,0
+4,DTW,5,FixStart,we missed your birthday,23.6951,4,0,0,0
+4,DTW,5,FixStart,time to go shopping,24.6994,4,0,0,0
+4,DTW,5,FixStart,reading week is just about here,23.2922,6,0,0,0
+4,DTW,5,FixStart,this library has many books,24.7555,5,0,0,0
+4,DTW,5,FixStart,we missed your birthday,26.2357,4,0,0,0
+4,DTW,5,FixStart,he is just like everyone else,22.757,6,0,0,0
+4,DTW,6,FixStart,thank you for your help,23.1059,5,0,0,0
+4,DTW,6,FixStart,exercise is good for the mind,21.568,6,0,0,0
+4,DTW,6,FixStart,soon we will return from the city,19.5093,7,0,0,0
+4,DTW,6,FixStart,have a good weekend,21.2251,4,0,0,0
+4,DTW,6,FixStart,a much higher risk of getting cancer,23.8371,7,0,0,0
+4,DTW,6,FixStart,exercise is good for the mind,24.5399,6,0,0,0
+4,DTW,7,FixStart,world population is growing,23.8621,4,0,0,0
+4,DTW,7,FixStart,an airport is a very busy place,21.3781,7,0,0,0
+4,DTW,7,FixStart,do not worry about this,22.6974,5,0,0,0
+4,DTW,7,FixStart,do not walk too quickly,22.9331,5,0,0,0
+4,DTW,7,FixStart,just what the doctor ordered,24.0378,5,0,0,0
+4,DTW,7,FixStart,a good response to the question,24.7308,6,0,0,0
+4,DTW,8,FixStart,the minimum amount of time,23.0513,5,0,0,0
+4,DTW,8,FixStart,historic meeting without a result,28.4279,5,0,0,0
+4,DTW,8,FixStart,for your information only,26.551,4,0,0,0
+4,DTW,8,FixStart,he is just like everyone else,25.0036,6,0,0,0
+4,DTW,8,FixStart,he is just like everyone else,27.9428,6,0,0,0
+4,DTW,8,FixStart,the union will go on strike,19.0387,6,0,0,0
+4,DTW,1,Basic,come and see our new car,10.9739,6,0,1,1
+4,DTW,1,Basic,not quite so smart as you think,10.947,7,0,3,1
+4,DTW,1,Basic,the fourth edition was better,18.1799,5,0,1,0
+4,DTW,1,Basic,we run the risk of failure,18.4006,6,0,0,0
+4,DTW,1,Basic,do not worry about this,20.9918,5,0,0,0
+4,DTW,1,Basic,the music is better than it sounds,16.0421,7,0,2,0
+4,DTW,2,Basic,frequently asked questions,20.3895,3,0,0,0
+4,DTW,2,Basic,good jobs for those with education,19.674,6,0,0,0
+4,DTW,2,Basic,express delivery is very fast,14.1268,5,0,1,0
+4,DTW,2,Basic,experience is hard to come by,18.2543,6,0,0,0
+4,DTW,2,Basic,a very traditional way to dress,16.4456,6,0,1,0
+4,DTW,2,Basic,the force is with you,20.6388,5,0,0,0
+4,DTW,3,Basic,the postal service is very slow,16.6071,5,1,1,0
+4,DTW,3,Basic,please provide your date of birth,17.3304,5,1,1,0
+4,DTW,3,Basic,express delivery is very fast,18.8874,5,0,0,0
+4,DTW,3,Basic,the minimum amount of time,18.2147,5,0,1,0
+4,DTW,3,Basic,a good response to the question,17.5853,6,0,1,0
+4,DTW,3,Basic,protect your environment,24.5462,3,0,0,0
+4,DTW,4,Basic,an airport is a very busy place,12.752,7,0,3,0
+4,DTW,4,Basic,elections bring out the best,15.6461,5,0,1,0
+4,DTW,4,Basic,completely sold out of that,18.5344,5,0,0,0
+4,DTW,4,Basic,this library has many books,18.4185,5,0,0,0
+4,DTW,4,Basic,if you were not so stupid,17.82,6,0,0,0
+4,DTW,4,Basic,where can my little dog be,14.8064,6,0,1,0
+4,DTW,5,Basic,this watch is too expensive,21.5268,5,0,0,0
+4,DTW,5,Basic,do not drink too much,17.9143,5,0,0,0
+4,DTW,5,Basic,take a coffee break,7.33709,4,0,3,0
+4,DTW,5,Basic,hands on experience with a job,15.0175,6,0,1,0
+4,DTW,5,Basic,effort is what it will take,19.0678,6,0,0,0
+4,DTW,5,Basic,you must be getting old,18.6587,5,0,0,0
+4,DTW,6,Basic,where can my little dog be,13.8145,6,0,2,0
+4,DTW,6,Basic,a much higher risk of getting cancer,20.3027,7,0,0,0
+4,DTW,6,Basic,reading week is just about here,17.32,6,0,1,0
+4,DTW,6,Basic,a good response to the question,20.8124,6,0,0,0
+4,DTW,6,Basic,my favorite place to visit,15.9574,5,0,1,0
+4,DTW,6,Basic,you are a wonderful example,22.8249,5,0,0,0
+4,DTW,7,Basic,my favorite place to visit,21.5366,5,0,0,0
+4,DTW,7,Basic,he is just like everyone else,22.7406,6,0,0,0
+4,DTW,7,Basic,that is a very odd question,20.103,6,0,0,0
+4,DTW,7,Basic,are you talking to me,17.1394,5,0,0,0
+4,DTW,7,Basic,the location of the crime,22.4786,5,0,0,0
+4,DTW,7,Basic,want to join us for lunch,19.0876,6,0,0,0
+4,DTW,8,Basic,come and see our new car,19.5162,6,0,0,0
+4,DTW,8,Basic,a good response to the question,22.762,6,0,0,0
+4,DTW,8,Basic,a picture is worth many words,22.9325,6,0,0,0
+4,DTW,8,Basic,call for more details,24.6046,4,0,0,0
+4,DTW,8,Basic,just in time for the party,25.6032,6,0,0,0
+4,DTW,8,Basic,players must know all the rules,22.1719,6,0,0,0
+5,DTW,1,FixStart,that is a very odd question,14.4934,6,0,1,0
+5,DTW,1,FixStart,the location of the crime,20.3234,5,0,0,0
+5,DTW,1,FixStart,important news always seems to be late,16.7875,7,0,1,0
+5,DTW,1,FixStart,nothing wrong with his style,21.133,5,0,0,0
+5,DTW,1,FixStart,bad for the environment,21.7337,4,0,0,0
+5,DTW,1,FixStart,if you were not so stupid,14.7165,6,0,1,0
+5,DTW,2,FixStart,all work and no play,16.6564,5,0,0,1
+5,DTW,2,FixStart,learn to walk before you run,18.1862,6,0,0,0
+5,DTW,2,FixStart,world population is growing,17.6736,4,0,1,1
+5,DTW,2,FixStart,are you sure you want this,22.6677,6,0,0,0
+5,DTW,2,FixStart,learn to walk before you run,21.7372,6,0,0,0
+5,DTW,2,FixStart,take a coffee break,15.3171,4,0,1,0
+5,DTW,3,FixStart,are you sure you want this,23.1901,6,0,0,0
+5,DTW,3,FixStart,do not worry about this,16.524,5,0,1,0
+5,DTW,3,FixStart,want to join us for lunch,14.9435,6,0,0,0
+5,DTW,3,FixStart,you are a wonderful example,23.7601,5,0,0,0
+5,DTW,3,FixStart,interesting observation was made,28.4133,4,0,0,0
+5,DTW,3,FixStart,exercise is good for the mind,20.6615,6,0,0,0
+5,DTW,4,FixStart,elections bring out the best,24.4227,5,0,0,0
+5,DTW,4,FixStart,time to go shopping,21.1973,4,0,0,0
+5,DTW,4,FixStart,are you talking to me,22.7478,5,0,0,0
+5,DTW,4,FixStart,no exchange without a bill,25.6974,5,0,0,0
+5,DTW,4,FixStart,the postal service is very slow,24.2129,6,0,0,0
+5,DTW,4,FixStart,they watched the entire movie,26.9763,5,0,0,0
+5,DTW,5,FixStart,are you sure you want this,28.2042,6,0,0,0
+5,DTW,5,FixStart,the facts get in the way,23.0242,6,0,0,0
+5,DTW,5,FixStart,the location of the crime,24.2793,5,0,0,0
+5,DTW,5,FixStart,you should visit a doctor,23.942,5,0,0,0
+5,DTW,5,FixStart,all work and no play,22.2397,5,0,0,0
+5,DTW,5,FixStart,frequently asked questions,37.0885,3,0,0,0
+5,DTW,6,FixStart,do you prefer a window seat,15.6348,6,0,1,0
+5,DTW,6,FixStart,the postal service is very slow,24.6374,6,0,0,0
+5,DTW,6,FixStart,they watched the entire movie,30.5183,5,0,0,0
+5,DTW,6,FixStart,a picture is worth many words,23.2838,6,0,0,0
+5,DTW,6,FixStart,thank you for your help,25.6959,5,0,0,0
+5,DTW,6,FixStart,they watched the entire movie,28.8485,5,0,0,0
+5,DTW,7,FixStart,if you were not so stupid,23.5756,6,0,0,0
+5,DTW,7,FixStart,interactions between men and women,25.2663,5,0,0,0
+5,DTW,7,FixStart,do not drink too much,13.2548,5,0,1,0
+5,DTW,7,FixStart,the music is better than it sounds,24.4136,7,0,0,0
+5,DTW,7,FixStart,the facts get in the way,21.9145,6,0,0,0
+5,DTW,7,FixStart,healthy food is good for you,14.9599,6,0,1,0
+5,DTW,8,FixStart,where can my little dog be,22.8622,6,0,0,0
+5,DTW,8,FixStart,rapidly running short on words,16.609,5,0,1,0
+5,DTW,8,FixStart,fall is my favorite season,21.3816,5,0,0,0
+5,DTW,8,FixStart,for murder you get a long prison sentence,25.8403,8,0,0,0
+5,DTW,8,FixStart,my watch fell in the water,19.1587,6,0,0,0
+5,DTW,8,FixStart,historic meeting without a result,31.0345,5,0,0,0
+5,DTW,1,Basic,are you talking to me,10.2767,5,0,2,0
+5,DTW,1,Basic,are you sure you want this,17.1496,6,0,0,0
+5,DTW,1,Basic,not quite so smart as you think,16.2719,7,0,1,0
+5,DTW,1,Basic,effort is what it will take,22.8596,6,0,0,0
+5,DTW,1,Basic,for your information only,22.465,4,0,0,0
+5,DTW,1,Basic,do not drink the water,15.0754,5,0,0,0
+5,DTW,2,Basic,healthy food is good for you,19.7385,6,0,0,0
+5,DTW,2,Basic,do not drink the water,10.5063,5,0,2,0
+5,DTW,2,Basic,the second largest country,24.8082,4,0,0,0
+5,DTW,2,Basic,world population is growing,28.2604,4,0,0,0
+5,DTW,2,Basic,you must be getting old,23.1078,5,0,0,0
+5,DTW,2,Basic,are you sure you want this,17.2503,6,0,2,0
+5,DTW,3,Basic,effort is what it will take,16.412,6,0,1,0
+5,DTW,3,Basic,the capital of our nation,24.6749,5,0,0,0
+5,DTW,3,Basic,the postal service is very slow,23.242,6,0,0,0
+5,DTW,3,Basic,please provide your date of birth,26.7772,6,0,0,0
+5,DTW,3,Basic,this is a very good idea,21.0095,6,0,0,0
+5,DTW,3,Basic,my favorite place to visit,18.1472,5,0,1,0
+5,DTW,4,Basic,experience is hard to come by,21.6882,6,0,0,0
+5,DTW,4,Basic,bad for the environment,25.7026,4,0,0,0
+5,DTW,4,Basic,frequently asked questions,32.9329,3,0,0,0
+5,DTW,4,Basic,the fourth edition was better,19.6781,5,0,1,0
+5,DTW,4,Basic,the union will go on strike,19.1055,6,0,0,0
+5,DTW,4,Basic,reading week is just about here,14.1866,6,0,2,0
+5,DTW,5,Basic,a quarter of a century,15.6688,5,0,1,0
+5,DTW,5,Basic,the food at this restaurant,24.2844,5,0,0,0
+5,DTW,5,Basic,effort is what it will take,21.1224,6,0,1,0
+5,DTW,5,Basic,bad for the environment,23.0334,4,0,0,0
+5,DTW,5,Basic,do not worry about this,21.3045,5,0,0,0
+5,DTW,5,Basic,consequences of a wrong turn,26.8577,5,0,0,0
+5,DTW,6,Basic,the postal service is very slow,19.6532,6,0,0,1
+5,DTW,6,Basic,the force is with you,26.8571,5,0,0,0
+5,DTW,6,Basic,that is a very odd question,25.5239,6,0,0,0
+5,DTW,6,Basic,just what the doctor ordered,17.3098,5,0,1,0
+5,DTW,6,Basic,protect your environment,27.6896,3,0,0,0
+5,DTW,6,Basic,soon we will return from the city,19.2682,7,0,1,0
+5,DTW,7,Basic,a subject one can really enjoy,24.349,6,0,1,0
+5,DTW,7,Basic,a picture is worth many words,30.211,6,0,0,0
+5,DTW,7,Basic,travel at the speed of light,24.1709,6,0,0,0
+5,DTW,7,Basic,they watched the entire movie,28.9277,5,0,0,0
+5,DTW,7,Basic,do not say anything,21.7371,4,0,0,0
+5,DTW,7,Basic,the location of the crime,28.5198,5,0,0,0
+5,DTW,8,Basic,the library is closed today,30.0056,5,0,0,0
+5,DTW,8,Basic,the library is closed today,20.0309,5,0,1,0
+5,DTW,8,Basic,an airport is a very busy place,16.5392,7,0,0,0
+5,DTW,8,Basic,just what the doctor ordered,28.8437,5,0,0,0
+5,DTW,8,Basic,the world is a stage,14.534,5,0,1,0
+5,DTW,8,Basic,effort is what it will take,28.5714,6,0,0,0
+6,DTW,1,FixStart,experience is hard to come by,13.0112,6,0,1,1
+6,DTW,1,FixStart,for your information only,19.5505,4,0,0,0
+6,DTW,1,FixStart,my watch fell in the water,16.9001,6,0,0,0
+6,DTW,1,FixStart,hands on experience with a job,18.2638,6,0,0,0
+6,DTW,1,FixStart,interesting observation was made,23.2212,4,0,0,0
+6,DTW,1,FixStart,consequences of a wrong turn,17.8413,5,0,0,0
+6,DTW,2,FixStart,the location of the crime,22.0415,5,0,0,0
+6,DTW,2,FixStart,for your information only,23.8726,4,0,0,0
+6,DTW,2,FixStart,please provide your date of birth,22.2628,6,0,0,0
+6,DTW,2,FixStart,important for political parties,22.4099,4,0,0,0
+6,DTW,2,FixStart,nothing wrong with his style,23.4853,5,0,0,0
+6,DTW,2,FixStart,experience is hard to come by,18.4443,6,0,0,0
+6,DTW,3,FixStart,the postal service is very slow,22.7676,6,0,0,0
+6,DTW,3,FixStart,the music is better than it sounds,25.8341,7,0,0,0
+6,DTW,3,FixStart,you should visit a doctor,22.5286,5,0,0,0
+6,DTW,3,FixStart,are you sure you want this,20.2663,6,0,0,0
+6,DTW,3,FixStart,do not drink too much,15.1822,5,0,1,0
+6,DTW,3,FixStart,love means many things,22.5429,4,0,0,0
+6,DTW,4,FixStart,historic meeting without a result,23.9927,5,0,0,0
+6,DTW,4,FixStart,you should visit a doctor,21.5285,5,0,0,0
+6,DTW,4,FixStart,with each step forward,22.1514,4,0,0,0
+6,DTW,4,FixStart,the location of the crime,21.0867,5,0,0,0
+6,DTW,4,FixStart,want to join us for lunch,18.2094,6,0,0,0
+6,DTW,4,FixStart,the force is with you,19.8864,5,0,0,0
+6,DTW,5,FixStart,reading week is just about here,21.128,6,0,0,0
+6,DTW,5,FixStart,my favorite place to visit,21.7877,5,0,0,0
+6,DTW,5,FixStart,the children are playing,21.7408,4,0,0,0
+6,DTW,5,FixStart,my favorite place to visit,20.5642,5,0,0,0
+6,DTW,5,FixStart,do not drink the water,19.0435,5,0,0,0
+6,DTW,5,FixStart,just what the doctor ordered,20.558,5,0,0,0
+6,DTW,6,FixStart,good jobs for those with education,20.4583,6,0,0,0
+6,DTW,6,FixStart,a picture is worth many words,20.5735,6,0,0,0
+6,DTW,6,FixStart,my watch fell in the water,20.1148,6,0,0,0
+6,DTW,6,FixStart,historic meeting without a result,25.6693,5,0,0,0
+6,DTW,6,FixStart,for murder you get a long prison sentence,22.9595,8,0,0,0
+6,DTW,6,FixStart,healthy food is good for you,15.7606,6,0,0,1
+6,DTW,7,FixStart,the fourth edition was better,25.2632,5,0,0,0
+6,DTW,7,FixStart,the children are playing,23.8115,4,0,0,0
+6,DTW,7,FixStart,rapidly running short on words,22.927,5,0,0,0
+6,DTW,7,FixStart,this watch is too expensive,21.8845,5,0,0,0
+6,DTW,7,FixStart,historic meeting without a result,28.3323,5,0,0,0
+6,DTW,7,FixStart,the union will go on strike,21.6288,6,0,0,0
+6,DTW,8,FixStart,time to go shopping,23.2819,4,0,0,0
+6,DTW,8,FixStart,good jobs for those with education,23.8387,6,0,0,0
+6,DTW,8,FixStart,a good response to the question,20.329,6,0,0,0
+6,DTW,8,FixStart,are you sure you want this,20.665,6,0,0,0
+6,DTW,8,FixStart,important for political parties,24.1715,4,0,0,0
+6,DTW,8,FixStart,we missed your birthday,24.1935,4,0,0,0
+6,DTW,1,Basic,effort is what it will take,14.8024,6,0,1,0
+6,DTW,1,Basic,important news always seems to be late,20.5708,7,0,0,0
+6,DTW,1,Basic,just what the doctor ordered,19.8069,5,0,0,0
+6,DTW,1,Basic,please provide your date of birth,20.4799,6,0,0,0
+6,DTW,1,Basic,time to go shopping,20.896,4,0,0,0
+6,DTW,1,Basic,the world is a stage,18.1099,5,0,0,0
+6,DTW,2,Basic,consequences of a wrong turn,16.1483,5,0,1,0
+6,DTW,2,Basic,the fourth edition was better,21.0408,5,0,0,0
+6,DTW,2,Basic,reading week is just about here,21.6239,6,0,0,0
+6,DTW,2,Basic,we missed your birthday,23.5597,4,0,0,0
+6,DTW,2,Basic,fall is my favorite season,21.2643,5,0,0,0
+6,DTW,2,Basic,soon we will return from the city,15.5791,7,0,1,0
+6,DTW,3,Basic,just what the doctor ordered,20.7332,5,0,0,0
+6,DTW,3,Basic,the library is closed today,21.4348,5,0,0,0
+6,DTW,3,Basic,we missed your birthday,20.9241,4,0,0,0
+6,DTW,3,Basic,a very traditional way to dress,19.7349,6,0,0,0
+6,DTW,3,Basic,for murder you get a long prison sentence,16.0747,8,0,1,0
+6,DTW,3,Basic,call for more details,24.9958,4,0,0,0
+6,DTW,4,Basic,not quite so smart as you think,19.3879,7,0,0,0
+6,DTW,4,Basic,this library has many books,23.1005,5,0,0,0
+6,DTW,4,Basic,do not say anything,21.253,4,0,0,0
+6,DTW,4,Basic,the price of gas is high,17.6643,6,0,0,0
+6,DTW,4,Basic,you must be getting old,21.6828,5,0,0,0
+6,DTW,4,Basic,rapidly running short on words,21.645,5,0,0,0
+6,DTW,5,Basic,experience is hard to come by,20.1098,6,0,0,0
+6,DTW,5,Basic,yes you are very smart,14.8741,5,0,0,0
+6,DTW,5,Basic,the facts get in the way,17.1992,6,0,0,0
+6,DTW,5,Basic,historic meeting without a result,25.8874,5,0,0,0
+6,DTW,5,Basic,we run the risk of failure,15,6,0,1,0
+6,DTW,5,Basic,do not drink the water,19.2588,5,0,0,0
+6,DTW,6,Basic,consequences of a wrong turn,20.5933,5,0,0,0
+6,DTW,6,Basic,a picture is worth many words,23.5517,6,0,0,0
+6,DTW,6,Basic,time to go shopping,23.1849,4,0,0,0
+6,DTW,6,Basic,the food at this restaurant,19.9643,5,0,0,0
+6,DTW,6,Basic,a picture is worth many words,23.2248,6,0,0,0
+6,DTW,6,Basic,the postal service is very slow,26.0013,6,0,0,0
+6,DTW,7,Basic,fall is my favorite season,19.6041,5,0,0,0
+6,DTW,7,Basic,take a coffee break,21.1975,4,0,0,0
+6,DTW,7,Basic,nothing wrong with his style,21.9823,5,0,0,0
+6,DTW,7,Basic,do you prefer a window seat,15.0635,6,0,0,0
+6,DTW,7,Basic,the minimum amount of time,23.7371,5,0,0,0
+6,DTW,7,Basic,have a good weekend,22.0482,4,0,0,0
+6,DTW,8,Basic,that is a very odd question,23.6496,6,0,0,0
+6,DTW,8,Basic,exercise is good for the mind,18.7895,6,0,0,0
+6,DTW,8,Basic,no exchange without a bill,21.4507,5,0,0,0
+6,DTW,8,Basic,love means many things,23.4271,4,0,0,0
+6,DTW,8,Basic,just what the doctor ordered,24.5542,5,0,0,0
+6,DTW,8,Basic,are you talking to me,17.4491,5,0,0,0
+7,DTW,1,Basic,the facts get in the way,16.1798,6,0,0,0
+7,DTW,1,Basic,time to go shopping,17.956,4,0,0,0
+7,DTW,1,Basic,not quite so smart as you think,16.9836,7,0,0,0
+7,DTW,1,Basic,do not walk too quickly,15.8889,5,0,0,0
+7,DTW,1,Basic,the minimum amount of time,13.2892,5,0,0,1
+7,DTW,1,Basic,are you talking to me,14.9846,4,1,0,0
+7,DTW,2,Basic,we run the risk of failure,17.2378,6,0,0,0
+7,DTW,2,Basic,come and see our new car,17.0439,6,0,0,0
+7,DTW,2,Basic,travel at the speed of light,15.2319,6,0,0,0
+7,DTW,2,Basic,good jobs for those with education,17.9353,6,0,0,0
+7,DTW,2,Basic,the food at this restaurant,18.6482,5,0,0,0
+7,DTW,2,Basic,hands on experience with a job,7.31834,6,0,1,2
+7,DTW,3,Basic,call for more details,12.5114,4,0,0,1
+7,DTW,3,Basic,travel at the speed of light,13.3508,6,0,0,1
+7,DTW,3,Basic,consequences of a wrong turn,15.1093,5,0,0,0
+7,DTW,3,Basic,a good response to the question,14.9861,6,0,1,0
+7,DTW,3,Basic,important news always seems to be late,17.869,7,0,0,0
+7,DTW,3,Basic,express delivery is very fast,21.418,5,0,0,0
+7,DTW,4,Basic,take a coffee break,13.4752,4,0,0,0
+7,DTW,4,Basic,a much higher risk of getting cancer,18.7484,7,0,0,0
+7,DTW,4,Basic,we missed your birthday,12.7295,4,0,1,0
+7,DTW,4,Basic,do not say anything,16.9618,4,0,0,0
+7,DTW,4,Basic,thank you for your help,15.544,5,0,0,0
+7,DTW,4,Basic,with each step forward,16.0829,4,0,0,0
+7,DTW,5,Basic,the second largest country,16.875,4,0,0,0
+7,DTW,5,Basic,the food at this restaurant,15.6393,5,0,0,0
+7,DTW,5,Basic,for murder you get a long prison sentence,16.8121,8,0,0,0
+7,DTW,5,Basic,completely sold out of that,19.4146,5,0,0,0
+7,DTW,5,Basic,bad for the environment,17.6571,4,0,0,0
+7,DTW,5,Basic,for murder you get a long prison sentence,13.139,8,0,1,0
+7,DTW,6,Basic,the capital of our nation,12.7753,5,0,2,0
+7,DTW,6,Basic,consequences of a wrong turn,9.7265,5,0,2,0
+7,DTW,6,Basic,time to go shopping,11.538,4,0,0,0
+7,DTW,6,Basic,yes you are very smart,9.80997,5,0,1,0
+7,DTW,6,Basic,just what the doctor ordered,15.2313,5,0,0,0
+7,DTW,6,Basic,just in time for the party,7.96186,6,0,4,0
+7,DTW,7,Basic,with each step forward,15.9107,4,0,0,0
+7,DTW,7,Basic,the fourth edition was better,15.2917,5,0,1,0
+7,DTW,7,Basic,the price of gas is high,10.9051,6,0,1,0
+7,DTW,7,Basic,longer than a football field,12.1021,5,0,1,0
+7,DTW,7,Basic,time to go shopping,13.2795,4,0,1,0
+7,DTW,7,Basic,want to join us for lunch,13.4921,6,0,1,0
+7,DTW,8,Basic,the world is a stage,17.3714,5,0,0,0
+7,DTW,8,Basic,the world is a stage,13.0083,5,0,1,0
+7,DTW,8,Basic,for murder you get a long prison sentence,15.0919,8,0,2,0
+7,DTW,8,Basic,the music is better than it sounds,18.7188,7,0,1,0
+7,DTW,8,Basic,do not worry about this,12.5023,5,0,1,0
+7,DTW,8,Basic,the capital of our nation,13.9187,5,0,0,0
+7,DTW,1,FixStart,reading week is just about here,19.7971,6,0,0,0
+7,DTW,1,FixStart,yes you are very smart,18.1447,5,0,0,0
+7,DTW,1,FixStart,the location of the crime,14.5558,5,0,1,0
+7,DTW,1,FixStart,a quarter of a century,15.0743,5,0,1,0
+7,DTW,1,FixStart,healthy food is good for you,19.0671,6,0,0,0
+7,DTW,1,FixStart,travel at the speed of light,20.7295,6,0,0,0
+7,DTW,2,FixStart,do not drink the water,20.2771,5,0,0,0
+7,DTW,2,FixStart,all work and no play,12.8397,5,0,1,0
+7,DTW,2,FixStart,where can my little dog be,15.3165,6,0,0,0
+7,DTW,2,FixStart,a much higher risk of getting cancer,18.6931,7,0,0,0
+7,DTW,2,FixStart,are you talking to me,17.9508,5,0,0,0
+7,DTW,2,FixStart,a very traditional way to dress,20.0006,6,0,0,0
+7,DTW,3,FixStart,have a good weekend,17.3353,4,0,0,0
+7,DTW,3,FixStart,he is just like everyone else,17.7749,6,0,0,0
+7,DTW,3,FixStart,do not drink too much,20.2975,5,0,0,0
+7,DTW,3,FixStart,express delivery is very fast,15.8747,5,0,1,0
+7,DTW,3,FixStart,rapidly running short on words,17.6109,5,0,1,0
+7,DTW,3,FixStart,good jobs for those with education,19.3454,6,0,0,0
+7,DTW,4,FixStart,longer than a football field,25.2375,5,0,0,0
+7,DTW,4,FixStart,with each step forward,18.9333,4,0,0,0
+7,DTW,4,FixStart,the union will go on strike,15.0308,6,0,0,2
+7,DTW,4,FixStart,interactions between men and women,14.4997,5,0,0,2
+7,DTW,4,FixStart,healthy food is good for you,18.3205,6,0,0,0
+7,DTW,4,FixStart,the capital of our nation,20.602,5,0,0,0
+7,DTW,5,FixStart,this library has many books,21.6981,5,0,0,0
+7,DTW,5,FixStart,he is just like everyone else,17.5456,6,0,0,0
+7,DTW,5,FixStart,the location of the crime,23.4236,5,0,0,0
+7,DTW,5,FixStart,call for more details,22.8418,4,0,0,0
+7,DTW,5,FixStart,with each step forward,23.1847,4,0,0,0
+7,DTW,5,FixStart,experience is hard to come by,20.1492,6,0,0,0
+7,DTW,6,FixStart,a very traditional way to dress,21.4585,6,0,0,0
+7,DTW,6,FixStart,good jobs for those with education,19.4962,6,0,0,0
+7,DTW,6,FixStart,want to join us for lunch,15.5491,6,0,0,0
+7,DTW,6,FixStart,experience is hard to come by,18.959,6,0,0,0
+7,DTW,6,FixStart,they watched the entire movie,20.639,5,0,0,0
+7,DTW,6,FixStart,interesting observation was made,25.3378,4,0,0,0
+7,DTW,7,FixStart,elections bring out the best,22.9095,5,0,0,0
+7,DTW,7,FixStart,a quarter of a century,19.2926,5,0,0,0
+7,DTW,7,FixStart,the location of the crime,16.9758,5,0,0,1
+7,DTW,7,FixStart,he is just like everyone else,14.7988,6,0,0,1
+7,DTW,7,FixStart,you must be getting old,21.748,5,0,0,0
+7,DTW,7,FixStart,do you prefer a window seat,18.4747,6,0,0,0
+7,DTW,8,FixStart,no exchange without a bill,22.4212,5,0,0,0
+7,DTW,8,FixStart,call for more details,25.7988,4,0,0,0
+7,DTW,8,FixStart,the world is a stage,20.5179,5,0,0,0
+7,DTW,8,FixStart,the postal service is very slow,24.1869,6,0,0,0
+7,DTW,8,FixStart,have a good weekend,21.1711,4,0,0,0
+7,DTW,8,FixStart,the location of the crime,17.8766,5,0,0,1
+8,DTW,1,Basic,express delivery is very fast,17.2142,5,0,0,0
+8,DTW,1,Basic,the union will go on strike,11.3652,6,0,1,0
+8,DTW,1,Basic,not quite so smart as you think,11.7176,7,0,2,0
+8,DTW,1,Basic,protect your environment,16.0683,3,0,0,0
+8,DTW,1,Basic,world population is growing,10.2987,4,0,3,0
+8,DTW,1,Basic,the minimum amount of time,14.8608,5,0,1,0
+8,DTW,2,Basic,my watch fell in the water,11.8559,6,0,1,1
+8,DTW,2,Basic,my watch fell in the water,8.74221,6,0,2,0
+8,DTW,2,Basic,do not drink too much,8.65729,5,0,3,0
+8,DTW,2,Basic,important for political parties,15.3863,4,0,0,0
+8,DTW,2,Basic,the fourth edition was better,17.6345,5,0,0,0
+8,DTW,2,Basic,not quite so smart as you think,17.0395,7,0,0,0
+8,DTW,3,Basic,elections bring out the best,10.2603,5,0,2,0
+8,DTW,3,Basic,the library is closed today,18.6281,5,0,0,0
+8,DTW,3,Basic,interactions between men and women,17.1942,5,0,0,0
+8,DTW,3,Basic,just in time for the party,20.2327,6,0,0,0
+8,DTW,3,Basic,my watch fell in the water,14.5708,6,0,0,0
+8,DTW,3,Basic,they watched the entire movie,18.361,5,0,0,0
+8,DTW,4,Basic,just what the doctor ordered,15.1526,5,0,0,0
+8,DTW,4,Basic,players must know all the rules,14.621,6,0,0,0
+8,DTW,4,Basic,for murder you get a long prison sentence,15.9935,8,0,0,0
+8,DTW,4,Basic,world population is growing,15.948,4,0,1,0
+8,DTW,4,Basic,a subject one can really enjoy,18.0558,6,0,0,0
+8,DTW,4,Basic,for your information only,17.6703,4,0,0,0
+8,DTW,5,Basic,the facts get in the way,14.3287,6,0,0,0
+8,DTW,5,Basic,a subject one can really enjoy,18.2187,6,0,0,0
+8,DTW,5,Basic,the force is with you,15.4475,5,0,0,0
+8,DTW,5,Basic,come and see our new car,10.1076,6,0,3,0
+8,DTW,5,Basic,the children are playing,15.6755,4,0,0,0
+8,DTW,5,Basic,are you talking to me,12.0112,5,0,0,0
+8,DTW,6,Basic,they watched the entire movie,17.9438,5,0,0,0
+8,DTW,6,Basic,this watch is too expensive,12.8391,5,0,1,0
+8,DTW,6,Basic,elections bring out the best,19.1808,5,0,0,0
+8,DTW,6,Basic,this is a very good idea,15.7716,6,0,0,0
+8,DTW,6,Basic,do not worry about this,9.09516,5,0,2,0
+8,DTW,6,Basic,we run the risk of failure,14.7352,6,0,1,0
+8,DTW,7,Basic,a good response to the question,16.4173,6,0,0,0
+8,DTW,7,Basic,important for political parties,18.3062,4,0,0,0
+8,DTW,7,Basic,the force is with you,14.0774,5,0,0,0
+8,DTW,7,Basic,soon we will return from the city,11.5993,7,0,2,1
+8,DTW,7,Basic,time to go shopping,12.0801,4,0,1,0
+8,DTW,7,Basic,a picture is worth many words,15.6545,6,0,0,0
+8,DTW,8,Basic,you must be getting old,11.0228,5,0,1,0
+8,DTW,8,Basic,interactions between men and women,18.9257,5,0,0,0
+8,DTW,8,Basic,longer than a football field,18.081,5,0,0,0
+8,DTW,8,Basic,not quite so smart as you think,13.4998,7,0,1,0
+8,DTW,8,Basic,the world is a stage,15.9564,5,0,0,0
+8,DTW,8,Basic,interactions between men and women,18.9274,5,0,0,0
+8,DTW,1,FixStart,exercise is good for the mind,16.7525,6,0,0,0
+8,DTW,1,FixStart,want to join us for lunch,15.1175,6,0,0,0
+8,DTW,1,FixStart,love means many things,18.7599,4,0,0,0
+8,DTW,1,FixStart,nothing wrong with his style,17.3846,5,0,0,0
+8,DTW,1,FixStart,good jobs for those with education,18.2155,6,0,0,0
+8,DTW,1,FixStart,important news always seems to be late,19.1857,7,0,0,0
+8,DTW,2,FixStart,effort is what it will take,11.2087,6,0,1,0
+8,DTW,2,FixStart,you must be getting old,18.3021,5,0,0,0
+8,DTW,2,FixStart,historic meeting without a result,19.79,5,0,0,0
+8,DTW,2,FixStart,soon we will return from the city,16.4336,7,0,2,0
+8,DTW,2,FixStart,love means many things,17.7997,4,0,0,0
+8,DTW,2,FixStart,effort is what it will take,16.8072,6,0,0,0
+8,DTW,3,FixStart,please provide your date of birth,15.8137,6,0,0,0
+8,DTW,3,FixStart,that is a very odd question,12.6196,6,0,1,0
+8,DTW,3,FixStart,completely sold out of that,17.8469,5,0,0,0
+8,DTW,3,FixStart,longer than a football field,19.8199,5,0,0,0
+8,DTW,3,FixStart,important news always seems to be late,19.0931,7,0,0,0
+8,DTW,3,FixStart,my favorite place to visit,19.0466,5,0,0,0
+8,DTW,4,FixStart,do not walk too quickly,17.2809,5,0,0,0
+8,DTW,4,FixStart,for murder you get a long prison sentence,20.8345,8,0,0,0
+8,DTW,4,FixStart,interactions between men and women,21.1048,5,0,0,0
+8,DTW,4,FixStart,the children are playing,21.1682,4,0,0,0
+8,DTW,4,FixStart,please provide your date of birth,14.842,6,0,1,0
+8,DTW,4,FixStart,that is a very odd question,18.9142,6,0,0,0
+8,DTW,5,FixStart,please provide your date of birth,17.6802,6,0,0,0
+8,DTW,5,FixStart,do you prefer a window seat,17.5877,6,0,0,0
+8,DTW,5,FixStart,healthy food is good for you,14.1165,6,0,2,0
+8,DTW,5,FixStart,are you sure you want this,18.5317,6,0,0,0
+8,DTW,5,FixStart,nothing wrong with his style,18.9285,5,0,1,0
+8,DTW,5,FixStart,do you prefer a window seat,18.1117,6,0,0,0
+8,DTW,6,FixStart,longer than a football field,20.2483,5,0,0,0
+8,DTW,6,FixStart,fall is my favorite season,21.9348,5,0,0,0
+8,DTW,6,FixStart,do not walk too quickly,18.9913,5,0,0,0
+8,DTW,6,FixStart,thank you for your help,19.4079,5,0,0,0
+8,DTW,6,FixStart,all work and no play,19.3004,5,0,0,0
+8,DTW,6,FixStart,this is a very good idea,20.2276,6,0,0,0
+8,DTW,7,FixStart,an airport is a very busy place,15.8683,7,0,0,1
+8,DTW,7,FixStart,come and see our new car,12.6416,6,0,1,0
+8,DTW,7,FixStart,consequences of a wrong turn,18.615,5,0,0,0
+8,DTW,7,FixStart,learn to walk before you run,14.6776,6,0,0,0
+8,DTW,7,FixStart,no exchange without a bill,23.301,5,0,0,0
+8,DTW,7,FixStart,nothing wrong with his style,13.4298,5,0,1,1
+8,DTW,8,FixStart,important news always seems to be late,17.2649,7,0,0,0
+8,DTW,8,FixStart,the fourth edition was better,28.7841,5,0,0,0
+8,DTW,8,FixStart,an airport is a very busy place,13.007,7,0,1,0
+8,DTW,8,FixStart,the price of gas is high,13.0512,6,0,0,0
+8,DTW,8,FixStart,my favorite place to visit,17.3497,5,0,0,1
+8,DTW,8,FixStart,do not say anything,18.3103,4,0,0,0

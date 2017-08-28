@@ -15,7 +15,7 @@ double dtw[MAXSAMPLE][MAXSAMPLE];
 string sentence[PHRASES], userText[PHRASES], mode[PHRASES], scale[PHRASES];
 double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
 double WPM[PHRASES], totTime[PHRASES];
-int top[12];
+int top[13];
 Vector2 keyPos[26];
 
 string algorithm;
@@ -85,9 +85,9 @@ void initFstream()
     }
     timeFout << endl;
     timeRatioFout << endl;
-    candFout << "id,algorithm,block,mode,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,";
+    candFout << "id,algorithm,block,mode,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,all,";
     candFout << "top1(ratio),top2(ratio),top3(ratio),top4(ratio),top5(ratio),top6(ratio),"
-             << "top7(ratio),top8(ratio),top9(ratio),top10(ratio),top11(ratio),top12(ratio)," << endl;
+             << "top7(ratio),top8(ratio),top9(ratio),top10(ratio),top11(ratio),top12(ratio)" << endl;
 }
 
 void initDTW()
@@ -432,21 +432,23 @@ void outputCandidates(int id)
             tops.push_back(span[i].n);
         else if (span[i].type == Delete && !tops.empty())
             tops.pop_back();
+        else if (span[i].type == Cancel)
+            top[12]++;
     rep(i, tops.size())
         top[tops[i]]++;
 
     if ((id+1) % 6 == 0)
     {
-        For(i, 11)
+        For(i, 12)
             top[i] += top[i-1];
         candFout << userID << ","
                  << algorithm << ","
                  << (id / 6) % 8 + 1 << ","
                  << mode[id];
-        rep(i, 12)
+        rep(i, 13)
             candFout << "," << top[i];
         rep(i, 12)
-            candFout << "," << (float)top[i] / top[11];
+            candFout << "," << (float)top[i] / top[12];
         candFout << endl;
         memset(top, 0, sizeof(top));
     }
@@ -460,8 +462,8 @@ int main()
     {
         name = user[p];
         userID = id[p];
-        if (p < 6)
-            algorithm = "DTW";
+        //if (p < 6)
+        algorithm = "DTW";
         rep(i, PHRASES)
         {
             readData(i);
