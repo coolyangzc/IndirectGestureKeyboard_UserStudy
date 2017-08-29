@@ -1,1081 +1,1081 @@
-id,scale,size,sentence,WPM
-1,1x1,1.25,the quick brown fox jumps over the lazy dog,35.0061
-1,1x1,1.25,you must be getting old,41.7985
-1,1x1,1.25,the five boxing wizards jump quickly,38.4407
-1,1x1,1.25,we run the risk of failure,37.7733
-1,1x1,1.25,the force is with you,40.9616
-1,1x1,1.25,love means many things,40.5917
-1,1x1,1.25,time to go shopping,41.6301
-1,1x1,1.25,please provide your date of birth,40.8913
-1,1x1,1.25,my favorite place to visit,41.3026
-1,1x1,1.25,the world is a stage,37.7027
-1,1x1,1,breathing is difficult,42.2623
-1,1x1,1,the five boxing wizards jump quickly,42.178
-1,1x1,1,one heck of a question,44.4587
-1,1x1,1,yes you are very smart,45.1136
-1,1x1,1,watch out for low flying objects,41.7991
-1,1x1,1,the quick brown fox jumps over the lazy dog,40.5466
-1,1x1,1,do not say anything,40.8331
-1,1x1,1,the facts get in the way,43.3846
-1,1x1,1,are you talking to me,39.423
-1,1x1,1,an offer you cannot refuse,40.6912
-1,1x1,0.75,the quick brown fox jumps over the lazy dog,35.1664
-1,1x1,0.75,the five boxing wizards jump quickly,37.1191
-1,1x1,0.75,if at first you do not succeed,40.3646
-1,1x1,0.75,the power of denial,38.7241
-1,1x1,0.75,question that must be answered,39.754
-1,1x1,0.75,he is just like everyone else,38.6697
-1,1x1,0.75,all work and no play,35.0908
-1,1x1,0.75,never too rich and never too thin,42.0008
-1,1x1,0.75,my watch fell in the water,42.6678
-1,1x1,0.75,a problem with the engine,38.6887
-1,1x3,1.25,yes you are very smart,35.0714
-1,1x3,1.25,love means many things,33.1783
-1,1x3,1.25,time to go shopping,42.7687
-1,1x3,1.25,you must be getting old,37.1018
-1,1x3,1.25,we run the risk of failure,34.2518
-1,1x3,1.25,do not say anything,32.9957
-1,1x3,1.25,one heck of a question,40.2378
-1,1x3,1.25,the quick brown fox jumps over the lazy dog,34.7451
-1,1x3,1.25,the five boxing wizards jump quickly,35.9521
-1,1x3,1.25,breathing is difficult,40.0546
-1,1x3,1,if at first you do not succeed,41.6426
-1,1x3,1,please provide your date of birth,45.0717
-1,1x3,1,watch out for low flying objects,42.2489
-1,1x3,1,the force is with you,43.7348
-1,1x3,1,the quick brown fox jumps over the lazy dog,40.7583
-1,1x3,1,are you talking to me,40.9157
-1,1x3,1,he is just like everyone else,41.4039
-1,1x3,1,a problem with the engine,42.0168
-1,1x3,1,the five boxing wizards jump quickly,39.6585
-1,1x3,1,the power of denial,40.3683
-1,1x3,0.75,my watch fell in the water,40
-1,1x3,0.75,all work and no play,34.5821
-1,1x3,0.75,the quick brown fox jumps over the lazy dog,38.4501
-1,1x3,0.75,an offer you cannot refuse,45.152
-1,1x3,0.75,never too rich and never too thin,41.3793
-1,1x3,0.75,the five boxing wizards jump quickly,41.7391
-1,1x3,0.75,question that must be answered,47.8723
-1,1x3,0.75,the facts get in the way,39.7241
-1,1x3,0.75,the world is a stage,41.0256
-1,1x3,0.75,my favorite place to visit,38.4236
-2,1x3,1.25,the power of denial,26.1639
-2,1x3,1.25,breathing is difficult,26.0014
-2,1x3,1.25,the five boxing wizards jump quickly,26.81
-2,1x3,1.25,one heck of a question,26.5676
-2,1x3,1.25,the quick brown fox jumps over the lazy dog,27.7312
-2,1x3,1.25,if at first you do not succeed,29.5758
-2,1x3,1.25,love means many things,24.8106
-2,1x3,1.25,are you talking to me,24.7161
-2,1x3,1.25,never too rich and never too thin,26.5314
-2,1x3,1.25,the facts get in the way,29.0648
-2,1x3,1,time to go shopping,29.2008
-2,1x3,1,watch out for low flying objects,27.7096
-2,1x3,1,the five boxing wizards jump quickly,26.1628
-2,1x3,1,my watch fell in the water,29.9971
-2,1x3,1,please provide your date of birth,29.1434
-2,1x3,1,a problem with the engine,33.0106
-2,1x3,1,the quick brown fox jumps over the lazy dog,29.4353
-2,1x3,1,the world is a stage,28.7977
-2,1x3,1,question that must be answered,35.9138
-2,1x3,1,all work and no play,28.7666
-2,1x3,0.75,the five boxing wizards jump quickly,32.1046
-2,1x3,0.75,we run the risk of failure,31.6366
-2,1x3,0.75,an offer you cannot refuse,32.8594
-2,1x3,0.75,you must be getting old,27.8901
-2,1x3,0.75,my favorite place to visit,27.218
-2,1x3,0.75,do not say anything,30.7402
-2,1x3,0.75,the quick brown fox jumps over the lazy dog,27.2742
-2,1x3,0.75,he is just like everyone else,30.3268
-2,1x3,0.75,the force is with you,28.3465
-2,1x3,0.75,yes you are very smart,30.8051
-2,1x1,1.25,the power of denial,27.3535
-2,1x1,1.25,breathing is difficult,39.0868
-2,1x1,1.25,the five boxing wizards jump quickly,36.1044
-2,1x1,1.25,one heck of a question,30.6346
-2,1x1,1.25,the quick brown fox jumps over the lazy dog,29.5721
-2,1x1,1.25,if at first you do not succeed,29.6369
-2,1x1,1.25,love means many things,29.7535
-2,1x1,1.25,are you talking to me,31.3456
-2,1x1,1.25,never too rich and never too thin,33.369
-2,1x1,1.25,the facts get in the way,37.9262
-2,1x1,1,time to go shopping,31.8196
-2,1x1,1,watch out for low flying objects,29.5879
-2,1x1,1,the five boxing wizards jump quickly,27.1751
-2,1x1,1,my watch fell in the water,39.0244
-2,1x1,1,please provide your date of birth,31.5971
-2,1x1,1,a problem with the engine,31.0177
-2,1x1,1,the quick brown fox jumps over the lazy dog,32.8084
-2,1x1,1,the world is a stage,30.8527
-2,1x1,1,question that must be answered,37.5869
-2,1x1,1,all work and no play,25.949
-2,1x1,0.75,the five boxing wizards jump quickly,23.5589
-2,1x1,0.75,we run the risk of failure,21.0421
-2,1x1,0.75,an offer you cannot refuse,26.0434
-2,1x1,0.75,you must be getting old,26.4502
-2,1x1,0.75,my favorite place to visit,21.9292
-2,1x1,0.75,do not say anything,24.152
-2,1x1,0.75,the quick brown fox jumps over the lazy dog,26.4811
-2,1x1,0.75,he is just like everyone else,23.6071
-2,1x1,0.75,the force is with you,29.0708
-2,1x1,0.75,yes you are very smart,28.474
-3,1x1,1,the five boxing wizards jump quickly,32.3989
-3,1x1,1,you must be getting old,32.3826
-3,1x1,1,my favorite place to visit,32.0043
-3,1x1,1,the power of denial,33.0277
-3,1x1,1,question that must be answered,32.1722
-3,1x1,1,the quick brown fox jumps over the lazy dog,27.0571
-3,1x1,1,my watch fell in the water,25.2826
-3,1x1,1,watch out for low flying objects,29.4931
-3,1x1,1,time to go shopping,33.3022
-3,1x1,1,an offer you cannot refuse,30.1121
-3,1x1,0.75,he is just like everyone else,30.7298
-3,1x1,0.75,the world is a stage,29.2808
-3,1x1,0.75,a problem with the engine,29.0793
-3,1x1,0.75,the five boxing wizards jump quickly,33.6119
-3,1x1,0.75,question that must be answered,34.9176
-3,1x1,0.75,the power of denial,32.0765
-3,1x1,0.75,watch out for low flying objects,28.8874
-3,1x1,0.75,my watch fell in the water,27.3756
-3,1x1,0.75,the quick brown fox jumps over the lazy dog,26.3131
-3,1x1,0.75,the facts get in the way,28.5431
-3,1x1,1.25,yes you are very smart,36.6013
-3,1x1,1.25,you must be getting old,41.6976
-3,1x1,1.25,the five boxing wizards jump quickly,36.9569
-3,1x1,1.25,if at first you do not succeed,35.4062
-3,1x1,1.25,time to go shopping,33.1338
-3,1x1,1.25,do not say anything,34.9126
-3,1x1,1.25,the force is with you,34.5404
-3,1x1,1.25,the quick brown fox jumps over the lazy dog,34.4834
-3,1x1,1.25,please provide your date of birth,32.6895
-3,1x1,1.25,an offer you cannot refuse,35.3081
-3,1x3,1,we run the risk of failure,36.4239
-3,1x3,1,breathing is difficult,44.9936
-3,1x3,1,love means many things,36.9536
-3,1x3,1,all work and no play,35.5951
-3,1x3,1,are you talking to me,33.2748
-3,1x3,1,the quick brown fox jumps over the lazy dog,31.7445
-3,1x3,1,my favorite place to visit,32.996
-3,1x3,1,never too rich and never too thin,40.8117
-3,1x3,1,the five boxing wizards jump quickly,35.0963
-3,1x3,1,one heck of a question,36.15
-3,1x3,0.75,he is just like everyone else,34.5856
-3,1x3,0.75,the world is a stage,31.1324
-3,1x3,0.75,a problem with the engine,27.2851
-3,1x3,0.75,the five boxing wizards jump quickly,31.1038
-3,1x3,0.75,question that must be answered,32.5056
-3,1x3,0.75,the power of denial,29.7534
-3,1x3,0.75,watch out for low flying objects,33.0835
-3,1x3,0.75,my watch fell in the water,32.6531
-3,1x3,0.75,the quick brown fox jumps over the lazy dog,27.3595
-3,1x3,0.75,the facts get in the way,29.1439
-3,1x3,1.25,yes you are very smart,33.2034
-3,1x3,1.25,you must be getting old,38.187
-3,1x3,1.25,the five boxing wizards jump quickly,32.6188
-3,1x3,1.25,if at first you do not succeed,32.7884
-3,1x3,1.25,time to go shopping,39.879
-3,1x3,1.25,do not say anything,32.5696
-3,1x3,1.25,the force is with you,34.157
-3,1x3,1.25,the quick brown fox jumps over the lazy dog,32.1415
-3,1x3,1.25,please provide your date of birth,34.3142
-3,1x3,1.25,an offer you cannot refuse,36.702
-4,1x3,1,we run the risk of failure,20.1384
-4,1x3,1,the quick brown fox jumps over the lazy dog,17.8003
-4,1x3,1,an offer you cannot refuse,23.2076
-4,1x3,1,the five boxing wizards jump quickly,15.3496
-4,1x3,1,he is just like everyone else,18.5378
-4,1x3,1,love means many things,17.389
-4,1x3,1,my watch fell in the water,19.432
-4,1x3,1,breathing is difficult,14.3416
-4,1x3,1,if at first you do not succeed,18.5471
-4,1x3,1,please provide your date of birth,17.5136
-4,1x3,0.75,the world is a stage,21.7687
-4,1x3,0.75,the force is with you,21.4578
-4,1x3,0.75,watch out for low flying objects,18.8559
-4,1x3,0.75,you must be getting old,18.3109
-4,1x3,0.75,my favorite place to visit,17.8214
-4,1x3,0.75,yes you are very smart,25.741
-4,1x3,0.75,a problem with the engine,20.9996
-4,1x3,0.75,the five boxing wizards jump quickly,18.4521
-4,1x3,0.75,the quick brown fox jumps over the lazy dog,19.721
-4,1x3,0.75,the facts get in the way,21.1967
-4,1x3,1.25,time to go shopping,25.8181
-4,1x3,1.25,one heck of a question,21.7034
-4,1x3,1.25,never too rich and never too thin,20.8016
-4,1x3,1.25,are you talking to me,21.3036
-4,1x3,1.25,all work and no play,17.2625
-4,1x3,1.25,the quick brown fox jumps over the lazy dog,18.1505
-4,1x3,1.25,the power of denial,16.0394
-4,1x3,1.25,do not say anything,17.9782
-4,1x3,1.25,the five boxing wizards jump quickly,17.7442
-4,1x3,1.25,question that must be answered,18.5653
-4,1x1,1,we run the risk of failure,21.9172
-4,1x1,1,the quick brown fox jumps over the lazy dog,19.2747
-4,1x1,1,an offer you cannot refuse,21.9771
-4,1x1,1,the five boxing wizards jump quickly,17.4147
-4,1x1,1,he is just like everyone else,19.361
-4,1x1,1,love means many things,20.2428
-4,1x1,1,my watch fell in the water,19.9839
-4,1x1,1,breathing is difficult,16.0024
-4,1x1,1,if at first you do not succeed,20.1585
-4,1x1,1,please provide your date of birth,20.431
-4,1x1,0.75,the world is a stage,23.1319
-4,1x1,0.75,the force is with you,24.3363
-4,1x1,0.75,watch out for low flying objects,24.1227
-4,1x1,0.75,you must be getting old,22.9943
-4,1x1,0.75,my favorite place to visit,18.6035
-4,1x1,0.75,yes you are very smart,20.4334
-4,1x1,0.75,a problem with the engine,19.7394
-4,1x1,0.75,the five boxing wizards jump quickly,18.6311
-4,1x1,0.75,the quick brown fox jumps over the lazy dog,17.7161
-4,1x1,0.75,the facts get in the way,19.5665
-4,1x1,1.25,time to go shopping,28.9278
-4,1x1,1.25,one heck of a question,23.7724
-4,1x1,1.25,never too rich and never too thin,24.2035
-4,1x1,1.25,are you talking to me,24.5306
-4,1x1,1.25,all work and no play,21.1612
-4,1x1,1.25,the quick brown fox jumps over the lazy dog,20.7606
-4,1x1,1.25,the power of denial,20.5263
-4,1x1,1.25,do not say anything,21.6161
-4,1x1,1.25,the five boxing wizards jump quickly,20.4557
-4,1x1,1.25,question that must be answered,25.3711
-5,1x1,0.75,the five boxing wizards jump quickly,23.7833
-5,1x1,0.75,an offer you cannot refuse,24.5142
-5,1x1,0.75,time to go shopping,23.8959
-5,1x1,0.75,do not say anything,24.2827
-5,1x1,0.75,the quick brown fox jumps over the lazy dog,22.6676
-5,1x1,0.75,yes you are very smart,21.8663
-5,1x1,0.75,my watch fell in the water,23.9462
-5,1x1,0.75,please provide your date of birth,20.573
-5,1x1,0.75,he is just like everyone else,22.8441
-5,1x1,0.75,we run the risk of failure,21.8564
-5,1x1,1.25,the quick brown fox jumps over the lazy dog,22.8389
-5,1x1,1.25,the five boxing wizards jump quickly,23.7807
-5,1x1,1.25,are you talking to me,25.452
-5,1x1,1.25,all work and no play,22.4215
-5,1x1,1.25,the world is a stage,23.3327
-5,1x1,1.25,the force is with you,26.9692
-5,1x1,1.25,a problem with the engine,21.0793
-5,1x1,1.25,question that must be answered,24.9601
-5,1x1,1.25,the power of denial,26.1198
-5,1x1,1.25,you must be getting old,29.7831
-5,1x1,1,the facts get in the way,27.7724
-5,1x1,1,love means many things,19.8825
-5,1x1,1,the quick brown fox jumps over the lazy dog,23.5509
-5,1x1,1,watch out for low flying objects,21.185
-5,1x1,1,one heck of a question,21.3713
-5,1x1,1,breathing is difficult,21.2817
-5,1x1,1,if at first you do not succeed,25.9403
-5,1x1,1,the five boxing wizards jump quickly,21.4776
-5,1x1,1,never too rich and never too thin,24.0116
-5,1x1,1,my favorite place to visit,20.4832
-5,1x3,0.75,my watch fell in the water,31.0618
-5,1x3,0.75,the quick brown fox jumps over the lazy dog,28.1102
-5,1x3,0.75,the five boxing wizards jump quickly,25.5167
-5,1x3,0.75,never too rich and never too thin,26.0326
-5,1x3,0.75,love means many things,24.8852
-5,1x3,0.75,he is just like everyone else,23.9151
-5,1x3,0.75,one heck of a question,21.5942
-5,1x3,0.75,breathing is difficult,20.847
-5,1x3,0.75,we run the risk of failure,22.8655
-5,1x3,0.75,the facts get in the way,24.0994
-5,1x3,1.25,watch out for low flying objects,24.3746
-5,1x3,1.25,the five boxing wizards jump quickly,28.8188
-5,1x3,1.25,the force is with you,26.8557
-5,1x3,1.25,the world is a stage,27.2851
-5,1x3,1.25,please provide your date of birth,26.6611
-5,1x3,1.25,the power of denial,27.9405
-5,1x3,1.25,the quick brown fox jumps over the lazy dog,27.2415
-5,1x3,1.25,all work and no play,30.2923
-5,1x3,1.25,a problem with the engine,27.503
-5,1x3,1.25,my favorite place to visit,25.2615
-5,1x3,1,an offer you cannot refuse,28.6107
-5,1x3,1,time to go shopping,26.6573
-5,1x3,1,yes you are very smart,25.6236
-5,1x3,1,the quick brown fox jumps over the lazy dog,26.4195
-5,1x3,1,if at first you do not succeed,27.0738
-5,1x3,1,you must be getting old,26.4875
-5,1x3,1,are you talking to me,29.826
-5,1x3,1,question that must be answered,27.9655
-5,1x3,1,the five boxing wizards jump quickly,24.7777
-5,1x3,1,do not say anything,28.9634
-6,1x3,0.75,the five boxing wizards jump quickly,44.0204
-6,1x3,0.75,the music is better than it sounds,44.7163
-6,1x3,0.75,frequently asked questions,53.4571
-6,1x3,0.75,the quick brown fox jumps over the lazy dog,42.6147
-6,1x3,0.75,we accept personal checks,45.1685
-6,1x3,0.75,coming up with killer sound bites,46.9957
-6,1x3,0.75,my bare face in the wind,43.7604
-6,1x3,0.75,he is still on our team,45.3396
-6,1x3,0.75,call for more details,43.2507
-6,1x3,0.75,are you talking to me,45.1201
-6,1x3,1.25,he is just like everyone else,44.9769
-6,1x3,1.25,just in time for the party,47.63
-6,1x3,1.25,healthy food is good for you,46.9589
-6,1x3,1.25,what a monkey sees a monkey will do,53.7112
-6,1x3,1.25,the five boxing wizards jump quickly,45.8574
-6,1x3,1.25,the quick brown fox jumps over the lazy dog,43.5789
-6,1x3,1.25,come and see our new car,45.2204
-6,1x3,1.25,you must be getting old,49.561
-6,1x3,1.25,watch out for low flying objects,46.8053
-6,1x3,1.25,the dow jones index has risen,43.6424
-6,1x3,1,did you have a good time,44.3466
-6,1x3,1,reading week is just about here,48.1491
-6,1x3,1,parking lot is full of trucks,47.593
-6,1x3,1,the quick brown fox jumps over the lazy dog,48.0165
-6,1x3,1,the force is with you,52.5482
-6,1x3,1,the five boxing wizards jump quickly,52.0708
-6,1x3,1,our fax number has changed,51.0396
-6,1x3,1,stay away from strangers,40.762
-6,1x3,1,love means many things,42.4458
-6,1x3,1,popularity is desired by all,45.654
-6,1x1,0.75,the five boxing wizards jump quickly,46.3604
-6,1x1,0.75,the music is better than it sounds,48.9784
-6,1x1,0.75,frequently asked questions,54.3469
-6,1x1,0.75,the quick brown fox jumps over the lazy dog,48.9698
-6,1x1,0.75,we accept personal checks,47.6637
-6,1x1,0.75,coming up with killer sound bites,46.0155
-6,1x1,0.75,my bare face in the wind,42.9101
-6,1x1,0.75,he is still on our team,44.0283
-6,1x1,0.75,call for more details,44.7403
-6,1x1,0.75,are you talking to me,47.3239
-6,1x1,1.25,he is just like everyone else,46.3432
-6,1x1,1.25,just in time for the party,52.8017
-6,1x1,1.25,healthy food is good for you,51.3793
-6,1x1,1.25,what a monkey sees a monkey will do,54.5525
-6,1x1,1.25,the five boxing wizards jump quickly,54.0426
-6,1x1,1.25,the quick brown fox jumps over the lazy dog,45.3862
-6,1x1,1.25,come and see our new car,44.5503
-6,1x1,1.25,you must be getting old,49.5218
-6,1x1,1.25,watch out for low flying objects,47.7683
-6,1x1,1.25,the dow jones index has risen,42.2299
-6,1x1,1,did you have a good time,46.773
-6,1x1,1,reading week is just about here,51.6588
-6,1x1,1,parking lot is full of trucks,54.3258
-6,1x1,1,the quick brown fox jumps over the lazy dog,54.3805
-6,1x1,1,the force is with you,57.1001
-6,1x1,1,the five boxing wizards jump quickly,60.2091
-6,1x1,1,our fax number has changed,54.5226
-6,1x1,1,stay away from strangers,50.8564
-6,1x1,1,love means many things,46.354
-6,1x1,1,popularity is desired by all,44.4474
-7,1x1,1.25,the force is with you,15.5738
-7,1x1,1.25,just in time for the party,15.2355
-7,1x1,1.25,popularity is desired by all,15.2973
-7,1x1,1.25,the quick brown fox jumps over the lazy dog,14.2403
-7,1x1,1.25,my bare face in the wind,13.9876
-7,1x1,1.25,our fax number has changed,15.9262
-7,1x1,1.25,the five boxing wizards jump quickly,13.8259
-7,1x1,1.25,reading week is just about here,15.2181
-7,1x1,1.25,the dow jones index has risen,14.4361
-7,1x1,1.25,coming up with killer sound bites,14.9713
-7,1x1,1,come and see our new car,17.2345
-7,1x1,1,he is still on our team,15.6914
-7,1x1,1,we accept personal checks,14.3314
-7,1x1,1,the five boxing wizards jump quickly,14.6494
-7,1x1,1,healthy food is good for you,16.5127
-7,1x1,1,the quick brown fox jumps over the lazy dog,16.1253
-7,1x1,1,frequently asked questions,16.7772
-7,1x1,1,the music is better than it sounds,16.9382
-7,1x1,1,you must be getting old,17.6031
-7,1x1,1,did you have a good time,16.3709
-7,1x1,0.75,the five boxing wizards jump quickly,17.3192
-7,1x1,0.75,parking lot is full of trucks,16.6713
-7,1x1,0.75,watch out for low flying objects,16.7397
-7,1x1,0.75,stay away from strangers,15.1218
-7,1x1,0.75,are you talking to me,16.071
-7,1x1,0.75,he is just like everyone else,16.4995
-7,1x1,0.75,love means many things,16.7056
-7,1x1,0.75,what a monkey sees a monkey will do,17.1382
-7,1x1,0.75,the quick brown fox jumps over the lazy dog,16.8859
-7,1x1,0.75,call for more details,15.9782
-7,1x3,1.25,the force is with you,18.1778
-7,1x3,1.25,just in time for the party,20.6281
-7,1x3,1.25,popularity is desired by all,20.0237
-7,1x3,1.25,the quick brown fox jumps over the lazy dog,18.0697
-7,1x3,1.25,my bare face in the wind,17.2266
-7,1x3,1.25,our fax number has changed,19.6607
-7,1x3,1.25,the five boxing wizards jump quickly,18.0814
-7,1x3,1.25,reading week is just about here,20.8472
-7,1x3,1.25,the dow jones index has risen,19.8112
-7,1x3,1.25,coming up with killer sound bites,18.9361
-7,1x3,1,come and see our new car,20.5872
-7,1x3,1,he is still on our team,21.2523
-7,1x3,1,we accept personal checks,13.0008
-7,1x3,1,the five boxing wizards jump quickly,14.4217
-7,1x3,1,healthy food is good for you,15.5486
-7,1x3,1,the quick brown fox jumps over the lazy dog,13.9993
-7,1x3,1,frequently asked questions,18.1027
-7,1x3,1,the music is better than it sounds,18.0524
-7,1x3,1,you must be getting old,17.644
-7,1x3,1,did you have a good time,18.4498
-7,1x3,0.75,the five boxing wizards jump quickly,15.3235
-7,1x3,0.75,parking lot is full of trucks,16.0943
-7,1x3,0.75,watch out for low flying objects,15.5514
-7,1x3,0.75,stay away from strangers,16.1826
-7,1x3,0.75,are you talking to me,16.3671
-7,1x3,0.75,he is just like everyone else,16.6502
-7,1x3,0.75,love means many things,14.7995
-7,1x3,0.75,what a monkey sees a monkey will do,19.606
-7,1x3,0.75,the quick brown fox jumps over the lazy dog,14.5051
-7,1x3,0.75,call for more details,16.3677
-8,1x3,1,did you have a good time,21.2815
-8,1x3,1,love means many things,19.3608
-8,1x3,1,he is just like everyone else,16.7956
-8,1x3,1,the force is with you,16.2733
-8,1x3,1,the five boxing wizards jump quickly,19.4963
-8,1x3,1,the quick brown fox jumps over the lazy dog,17.3875
-8,1x3,1,our fax number has changed,19.6267
-8,1x3,1,my bare face in the wind,20.9159
-8,1x3,1,we accept personal checks,18.8616
-8,1x3,1,come and see our new car,20.949
-8,1x3,0.75,call for more details,19.4688
-8,1x3,0.75,just in time for the party,16.9622
-8,1x3,0.75,you must be getting old,19.5443
-8,1x3,0.75,coming up with killer sound bites,18.5881
-8,1x3,0.75,the quick brown fox jumps over the lazy dog,15.5017
-8,1x3,0.75,parking lot is full of trucks,15.6479
-8,1x3,0.75,stay away from strangers,19.989
-8,1x3,0.75,the five boxing wizards jump quickly,18.0876
-8,1x3,0.75,are you talking to me,20.0135
-8,1x3,0.75,reading week is just about here,21.0757
-8,1x3,1.25,healthy food is good for you,21.6736
-8,1x3,1.25,the quick brown fox jumps over the lazy dog,17.1291
-8,1x3,1.25,the music is better than it sounds,20.2007
-8,1x3,1.25,the five boxing wizards jump quickly,19.1233
-8,1x3,1.25,what a monkey sees a monkey will do,19.3045
-8,1x3,1.25,he is still on our team,18.6343
-8,1x3,1.25,the dow jones index has risen,17.3694
-8,1x3,1.25,popularity is desired by all,20.8407
-8,1x3,1.25,frequently asked questions,20.6124
-8,1x3,1.25,watch out for low flying objects,18.0355
-8,1x1,1,did you have a good time,17.3883
-8,1x1,1,love means many things,18.3668
-8,1x1,1,he is just like everyone else,17.2524
-8,1x1,1,the force is with you,16.5727
-8,1x1,1,the five boxing wizards jump quickly,16.5152
-8,1x1,1,the quick brown fox jumps over the lazy dog,14.9814
-8,1x1,1,our fax number has changed,18.3867
-8,1x1,1,my bare face in the wind,17.162
-8,1x1,1,we accept personal checks,15.506
-8,1x1,1,come and see our new car,18.5935
-8,1x1,0.75,call for more details,18.6674
-8,1x1,0.75,just in time for the party,15.8927
-8,1x1,0.75,you must be getting old,18.2197
-8,1x1,0.75,coming up with killer sound bites,18.4084
-8,1x1,0.75,the quick brown fox jumps over the lazy dog,16.0225
-8,1x1,0.75,parking lot is full of trucks,19.1528
-8,1x1,0.75,stay away from strangers,17.8738
-8,1x1,0.75,the five boxing wizards jump quickly,16.9972
-8,1x1,0.75,are you talking to me,17.6404
-8,1x1,0.75,reading week is just about here,21.8405
-8,1x1,1.25,healthy food is good for you,18.5572
-8,1x1,1.25,the quick brown fox jumps over the lazy dog,16.8731
-8,1x1,1.25,the music is better than it sounds,18.8678
-8,1x1,1.25,the five boxing wizards jump quickly,17.65
-8,1x1,1.25,what a monkey sees a monkey will do,18.3869
-8,1x1,1.25,he is still on our team,17.8235
-8,1x1,1.25,the dow jones index has risen,17.6357
-8,1x1,1.25,popularity is desired by all,18.8199
-8,1x1,1.25,frequently asked questions,18.2778
-8,1x1,1.25,watch out for low flying objects,18.8531
-9,1x1,1,come and see our new car,11.9578
-9,1x1,1,just in time for the party,11.7509
-9,1x1,1,stay away from strangers,13.3127
-9,1x1,1,he is just like everyone else,10.5029
-9,1x1,1,parking lot is full of trucks,11.0775
-9,1x1,1,are you talking to me,11.8307
-9,1x1,1,the quick brown fox jumps over the lazy dog,11.1497
-9,1x1,1,love means many things,11.3363
-9,1x1,1,the five boxing wizards jump quickly,12.4387
-9,1x1,1,you must be getting old,14.0449
-9,1x1,0.75,healthy food is good for you,12.5575
-9,1x1,0.75,my bare face in the wind,10.4719
-9,1x1,0.75,call for more details,13.4869
-9,1x1,0.75,the quick brown fox jumps over the lazy dog,12.6692
-9,1x1,0.75,popularity is desired by all,12.6079
-9,1x1,0.75,the five boxing wizards jump quickly,12.9261
-9,1x1,0.75,what a monkey sees a monkey will do,13.3931
-9,1x1,0.75,the force is with you,11.5712
-9,1x1,0.75,he is still on our team,14.9359
-9,1x1,0.75,coming up with killer sound bites,15.5409
-9,1x1,1.25,frequently asked questions,13.3492
-9,1x1,1.25,did you have a good time,14.3977
-9,1x1,1.25,the music is better than it sounds,12.9745
-9,1x1,1.25,we accept personal checks,12.6126
-9,1x1,1.25,the quick brown fox jumps over the lazy dog,14.3208
-9,1x1,1.25,reading week is just about here,18.3231
-9,1x1,1.25,watch out for low flying objects,16.6088
-9,1x1,1.25,the five boxing wizards jump quickly,16.8692
-9,1x1,1.25,our fax number has changed,12.3238
-9,1x1,1.25,the dow jones index has risen,15.7976
-9,1x3,1,come and see our new car,14.2245
-9,1x3,1,just in time for the party,17.0743
-9,1x3,1,stay away from strangers,16.6708
-9,1x3,1,he is just like everyone else,16.4802
-9,1x3,1,parking lot is full of trucks,14.6273
-9,1x3,1,are you talking to me,18.2926
-9,1x3,1,the quick brown fox jumps over the lazy dog,14.2778
-9,1x3,1,love means many things,14.0741
-9,1x3,1,the five boxing wizards jump quickly,16.5032
-9,1x3,1,you must be getting old,19.7027
-9,1x3,0.75,healthy food is good for you,18.1698
-9,1x3,0.75,my bare face in the wind,15.8384
-9,1x3,0.75,call for more details,20.0049
-9,1x3,0.75,the quick brown fox jumps over the lazy dog,17.9715
-9,1x3,0.75,popularity is desired by all,15.079
-9,1x3,0.75,the five boxing wizards jump quickly,17.4057
-9,1x3,0.75,what a monkey sees a monkey will do,17.0447
-9,1x3,0.75,the force is with you,16.966
-9,1x3,0.75,he is still on our team,16.3418
-9,1x3,0.75,coming up with killer sound bites,16.1965
-9,1x3,1.25,the dow jones index has risen,14.8766
-9,1x3,1.25,the quick brown fox jumps over the lazy dog,12.7564
-9,1x3,1.25,popularity is desired by all,14.3496
-9,1x3,1.25,love means many things,13.7504
-9,1x3,1.25,reading week is just about here,16.1188
-9,1x3,1.25,stay away from strangers,13.049
-9,1x3,1.25,come and see our new car,15.6663
-9,1x3,1.25,the five boxing wizards jump quickly,14.1277
-9,1x3,1.25,the force is with you,15.8729
-9,1x3,1.25,are you talking to me,19.0987
-10,1x1,0.75,just in time for the party,23.0347
-10,1x1,0.75,he is just like everyone else,21.5898
-10,1x1,0.75,my bare face in the wind,22.1581
-10,1x1,0.75,our fax number has changed,22.3512
-10,1x1,0.75,are you talking to me,21.5831
-10,1x1,0.75,popularity is desired by all,20.9235
-10,1x1,0.75,the quick brown fox jumps over the lazy dog,19.2694
-10,1x1,0.75,healthy food is good for you,21.975
-10,1x1,0.75,the five boxing wizards jump quickly,22.263
-10,1x1,0.75,parking lot is full of trucks,20.3196
-10,1x1,1.25,what a monkey sees a monkey will do,22.6596
-10,1x1,1.25,the five boxing wizards jump quickly,23.9431
-10,1x1,1.25,watch out for low flying objects,26.4294
-10,1x1,1.25,the force is with you,25.9716
-10,1x1,1.25,call for more details,24.9693
-10,1x1,1.25,the quick brown fox jumps over the lazy dog,28.6877
-10,1x1,1.25,did you have a good time,29.8183
-10,1x1,1.25,the dow jones index has risen,30.4553
-10,1x1,1.25,the music is better than it sounds,29.6062
-10,1x1,1.25,come and see our new car,28.8965
-10,1x1,1,he is still on our team,25.2447
-10,1x1,1,the five boxing wizards jump quickly,23.8625
-10,1x1,1,stay away from strangers,20.6589
-10,1x1,1,coming up with killer sound bites,24.5438
-10,1x1,1,frequently asked questions,31.0497
-10,1x1,1,the quick brown fox jumps over the lazy dog,28.992
-10,1x1,1,we accept personal checks,29.0675
-10,1x1,1,reading week is just about here,34.595
-10,1x1,1,love means many things,29.3516
-10,1x1,1,you must be getting old,37.3119
-10,1x3,0.75,just in time for the party,29.2173
-10,1x3,0.75,he is just like everyone else,26.6656
-10,1x3,0.75,my bare face in the wind,25.0542
-10,1x3,0.75,our fax number has changed,27.4863
-10,1x3,0.75,are you talking to me,30.0537
-10,1x3,0.75,popularity is desired by all,30.492
-10,1x3,0.75,the quick brown fox jumps over the lazy dog,25.8336
-10,1x3,0.75,healthy food is good for you,27.6641
-10,1x3,0.75,the five boxing wizards jump quickly,33.0189
-10,1x3,0.75,parking lot is full of trucks,36.5327
-10,1x3,1.25,what a monkey sees a monkey will do,42.5704
-10,1x3,1.25,the five boxing wizards jump quickly,34.7281
-10,1x3,1.25,watch out for low flying objects,34.4006
-10,1x3,1.25,the force is with you,36.8901
-10,1x3,1.25,call for more details,41.7025
-10,1x3,1.25,the quick brown fox jumps over the lazy dog,40.6581
-10,1x3,1.25,did you have a good time,37.7042
-10,1x3,1.25,the dow jones index has risen,34.0409
-10,1x3,1.25,the music is better than it sounds,35.5627
-10,1x3,1.25,come and see our new car,45.9792
-10,1x3,1,he is still on our team,39.1567
-10,1x3,1,the five boxing wizards jump quickly,34.8815
-10,1x3,1,stay away from strangers,32.4218
-10,1x3,1,coming up with killer sound bites,31.8933
-10,1x3,1,frequently asked questions,28.1352
-10,1x3,1,the quick brown fox jumps over the lazy dog,30.4637
-10,1x3,1,we accept personal checks,34.0341
-10,1x3,1,reading week is just about here,41.7691
-10,1x3,1,love means many things,36.6489
-10,1x3,1,you must be getting old,37.7405
-11,1x3,1.25,the force is with you,28.5118
-11,1x3,1.25,frequently asked questions,24.5456
-11,1x3,1.25,the music is better than it sounds,25.5338
-11,1x3,1.25,the quick brown fox jumps over the lazy dog,25.0837
-11,1x3,1.25,our fax number has changed,25.0309
-11,1x3,1.25,healthy food is good for you,26.6569
-11,1x3,1.25,reading week is just about here,28.2959
-11,1x3,1.25,we accept personal checks,28.0999
-11,1x3,1.25,the five boxing wizards jump quickly,22.815
-11,1x3,1.25,just in time for the party,29.4765
-11,1x3,1,you must be getting old,28.9229
-11,1x3,1,coming up with killer sound bites,30.8416
-11,1x3,1,watch out for low flying objects,25.778
-11,1x3,1,what a monkey sees a monkey will do,30.4675
-11,1x3,1,the quick brown fox jumps over the lazy dog,27.9296
-11,1x3,1,come and see our new car,28.6345
-11,1x3,1,my bare face in the wind,29.0211
-11,1x3,1,parking lot is full of trucks,27.9177
-11,1x3,1,the five boxing wizards jump quickly,29.4531
-11,1x3,1,are you talking to me,32.088
-11,1x3,0.75,the quick brown fox jumps over the lazy dog,28.8542
-11,1x3,0.75,the five boxing wizards jump quickly,27.2547
-11,1x3,0.75,love means many things,25.9878
-11,1x3,0.75,did you have a good time,33.5927
-11,1x3,0.75,the dow jones index has risen,27.975
-11,1x3,0.75,stay away from strangers,26.3418
-11,1x3,0.75,he is still on our team,30.5506
-11,1x3,0.75,he is just like everyone else,28.6391
-11,1x3,0.75,popularity is desired by all,26.4357
-11,1x3,0.75,call for more details,30.4852
-11,1x1,1.25,the force is with you,31.6198
-11,1x1,1.25,frequently asked questions,26.0462
-11,1x1,1.25,the music is better than it sounds,29.3479
-11,1x1,1.25,the quick brown fox jumps over the lazy dog,30.8819
-11,1x1,1.25,our fax number has changed,28.2606
-11,1x1,1.25,healthy food is good for you,26.3438
-11,1x1,1.25,reading week is just about here,28.8726
-11,1x1,1.25,we accept personal checks,27.0621
-11,1x1,1.25,the five boxing wizards jump quickly,28.974
-11,1x1,1.25,just in time for the party,31.8562
-11,1x1,1,you must be getting old,28.4548
-11,1x1,1,coming up with killer sound bites,33.0896
-11,1x1,1,watch out for low flying objects,27.694
-11,1x1,1,what a monkey sees a monkey will do,28.748
-11,1x1,1,the quick brown fox jumps over the lazy dog,27.5803
-11,1x1,1,come and see our new car,31.9709
-11,1x1,1,my bare face in the wind,23.1349
-11,1x1,1,parking lot is full of trucks,22.2314
-11,1x1,1,the five boxing wizards jump quickly,26.8298
-11,1x1,1,are you talking to me,29.4927
-11,1x1,0.75,the quick brown fox jumps over the lazy dog,29.8646
-11,1x1,0.75,the five boxing wizards jump quickly,25.7051
-11,1x1,0.75,love means many things,28.3216
-11,1x1,0.75,did you have a good time,24.4773
-11,1x1,0.75,the dow jones index has risen,26.3355
-11,1x1,0.75,stay away from strangers,25.9811
-11,1x1,0.75,he is still on our team,32.5894
-11,1x1,0.75,he is just like everyone else,29.376
-11,1x1,0.75,popularity is desired by all,27.1563
-11,1x1,0.75,call for more details,27.5485
-12,1x3,0.75,love means many things,19.3391
-12,1x3,0.75,the five boxing wizards jump quickly,23.7007
-12,1x3,0.75,come and see our new car,24.381
-12,1x3,0.75,the quick brown fox jumps over the lazy dog,23.0134
-12,1x3,0.75,parking lot is full of trucks,22.1711
-12,1x3,0.75,my bare face in the wind,21.4106
-12,1x3,0.75,healthy food is good for you,27.2548
-12,1x3,0.75,the music is better than it sounds,24.9841
-12,1x3,0.75,he is still on our team,28.5546
-12,1x3,0.75,frequently asked questions,18.3399
-12,1x3,1.25,reading week is just about here,31.1865
-12,1x3,1.25,are you talking to me,26.8469
-12,1x3,1.25,watch out for low flying objects,24.9185
-12,1x3,1.25,you must be getting old,26.3158
-12,1x3,1.25,just in time for the party,27.3164
-12,1x3,1.25,we accept personal checks,23.8231
-12,1x3,1.25,the five boxing wizards jump quickly,27.36
-12,1x3,1.25,he is just like everyone else,28.1467
-12,1x3,1.25,the quick brown fox jumps over the lazy dog,29.5451
-12,1x3,1.25,our fax number has changed,29.4946
-12,1x3,1,stay away from strangers,24.4432
-12,1x3,1,the quick brown fox jumps over the lazy dog,26.3894
-12,1x3,1,call for more details,27.9503
-12,1x3,1,the dow jones index has risen,27.1381
-12,1x3,1,did you have a good time,27.1225
-12,1x3,1,coming up with killer sound bites,32.2788
-12,1x3,1,the force is with you,34.0416
-12,1x3,1,what a monkey sees a monkey will do,31.0591
-12,1x3,1,the five boxing wizards jump quickly,23.4931
-12,1x3,1,popularity is desired by all,20.9011
-12,1x1,0.75,love means many things,27.3066
-12,1x1,0.75,the five boxing wizards jump quickly,24.2116
-12,1x1,0.75,come and see our new car,23.8259
-12,1x1,0.75,the quick brown fox jumps over the lazy dog,23.3844
-12,1x1,0.75,parking lot is full of trucks,24.4726
-12,1x1,0.75,my bare face in the wind,27.6646
-12,1x1,0.75,healthy food is good for you,30.774
-12,1x1,0.75,the music is better than it sounds,33.8292
-12,1x1,0.75,he is still on our team,29.0047
-12,1x1,0.75,frequently asked questions,24.0849
-12,1x1,1.25,reading week is just about here,31.1465
-12,1x1,1.25,are you talking to me,27.1221
-12,1x1,1.25,watch out for low flying objects,28.7
-12,1x1,1.25,you must be getting old,34.3711
-12,1x1,1.25,just in time for the party,30.6228
-12,1x1,1.25,we accept personal checks,22.8152
-12,1x1,1.25,the five boxing wizards jump quickly,22.1586
-12,1x1,1.25,he is just like everyone else,20.9408
-12,1x1,1.25,the quick brown fox jumps over the lazy dog,19.0822
-12,1x1,1.25,our fax number has changed,32.7996
-12,1x1,1,stay away from strangers,27.8914
-12,1x1,1,the quick brown fox jumps over the lazy dog,22.16
-12,1x1,1,call for more details,24.0414
-12,1x1,1,the dow jones index has risen,28.3305
-12,1x1,1,did you have a good time,30.0808
-12,1x1,1,coming up with killer sound bites,29.1631
-12,1x1,1,the force is with you,26.8008
-12,1x1,1,what a monkey sees a monkey will do,27.3528
-12,1x1,1,the five boxing wizards jump quickly,27.6045
-12,1x1,1,popularity is desired by all,26.4022
-13,1x3,1,reading week is just about here,16.7686
-13,1x3,1,frequently asked questions,16.8685
-13,1x3,1,the music is better than it sounds,16.554
-13,1x3,1,our fax number has changed,18.5197
-13,1x3,1,love means many things,17.0396
-13,1x3,1,popularity is desired by all,15.6121
-13,1x3,1,coming up with killer sound bites,16.6611
-13,1x3,1,the quick brown fox jumps over the lazy dog,14.746
-13,1x3,1,the five boxing wizards jump quickly,16.0319
-13,1x3,1,the dow jones index has risen,14.0531
-13,1x3,0.75,the quick brown fox jumps over the lazy dog,17.1001
-13,1x3,0.75,we accept personal checks,17.0606
-13,1x3,0.75,the five boxing wizards jump quickly,15.7283
-13,1x3,0.75,you must be getting old,18.011
-13,1x3,0.75,call for more details,18.4953
-13,1x3,0.75,what a monkey sees a monkey will do,14.0821
-13,1x3,0.75,stay away from strangers,14.7
-13,1x3,0.75,healthy food is good for you,16.1422
-13,1x3,0.75,just in time for the party,15.8667
-13,1x3,0.75,are you talking to me,15.7503
-13,1x3,1.25,come and see our new car,18.3541
-13,1x3,1.25,the quick brown fox jumps over the lazy dog,15.8822
-13,1x3,1.25,my bare face in the wind,16.857
-13,1x3,1.25,the force is with you,15.9985
-13,1x3,1.25,he is just like everyone else,14.2171
-13,1x3,1.25,watch out for low flying objects,14.9716
-13,1x3,1.25,the five boxing wizards jump quickly,13.5454
-13,1x3,1.25,he is still on our team,15.1869
-13,1x3,1.25,did you have a good time,17.742
-13,1x3,1.25,parking lot is full of trucks,15.8753
-13,1x1,1,reading week is just about here,21.4173
-13,1x1,1,frequently asked questions,15.6082
-13,1x1,1,the music is better than it sounds,18.3446
-13,1x1,1,our fax number has changed,17.4305
-13,1x1,1,love means many things,16.7763
-13,1x1,1,popularity is desired by all,16.6033
-13,1x1,1,coming up with killer sound bites,17.8373
-13,1x1,1,the quick brown fox jumps over the lazy dog,15.4461
-13,1x1,1,the five boxing wizards jump quickly,16.3503
-13,1x1,1,the dow jones index has risen,17.6526
-13,1x1,0.75,the quick brown fox jumps over the lazy dog,14.663
-13,1x1,0.75,we accept personal checks,13.503
-13,1x1,0.75,the five boxing wizards jump quickly,14.8337
-13,1x1,0.75,you must be getting old,14.8058
-13,1x1,0.75,call for more details,13.5428
-13,1x1,0.75,what a monkey sees a monkey will do,14.1919
-13,1x1,0.75,stay away from strangers,13.7911
-13,1x1,0.75,healthy food is good for you,13.1922
-13,1x1,0.75,just in time for the party,14.1118
-13,1x1,0.75,are you talking to me,13.863
-13,1x1,1.25,come and see our new car,17.9895
-13,1x1,1.25,the quick brown fox jumps over the lazy dog,14.0222
-13,1x1,1.25,my bare face in the wind,16.5962
-13,1x1,1.25,the force is with you,16.5113
-13,1x1,1.25,he is just like everyone else,15.6591
-13,1x1,1.25,watch out for low flying objects,14.4236
-13,1x1,1.25,the five boxing wizards jump quickly,15.6475
-13,1x1,1.25,he is still on our team,15.2524
-13,1x1,1.25,did you have a good time,15.0658
-13,1x1,1.25,parking lot is full of trucks,13.6638
-14,1x3,1.25,love means many things,27.0955
-14,1x3,1.25,come and see our new car,23.064
-14,1x3,1.25,the dow jones index has risen,24.9143
-14,1x3,1.25,are you talking to me,21.1644
-14,1x3,1.25,we accept personal checks,18.6921
-14,1x3,1.25,the force is with you,20.4189
-14,1x3,1.25,the quick brown fox jumps over the lazy dog,22.5644
-14,1x3,1.25,the five boxing wizards jump quickly,21.6383
-14,1x3,1.25,he is just like everyone else,23.3166
-14,1x3,1.25,popularity is desired by all,19.9004
-14,1x3,1,what a monkey sees a monkey will do,20.3324
-14,1x3,1,our fax number has changed,25.5882
-14,1x3,1,healthy food is good for you,21.0572
-14,1x3,1,the five boxing wizards jump quickly,22.5219
-14,1x3,1,stay away from strangers,20.7117
-14,1x3,1,coming up with killer sound bites,27.4981
-14,1x3,1,my bare face in the wind,22.7253
-14,1x3,1,call for more details,24.4309
-14,1x3,1,the quick brown fox jumps over the lazy dog,22.8255
-14,1x3,1,the music is better than it sounds,25.6659
-14,1x3,0.75,watch out for low flying objects,20.6358
-14,1x3,0.75,he is still on our team,21.5102
-14,1x3,0.75,just in time for the party,19.2201
-14,1x3,0.75,reading week is just about here,25.0267
-14,1x3,0.75,the quick brown fox jumps over the lazy dog,19.7154
-14,1x3,0.75,parking lot is full of trucks,20.8362
-14,1x3,0.75,you must be getting old,26.248
-14,1x3,0.75,the five boxing wizards jump quickly,23.0784
-14,1x3,0.75,did you have a good time,24.4103
-14,1x3,0.75,frequently asked questions,21.5023
-14,1x1,1.25,love means many things,28.3685
-14,1x1,1.25,come and see our new car,26.5047
-14,1x1,1.25,the dow jones index has risen,21.7572
-14,1x1,1.25,are you talking to me,22.5568
-14,1x1,1.25,we accept personal checks,26.077
-14,1x1,1.25,the force is with you,19.3597
-14,1x1,1.25,the quick brown fox jumps over the lazy dog,20.5139
-14,1x1,1.25,the five boxing wizards jump quickly,23.3147
-14,1x1,1.25,he is just like everyone else,23.6402
-14,1x1,1.25,popularity is desired by all,21.0711
-14,1x1,1,what a monkey sees a monkey will do,25.0902
-14,1x1,1,our fax number has changed,21.1298
-14,1x1,1,healthy food is good for you,23.2113
-14,1x1,1,the five boxing wizards jump quickly,21.1365
-14,1x1,1,stay away from strangers,20.398
-14,1x1,1,coming up with killer sound bites,23.8107
-14,1x1,1,my bare face in the wind,22.3729
-14,1x1,1,call for more details,21.3449
-14,1x1,1,the quick brown fox jumps over the lazy dog,22.2065
-14,1x1,1,the music is better than it sounds,21.4233
-14,1x1,0.75,watch out for low flying objects,21.1023
-14,1x1,0.75,he is still on our team,21.2712
-14,1x1,0.75,just in time for the party,20.0472
-14,1x1,0.75,reading week is just about here,21.3815
-14,1x1,0.75,the quick brown fox jumps over the lazy dog,19.6745
-14,1x1,0.75,parking lot is full of trucks,19.5029
-14,1x1,0.75,you must be getting old,21.9173
-14,1x1,0.75,the five boxing wizards jump quickly,20.6058
-14,1x1,0.75,did you have a good time,21.826
-14,1x1,0.75,frequently asked questions,21.9047
-15,1x1,1.25,what a monkey sees a monkey will do,18.3887
-15,1x1,1.25,call for more details,18.3761
-15,1x1,1.25,you must be getting old,20.9554
-15,1x1,1.25,the music is better than it sounds,19.807
-15,1x1,1.25,coming up with killer sound bites,17.9192
-15,1x1,1.25,the quick brown fox jumps over the lazy dog,16.559
-15,1x1,1.25,are you talking to me,19.8266
-15,1x1,1.25,popularity is desired by all,18.6646
-15,1x1,1.25,the five boxing wizards jump quickly,17.216
-15,1x1,1.25,the dow jones index has risen,16.0221
-15,1x1,1,he is still on our team,22.6037
-15,1x1,1,the force is with you,19.5509
-15,1x1,1,did you have a good time,19.9129
-15,1x1,1,the five boxing wizards jump quickly,21.6668
-15,1x1,1,he is just like everyone else,22.9429
-15,1x1,1,stay away from strangers,17.5036
-15,1x1,1,the quick brown fox jumps over the lazy dog,17.0498
-15,1x1,1,come and see our new car,19.8883
-15,1x1,1,reading week is just about here,21.427
-15,1x1,1,my bare face in the wind,14.6042
-15,1x1,0.75,our fax number has changed,18.3452
-15,1x1,0.75,just in time for the party,15.3981
-15,1x1,0.75,healthy food is good for you,16.0813
-15,1x1,0.75,the five boxing wizards jump quickly,15.6582
-15,1x1,0.75,the quick brown fox jumps over the lazy dog,14.0403
-15,1x1,0.75,love means many things,15.8018
-15,1x1,0.75,parking lot is full of trucks,13.5201
-15,1x1,0.75,we accept personal checks,13.1874
-15,1x1,0.75,watch out for low flying objects,12.9795
-15,1x1,0.75,frequently asked questions,16.1059
-15,1x3,1.25,what a monkey sees a monkey will do,17.4489
-15,1x3,1.25,call for more details,16.865
-15,1x3,1.25,you must be getting old,19.7957
-15,1x3,1.25,the music is better than it sounds,18.3693
-15,1x3,1.25,coming up with killer sound bites,17.0843
-15,1x3,1.25,the quick brown fox jumps over the lazy dog,15.8277
-15,1x3,1.25,are you talking to me,17.7809
-15,1x3,1.25,popularity is desired by all,18.8268
-15,1x3,1.25,the five boxing wizards jump quickly,18.7115
-15,1x3,1.25,the dow jones index has risen,22.3833
-15,1x3,1,he is still on our team,21.5876
-15,1x3,1,the force is with you,20.3323
-15,1x3,1,did you have a good time,19.1197
-15,1x3,1,the five boxing wizards jump quickly,19.4442
-15,1x3,1,he is just like everyone else,21.7043
-15,1x3,1,stay away from strangers,18.9836
-15,1x3,1,the quick brown fox jumps over the lazy dog,19.9415
-15,1x3,1,come and see our new car,20.336
-15,1x3,1,reading week is just about here,20.9011
-15,1x3,1,my bare face in the wind,17.9374
-15,1x3,0.75,our fax number has changed,21.0614
-15,1x3,0.75,just in time for the party,17.556
-15,1x3,0.75,healthy food is good for you,19.9832
-15,1x3,0.75,the five boxing wizards jump quickly,16.753
-15,1x3,0.75,the quick brown fox jumps over the lazy dog,16.2168
-15,1x3,0.75,love means many things,16.5906
-15,1x3,0.75,parking lot is full of trucks,15.6187
-15,1x3,0.75,we accept personal checks,15.8718
-15,1x3,0.75,watch out for low flying objects,15.2372
-15,1x3,0.75,frequently asked questions,19.9343
-16,1x1,0.75,coming up with killer sound bites,8.39326
-16,1x1,0.75,our fax number has changed,11.1194
-16,1x1,0.75,popularity is desired by all,10.3662
-16,1x1,0.75,parking lot is full of trucks,11.4391
-16,1x1,0.75,the five boxing wizards jump quickly,11.3166
-16,1x1,0.75,call for more details,10.6405
-16,1x1,0.75,the music is better than it sounds,11.3261
-16,1x1,0.75,the quick brown fox jumps over the lazy dog,11.0844
-16,1x1,0.75,the force is with you,11.2939
-16,1x1,0.75,frequently asked questions,10.8412
-16,1x1,1.25,what a monkey sees a monkey will do,14.7835
-16,1x1,1.25,the five boxing wizards jump quickly,13.6502
-16,1x1,1.25,did you have a good time,14.233
-16,1x1,1.25,he is still on our team,16.001
-16,1x1,1.25,are you talking to me,13.7637
-16,1x1,1.25,the quick brown fox jumps over the lazy dog,14.3505
-16,1x1,1.25,watch out for low flying objects,12.6167
-16,1x1,1.25,stay away from strangers,13.24
-16,1x1,1.25,the dow jones index has risen,14.0129
-16,1x1,1.25,just in time for the party,14.6208
-16,1x1,1,my bare face in the wind,16.9519
-16,1x1,1,the quick brown fox jumps over the lazy dog,14.6624
-16,1x1,1,reading week is just about here,15.8003
-16,1x1,1,the five boxing wizards jump quickly,15.1218
-16,1x1,1,he is just like everyone else,16.4986
-16,1x1,1,love means many things,15.5916
-16,1x1,1,we accept personal checks,14.7493
-16,1x1,1,healthy food is good for you,16.0432
-16,1x1,1,come and see our new car,16.2129
-16,1x1,1,you must be getting old,16.1795
-16,1x3,0.75,coming up with killer sound bites,13.3396
-16,1x3,0.75,our fax number has changed,14.4964
-16,1x3,0.75,popularity is desired by all,12.6219
-16,1x3,0.75,parking lot is full of trucks,11.7132
-16,1x3,0.75,the five boxing wizards jump quickly,15.5074
-16,1x3,0.75,call for more details,11.852
-16,1x3,0.75,the music is better than it sounds,14.9429
-16,1x3,0.75,the quick brown fox jumps over the lazy dog,15.5441
-16,1x3,0.75,the force is with you,13.9437
-16,1x3,0.75,frequently asked questions,12.7491
-16,1x3,1.25,what a monkey sees a monkey will do,14.9741
-16,1x3,1.25,the five boxing wizards jump quickly,14.0241
-16,1x3,1.25,did you have a good time,13.7934
-16,1x3,1.25,he is still on our team,15.8352
-16,1x3,1.25,are you talking to me,12.9176
-16,1x3,1.25,the quick brown fox jumps over the lazy dog,12.314
-16,1x3,1.25,watch out for low flying objects,14.5659
-16,1x3,1.25,stay away from strangers,12.8685
-16,1x3,1.25,the dow jones index has risen,13.1291
-16,1x3,1.25,just in time for the party,13.1681
-16,1x3,1,my bare face in the wind,15.9492
-16,1x3,1,the quick brown fox jumps over the lazy dog,13.5058
-16,1x3,1,reading week is just about here,16.0176
-16,1x3,1,the five boxing wizards jump quickly,17.7057
-16,1x3,1,he is just like everyone else,15.2253
-16,1x3,1,love means many things,15.67
-16,1x3,1,we accept personal checks,15.209
-16,1x3,1,healthy food is good for you,13.9911
-16,1x3,1,come and see our new car,17.7639
-16,1x3,1,you must be getting old,16.2476
-17,1x1,0.75,call for more details,33.0933
-17,1x1,0.75,he is still on our team,39.701
-17,1x1,0.75,are you talking to me,38.1897
-17,1x1,0.75,the five boxing wizards jump quickly,42.671
-17,1x1,0.75,the force is with you,34.3647
-17,1x1,0.75,the quick brown fox jumps over the lazy dog,34.9544
-17,1x1,0.75,just in time for the party,39.0561
-17,1x1,0.75,our fax number has changed,38.9922
-17,1x1,0.75,we accept personal checks,35.7024
-17,1x1,0.75,what a monkey sees a monkey will do,37.277
-17,1x1,1.25,healthy food is good for you,43.8488
-17,1x1,1.25,coming up with killer sound bites,50.0581
-17,1x1,1.25,stay away from strangers,45.7782
-17,1x1,1.25,my bare face in the wind,40.6912
-17,1x1,1.25,the five boxing wizards jump quickly,44.188
-17,1x1,1.25,you must be getting old,42.9893
-17,1x1,1.25,the quick brown fox jumps over the lazy dog,37.7806
-17,1x1,1.25,love means many things,38.6462
-17,1x1,1.25,come and see our new car,39.2579
-17,1x1,1.25,frequently asked questions,54.0944
-17,1x1,1,the quick brown fox jumps over the lazy dog,40.7126
-17,1x1,1,watch out for low flying objects,42.8371
-17,1x1,1,the dow jones index has risen,38.3087
-17,1x1,1,popularity is desired by all,45.1589
-17,1x1,1,the music is better than it sounds,45.4429
-17,1x1,1,reading week is just about here,43.2181
-17,1x1,1,did you have a good time,41.6848
-17,1x1,1,the five boxing wizards jump quickly,50.2869
-17,1x1,1,parking lot is full of trucks,50.4882
-17,1x1,1,he is just like everyone else,49.4578
-17,1x3,0.75,call for more details,42.8564
-17,1x3,0.75,he is still on our team,39.0642
-17,1x3,0.75,are you talking to me,42.3188
-17,1x3,0.75,the five boxing wizards jump quickly,44.6779
-17,1x3,0.75,the force is with you,42.9939
-17,1x3,0.75,the quick brown fox jumps over the lazy dog,45.0844
-17,1x3,0.75,just in time for the party,49.3203
-17,1x3,0.75,our fax number has changed,46.3727
-17,1x3,0.75,we accept personal checks,42.9185
-17,1x3,0.75,what a monkey sees a monkey will do,48.1127
-17,1x3,1.25,healthy food is good for you,42.4068
-17,1x3,1.25,coming up with killer sound bites,43.3732
-17,1x3,1.25,stay away from strangers,44.4672
-17,1x3,1.25,my bare face in the wind,35.4397
-17,1x3,1.25,the five boxing wizards jump quickly,41.5945
-17,1x3,1.25,you must be getting old,43.7607
-17,1x3,1.25,the quick brown fox jumps over the lazy dog,39.9204
-17,1x3,1.25,love means many things,38.1189
-17,1x3,1.25,come and see our new car,41.3859
-17,1x3,1.25,frequently asked questions,43.992
-17,1x3,1,the quick brown fox jumps over the lazy dog,47.7844
-17,1x3,1,watch out for low flying objects,47.3396
-17,1x3,1,the dow jones index has risen,45.6801
-17,1x3,1,popularity is desired by all,56.4649
-17,1x3,1,the music is better than it sounds,52.5855
-17,1x3,1,reading week is just about here,55.9146
-17,1x3,1,did you have a good time,50.176
-17,1x3,1,the five boxing wizards jump quickly,53.4812
-17,1x3,1,parking lot is full of trucks,51.8544
-17,1x3,1,he is just like everyone else,51.3774
-18,1x1,1,healthy food is good for you,24.9484
-18,1x1,1,our fax number has changed,21.2664
-18,1x1,1,the five boxing wizards jump quickly,20.1123
-18,1x1,1,watch out for low flying objects,23.8426
-18,1x1,1,the quick brown fox jumps over the lazy dog,20.3784
-18,1x1,1,the music is better than it sounds,27.3061
-18,1x1,1,are you talking to me,24.5825
-18,1x1,1,my bare face in the wind,32.1482
-18,1x1,1,parking lot is full of trucks,20.2964
-18,1x1,1,you must be getting old,26.1688
-18,1x1,0.75,the dow jones index has risen,21.3102
-18,1x1,0.75,did you have a good time,17.8296
-18,1x1,0.75,he is just like everyone else,20.2612
-18,1x1,0.75,the five boxing wizards jump quickly,21.9451
-18,1x1,0.75,coming up with killer sound bites,22.2677
-18,1x1,0.75,the force is with you,20.5859
-18,1x1,0.75,reading week is just about here,22.6965
-18,1x1,0.75,what a monkey sees a monkey will do,22.7578
-18,1x1,0.75,the quick brown fox jumps over the lazy dog,23.4199
-18,1x1,0.75,come and see our new car,23.7006
-18,1x1,1.25,frequently asked questions,31.4732
-18,1x1,1.25,the quick brown fox jumps over the lazy dog,22.4789
-18,1x1,1.25,love means many things,22.2355
-18,1x1,1.25,he is still on our team,26.2041
-18,1x1,1.25,call for more details,27.1944
-18,1x1,1.25,popularity is desired by all,25.3949
-18,1x1,1.25,the five boxing wizards jump quickly,27.3846
-18,1x1,1.25,we accept personal checks,31.3755
-18,1x1,1.25,just in time for the party,30.9306
-18,1x1,1.25,stay away from strangers,25.2335
-18,1x3,1,healthy food is good for you,31.8268
-18,1x3,1,our fax number has changed,31.9273
-18,1x3,1,the five boxing wizards jump quickly,31.1046
-18,1x3,1,watch out for low flying objects,32.8593
-18,1x3,1,the quick brown fox jumps over the lazy dog,26.8894
-18,1x3,1,the music is better than it sounds,28.5494
-18,1x3,1,are you talking to me,33.971
-18,1x3,1,my bare face in the wind,31.472
-18,1x3,1,parking lot is full of trucks,31.6862
-18,1x3,1,you must be getting old,32.7791
-18,1x3,0.75,the dow jones index has risen,29.6771
-18,1x3,0.75,did you have a good time,31.7773
-18,1x3,0.75,he is just like everyone else,29.0294
-18,1x3,0.75,the five boxing wizards jump quickly,29.6347
-18,1x3,0.75,coming up with killer sound bites,32.6415
-18,1x3,0.75,the force is with you,36.8125
-18,1x3,0.75,reading week is just about here,28.9379
-18,1x3,0.75,what a monkey sees a monkey will do,27.5506
-18,1x3,0.75,the quick brown fox jumps over the lazy dog,26.761
-18,1x3,0.75,come and see our new car,32.3723
-18,1x3,1.25,frequently asked questions,26.7491
-18,1x3,1.25,the quick brown fox jumps over the lazy dog,25.3012
-18,1x3,1.25,love means many things,27.4383
-18,1x3,1.25,he is still on our team,34.1665
-18,1x3,1.25,call for more details,29.8348
-18,1x3,1.25,popularity is desired by all,30.3099
-18,1x3,1.25,the five boxing wizards jump quickly,26.8468
-18,1x3,1.25,we accept personal checks,28.0405
-18,1x3,1.25,just in time for the party,27.3203
-18,1x3,1.25,stay away from strangers,31.9755
+id,scale,size,sentence,WPM,words
+1,1x1,1.25,the quick brown fox jumps over the lazy dog,35.0061,9
+1,1x1,1.25,you must be getting old,41.7985,5
+1,1x1,1.25,the five boxing wizards jump quickly,38.4407,6
+1,1x1,1.25,we run the risk of failure,37.7733,6
+1,1x1,1.25,the force is with you,40.9616,5
+1,1x1,1.25,love means many things,40.5917,4
+1,1x1,1.25,time to go shopping,41.6301,4
+1,1x1,1.25,please provide your date of birth,40.8913,6
+1,1x1,1.25,my favorite place to visit,41.3026,5
+1,1x1,1.25,the world is a stage,37.7027,5
+1,1x1,1,breathing is difficult,42.2623,3
+1,1x1,1,the five boxing wizards jump quickly,42.178,6
+1,1x1,1,one heck of a question,44.4587,5
+1,1x1,1,yes you are very smart,45.1136,5
+1,1x1,1,watch out for low flying objects,41.7991,6
+1,1x1,1,the quick brown fox jumps over the lazy dog,40.5466,9
+1,1x1,1,do not say anything,40.8331,4
+1,1x1,1,the facts get in the way,43.3846,6
+1,1x1,1,are you talking to me,39.423,5
+1,1x1,1,an offer you cannot refuse,40.6912,5
+1,1x1,0.75,the quick brown fox jumps over the lazy dog,35.1664,9
+1,1x1,0.75,the five boxing wizards jump quickly,37.1191,6
+1,1x1,0.75,if at first you do not succeed,40.3646,7
+1,1x1,0.75,the power of denial,38.7241,4
+1,1x1,0.75,question that must be answered,39.754,5
+1,1x1,0.75,he is just like everyone else,38.6697,6
+1,1x1,0.75,all work and no play,35.0908,5
+1,1x1,0.75,never too rich and never too thin,42.0008,7
+1,1x1,0.75,my watch fell in the water,42.6678,6
+1,1x1,0.75,a problem with the engine,38.6887,5
+1,1x3,1.25,yes you are very smart,35.0714,5
+1,1x3,1.25,love means many things,33.1783,4
+1,1x3,1.25,time to go shopping,42.7687,4
+1,1x3,1.25,you must be getting old,37.1018,5
+1,1x3,1.25,we run the risk of failure,34.2518,6
+1,1x3,1.25,do not say anything,32.9957,4
+1,1x3,1.25,one heck of a question,40.2378,5
+1,1x3,1.25,the quick brown fox jumps over the lazy dog,34.7451,9
+1,1x3,1.25,the five boxing wizards jump quickly,35.9521,6
+1,1x3,1.25,breathing is difficult,40.0546,3
+1,1x3,1,if at first you do not succeed,41.6426,7
+1,1x3,1,please provide your date of birth,45.0717,6
+1,1x3,1,watch out for low flying objects,42.2489,6
+1,1x3,1,the force is with you,43.7348,5
+1,1x3,1,the quick brown fox jumps over the lazy dog,40.7583,9
+1,1x3,1,are you talking to me,40.9157,5
+1,1x3,1,he is just like everyone else,41.4039,6
+1,1x3,1,a problem with the engine,42.0168,5
+1,1x3,1,the five boxing wizards jump quickly,39.6585,6
+1,1x3,1,the power of denial,40.3683,4
+1,1x3,0.75,my watch fell in the water,40,6
+1,1x3,0.75,all work and no play,34.5821,5
+1,1x3,0.75,the quick brown fox jumps over the lazy dog,38.4501,9
+1,1x3,0.75,an offer you cannot refuse,45.152,5
+1,1x3,0.75,never too rich and never too thin,41.3793,7
+1,1x3,0.75,the five boxing wizards jump quickly,41.7391,6
+1,1x3,0.75,question that must be answered,47.8723,5
+1,1x3,0.75,the facts get in the way,39.7241,6
+1,1x3,0.75,the world is a stage,41.0256,5
+1,1x3,0.75,my favorite place to visit,38.4236,5
+2,1x3,1.25,the power of denial,26.1639,4
+2,1x3,1.25,breathing is difficult,26.0014,3
+2,1x3,1.25,the five boxing wizards jump quickly,26.81,6
+2,1x3,1.25,one heck of a question,26.5676,5
+2,1x3,1.25,the quick brown fox jumps over the lazy dog,27.7312,9
+2,1x3,1.25,if at first you do not succeed,29.5758,7
+2,1x3,1.25,love means many things,24.8106,4
+2,1x3,1.25,are you talking to me,24.7161,5
+2,1x3,1.25,never too rich and never too thin,26.5314,7
+2,1x3,1.25,the facts get in the way,29.0648,6
+2,1x3,1,time to go shopping,29.2008,4
+2,1x3,1,watch out for low flying objects,27.7096,6
+2,1x3,1,the five boxing wizards jump quickly,26.1628,6
+2,1x3,1,my watch fell in the water,29.9971,6
+2,1x3,1,please provide your date of birth,29.1434,6
+2,1x3,1,a problem with the engine,33.0106,5
+2,1x3,1,the quick brown fox jumps over the lazy dog,29.4353,9
+2,1x3,1,the world is a stage,28.7977,5
+2,1x3,1,question that must be answered,35.9138,5
+2,1x3,1,all work and no play,28.7666,5
+2,1x3,0.75,the five boxing wizards jump quickly,32.1046,6
+2,1x3,0.75,we run the risk of failure,31.6366,6
+2,1x3,0.75,an offer you cannot refuse,32.8594,5
+2,1x3,0.75,you must be getting old,27.8901,5
+2,1x3,0.75,my favorite place to visit,27.218,5
+2,1x3,0.75,do not say anything,30.7402,4
+2,1x3,0.75,the quick brown fox jumps over the lazy dog,27.2742,9
+2,1x3,0.75,he is just like everyone else,30.3268,6
+2,1x3,0.75,the force is with you,28.3465,5
+2,1x3,0.75,yes you are very smart,30.8051,5
+2,1x1,1.25,the power of denial,27.3535,4
+2,1x1,1.25,breathing is difficult,39.0868,3
+2,1x1,1.25,the five boxing wizards jump quickly,36.1044,6
+2,1x1,1.25,one heck of a question,30.6346,5
+2,1x1,1.25,the quick brown fox jumps over the lazy dog,29.5721,9
+2,1x1,1.25,if at first you do not succeed,29.6369,7
+2,1x1,1.25,love means many things,29.7535,4
+2,1x1,1.25,are you talking to me,31.3456,5
+2,1x1,1.25,never too rich and never too thin,33.369,7
+2,1x1,1.25,the facts get in the way,37.9262,6
+2,1x1,1,time to go shopping,31.8196,4
+2,1x1,1,watch out for low flying objects,29.5879,6
+2,1x1,1,the five boxing wizards jump quickly,27.1751,6
+2,1x1,1,my watch fell in the water,39.0244,6
+2,1x1,1,please provide your date of birth,31.5971,6
+2,1x1,1,a problem with the engine,31.0177,5
+2,1x1,1,the quick brown fox jumps over the lazy dog,32.8084,9
+2,1x1,1,the world is a stage,30.8527,5
+2,1x1,1,question that must be answered,37.5869,5
+2,1x1,1,all work and no play,25.949,5
+2,1x1,0.75,the five boxing wizards jump quickly,23.5589,6
+2,1x1,0.75,we run the risk of failure,21.0421,6
+2,1x1,0.75,an offer you cannot refuse,26.0434,5
+2,1x1,0.75,you must be getting old,26.4502,5
+2,1x1,0.75,my favorite place to visit,21.9292,5
+2,1x1,0.75,do not say anything,24.152,4
+2,1x1,0.75,the quick brown fox jumps over the lazy dog,26.4811,9
+2,1x1,0.75,he is just like everyone else,23.6071,6
+2,1x1,0.75,the force is with you,29.0708,5
+2,1x1,0.75,yes you are very smart,28.474,5
+3,1x1,1,the five boxing wizards jump quickly,32.3989,6
+3,1x1,1,you must be getting old,32.3826,5
+3,1x1,1,my favorite place to visit,32.0043,5
+3,1x1,1,the power of denial,33.0277,4
+3,1x1,1,question that must be answered,32.1722,5
+3,1x1,1,the quick brown fox jumps over the lazy dog,27.0571,9
+3,1x1,1,my watch fell in the water,25.2826,6
+3,1x1,1,watch out for low flying objects,29.4931,6
+3,1x1,1,time to go shopping,33.3022,4
+3,1x1,1,an offer you cannot refuse,30.1121,5
+3,1x1,0.75,he is just like everyone else,30.7298,6
+3,1x1,0.75,the world is a stage,29.2808,5
+3,1x1,0.75,a problem with the engine,29.0793,5
+3,1x1,0.75,the five boxing wizards jump quickly,33.6119,6
+3,1x1,0.75,question that must be answered,34.9176,5
+3,1x1,0.75,the power of denial,32.0765,4
+3,1x1,0.75,watch out for low flying objects,28.8874,6
+3,1x1,0.75,my watch fell in the water,27.3756,6
+3,1x1,0.75,the quick brown fox jumps over the lazy dog,26.3131,9
+3,1x1,0.75,the facts get in the way,28.5431,6
+3,1x1,1.25,yes you are very smart,36.6013,5
+3,1x1,1.25,you must be getting old,41.6976,5
+3,1x1,1.25,the five boxing wizards jump quickly,36.9569,6
+3,1x1,1.25,if at first you do not succeed,35.4062,7
+3,1x1,1.25,time to go shopping,33.1338,4
+3,1x1,1.25,do not say anything,34.9126,4
+3,1x1,1.25,the force is with you,34.5404,5
+3,1x1,1.25,the quick brown fox jumps over the lazy dog,34.4834,9
+3,1x1,1.25,please provide your date of birth,32.6895,6
+3,1x1,1.25,an offer you cannot refuse,35.3081,5
+3,1x3,1,we run the risk of failure,36.4239,6
+3,1x3,1,breathing is difficult,44.9936,3
+3,1x3,1,love means many things,36.9536,4
+3,1x3,1,all work and no play,35.5951,5
+3,1x3,1,are you talking to me,33.2748,5
+3,1x3,1,the quick brown fox jumps over the lazy dog,31.7445,9
+3,1x3,1,my favorite place to visit,32.996,5
+3,1x3,1,never too rich and never too thin,40.8117,7
+3,1x3,1,the five boxing wizards jump quickly,35.0963,6
+3,1x3,1,one heck of a question,36.15,5
+3,1x3,0.75,he is just like everyone else,34.5856,6
+3,1x3,0.75,the world is a stage,31.1324,5
+3,1x3,0.75,a problem with the engine,27.2851,5
+3,1x3,0.75,the five boxing wizards jump quickly,31.1038,6
+3,1x3,0.75,question that must be answered,32.5056,5
+3,1x3,0.75,the power of denial,29.7534,4
+3,1x3,0.75,watch out for low flying objects,33.0835,6
+3,1x3,0.75,my watch fell in the water,32.6531,6
+3,1x3,0.75,the quick brown fox jumps over the lazy dog,27.3595,9
+3,1x3,0.75,the facts get in the way,29.1439,6
+3,1x3,1.25,yes you are very smart,33.2034,5
+3,1x3,1.25,you must be getting old,38.187,5
+3,1x3,1.25,the five boxing wizards jump quickly,32.6188,6
+3,1x3,1.25,if at first you do not succeed,32.7884,7
+3,1x3,1.25,time to go shopping,39.879,4
+3,1x3,1.25,do not say anything,32.5696,4
+3,1x3,1.25,the force is with you,34.157,5
+3,1x3,1.25,the quick brown fox jumps over the lazy dog,32.1415,9
+3,1x3,1.25,please provide your date of birth,34.3142,6
+3,1x3,1.25,an offer you cannot refuse,36.702,5
+4,1x3,1,we run the risk of failure,20.1384,6
+4,1x3,1,the quick brown fox jumps over the lazy dog,17.8003,9
+4,1x3,1,an offer you cannot refuse,23.2076,5
+4,1x3,1,the five boxing wizards jump quickly,15.3496,6
+4,1x3,1,he is just like everyone else,18.5378,6
+4,1x3,1,love means many things,17.389,4
+4,1x3,1,my watch fell in the water,19.432,6
+4,1x3,1,breathing is difficult,14.3416,3
+4,1x3,1,if at first you do not succeed,18.5471,7
+4,1x3,1,please provide your date of birth,17.5136,6
+4,1x3,0.75,the world is a stage,21.7687,5
+4,1x3,0.75,the force is with you,21.4578,5
+4,1x3,0.75,watch out for low flying objects,18.8559,6
+4,1x3,0.75,you must be getting old,18.3109,5
+4,1x3,0.75,my favorite place to visit,17.8214,5
+4,1x3,0.75,yes you are very smart,25.741,5
+4,1x3,0.75,a problem with the engine,20.9996,5
+4,1x3,0.75,the five boxing wizards jump quickly,18.4521,6
+4,1x3,0.75,the quick brown fox jumps over the lazy dog,19.721,9
+4,1x3,0.75,the facts get in the way,21.1967,6
+4,1x3,1.25,time to go shopping,25.8181,4
+4,1x3,1.25,one heck of a question,21.7034,5
+4,1x3,1.25,never too rich and never too thin,20.8016,7
+4,1x3,1.25,are you talking to me,21.3036,5
+4,1x3,1.25,all work and no play,17.2625,5
+4,1x3,1.25,the quick brown fox jumps over the lazy dog,18.1505,9
+4,1x3,1.25,the power of denial,16.0394,4
+4,1x3,1.25,do not say anything,17.9782,4
+4,1x3,1.25,the five boxing wizards jump quickly,17.7442,6
+4,1x3,1.25,question that must be answered,18.5653,5
+4,1x1,1,we run the risk of failure,21.9172,6
+4,1x1,1,the quick brown fox jumps over the lazy dog,19.2747,9
+4,1x1,1,an offer you cannot refuse,21.9771,5
+4,1x1,1,the five boxing wizards jump quickly,17.4147,6
+4,1x1,1,he is just like everyone else,19.361,6
+4,1x1,1,love means many things,20.2428,4
+4,1x1,1,my watch fell in the water,19.9839,6
+4,1x1,1,breathing is difficult,16.0024,3
+4,1x1,1,if at first you do not succeed,20.1585,7
+4,1x1,1,please provide your date of birth,20.431,6
+4,1x1,0.75,the world is a stage,23.1319,5
+4,1x1,0.75,the force is with you,24.3363,5
+4,1x1,0.75,watch out for low flying objects,24.1227,6
+4,1x1,0.75,you must be getting old,22.9943,5
+4,1x1,0.75,my favorite place to visit,18.6035,5
+4,1x1,0.75,yes you are very smart,20.4334,5
+4,1x1,0.75,a problem with the engine,19.7394,5
+4,1x1,0.75,the five boxing wizards jump quickly,18.6311,6
+4,1x1,0.75,the quick brown fox jumps over the lazy dog,17.7161,9
+4,1x1,0.75,the facts get in the way,19.5665,6
+4,1x1,1.25,time to go shopping,28.9278,4
+4,1x1,1.25,one heck of a question,23.7724,5
+4,1x1,1.25,never too rich and never too thin,24.2035,7
+4,1x1,1.25,are you talking to me,24.5306,5
+4,1x1,1.25,all work and no play,21.1612,5
+4,1x1,1.25,the quick brown fox jumps over the lazy dog,20.7606,9
+4,1x1,1.25,the power of denial,20.5263,4
+4,1x1,1.25,do not say anything,21.6161,4
+4,1x1,1.25,the five boxing wizards jump quickly,20.4557,6
+4,1x1,1.25,question that must be answered,25.3711,5
+5,1x1,0.75,the five boxing wizards jump quickly,23.7833,6
+5,1x1,0.75,an offer you cannot refuse,24.5142,5
+5,1x1,0.75,time to go shopping,23.8959,4
+5,1x1,0.75,do not say anything,24.2827,4
+5,1x1,0.75,the quick brown fox jumps over the lazy dog,22.6676,9
+5,1x1,0.75,yes you are very smart,21.8663,5
+5,1x1,0.75,my watch fell in the water,23.9462,6
+5,1x1,0.75,please provide your date of birth,20.573,6
+5,1x1,0.75,he is just like everyone else,22.8441,6
+5,1x1,0.75,we run the risk of failure,21.8564,6
+5,1x1,1.25,the quick brown fox jumps over the lazy dog,22.8389,9
+5,1x1,1.25,the five boxing wizards jump quickly,23.7807,6
+5,1x1,1.25,are you talking to me,25.452,5
+5,1x1,1.25,all work and no play,22.4215,5
+5,1x1,1.25,the world is a stage,23.3327,5
+5,1x1,1.25,the force is with you,26.9692,5
+5,1x1,1.25,a problem with the engine,21.0793,5
+5,1x1,1.25,question that must be answered,24.9601,5
+5,1x1,1.25,the power of denial,26.1198,4
+5,1x1,1.25,you must be getting old,29.7831,5
+5,1x1,1,the facts get in the way,27.7724,6
+5,1x1,1,love means many things,19.8825,4
+5,1x1,1,the quick brown fox jumps over the lazy dog,23.5509,9
+5,1x1,1,watch out for low flying objects,21.185,6
+5,1x1,1,one heck of a question,21.3713,5
+5,1x1,1,breathing is difficult,21.2817,3
+5,1x1,1,if at first you do not succeed,25.9403,7
+5,1x1,1,the five boxing wizards jump quickly,21.4776,6
+5,1x1,1,never too rich and never too thin,24.0116,7
+5,1x1,1,my favorite place to visit,20.4832,5
+5,1x3,0.75,my watch fell in the water,31.0618,6
+5,1x3,0.75,the quick brown fox jumps over the lazy dog,28.1102,9
+5,1x3,0.75,the five boxing wizards jump quickly,25.5167,6
+5,1x3,0.75,never too rich and never too thin,26.0326,7
+5,1x3,0.75,love means many things,24.8852,4
+5,1x3,0.75,he is just like everyone else,23.9151,6
+5,1x3,0.75,one heck of a question,21.5942,5
+5,1x3,0.75,breathing is difficult,20.847,3
+5,1x3,0.75,we run the risk of failure,22.8655,6
+5,1x3,0.75,the facts get in the way,24.0994,6
+5,1x3,1.25,watch out for low flying objects,24.3746,6
+5,1x3,1.25,the five boxing wizards jump quickly,28.8188,6
+5,1x3,1.25,the force is with you,26.8557,5
+5,1x3,1.25,the world is a stage,27.2851,5
+5,1x3,1.25,please provide your date of birth,26.6611,6
+5,1x3,1.25,the power of denial,27.9405,4
+5,1x3,1.25,the quick brown fox jumps over the lazy dog,27.2415,9
+5,1x3,1.25,all work and no play,30.2923,5
+5,1x3,1.25,a problem with the engine,27.503,5
+5,1x3,1.25,my favorite place to visit,25.2615,5
+5,1x3,1,an offer you cannot refuse,28.6107,5
+5,1x3,1,time to go shopping,26.6573,4
+5,1x3,1,yes you are very smart,25.6236,5
+5,1x3,1,the quick brown fox jumps over the lazy dog,26.4195,9
+5,1x3,1,if at first you do not succeed,27.0738,7
+5,1x3,1,you must be getting old,26.4875,5
+5,1x3,1,are you talking to me,29.826,5
+5,1x3,1,question that must be answered,27.9655,5
+5,1x3,1,the five boxing wizards jump quickly,24.7777,6
+5,1x3,1,do not say anything,28.9634,4
+6,1x3,0.75,the five boxing wizards jump quickly,44.0204,6
+6,1x3,0.75,the music is better than it sounds,44.7163,7
+6,1x3,0.75,frequently asked questions,53.4571,3
+6,1x3,0.75,the quick brown fox jumps over the lazy dog,42.6147,9
+6,1x3,0.75,we accept personal checks,45.1685,4
+6,1x3,0.75,coming up with killer sound bites,46.9957,6
+6,1x3,0.75,my bare face in the wind,43.7604,6
+6,1x3,0.75,he is still on our team,45.3396,6
+6,1x3,0.75,call for more details,43.2507,4
+6,1x3,0.75,are you talking to me,45.1201,5
+6,1x3,1.25,he is just like everyone else,44.9769,6
+6,1x3,1.25,just in time for the party,47.63,6
+6,1x3,1.25,healthy food is good for you,46.9589,6
+6,1x3,1.25,what a monkey sees a monkey will do,53.7112,8
+6,1x3,1.25,the five boxing wizards jump quickly,45.8574,6
+6,1x3,1.25,the quick brown fox jumps over the lazy dog,43.5789,9
+6,1x3,1.25,come and see our new car,45.2204,6
+6,1x3,1.25,you must be getting old,49.561,5
+6,1x3,1.25,watch out for low flying objects,46.8053,6
+6,1x3,1.25,the dow jones index has risen,43.6424,6
+6,1x3,1,did you have a good time,44.3466,6
+6,1x3,1,reading week is just about here,48.1491,6
+6,1x3,1,parking lot is full of trucks,47.593,6
+6,1x3,1,the quick brown fox jumps over the lazy dog,48.0165,9
+6,1x3,1,the force is with you,52.5482,5
+6,1x3,1,the five boxing wizards jump quickly,52.0708,6
+6,1x3,1,our fax number has changed,51.0396,5
+6,1x3,1,stay away from strangers,40.762,4
+6,1x3,1,love means many things,42.4458,4
+6,1x3,1,popularity is desired by all,45.654,5
+6,1x1,0.75,the five boxing wizards jump quickly,46.3604,6
+6,1x1,0.75,the music is better than it sounds,48.9784,7
+6,1x1,0.75,frequently asked questions,54.3469,3
+6,1x1,0.75,the quick brown fox jumps over the lazy dog,48.9698,9
+6,1x1,0.75,we accept personal checks,47.6637,4
+6,1x1,0.75,coming up with killer sound bites,46.0155,6
+6,1x1,0.75,my bare face in the wind,42.9101,6
+6,1x1,0.75,he is still on our team,44.0283,6
+6,1x1,0.75,call for more details,44.7403,4
+6,1x1,0.75,are you talking to me,47.3239,5
+6,1x1,1.25,he is just like everyone else,46.3432,6
+6,1x1,1.25,just in time for the party,52.8017,6
+6,1x1,1.25,healthy food is good for you,51.3793,6
+6,1x1,1.25,what a monkey sees a monkey will do,54.5525,8
+6,1x1,1.25,the five boxing wizards jump quickly,54.0426,6
+6,1x1,1.25,the quick brown fox jumps over the lazy dog,45.3862,9
+6,1x1,1.25,come and see our new car,44.5503,6
+6,1x1,1.25,you must be getting old,49.5218,5
+6,1x1,1.25,watch out for low flying objects,47.7683,6
+6,1x1,1.25,the dow jones index has risen,42.2299,6
+6,1x1,1,did you have a good time,46.773,6
+6,1x1,1,reading week is just about here,51.6588,6
+6,1x1,1,parking lot is full of trucks,54.3258,6
+6,1x1,1,the quick brown fox jumps over the lazy dog,54.3805,9
+6,1x1,1,the force is with you,57.1001,5
+6,1x1,1,the five boxing wizards jump quickly,60.2091,6
+6,1x1,1,our fax number has changed,54.5226,5
+6,1x1,1,stay away from strangers,50.8564,4
+6,1x1,1,love means many things,46.354,4
+6,1x1,1,popularity is desired by all,44.4474,5
+7,1x1,1.25,the force is with you,15.5738,5
+7,1x1,1.25,just in time for the party,15.2355,6
+7,1x1,1.25,popularity is desired by all,15.2973,5
+7,1x1,1.25,the quick brown fox jumps over the lazy dog,14.2403,9
+7,1x1,1.25,my bare face in the wind,13.9876,6
+7,1x1,1.25,our fax number has changed,15.9262,5
+7,1x1,1.25,the five boxing wizards jump quickly,13.8259,6
+7,1x1,1.25,reading week is just about here,15.2181,6
+7,1x1,1.25,the dow jones index has risen,14.4361,6
+7,1x1,1.25,coming up with killer sound bites,14.9713,6
+7,1x1,1,come and see our new car,17.2345,6
+7,1x1,1,he is still on our team,15.6914,6
+7,1x1,1,we accept personal checks,14.3314,4
+7,1x1,1,the five boxing wizards jump quickly,14.6494,6
+7,1x1,1,healthy food is good for you,16.5127,6
+7,1x1,1,the quick brown fox jumps over the lazy dog,16.1253,9
+7,1x1,1,frequently asked questions,16.7772,3
+7,1x1,1,the music is better than it sounds,16.9382,7
+7,1x1,1,you must be getting old,17.6031,5
+7,1x1,1,did you have a good time,16.3709,6
+7,1x1,0.75,the five boxing wizards jump quickly,17.3192,6
+7,1x1,0.75,parking lot is full of trucks,16.6713,6
+7,1x1,0.75,watch out for low flying objects,16.7397,6
+7,1x1,0.75,stay away from strangers,15.1218,4
+7,1x1,0.75,are you talking to me,16.071,5
+7,1x1,0.75,he is just like everyone else,16.4995,6
+7,1x1,0.75,love means many things,16.7056,4
+7,1x1,0.75,what a monkey sees a monkey will do,17.1382,8
+7,1x1,0.75,the quick brown fox jumps over the lazy dog,16.8859,9
+7,1x1,0.75,call for more details,15.9782,4
+7,1x3,1.25,the force is with you,18.1778,5
+7,1x3,1.25,just in time for the party,20.6281,6
+7,1x3,1.25,popularity is desired by all,20.0237,5
+7,1x3,1.25,the quick brown fox jumps over the lazy dog,18.0697,9
+7,1x3,1.25,my bare face in the wind,17.2266,6
+7,1x3,1.25,our fax number has changed,19.6607,5
+7,1x3,1.25,the five boxing wizards jump quickly,18.0814,6
+7,1x3,1.25,reading week is just about here,20.8472,6
+7,1x3,1.25,the dow jones index has risen,19.8112,6
+7,1x3,1.25,coming up with killer sound bites,18.9361,6
+7,1x3,1,come and see our new car,20.5872,6
+7,1x3,1,he is still on our team,21.2523,6
+7,1x3,1,we accept personal checks,13.0008,4
+7,1x3,1,the five boxing wizards jump quickly,14.4217,6
+7,1x3,1,healthy food is good for you,15.5486,6
+7,1x3,1,the quick brown fox jumps over the lazy dog,13.9993,9
+7,1x3,1,frequently asked questions,18.1027,3
+7,1x3,1,the music is better than it sounds,18.0524,7
+7,1x3,1,you must be getting old,17.644,5
+7,1x3,1,did you have a good time,18.4498,6
+7,1x3,0.75,the five boxing wizards jump quickly,15.3235,6
+7,1x3,0.75,parking lot is full of trucks,16.0943,6
+7,1x3,0.75,watch out for low flying objects,15.5514,6
+7,1x3,0.75,stay away from strangers,16.1826,4
+7,1x3,0.75,are you talking to me,16.3671,5
+7,1x3,0.75,he is just like everyone else,16.6502,6
+7,1x3,0.75,love means many things,14.7995,4
+7,1x3,0.75,what a monkey sees a monkey will do,19.606,8
+7,1x3,0.75,the quick brown fox jumps over the lazy dog,14.5051,9
+7,1x3,0.75,call for more details,16.3677,4
+8,1x3,1,did you have a good time,21.2815,6
+8,1x3,1,love means many things,19.3608,4
+8,1x3,1,he is just like everyone else,16.7956,6
+8,1x3,1,the force is with you,16.2733,5
+8,1x3,1,the five boxing wizards jump quickly,19.4963,6
+8,1x3,1,the quick brown fox jumps over the lazy dog,17.3875,9
+8,1x3,1,our fax number has changed,19.6267,5
+8,1x3,1,my bare face in the wind,20.9159,6
+8,1x3,1,we accept personal checks,18.8616,4
+8,1x3,1,come and see our new car,20.949,6
+8,1x3,0.75,call for more details,19.4688,4
+8,1x3,0.75,just in time for the party,16.9622,6
+8,1x3,0.75,you must be getting old,19.5443,5
+8,1x3,0.75,coming up with killer sound bites,18.5881,6
+8,1x3,0.75,the quick brown fox jumps over the lazy dog,15.5017,9
+8,1x3,0.75,parking lot is full of trucks,15.6479,6
+8,1x3,0.75,stay away from strangers,19.989,4
+8,1x3,0.75,the five boxing wizards jump quickly,18.0876,6
+8,1x3,0.75,are you talking to me,20.0135,5
+8,1x3,0.75,reading week is just about here,21.0757,6
+8,1x3,1.25,healthy food is good for you,21.6736,6
+8,1x3,1.25,the quick brown fox jumps over the lazy dog,17.1291,9
+8,1x3,1.25,the music is better than it sounds,20.2007,7
+8,1x3,1.25,the five boxing wizards jump quickly,19.1233,6
+8,1x3,1.25,what a monkey sees a monkey will do,19.3045,8
+8,1x3,1.25,he is still on our team,18.6343,6
+8,1x3,1.25,the dow jones index has risen,17.3694,6
+8,1x3,1.25,popularity is desired by all,20.8407,5
+8,1x3,1.25,frequently asked questions,20.6124,3
+8,1x3,1.25,watch out for low flying objects,18.0355,6
+8,1x1,1,did you have a good time,17.3883,6
+8,1x1,1,love means many things,18.3668,4
+8,1x1,1,he is just like everyone else,17.2524,6
+8,1x1,1,the force is with you,16.5727,5
+8,1x1,1,the five boxing wizards jump quickly,16.5152,6
+8,1x1,1,the quick brown fox jumps over the lazy dog,14.9814,9
+8,1x1,1,our fax number has changed,18.3867,5
+8,1x1,1,my bare face in the wind,17.162,6
+8,1x1,1,we accept personal checks,15.506,4
+8,1x1,1,come and see our new car,18.5935,6
+8,1x1,0.75,call for more details,18.6674,4
+8,1x1,0.75,just in time for the party,15.8927,6
+8,1x1,0.75,you must be getting old,18.2197,5
+8,1x1,0.75,coming up with killer sound bites,18.4084,6
+8,1x1,0.75,the quick brown fox jumps over the lazy dog,16.0225,9
+8,1x1,0.75,parking lot is full of trucks,19.1528,6
+8,1x1,0.75,stay away from strangers,17.8738,4
+8,1x1,0.75,the five boxing wizards jump quickly,16.9972,6
+8,1x1,0.75,are you talking to me,17.6404,5
+8,1x1,0.75,reading week is just about here,21.8405,6
+8,1x1,1.25,healthy food is good for you,18.5572,6
+8,1x1,1.25,the quick brown fox jumps over the lazy dog,16.8731,9
+8,1x1,1.25,the music is better than it sounds,18.8678,7
+8,1x1,1.25,the five boxing wizards jump quickly,17.65,6
+8,1x1,1.25,what a monkey sees a monkey will do,18.3869,8
+8,1x1,1.25,he is still on our team,17.8235,6
+8,1x1,1.25,the dow jones index has risen,17.6357,6
+8,1x1,1.25,popularity is desired by all,18.8199,5
+8,1x1,1.25,frequently asked questions,18.2778,3
+8,1x1,1.25,watch out for low flying objects,18.8531,6
+9,1x1,1,come and see our new car,11.9578,6
+9,1x1,1,just in time for the party,11.7509,6
+9,1x1,1,stay away from strangers,13.3127,4
+9,1x1,1,he is just like everyone else,10.5029,6
+9,1x1,1,parking lot is full of trucks,11.0775,6
+9,1x1,1,are you talking to me,11.8307,5
+9,1x1,1,the quick brown fox jumps over the lazy dog,11.1497,9
+9,1x1,1,love means many things,11.3363,4
+9,1x1,1,the five boxing wizards jump quickly,12.4387,6
+9,1x1,1,you must be getting old,14.0449,5
+9,1x1,0.75,healthy food is good for you,12.5575,6
+9,1x1,0.75,my bare face in the wind,10.4719,6
+9,1x1,0.75,call for more details,13.4869,4
+9,1x1,0.75,the quick brown fox jumps over the lazy dog,12.6692,9
+9,1x1,0.75,popularity is desired by all,12.6079,5
+9,1x1,0.75,the five boxing wizards jump quickly,12.9261,6
+9,1x1,0.75,what a monkey sees a monkey will do,13.3931,8
+9,1x1,0.75,the force is with you,11.5712,5
+9,1x1,0.75,he is still on our team,14.9359,6
+9,1x1,0.75,coming up with killer sound bites,15.5409,6
+9,1x1,1.25,frequently asked questions,13.3492,3
+9,1x1,1.25,did you have a good time,14.3977,6
+9,1x1,1.25,the music is better than it sounds,12.9745,7
+9,1x1,1.25,we accept personal checks,12.6126,4
+9,1x1,1.25,the quick brown fox jumps over the lazy dog,14.3208,9
+9,1x1,1.25,reading week is just about here,18.3231,6
+9,1x1,1.25,watch out for low flying objects,16.6088,6
+9,1x1,1.25,the five boxing wizards jump quickly,16.8692,6
+9,1x1,1.25,our fax number has changed,12.3238,5
+9,1x1,1.25,the dow jones index has risen,15.7976,6
+9,1x3,1,come and see our new car,14.2245,6
+9,1x3,1,just in time for the party,17.0743,6
+9,1x3,1,stay away from strangers,16.6708,4
+9,1x3,1,he is just like everyone else,16.4802,6
+9,1x3,1,parking lot is full of trucks,14.6273,6
+9,1x3,1,are you talking to me,18.2926,5
+9,1x3,1,the quick brown fox jumps over the lazy dog,14.2778,9
+9,1x3,1,love means many things,14.0741,4
+9,1x3,1,the five boxing wizards jump quickly,16.5032,6
+9,1x3,1,you must be getting old,19.7027,5
+9,1x3,0.75,healthy food is good for you,18.1698,6
+9,1x3,0.75,my bare face in the wind,15.8384,6
+9,1x3,0.75,call for more details,20.0049,4
+9,1x3,0.75,the quick brown fox jumps over the lazy dog,17.9715,9
+9,1x3,0.75,popularity is desired by all,15.079,5
+9,1x3,0.75,the five boxing wizards jump quickly,17.4057,6
+9,1x3,0.75,what a monkey sees a monkey will do,17.0447,8
+9,1x3,0.75,the force is with you,16.966,5
+9,1x3,0.75,he is still on our team,16.3418,6
+9,1x3,0.75,coming up with killer sound bites,16.1965,6
+9,1x3,1.25,the dow jones index has risen,14.8766,6
+9,1x3,1.25,the quick brown fox jumps over the lazy dog,12.7564,9
+9,1x3,1.25,popularity is desired by all,14.3496,5
+9,1x3,1.25,love means many things,13.7504,4
+9,1x3,1.25,reading week is just about here,16.1188,6
+9,1x3,1.25,stay away from strangers,13.049,4
+9,1x3,1.25,come and see our new car,15.6663,6
+9,1x3,1.25,the five boxing wizards jump quickly,14.1277,6
+9,1x3,1.25,the force is with you,15.8729,5
+9,1x3,1.25,are you talking to me,19.0987,5
+10,1x1,0.75,just in time for the party,23.0347,6
+10,1x1,0.75,he is just like everyone else,21.5898,6
+10,1x1,0.75,my bare face in the wind,22.1581,6
+10,1x1,0.75,our fax number has changed,22.3512,5
+10,1x1,0.75,are you talking to me,21.5831,5
+10,1x1,0.75,popularity is desired by all,20.9235,5
+10,1x1,0.75,the quick brown fox jumps over the lazy dog,19.2694,9
+10,1x1,0.75,healthy food is good for you,21.975,6
+10,1x1,0.75,the five boxing wizards jump quickly,22.263,6
+10,1x1,0.75,parking lot is full of trucks,20.3196,6
+10,1x1,1.25,what a monkey sees a monkey will do,22.6596,8
+10,1x1,1.25,the five boxing wizards jump quickly,23.9431,6
+10,1x1,1.25,watch out for low flying objects,26.4294,6
+10,1x1,1.25,the force is with you,25.9716,5
+10,1x1,1.25,call for more details,24.9693,4
+10,1x1,1.25,the quick brown fox jumps over the lazy dog,28.6877,9
+10,1x1,1.25,did you have a good time,29.8183,6
+10,1x1,1.25,the dow jones index has risen,30.4553,6
+10,1x1,1.25,the music is better than it sounds,29.6062,7
+10,1x1,1.25,come and see our new car,28.8965,6
+10,1x1,1,he is still on our team,25.2447,6
+10,1x1,1,the five boxing wizards jump quickly,23.8625,6
+10,1x1,1,stay away from strangers,20.6589,4
+10,1x1,1,coming up with killer sound bites,24.5438,6
+10,1x1,1,frequently asked questions,31.0497,3
+10,1x1,1,the quick brown fox jumps over the lazy dog,28.992,9
+10,1x1,1,we accept personal checks,29.0675,4
+10,1x1,1,reading week is just about here,34.595,6
+10,1x1,1,love means many things,29.3516,4
+10,1x1,1,you must be getting old,37.3119,5
+10,1x3,0.75,just in time for the party,29.2173,6
+10,1x3,0.75,he is just like everyone else,26.6656,6
+10,1x3,0.75,my bare face in the wind,25.0542,6
+10,1x3,0.75,our fax number has changed,27.4863,5
+10,1x3,0.75,are you talking to me,30.0537,5
+10,1x3,0.75,popularity is desired by all,30.492,5
+10,1x3,0.75,the quick brown fox jumps over the lazy dog,25.8336,9
+10,1x3,0.75,healthy food is good for you,27.6641,6
+10,1x3,0.75,the five boxing wizards jump quickly,33.0189,6
+10,1x3,0.75,parking lot is full of trucks,36.5327,6
+10,1x3,1.25,what a monkey sees a monkey will do,42.5704,8
+10,1x3,1.25,the five boxing wizards jump quickly,34.7281,6
+10,1x3,1.25,watch out for low flying objects,34.4006,6
+10,1x3,1.25,the force is with you,36.8901,5
+10,1x3,1.25,call for more details,41.7025,4
+10,1x3,1.25,the quick brown fox jumps over the lazy dog,40.6581,9
+10,1x3,1.25,did you have a good time,37.7042,6
+10,1x3,1.25,the dow jones index has risen,34.0409,6
+10,1x3,1.25,the music is better than it sounds,35.5627,7
+10,1x3,1.25,come and see our new car,45.9792,6
+10,1x3,1,he is still on our team,39.1567,6
+10,1x3,1,the five boxing wizards jump quickly,34.8815,6
+10,1x3,1,stay away from strangers,32.4218,4
+10,1x3,1,coming up with killer sound bites,31.8933,6
+10,1x3,1,frequently asked questions,28.1352,3
+10,1x3,1,the quick brown fox jumps over the lazy dog,30.4637,9
+10,1x3,1,we accept personal checks,34.0341,4
+10,1x3,1,reading week is just about here,41.7691,6
+10,1x3,1,love means many things,36.6489,4
+10,1x3,1,you must be getting old,37.7405,5
+11,1x3,1.25,the force is with you,28.5118,5
+11,1x3,1.25,frequently asked questions,24.5456,3
+11,1x3,1.25,the music is better than it sounds,25.5338,7
+11,1x3,1.25,the quick brown fox jumps over the lazy dog,25.0837,9
+11,1x3,1.25,our fax number has changed,25.0309,5
+11,1x3,1.25,healthy food is good for you,26.6569,6
+11,1x3,1.25,reading week is just about here,28.2959,6
+11,1x3,1.25,we accept personal checks,28.0999,4
+11,1x3,1.25,the five boxing wizards jump quickly,22.815,6
+11,1x3,1.25,just in time for the party,29.4765,6
+11,1x3,1,you must be getting old,28.9229,5
+11,1x3,1,coming up with killer sound bites,30.8416,6
+11,1x3,1,watch out for low flying objects,25.778,6
+11,1x3,1,what a monkey sees a monkey will do,30.4675,8
+11,1x3,1,the quick brown fox jumps over the lazy dog,27.9296,9
+11,1x3,1,come and see our new car,28.6345,6
+11,1x3,1,my bare face in the wind,29.0211,6
+11,1x3,1,parking lot is full of trucks,27.9177,6
+11,1x3,1,the five boxing wizards jump quickly,29.4531,6
+11,1x3,1,are you talking to me,32.088,5
+11,1x3,0.75,the quick brown fox jumps over the lazy dog,28.8542,9
+11,1x3,0.75,the five boxing wizards jump quickly,27.2547,6
+11,1x3,0.75,love means many things,25.9878,4
+11,1x3,0.75,did you have a good time,33.5927,6
+11,1x3,0.75,the dow jones index has risen,27.975,6
+11,1x3,0.75,stay away from strangers,26.3418,4
+11,1x3,0.75,he is still on our team,30.5506,6
+11,1x3,0.75,he is just like everyone else,28.6391,6
+11,1x3,0.75,popularity is desired by all,26.4357,5
+11,1x3,0.75,call for more details,30.4852,4
+11,1x1,1.25,the force is with you,31.6198,5
+11,1x1,1.25,frequently asked questions,26.0462,3
+11,1x1,1.25,the music is better than it sounds,29.3479,7
+11,1x1,1.25,the quick brown fox jumps over the lazy dog,30.8819,9
+11,1x1,1.25,our fax number has changed,28.2606,5
+11,1x1,1.25,healthy food is good for you,26.3438,6
+11,1x1,1.25,reading week is just about here,28.8726,6
+11,1x1,1.25,we accept personal checks,27.0621,4
+11,1x1,1.25,the five boxing wizards jump quickly,28.974,6
+11,1x1,1.25,just in time for the party,31.8562,6
+11,1x1,1,you must be getting old,28.4548,5
+11,1x1,1,coming up with killer sound bites,33.0896,6
+11,1x1,1,watch out for low flying objects,27.694,6
+11,1x1,1,what a monkey sees a monkey will do,28.748,8
+11,1x1,1,the quick brown fox jumps over the lazy dog,27.5803,9
+11,1x1,1,come and see our new car,31.9709,6
+11,1x1,1,my bare face in the wind,23.1349,6
+11,1x1,1,parking lot is full of trucks,22.2314,6
+11,1x1,1,the five boxing wizards jump quickly,26.8298,6
+11,1x1,1,are you talking to me,29.4927,5
+11,1x1,0.75,the quick brown fox jumps over the lazy dog,29.8646,9
+11,1x1,0.75,the five boxing wizards jump quickly,25.7051,6
+11,1x1,0.75,love means many things,28.3216,4
+11,1x1,0.75,did you have a good time,24.4773,6
+11,1x1,0.75,the dow jones index has risen,26.3355,6
+11,1x1,0.75,stay away from strangers,25.9811,4
+11,1x1,0.75,he is still on our team,32.5894,6
+11,1x1,0.75,he is just like everyone else,29.376,6
+11,1x1,0.75,popularity is desired by all,27.1563,5
+11,1x1,0.75,call for more details,27.5485,4
+12,1x3,0.75,love means many things,19.3391,4
+12,1x3,0.75,the five boxing wizards jump quickly,23.7007,6
+12,1x3,0.75,come and see our new car,24.381,6
+12,1x3,0.75,the quick brown fox jumps over the lazy dog,23.0134,9
+12,1x3,0.75,parking lot is full of trucks,22.1711,6
+12,1x3,0.75,my bare face in the wind,21.4106,6
+12,1x3,0.75,healthy food is good for you,27.2548,6
+12,1x3,0.75,the music is better than it sounds,24.9841,7
+12,1x3,0.75,he is still on our team,28.5546,6
+12,1x3,0.75,frequently asked questions,18.3399,3
+12,1x3,1.25,reading week is just about here,31.1865,6
+12,1x3,1.25,are you talking to me,26.8469,5
+12,1x3,1.25,watch out for low flying objects,24.9185,6
+12,1x3,1.25,you must be getting old,26.3158,5
+12,1x3,1.25,just in time for the party,27.3164,6
+12,1x3,1.25,we accept personal checks,23.8231,4
+12,1x3,1.25,the five boxing wizards jump quickly,27.36,6
+12,1x3,1.25,he is just like everyone else,28.1467,6
+12,1x3,1.25,the quick brown fox jumps over the lazy dog,29.5451,9
+12,1x3,1.25,our fax number has changed,29.4946,5
+12,1x3,1,stay away from strangers,24.4432,4
+12,1x3,1,the quick brown fox jumps over the lazy dog,26.3894,9
+12,1x3,1,call for more details,27.9503,4
+12,1x3,1,the dow jones index has risen,27.1381,6
+12,1x3,1,did you have a good time,27.1225,6
+12,1x3,1,coming up with killer sound bites,32.2788,6
+12,1x3,1,the force is with you,34.0416,5
+12,1x3,1,what a monkey sees a monkey will do,31.0591,8
+12,1x3,1,the five boxing wizards jump quickly,23.4931,6
+12,1x3,1,popularity is desired by all,20.9011,5
+12,1x1,0.75,love means many things,27.3066,4
+12,1x1,0.75,the five boxing wizards jump quickly,24.2116,6
+12,1x1,0.75,come and see our new car,23.8259,6
+12,1x1,0.75,the quick brown fox jumps over the lazy dog,23.3844,9
+12,1x1,0.75,parking lot is full of trucks,24.4726,6
+12,1x1,0.75,my bare face in the wind,27.6646,6
+12,1x1,0.75,healthy food is good for you,30.774,6
+12,1x1,0.75,the music is better than it sounds,33.8292,7
+12,1x1,0.75,he is still on our team,29.0047,6
+12,1x1,0.75,frequently asked questions,24.0849,3
+12,1x1,1.25,reading week is just about here,31.1465,6
+12,1x1,1.25,are you talking to me,27.1221,5
+12,1x1,1.25,watch out for low flying objects,28.7,6
+12,1x1,1.25,you must be getting old,34.3711,5
+12,1x1,1.25,just in time for the party,30.6228,6
+12,1x1,1.25,we accept personal checks,22.8152,4
+12,1x1,1.25,the five boxing wizards jump quickly,22.1586,6
+12,1x1,1.25,he is just like everyone else,20.9408,6
+12,1x1,1.25,the quick brown fox jumps over the lazy dog,19.0822,9
+12,1x1,1.25,our fax number has changed,32.7996,5
+12,1x1,1,stay away from strangers,27.8914,4
+12,1x1,1,the quick brown fox jumps over the lazy dog,22.16,9
+12,1x1,1,call for more details,24.0414,4
+12,1x1,1,the dow jones index has risen,28.3305,6
+12,1x1,1,did you have a good time,30.0808,6
+12,1x1,1,coming up with killer sound bites,29.1631,6
+12,1x1,1,the force is with you,26.8008,5
+12,1x1,1,what a monkey sees a monkey will do,27.3528,8
+12,1x1,1,the five boxing wizards jump quickly,27.6045,6
+12,1x1,1,popularity is desired by all,26.4022,5
+13,1x3,1,reading week is just about here,16.7686,6
+13,1x3,1,frequently asked questions,16.8685,3
+13,1x3,1,the music is better than it sounds,16.554,7
+13,1x3,1,our fax number has changed,18.5197,5
+13,1x3,1,love means many things,17.0396,4
+13,1x3,1,popularity is desired by all,15.6121,5
+13,1x3,1,coming up with killer sound bites,16.6611,6
+13,1x3,1,the quick brown fox jumps over the lazy dog,14.746,9
+13,1x3,1,the five boxing wizards jump quickly,16.0319,6
+13,1x3,1,the dow jones index has risen,14.0531,6
+13,1x3,0.75,the quick brown fox jumps over the lazy dog,17.1001,9
+13,1x3,0.75,we accept personal checks,17.0606,4
+13,1x3,0.75,the five boxing wizards jump quickly,15.7283,6
+13,1x3,0.75,you must be getting old,18.011,5
+13,1x3,0.75,call for more details,18.4953,4
+13,1x3,0.75,what a monkey sees a monkey will do,14.0821,8
+13,1x3,0.75,stay away from strangers,14.7,4
+13,1x3,0.75,healthy food is good for you,16.1422,6
+13,1x3,0.75,just in time for the party,15.8667,6
+13,1x3,0.75,are you talking to me,15.7503,5
+13,1x3,1.25,come and see our new car,18.3541,6
+13,1x3,1.25,the quick brown fox jumps over the lazy dog,15.8822,9
+13,1x3,1.25,my bare face in the wind,16.857,6
+13,1x3,1.25,the force is with you,15.9985,5
+13,1x3,1.25,he is just like everyone else,14.2171,6
+13,1x3,1.25,watch out for low flying objects,14.9716,6
+13,1x3,1.25,the five boxing wizards jump quickly,13.5454,6
+13,1x3,1.25,he is still on our team,15.1869,6
+13,1x3,1.25,did you have a good time,17.742,6
+13,1x3,1.25,parking lot is full of trucks,15.8753,6
+13,1x1,1,reading week is just about here,21.4173,6
+13,1x1,1,frequently asked questions,15.6082,3
+13,1x1,1,the music is better than it sounds,18.3446,7
+13,1x1,1,our fax number has changed,17.4305,5
+13,1x1,1,love means many things,16.7763,4
+13,1x1,1,popularity is desired by all,16.6033,5
+13,1x1,1,coming up with killer sound bites,17.8373,6
+13,1x1,1,the quick brown fox jumps over the lazy dog,15.4461,9
+13,1x1,1,the five boxing wizards jump quickly,16.3503,6
+13,1x1,1,the dow jones index has risen,17.6526,6
+13,1x1,0.75,the quick brown fox jumps over the lazy dog,14.663,9
+13,1x1,0.75,we accept personal checks,13.503,4
+13,1x1,0.75,the five boxing wizards jump quickly,14.8337,6
+13,1x1,0.75,you must be getting old,14.8058,5
+13,1x1,0.75,call for more details,13.5428,4
+13,1x1,0.75,what a monkey sees a monkey will do,14.1919,8
+13,1x1,0.75,stay away from strangers,13.7911,4
+13,1x1,0.75,healthy food is good for you,13.1922,6
+13,1x1,0.75,just in time for the party,14.1118,6
+13,1x1,0.75,are you talking to me,13.863,5
+13,1x1,1.25,come and see our new car,17.9895,6
+13,1x1,1.25,the quick brown fox jumps over the lazy dog,14.0222,9
+13,1x1,1.25,my bare face in the wind,16.5962,6
+13,1x1,1.25,the force is with you,16.5113,5
+13,1x1,1.25,he is just like everyone else,15.6591,6
+13,1x1,1.25,watch out for low flying objects,14.4236,6
+13,1x1,1.25,the five boxing wizards jump quickly,15.6475,6
+13,1x1,1.25,he is still on our team,15.2524,6
+13,1x1,1.25,did you have a good time,15.0658,6
+13,1x1,1.25,parking lot is full of trucks,13.6638,6
+14,1x3,1.25,love means many things,27.0955,4
+14,1x3,1.25,come and see our new car,23.064,6
+14,1x3,1.25,the dow jones index has risen,24.9143,6
+14,1x3,1.25,are you talking to me,21.1644,5
+14,1x3,1.25,we accept personal checks,18.6921,4
+14,1x3,1.25,the force is with you,20.4189,5
+14,1x3,1.25,the quick brown fox jumps over the lazy dog,22.5644,9
+14,1x3,1.25,the five boxing wizards jump quickly,21.6383,6
+14,1x3,1.25,he is just like everyone else,23.3166,6
+14,1x3,1.25,popularity is desired by all,19.9004,5
+14,1x3,1,what a monkey sees a monkey will do,20.3324,8
+14,1x3,1,our fax number has changed,25.5882,5
+14,1x3,1,healthy food is good for you,21.0572,6
+14,1x3,1,the five boxing wizards jump quickly,22.5219,6
+14,1x3,1,stay away from strangers,20.7117,4
+14,1x3,1,coming up with killer sound bites,27.4981,6
+14,1x3,1,my bare face in the wind,22.7253,6
+14,1x3,1,call for more details,24.4309,4
+14,1x3,1,the quick brown fox jumps over the lazy dog,22.8255,9
+14,1x3,1,the music is better than it sounds,25.6659,7
+14,1x3,0.75,watch out for low flying objects,20.6358,6
+14,1x3,0.75,he is still on our team,21.5102,6
+14,1x3,0.75,just in time for the party,19.2201,6
+14,1x3,0.75,reading week is just about here,25.0267,6
+14,1x3,0.75,the quick brown fox jumps over the lazy dog,19.7154,9
+14,1x3,0.75,parking lot is full of trucks,20.8362,6
+14,1x3,0.75,you must be getting old,26.248,5
+14,1x3,0.75,the five boxing wizards jump quickly,23.0784,6
+14,1x3,0.75,did you have a good time,24.4103,6
+14,1x3,0.75,frequently asked questions,21.5023,3
+14,1x1,1.25,love means many things,28.3685,4
+14,1x1,1.25,come and see our new car,26.5047,6
+14,1x1,1.25,the dow jones index has risen,21.7572,6
+14,1x1,1.25,are you talking to me,22.5568,5
+14,1x1,1.25,we accept personal checks,26.077,4
+14,1x1,1.25,the force is with you,19.3597,5
+14,1x1,1.25,the quick brown fox jumps over the lazy dog,20.5139,9
+14,1x1,1.25,the five boxing wizards jump quickly,23.3147,6
+14,1x1,1.25,he is just like everyone else,23.6402,6
+14,1x1,1.25,popularity is desired by all,21.0711,5
+14,1x1,1,what a monkey sees a monkey will do,25.0902,8
+14,1x1,1,our fax number has changed,21.1298,5
+14,1x1,1,healthy food is good for you,23.2113,6
+14,1x1,1,the five boxing wizards jump quickly,21.1365,6
+14,1x1,1,stay away from strangers,20.398,4
+14,1x1,1,coming up with killer sound bites,23.8107,6
+14,1x1,1,my bare face in the wind,22.3729,6
+14,1x1,1,call for more details,21.3449,4
+14,1x1,1,the quick brown fox jumps over the lazy dog,22.2065,9
+14,1x1,1,the music is better than it sounds,21.4233,7
+14,1x1,0.75,watch out for low flying objects,21.1023,6
+14,1x1,0.75,he is still on our team,21.2712,6
+14,1x1,0.75,just in time for the party,20.0472,6
+14,1x1,0.75,reading week is just about here,21.3815,6
+14,1x1,0.75,the quick brown fox jumps over the lazy dog,19.6745,9
+14,1x1,0.75,parking lot is full of trucks,19.5029,6
+14,1x1,0.75,you must be getting old,21.9173,5
+14,1x1,0.75,the five boxing wizards jump quickly,20.6058,6
+14,1x1,0.75,did you have a good time,21.826,6
+14,1x1,0.75,frequently asked questions,21.9047,3
+15,1x1,1.25,what a monkey sees a monkey will do,18.3887,8
+15,1x1,1.25,call for more details,18.3761,4
+15,1x1,1.25,you must be getting old,20.9554,5
+15,1x1,1.25,the music is better than it sounds,19.807,7
+15,1x1,1.25,coming up with killer sound bites,17.9192,6
+15,1x1,1.25,the quick brown fox jumps over the lazy dog,16.559,9
+15,1x1,1.25,are you talking to me,19.8266,5
+15,1x1,1.25,popularity is desired by all,18.6646,5
+15,1x1,1.25,the five boxing wizards jump quickly,17.216,6
+15,1x1,1.25,the dow jones index has risen,16.0221,6
+15,1x1,1,he is still on our team,22.6037,6
+15,1x1,1,the force is with you,19.5509,5
+15,1x1,1,did you have a good time,19.9129,6
+15,1x1,1,the five boxing wizards jump quickly,21.6668,6
+15,1x1,1,he is just like everyone else,22.9429,6
+15,1x1,1,stay away from strangers,17.5036,4
+15,1x1,1,the quick brown fox jumps over the lazy dog,17.0498,9
+15,1x1,1,come and see our new car,19.8883,6
+15,1x1,1,reading week is just about here,21.427,6
+15,1x1,1,my bare face in the wind,14.6042,6
+15,1x1,0.75,our fax number has changed,18.3452,5
+15,1x1,0.75,just in time for the party,15.3981,6
+15,1x1,0.75,healthy food is good for you,16.0813,6
+15,1x1,0.75,the five boxing wizards jump quickly,15.6582,6
+15,1x1,0.75,the quick brown fox jumps over the lazy dog,14.0403,9
+15,1x1,0.75,love means many things,15.8018,4
+15,1x1,0.75,parking lot is full of trucks,13.5201,6
+15,1x1,0.75,we accept personal checks,13.1874,4
+15,1x1,0.75,watch out for low flying objects,12.9795,6
+15,1x1,0.75,frequently asked questions,16.1059,3
+15,1x3,1.25,what a monkey sees a monkey will do,17.4489,8
+15,1x3,1.25,call for more details,16.865,4
+15,1x3,1.25,you must be getting old,19.7957,5
+15,1x3,1.25,the music is better than it sounds,18.3693,7
+15,1x3,1.25,coming up with killer sound bites,17.0843,6
+15,1x3,1.25,the quick brown fox jumps over the lazy dog,15.8277,9
+15,1x3,1.25,are you talking to me,17.7809,5
+15,1x3,1.25,popularity is desired by all,18.8268,5
+15,1x3,1.25,the five boxing wizards jump quickly,18.7115,6
+15,1x3,1.25,the dow jones index has risen,22.3833,6
+15,1x3,1,he is still on our team,21.5876,6
+15,1x3,1,the force is with you,20.3323,5
+15,1x3,1,did you have a good time,19.1197,6
+15,1x3,1,the five boxing wizards jump quickly,19.4442,6
+15,1x3,1,he is just like everyone else,21.7043,6
+15,1x3,1,stay away from strangers,18.9836,4
+15,1x3,1,the quick brown fox jumps over the lazy dog,19.9415,9
+15,1x3,1,come and see our new car,20.336,6
+15,1x3,1,reading week is just about here,20.9011,6
+15,1x3,1,my bare face in the wind,17.9374,6
+15,1x3,0.75,our fax number has changed,21.0614,5
+15,1x3,0.75,just in time for the party,17.556,6
+15,1x3,0.75,healthy food is good for you,19.9832,6
+15,1x3,0.75,the five boxing wizards jump quickly,16.753,6
+15,1x3,0.75,the quick brown fox jumps over the lazy dog,16.2168,9
+15,1x3,0.75,love means many things,16.5906,4
+15,1x3,0.75,parking lot is full of trucks,15.6187,6
+15,1x3,0.75,we accept personal checks,15.8718,4
+15,1x3,0.75,watch out for low flying objects,15.2372,6
+15,1x3,0.75,frequently asked questions,19.9343,3
+16,1x1,0.75,coming up with killer sound bites,8.39326,6
+16,1x1,0.75,our fax number has changed,11.1194,5
+16,1x1,0.75,popularity is desired by all,10.3662,5
+16,1x1,0.75,parking lot is full of trucks,11.4391,6
+16,1x1,0.75,the five boxing wizards jump quickly,11.3166,6
+16,1x1,0.75,call for more details,10.6405,4
+16,1x1,0.75,the music is better than it sounds,11.3261,7
+16,1x1,0.75,the quick brown fox jumps over the lazy dog,11.0844,9
+16,1x1,0.75,the force is with you,11.2939,5
+16,1x1,0.75,frequently asked questions,10.8412,3
+16,1x1,1.25,what a monkey sees a monkey will do,14.7835,8
+16,1x1,1.25,the five boxing wizards jump quickly,13.6502,6
+16,1x1,1.25,did you have a good time,14.233,6
+16,1x1,1.25,he is still on our team,16.001,6
+16,1x1,1.25,are you talking to me,13.7637,5
+16,1x1,1.25,the quick brown fox jumps over the lazy dog,14.3505,9
+16,1x1,1.25,watch out for low flying objects,12.6167,6
+16,1x1,1.25,stay away from strangers,13.24,4
+16,1x1,1.25,the dow jones index has risen,14.0129,6
+16,1x1,1.25,just in time for the party,14.6208,6
+16,1x1,1,my bare face in the wind,16.9519,6
+16,1x1,1,the quick brown fox jumps over the lazy dog,14.6624,9
+16,1x1,1,reading week is just about here,15.8003,6
+16,1x1,1,the five boxing wizards jump quickly,15.1218,6
+16,1x1,1,he is just like everyone else,16.4986,6
+16,1x1,1,love means many things,15.5916,4
+16,1x1,1,we accept personal checks,14.7493,4
+16,1x1,1,healthy food is good for you,16.0432,6
+16,1x1,1,come and see our new car,16.2129,6
+16,1x1,1,you must be getting old,16.1795,5
+16,1x3,0.75,coming up with killer sound bites,13.3396,6
+16,1x3,0.75,our fax number has changed,14.4964,5
+16,1x3,0.75,popularity is desired by all,12.6219,5
+16,1x3,0.75,parking lot is full of trucks,11.7132,6
+16,1x3,0.75,the five boxing wizards jump quickly,15.5074,6
+16,1x3,0.75,call for more details,11.852,4
+16,1x3,0.75,the music is better than it sounds,14.9429,7
+16,1x3,0.75,the quick brown fox jumps over the lazy dog,15.5441,9
+16,1x3,0.75,the force is with you,13.9437,5
+16,1x3,0.75,frequently asked questions,12.7491,3
+16,1x3,1.25,what a monkey sees a monkey will do,14.9741,8
+16,1x3,1.25,the five boxing wizards jump quickly,14.0241,6
+16,1x3,1.25,did you have a good time,13.7934,6
+16,1x3,1.25,he is still on our team,15.8352,6
+16,1x3,1.25,are you talking to me,12.9176,5
+16,1x3,1.25,the quick brown fox jumps over the lazy dog,12.314,9
+16,1x3,1.25,watch out for low flying objects,14.5659,6
+16,1x3,1.25,stay away from strangers,12.8685,4
+16,1x3,1.25,the dow jones index has risen,13.1291,6
+16,1x3,1.25,just in time for the party,13.1681,6
+16,1x3,1,my bare face in the wind,15.9492,6
+16,1x3,1,the quick brown fox jumps over the lazy dog,13.5058,9
+16,1x3,1,reading week is just about here,16.0176,6
+16,1x3,1,the five boxing wizards jump quickly,17.7057,6
+16,1x3,1,he is just like everyone else,15.2253,6
+16,1x3,1,love means many things,15.67,4
+16,1x3,1,we accept personal checks,15.209,4
+16,1x3,1,healthy food is good for you,13.9911,6
+16,1x3,1,come and see our new car,17.7639,6
+16,1x3,1,you must be getting old,16.2476,5
+17,1x1,0.75,call for more details,33.0933,4
+17,1x1,0.75,he is still on our team,39.701,6
+17,1x1,0.75,are you talking to me,38.1897,5
+17,1x1,0.75,the five boxing wizards jump quickly,42.671,6
+17,1x1,0.75,the force is with you,34.3647,5
+17,1x1,0.75,the quick brown fox jumps over the lazy dog,34.9544,9
+17,1x1,0.75,just in time for the party,39.0561,6
+17,1x1,0.75,our fax number has changed,38.9922,5
+17,1x1,0.75,we accept personal checks,35.7024,4
+17,1x1,0.75,what a monkey sees a monkey will do,37.277,8
+17,1x1,1.25,healthy food is good for you,43.8488,6
+17,1x1,1.25,coming up with killer sound bites,50.0581,6
+17,1x1,1.25,stay away from strangers,45.7782,4
+17,1x1,1.25,my bare face in the wind,40.6912,6
+17,1x1,1.25,the five boxing wizards jump quickly,44.188,6
+17,1x1,1.25,you must be getting old,42.9893,5
+17,1x1,1.25,the quick brown fox jumps over the lazy dog,37.7806,9
+17,1x1,1.25,love means many things,38.6462,4
+17,1x1,1.25,come and see our new car,39.2579,6
+17,1x1,1.25,frequently asked questions,54.0944,3
+17,1x1,1,the quick brown fox jumps over the lazy dog,40.7126,9
+17,1x1,1,watch out for low flying objects,42.8371,6
+17,1x1,1,the dow jones index has risen,38.3087,6
+17,1x1,1,popularity is desired by all,45.1589,5
+17,1x1,1,the music is better than it sounds,45.4429,7
+17,1x1,1,reading week is just about here,43.2181,6
+17,1x1,1,did you have a good time,41.6848,6
+17,1x1,1,the five boxing wizards jump quickly,50.2869,6
+17,1x1,1,parking lot is full of trucks,50.4882,6
+17,1x1,1,he is just like everyone else,49.4578,6
+17,1x3,0.75,call for more details,42.8564,4
+17,1x3,0.75,he is still on our team,39.0642,6
+17,1x3,0.75,are you talking to me,42.3188,5
+17,1x3,0.75,the five boxing wizards jump quickly,44.6779,6
+17,1x3,0.75,the force is with you,42.9939,5
+17,1x3,0.75,the quick brown fox jumps over the lazy dog,45.0844,9
+17,1x3,0.75,just in time for the party,49.3203,6
+17,1x3,0.75,our fax number has changed,46.3727,5
+17,1x3,0.75,we accept personal checks,42.9185,4
+17,1x3,0.75,what a monkey sees a monkey will do,48.1127,8
+17,1x3,1.25,healthy food is good for you,42.4068,6
+17,1x3,1.25,coming up with killer sound bites,43.3732,6
+17,1x3,1.25,stay away from strangers,44.4672,4
+17,1x3,1.25,my bare face in the wind,35.4397,6
+17,1x3,1.25,the five boxing wizards jump quickly,41.5945,6
+17,1x3,1.25,you must be getting old,43.7607,5
+17,1x3,1.25,the quick brown fox jumps over the lazy dog,39.9204,9
+17,1x3,1.25,love means many things,38.1189,4
+17,1x3,1.25,come and see our new car,41.3859,6
+17,1x3,1.25,frequently asked questions,43.992,3
+17,1x3,1,the quick brown fox jumps over the lazy dog,47.7844,9
+17,1x3,1,watch out for low flying objects,47.3396,6
+17,1x3,1,the dow jones index has risen,45.6801,6
+17,1x3,1,popularity is desired by all,56.4649,5
+17,1x3,1,the music is better than it sounds,52.5855,7
+17,1x3,1,reading week is just about here,55.9146,6
+17,1x3,1,did you have a good time,50.176,6
+17,1x3,1,the five boxing wizards jump quickly,53.4812,6
+17,1x3,1,parking lot is full of trucks,51.8544,6
+17,1x3,1,he is just like everyone else,51.3774,6
+18,1x1,1,healthy food is good for you,24.9484,6
+18,1x1,1,our fax number has changed,21.2664,5
+18,1x1,1,the five boxing wizards jump quickly,20.1123,6
+18,1x1,1,watch out for low flying objects,23.8426,6
+18,1x1,1,the quick brown fox jumps over the lazy dog,20.3784,9
+18,1x1,1,the music is better than it sounds,27.3061,7
+18,1x1,1,are you talking to me,24.5825,5
+18,1x1,1,my bare face in the wind,32.1482,6
+18,1x1,1,parking lot is full of trucks,20.2964,6
+18,1x1,1,you must be getting old,26.1688,5
+18,1x1,0.75,the dow jones index has risen,21.3102,6
+18,1x1,0.75,did you have a good time,17.8296,6
+18,1x1,0.75,he is just like everyone else,20.2612,6
+18,1x1,0.75,the five boxing wizards jump quickly,21.9451,6
+18,1x1,0.75,coming up with killer sound bites,22.2677,6
+18,1x1,0.75,the force is with you,20.5859,5
+18,1x1,0.75,reading week is just about here,22.6965,6
+18,1x1,0.75,what a monkey sees a monkey will do,22.7578,8
+18,1x1,0.75,the quick brown fox jumps over the lazy dog,23.4199,9
+18,1x1,0.75,come and see our new car,23.7006,6
+18,1x1,1.25,frequently asked questions,31.4732,3
+18,1x1,1.25,the quick brown fox jumps over the lazy dog,22.4789,9
+18,1x1,1.25,love means many things,22.2355,4
+18,1x1,1.25,he is still on our team,26.2041,6
+18,1x1,1.25,call for more details,27.1944,4
+18,1x1,1.25,popularity is desired by all,25.3949,5
+18,1x1,1.25,the five boxing wizards jump quickly,27.3846,6
+18,1x1,1.25,we accept personal checks,31.3755,4
+18,1x1,1.25,just in time for the party,30.9306,6
+18,1x1,1.25,stay away from strangers,25.2335,4
+18,1x3,1,healthy food is good for you,31.8268,6
+18,1x3,1,our fax number has changed,31.9273,5
+18,1x3,1,the five boxing wizards jump quickly,31.1046,6
+18,1x3,1,watch out for low flying objects,32.8593,6
+18,1x3,1,the quick brown fox jumps over the lazy dog,26.8894,9
+18,1x3,1,the music is better than it sounds,28.5494,7
+18,1x3,1,are you talking to me,33.971,5
+18,1x3,1,my bare face in the wind,31.472,6
+18,1x3,1,parking lot is full of trucks,31.6862,6
+18,1x3,1,you must be getting old,32.7791,5
+18,1x3,0.75,the dow jones index has risen,29.6771,6
+18,1x3,0.75,did you have a good time,31.7773,6
+18,1x3,0.75,he is just like everyone else,29.0294,6
+18,1x3,0.75,the five boxing wizards jump quickly,29.6347,6
+18,1x3,0.75,coming up with killer sound bites,32.6415,6
+18,1x3,0.75,the force is with you,36.8125,5
+18,1x3,0.75,reading week is just about here,28.9379,6
+18,1x3,0.75,what a monkey sees a monkey will do,27.5506,8
+18,1x3,0.75,the quick brown fox jumps over the lazy dog,26.761,9
+18,1x3,0.75,come and see our new car,32.3723,6
+18,1x3,1.25,frequently asked questions,26.7491,3
+18,1x3,1.25,the quick brown fox jumps over the lazy dog,25.3012,9
+18,1x3,1.25,love means many things,27.4383,4
+18,1x3,1.25,he is still on our team,34.1665,6
+18,1x3,1.25,call for more details,29.8348,4
+18,1x3,1.25,popularity is desired by all,30.3099,5
+18,1x3,1.25,the five boxing wizards jump quickly,26.8468,6
+18,1x3,1.25,we accept personal checks,28.0405,4
+18,1x3,1.25,just in time for the party,27.3203,6
+18,1x3,1.25,stay away from strangers,31.9755,4

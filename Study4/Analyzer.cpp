@@ -300,7 +300,8 @@ void calcTimeDistribution(int id)
                 span.pop_back(); //Cancel
                 span.pop_back(); //Gesture
                 cnt.startTime = span.back().startTime;
-                span.pop_back(); //Rest
+                if (!span.empty())
+                    span.pop_back(); //Rest
                 span.push_back(cnt);
             }
             else cout << "Unkonwn para for Delete: " << para[line] << line << endl;

@@ -13,6 +13,7 @@ const int SAMPLE_NUM = 32;
 
 string sentence[PHRASES], mode[PHRASES], scale[PHRASES];
 double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
+int wordCnt[PHRASES];
 double WPM[PHRASES];
 Vector2 keyPos[26];
 
@@ -55,7 +56,7 @@ void initFstream()
     keyFout.open(keyFileName.c_str(), fstream::out);
     keyFout << "id,scale,size,word,kind,keyWidth" << endl;
     WPMFout.open(WPMFileName.c_str(), fstream::out);
-    WPMFout << "id,scale,size,sentence,WPM" << endl;
+    WPMFout << "id,scale,size,sentence,WPM,words" << endl;
     disFout.open(disFileName.c_str(), fstream::out);
     disFout << "id,scale,size,word,algorithm,distance" << endl;
 }
@@ -137,6 +138,7 @@ void readData(int id)
         }
     }
     WPM[id] = alpha / (lastT - startTime) * 12;
+    wordCnt[id] = words.size();
     fin.close();
 
 }
@@ -149,7 +151,8 @@ void outputWPM()
                 << scale[i] << ","
                 << keyboardSize[i] << ","
                 << sentence[i] << ","
-                << WPM[i] << endl;
+                << WPM[i] << ","
+                << wordCnt[i] << endl;
     }
 }
 
