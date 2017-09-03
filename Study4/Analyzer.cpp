@@ -37,6 +37,7 @@ enum Type
     TYPENUM = 5,
 };
 
+int timeNum[TYPENUM];
 double timeCount[TYPENUM], timeBlock[TYPENUM];
 
 string typeToString(int type)
@@ -61,29 +62,34 @@ struct TimeSpan
 vector<TimeSpan> span;
 vector<Vector2> world, relative;
 
-string name, userID, timeFileName, timeRatioFileName, WPMFileName, candFileName;
-fstream timeFout, timeRatioFout, WPMFout, candFout;
+string name, userID, timeFileName, timeMeanFileName, timeRatioFileName, WPMFileName, candFileName;
+fstream timeFout, timeMeanFout, timeRatioFout, WPMFout, candFout;
 
 void initFstream()
 {
     WPMFileName = "res/WPM_Study2.csv";
     timeFileName = "res/Time_Study2.csv";
+    timeMeanFileName = "res/Time_Mean_Study2.csv";
     timeRatioFileName = "res/Time_Ratio_Study2.csv";
     candFileName = "res/Candidates_Study2.csv";
     WPMFout.open(WPMFileName.c_str(), fstream::out);
     timeFout.open(timeFileName.c_str(), fstream::out);
+    timeMeanFout.open(timeMeanFileName.c_str(), fstream::out);
     timeRatioFout.open(timeRatioFileName.c_str(), fstream::out);
     candFout.open(candFileName.c_str(), fstream::out);
 
-    WPMFout << "id,algorithm,block,mode,sentence,WPM,correct,uncorrected,cancel,delete" << endl;
+    WPMFout << "id,algorithm,block,mode,sentence,WPM,N(words),correct,uncorrected,cancel,delete" << endl;
     timeFout << "id,algorithm,block,mode,sentence";
+    timeMeanFout << "id,algorithm,block,mode";
     timeRatioFout << "id,algorithm,block,mode";
     rep(i, TYPENUM)
     {
         timeFout << "," << typeToString(i);
+        timeMeanFout << "," << typeToString(i) << "(Mean)";
         timeRatioFout << "," << typeToString(i) << "(ratio)";
     }
     timeFout << endl;
+    timeMeanFout << endl;
     timeRatioFout << endl;
     candFout << "id,algorithm,block,mode,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,all,";
     candFout << "top1(ratio),top2(ratio),top3(ratio),top4(ratio),top5(ratio),top6(ratio),"
@@ -354,6 +360,7 @@ void calcTimeDistribution(int id)
     memset(timeCount, 0, sizeof(timeCount));
     rep(i, span.size())
     {
+        timeNum[span[i].type]++;
         timeCount[span[i].type] += span[i].endTime - span[i].startTime;
         timeBlock[span[i].type] += span[i].endTime - span[i].startTime;
     }
@@ -371,13 +378,23 @@ void calcTimeDistribution(int id)
         double tot = 0;
         rep(i, TYPENUM)
             tot += timeBlock[i];
+        timeMeanFout  << userID << ","
+                      << algorithm << ","
+                      << (id / 6) % 8 + 1 << ","
+                      << mode[id];
         timeRatioFout << userID << ","
                       << algorithm << ","
                       << (id / 6) % 8 + 1 << ","
                       << mode[id];
+
         rep(i, TYPENUM)
+        {
+            timeMeanFout << "," << timeBlock[i] / timeNum[i];
             timeRatioFout << "," << timeBlock[i] / tot;
+        }
+        timeMeanFout << endl;
         timeRatioFout << endl;
+        memset(timeNum, 0, sizeof(timeNum));
         memset(timeBlock, 0, sizeof(timeBlock));
     }
 
@@ -420,6 +437,7 @@ void outputWPM(int id)
             << (id / 6) % 8 + 1 << ","
             << mode[id] << ","
             << sentence[id] << "," << WPM[id] << ","
+            << words.size() << ","
             << correct << "," << uncorrected << ","
             << cancelCnt << "," << deleteCnt
             << endl;
@@ -463,7 +481,6 @@ int main()
     {
         name = user[p];
         userID = id[p];
-        //if (p < 6)
         algorithm = "DTW";
         rep(i, PHRASES)
         {

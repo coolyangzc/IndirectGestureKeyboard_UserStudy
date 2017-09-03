@@ -1,9 +1,13 @@
-User ID,name,"Speed(Normal)","Accuracy(Normal)","Fatigue(Normal)","Preference(Normal)","Speed(G-Start)","Accuracy(G-Start)","Fatigue(G-Start)","Preference(G-Start)"
-1,wcj,3,3,4,4,4,3.5,3.5,4.5
-2,yzc,4,3,3,3,5,5,5,5
-3,gyz,4,2,2,3,4,4,3,4
-4,plh,3,2,3,1,5,5,4,5
-5,yx,4,3,3,4,3,4,3,4
-6,yyk,5,4,3,4,4,5,4,5
-7,wrl,3,2,3,3,5,4,4,4
-8,lzn,4,2,3,2,4,4,5,5
+User ID,name,Age,QWERTY Keyboard,Gesture Typing,Speed(Normal),Accuracy(Normal),Fatigue(Normal),Preference(Normal),Speed(G-Start),Accuracy(G-Start),Fatigue(G-Start),Preference(G-Start)
+1,wcj,21,3,1,3,3,4,4,4,3.5,3.5,4.5
+2,yzc,22,5,5,4,3,3,3,5,5,5,5
+3,gyz,22,5,5,4,2,2,3,4,4,3,4
+4,plh,21,3,1,3,2,3,1,5,5,4,5
+5,yx,26,5,3,4,3,3,4,3,4,3,4
+6,yyk,25,3,2,5,4,3,4,4,5,4,5
+7,wrl,22,4,1,3,2,3,3,5,4,4,4
+8,lzn,22,4,2,4,2,3,2,4,4,5,5
+9,yzp,21,5,2,5,4,3,5,4,4,4,4
+10,xwj,22,5,5,5,4,4,5,5,5,4,5
+11,maye,22,5,3,5,4,3,5,4,3,2,4
+12,zq,25,4,1,3,2,3,3,4,3.5,4,4

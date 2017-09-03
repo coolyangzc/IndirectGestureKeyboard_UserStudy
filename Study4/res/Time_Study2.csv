@@ -101,12 +101,12 @@ id,algorithm,block,mode,sentence,Gesture,Select,Cancel,Delete,Rest
 2,DTW,1,FixStart,we run the risk of failure,5.81177,5.21252,3.44907,0,1.01917
 2,DTW,1,FixStart,the library is closed today,5.0677,3.99645,0,0,0.63944
 2,DTW,1,FixStart,sad to hear that news,3.9227,6.284,0,0,0.792
-2,DTW,2,FixStart,are you talking to me,3.9112,4.6865,0,0,0.5797
-2,DTW,2,FixStart,this watch is too expensive,4.5414,3.6638,0,0,0.5781
-2,DTW,2,FixStart,want to join us for lunch,4.5644,4.5586,0,0,0.7521
-2,DTW,2,FixStart,reading week is just about here,5.162,4.8907,0,0,0.8233
-2,DTW,2,FixStart,interesting observation was made,5.4998,3.7202,0,0,0.4674
-2,DTW,2,FixStart,interesting observation was made,5.4658,5.8386,0,0,0.6693
+2,DTW,2,FixStart,do not walk too quickly,4.6561,4.8571,0,0,0.6119
+2,DTW,2,FixStart,did you have a good time,4.3927,4.4435,0,0,0.8578
+2,DTW,2,FixStart,come and see our new car,4.6708,6.2776,0,0,0.7964
+2,DTW,2,FixStart,bad for the environment,5.2919,3.0567,0,0,0.4558
+2,DTW,2,FixStart,you should visit a doctor,5.15,5.2148,0,0,0.7565
+2,DTW,2,FixStart,time to go shopping,3.162,4.1609,0,0,0.5394
 2,DTW,3,FixStart,the facts get in the way,3.6876,4.1481,0,0,0.7213
 2,DTW,3,FixStart,want to join us for lunch,4.2868,4.5514,0,0,0.7611
 2,DTW,3,FixStart,call for more details,3.8946,2.9162,0,0,0.4327
@@ -131,18 +131,18 @@ id,algorithm,block,mode,sentence,Gesture,Select,Cancel,Delete,Rest
 2,DTW,6,FixStart,travel at the speed of light,5.14,5.0882,0,0,0.7649
 2,DTW,6,FixStart,we missed your birthday,5.776,3.6453,2.6055,0,0.7959
 2,DTW,6,FixStart,we run the risk of failure,5.0418,4.3488,0,0,0.7316
-2,DTW,7,FixStart,do not walk too quickly,4.6561,4.8571,0,0,0.6119
-2,DTW,7,FixStart,did you have a good time,4.3927,4.4435,0,0,0.8578
-2,DTW,7,FixStart,come and see our new car,4.6708,6.2776,0,0,0.7964
-2,DTW,7,FixStart,bad for the environment,5.2919,3.0567,0,0,0.4558
-2,DTW,7,FixStart,you should visit a doctor,5.15,5.2148,0,0,0.7565
-2,DTW,7,FixStart,time to go shopping,3.162,4.1609,0,0,0.5394
-2,DTW,8,FixStart,reading week is just about here,5.4881,5.1029,0,0,0.7712
-2,DTW,8,FixStart,not quite so smart as you think,5.849,5.5945,0,0,0.9822
-2,DTW,8,FixStart,you are a wonderful example,4.7943,3.7597,0,0,0.6354
-2,DTW,8,FixStart,thank you for your help,4.3626,3.7609,0,0,0.6187
-2,DTW,8,FixStart,players must know all the rules,6.0548,3.7388,0,0,0.736
-2,DTW,8,FixStart,not quite so smart as you think,5.4185,5.0125,0,0,1.0115
+2,DTW,7,FixStart,reading week is just about here,5.4881,5.1029,0,0,0.7712
+2,DTW,7,FixStart,not quite so smart as you think,5.849,5.5945,0,0,0.9822
+2,DTW,7,FixStart,you are a wonderful example,4.7943,3.7597,0,0,0.6354
+2,DTW,7,FixStart,thank you for your help,4.3626,3.7609,0,0,0.6187
+2,DTW,7,FixStart,players must know all the rules,6.0548,3.7388,0,0,0.736
+2,DTW,7,FixStart,not quite so smart as you think,5.4185,5.0125,0,0,1.0115
+2,DTW,8,FixStart,are you talking to me,3.9112,4.6865,0,0,0.5797
+2,DTW,8,FixStart,this watch is too expensive,4.5414,3.6638,0,0,0.5781
+2,DTW,8,FixStart,want to join us for lunch,4.5644,4.5586,0,0,0.7521
+2,DTW,8,FixStart,reading week is just about here,5.162,4.8907,0,0,0.8233
+2,DTW,8,FixStart,interesting observation was made,5.4998,3.7202,0,0,0.4674
+2,DTW,8,FixStart,interesting observation was made,5.4658,5.8386,0,0,0.6693
 2,DTW,1,Basic,the price of gas is high,7.4544,4.9975,7.7618,0,2.108
 2,DTW,1,Basic,a quarter of a century,3.9196,4.2709,0,0,1.0283
 2,DTW,1,Basic,soon we will return from the city,6.2678,5.8531,0,0,1.5649
@@ -1076,7 +1076,7 @@ id,algorithm,block,mode,sentence,Gesture,Select,Cancel,Delete,Rest
 12,DTW,4,FixStart,the facts get in the way,11.5509,4.9298,6.6537,0,7.6172
 12,DTW,4,FixStart,interactions between men and women,14.4148,3.4689,1.323,0,6.5113
 12,DTW,4,FixStart,an airport is a very busy place,12.4152,5.9248,3.0762,0,6.6278
-12,DTW,4,FixStart,he is just like everyone else,9.4156,6.1186,0,388.139,6.7127
+12,DTW,4,FixStart,he is just like everyone else,9.4156,6.1186,0,388.255,6.7127
 12,DTW,4,FixStart,protect your environment,10.4412,2.2352,1.1897,0,2.9467
 12,DTW,4,FixStart,take a coffee break,5.3072,6.5448,0,0,2.8397
 12,DTW,5,FixStart,all work and no play,5.3336,5.5944,0,0,4.2718
