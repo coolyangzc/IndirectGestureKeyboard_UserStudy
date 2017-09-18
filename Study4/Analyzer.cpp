@@ -304,8 +304,10 @@ void calcTimeDistribution(int id)
             else if (para[line] == "DoubleClick")
             {
                 span.pop_back(); //Cancel
-                span.pop_back(); //Gesture
                 cnt.startTime = span.back().startTime;
+                span.pop_back(); //Gesture
+                if (!span.empty())
+                    cnt.startTime = span.back().startTime;
                 if (!span.empty())
                     span.pop_back(); //Rest
                 span.push_back(cnt);

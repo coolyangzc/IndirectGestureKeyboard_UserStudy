@@ -127,7 +127,7 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
 
     case (DTW):
         //w = max(num * 0.1, 3.0);
-        w = 32;
+        w = 3;
         For(i, num)
         {
             double gap = inf;

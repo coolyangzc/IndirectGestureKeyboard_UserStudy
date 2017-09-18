@@ -25,4 +25,4 @@ Questionnaire(Wilcoxon signed-rank test)
     Speed       Z=6.500, p=0.4492
     Accuracy    Z=29.500, p=0.0059*
     Fatigue     Z=21.500, p=0.0313*
-    
+    Preference  Z=18.500, p=0.0625

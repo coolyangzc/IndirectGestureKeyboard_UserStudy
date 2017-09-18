@@ -13,7 +13,7 @@ const double DELTA = 1;
 
 bool is1440P = false;
 int H, W, cnt;
-double CX[2], CY[2];
+double CX[2], CY[2] ,UX[2], UY[2];
 
 int Random(int mo)
 {
@@ -183,16 +183,28 @@ void Merge(Mat& img, fstream& fin, Scalar color)
     drawLine(img, Point(maxX, maxY), Point(minX, maxY), 2, &color, false);
     drawLine(img, Point(maxX, maxY), Point(maxX, minY), 2, &color, false);
     cnt++;
-    CX[0] += minX;
-    CX[1] += maxX;
-    CY[0] += minY;
-    CY[1] += maxY;
+    CX[0] += minX; UX[0] += minX;
+    CX[1] += maxX; UX[1] += maxX;
+    CY[0] += minY; UY[0] += minY;
+    CY[1] += maxY; UY[1] += maxY;
 
+}
+
+void Merge_Union(Mat& img, Scalar color)
+{
+    double minX = UX[0] / 5, maxX = UX[1] / 5, minY = UY[0] / 5, maxY = UY[1] / 5;
+    drawLine(img, Point(minX, minY), Point(minX, maxY), 2, &color, false);
+    drawLine(img, Point(minX, minY), Point(maxX, minY), 2, &color, false);
+    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 2, &color, false);
+    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 2, &color, false);
+    memset(UX, 0, sizeof(UX));
+    memset(UY, 0, sizeof(UY));
 }
 
 void DrawMerge(int num)
 {
     Mat img = Mat::zeros(1280, 720, CV_8UC3);
+    Mat img_uni = Mat::zeros(1280, 720, CV_8UC3);
     For(i, num)
     {
         Scalar color(Random(255), Random(255), Random(255));
@@ -208,6 +220,7 @@ void DrawMerge(int num)
             Merge(img, fin, color);
             fin.close();
         }
+        Merge_Union(img_uni, color);
     }
     Scalar red = Scalar(0, 0, 255);
     double minX = CX[0] / cnt, maxX = CX[1] / cnt, minY = CY[0] / cnt, maxY = CY[1] / cnt;
@@ -215,13 +228,20 @@ void DrawMerge(int num)
     drawLine(img, Point(minX, minY), Point(maxX, minY), 8, &red, false);
     drawLine(img, Point(maxX, maxY), Point(minX, maxY), 8, &red, false);
     drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &red, false);
+
+    drawLine(img_uni, Point(minX, minY), Point(minX, maxY), 12, &red, false);
+    drawLine(img_uni, Point(minX, minY), Point(maxX, minY), 12, &red, false);
+    drawLine(img_uni, Point(maxX, maxY), Point(minX, maxY), 12, &red, false);
+    drawLine(img_uni, Point(maxX, maxY), Point(maxX, minY), 12, &red, false);
+
     imwrite("Merge.jpg", img);
+    imwrite("Merge_Union.jpg", img_uni);
 }
 
 int main()
 {
-    //DrawMerge(16);
-    FOR(i, 16, 16)
+    DrawMerge(16);
+    /*FOR(i, 1, 16)
     {
         stringstream ss;
         ss << i;
@@ -230,6 +250,6 @@ int main()
         fstream fin;
         fin.open(fileName.c_str());
         draw(fin, ss.str(), getFormat(fileName));
-    }
+    }*/
     return 0;
 }
