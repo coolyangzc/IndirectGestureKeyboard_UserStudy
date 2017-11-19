@@ -78,7 +78,7 @@ void initFstream()
     timeRatioFout.open(timeRatioFileName.c_str(), fstream::out);
     candFout.open(candFileName.c_str(), fstream::out);
 
-    WPMFout << "id,algorithm,block,mode,sentence,WPM,N(words),correct,uncorrected,cancel,delete" << endl;
+    WPMFout << "id,algorithm,block,mode,sentence,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete" << endl;
     timeFout << "id,algorithm,block,mode,sentence";
     timeMeanFout << "id,algorithm,block,mode";
     timeRatioFout << "id,algorithm,block,mode";
@@ -116,6 +116,7 @@ void initLexicon()
 
 void sentenceToWords(string sentence, vector<string>& words)
 {
+    words.clear();
     string word = "";
     rep(i, sentence.length())
         if (sentence[i] >= 'a' && sentence[i] <= 'z')
@@ -312,7 +313,7 @@ void calcTimeDistribution(int id)
                     span.pop_back(); //Rest
                 span.push_back(cnt);
             }
-            else cout << "Unkonwn para for Delete: " << para[line] << line << endl;
+            else cout << "Unknown para for Delete: " << para[line] << line << endl;
             inRest = true;
             inCandidates = false;
             cnt.startTime = cnt.endTime;
@@ -419,12 +420,40 @@ void calcTimeDistribution(int id)
 void outputWPM(int id)
 {
     //double maxWPM[2] = {0, 0};
-    int deleteCnt = 0, cancelCnt = 0, correct = 0, uncorrected = 0;
+    int deleteCnt = 0, cancelCnt = 0, uncorrectCancel = 0, correct = 0, uncorrected = 0;
+    vector<string> candidates;
+    int wordP = -1;
     rep(i, span.size())
+    {
         if (span[i].type == Delete)
-            deleteCnt++;
+            deleteCnt++, wordP--;
         else if (span[i].type == Cancel)
+        {
             cancelCnt++;
+            bool same = false;
+            rep(i, candidates.size())
+            {
+                //cout << candidates[i] << ",";
+                if (candidates[i] == words[wordP])
+                {
+                    same = true;
+                    break;
+                }
+            }
+            //cout <<endl;
+            if (same)
+                uncorrectCancel++;
+            wordP--;
+        }
+
+        if (span[i].type == Gesture)
+        {
+            sentenceToWords(span[i].para, candidates);
+            wordP++;
+        }
+
+
+    }
 
     vector<string> inputWords;
     sentenceToWords(userText[id], inputWords);
@@ -441,7 +470,7 @@ void outputWPM(int id)
             << sentence[id] << "," << WPM[id] << ","
             << words.size() << ","
             << correct << "," << uncorrected << ","
-            << cancelCnt << "," << deleteCnt
+            << cancelCnt << "," << uncorrectCancel << "," << deleteCnt
             << endl;
 }
 
