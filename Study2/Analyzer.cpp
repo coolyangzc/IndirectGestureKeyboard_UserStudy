@@ -74,12 +74,12 @@ int main()
         {
             stringstream ss_num;
             ss_num << j;
-            fout << line << ",720P," << ((j<5)?"Thumb,":"Index,");
+            fout << line << ",720P," << ((j<=5)?"Thumb,":"Index,");
             string fileName = "res/720P/" + ss_id.str() + "_" + ss_num.str() + ".txt";
             fstream fin;
             fin.open(fileName.c_str());
             Analyse(fin);
-            fout << line << ",1440P," << ((j<5)?"Thumb,":"Index,");
+            fout << line << ",1440P," << ((j<=5)?"Thumb,":"Index,");
             fileName = "res/1440P/" + ss_id.str() + "_" + ss_num.str() + ".txt";
             fin.close();
             fin.open(fileName.c_str());
