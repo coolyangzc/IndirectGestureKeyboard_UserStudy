@@ -209,6 +209,7 @@ void DrawMerge(int num)
     {
         Scalar color(Random(255), Random(255), Random(255));
         stringstream ss_id;
+        if (i==12 || i==13) continue;
         ss_id << i;
         FOR(j, 1, 5)
         {
@@ -224,10 +225,10 @@ void DrawMerge(int num)
     }
     Scalar red = Scalar(0, 0, 255);
     double minX = CX[0] / cnt, maxX = CX[1] / cnt, minY = CY[0] / cnt, maxY = CY[1] / cnt;
-    drawLine(img, Point(minX, minY), Point(minX, maxY), 8, &red, false);
-    drawLine(img, Point(minX, minY), Point(maxX, minY), 8, &red, false);
-    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 8, &red, false);
-    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 8, &red, false);
+    drawLine(img, Point(minX, minY), Point(minX, maxY), 12, &red, false);
+    drawLine(img, Point(minX, minY), Point(maxX, minY), 12, &red, false);
+    drawLine(img, Point(maxX, maxY), Point(minX, maxY), 12, &red, false);
+    drawLine(img, Point(maxX, maxY), Point(maxX, minY), 12, &red, false);
 
     drawLine(img_uni, Point(minX, minY), Point(minX, maxY), 12, &red, false);
     drawLine(img_uni, Point(minX, minY), Point(maxX, minY), 12, &red, false);
