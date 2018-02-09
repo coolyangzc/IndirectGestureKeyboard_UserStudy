@@ -13,6 +13,7 @@
 using namespace std;
 
 const int USER_L = 1;
+const bool TEST_SHAPE_ONLY = true;
 
 const int ALG_NUM = 6;
 int rk[ALG_NUM];
@@ -33,7 +34,7 @@ int wordCount[2][3]; //[scale][size]
 string dict[LEXICON_SIZE];
 int freq[LEXICON_SIZE];
 map<string, int> dict_map;
-vector<Vector2> dict_location[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
+vector<Vector2> dict_location[LEXICON_SIZE][2], dict_shape[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
 
 vector<string> cmd;
 vector<string> words;
@@ -77,6 +78,8 @@ void initLexicon()
         dict_map[dict[i]] = freq[i];
         dict_location[i][0] = temporalSampling(wordToPath(dict[i], 1), SAMPLE_NUM);
         dict_location[i][1] = temporalSampling(wordToPath(dict[i], 3), SAMPLE_NUM);
+        dict_shape[i][0] = normalize(dict_location[i][0]);
+        dict_shape[i][1] = normalize(dict_location[i][1]);
     }
     fin.close();
 }
@@ -108,7 +111,6 @@ void init()
     initDTW();
     calcKeyLayout();
     initLexicon();
-
 }
 
 void linePushBack(string s, double t, double x = 0, double y = 0, double rx = 0, double ry = 0)
@@ -221,6 +223,54 @@ void calcCandidate(int id)
         vector<Vector2> location = temporalSampling(wordToPath(word, sc), num);
         vector<Vector2> stroke = temporalSampling(rawstroke, num);
 
+        if (TEST_SHAPE_ONLY)
+        {
+            result[0] = match(stroke, location, dtw, Standard);
+            vector<Vector2> norm_stroke = normalize(stroke);
+            vector<Vector2> shape = normalize(location);
+            result[1] = match(norm_stroke, shape, dtw, Standard);
+            result[2] = exp(-0.5 * sqr(result[0] / 0.025)) * exp(-0.5 * sqr(result[1] / 0.025));
+            rep(alg, 3)
+                rk[alg] = 1;
+            rep(j, LEXICON_SIZE)
+            {
+                if (word == dict[j])
+                    continue;
+                vector<Vector2>& location = dict_location[j][p];
+                vector<Vector2>& shape = dict_shape[j][p];
+                if (dist(location.back(), stroke.back()) > 0.3)
+                    continue;
+                double disLocation = match(stroke, location, dtw, Standard);
+                double disShape = match(norm_stroke, shape, dtw, Standard);
+                double disIntegrate = exp(-0.5 * sqr(disLocation / 0.025)) * exp(-0.5 * sqr(disShape / 0.025));
+                rep(alg, 3)
+                {
+                    if (rk[alg] > 12)
+                        continue;
+                    switch(alg)
+                    {
+                    case 0:
+                        if (disLocation < result[alg])
+                            rk[alg]++;
+                        break;
+                    case 1:
+                        if (disShape < result[alg])
+                            rk[alg]++;
+                        break;
+                    case 2:
+                        if (disIntegrate > result[alg])
+                            rk[alg]++;
+                        break;
+                    }
+                }
+            }
+            rep(i, 3)
+                if (rk[i] <= 12)
+                    rkCount[p][q][i][rk[i]]++;
+            //cout << rk[0] << " " << rk[1] << ":" << dict_map[word] << endl;
+            continue;
+        }
+
         int l = 0, r = rawstroke.size() - 1;
 
         while (outKeyboard(rawstroke[l], sc) && l < r) l++;
@@ -234,6 +284,7 @@ void calcCandidate(int id)
         vector<Vector2> stroke_c = temporalSampling(stroke_cut, num);
 
         result[0] = match(stroke, location, dtw, Standard);
+
         result[1] = match(stroke, location, dtw, DTW);
         double f = dict_map[word];
         if (f == 0) f = freq[LEXICON_SIZE - 1];
@@ -308,7 +359,24 @@ void outputCandidate()
                 keyboardSize = "1.0";
             else if (q == 2)
                 keyboardSize = "1.25";
-
+            if (TEST_SHAPE_ONLY)
+            {
+                rep(alg, 3)
+                {
+                    For(j, 12)
+                        rkCount[p][q][alg][j] += rkCount[p][q][alg][j-1];
+                    fout<< userID << ","
+                        << scale << ","
+                        << keyboardSize << ",";
+                    if (alg == 0) fout << "Location";
+                    if (alg == 1) fout << "Shape";
+                    if (alg == 2) fout << "Location*Shape";
+                    For(j, 12)
+                        fout << "," << rkCount[p][q][alg][j] / wordCount[p][q];
+                    fout << endl;
+                }
+                continue;
+            }
             rep(alg, ALG_NUM)
             {
                 For(j, 12)
