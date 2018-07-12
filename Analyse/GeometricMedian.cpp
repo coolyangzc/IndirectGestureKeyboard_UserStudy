@@ -6,11 +6,11 @@
 
 #define sqr(x) ((x)*(x))
 #define rep(i,n) for(int i=0; i<n; i++)
-#define length(x,y) sqrt((x)*(x) + (y)*(y))
+#define len(x,y) sqrt((x)*(x) + (y)*(y))
 
-const int LEXICON_SIZE = 50000;
+const int LEXICON_SIZE = 10000;
 
-
+/*
 // 1:1
 const int H = 720;
 const int W = 1280;
@@ -19,9 +19,9 @@ const double keyHeight = 1.0;
 const double keyWidth = 1.0;
 const double fontDX = keyWidth * 0.11d * SCALE;
 const double fontDY = keyHeight * 0.11d * SCALE;
+*/
 
 
-/*
 //1:3
 const int H = 720;
 const int W = 1280;
@@ -30,7 +30,7 @@ const double keyHeight = 3.0;
 const double keyWidth = 1.0;
 const double fontDX = keyWidth * 0.2d * SCALE;
 const double fontDY = keyHeight * 0.11d * SCALE;
-*/
+
 
 const double X_OFFSET = (W - keyWidth * 10 * SCALE) / 2;
 const double Y_OFFSET = (H - keyHeight * 3 * SCALE) / 2;
@@ -108,10 +108,9 @@ void calcGeometricMedian(Mat& img, int lexicon_size)
 {
     double weight[26];
     memset(weight, 0, sizeof(weight));
-
     rep(i, lexicon_size)
         weight[dict[i][0] - 'a'] += freq[i];
-    double x[2], y[2], sumWeight, inv;
+    double x[2], y[2], sumWeight = 0, inv;
     x[0] = y[0] = 0;
     rep(i, 26)
     {
@@ -127,7 +126,7 @@ void calcGeometricMedian(Mat& img, int lexicon_size)
         x[1] = y[1] = inv = 0;
         rep(i, 26)
         {
-            double dist = length(x[0]-keyX[i], y[0]-keyY[i]);
+            double dist = len(x[0]-keyX[i], y[0]-keyY[i]);
             inv += weight[i] / dist;
             x[1] += keyX[i] * weight[i] / dist;
             y[1] += keyY[i] * weight[i] / dist;
@@ -137,6 +136,48 @@ void calcGeometricMedian(Mat& img, int lexicon_size)
         y[0] = y[1];
     }
     drawCross(img, x[0], y[0], Scalar(255, 0, 0));
+
+    double tot = 0;
+    rep(i, lexicon_size)
+    {
+        double dis = 0;
+        rep(j, dict[i].length() - 1)
+            dis += len(keyX[dict[i][j] - 'a'] - keyX[dict[i][j+1] - 'a'],
+                       keyY[dict[i][j] - 'a'] - keyY[dict[i][j+1] - 'a']);
+        tot += dis * freq[i];
+    }
+    tot /= sumWeight;
+    tot /= keyWidth * SCALE;
+    printf("Normal = %lf\n", tot);
+
+    tot = 0;
+    rep(i, lexicon_size)
+    {
+        double dis = 0;
+        dis += len(keyX[dict[i][0] - 'a'] - x[0], keyY[dict[i][0] - 'a'] - y[0]);
+        rep(j, dict[i].length() - 1)
+            dis += len(keyX[dict[i][j] - 'a'] - keyX[dict[i][j+1] - 'a'],
+                       keyY[dict[i][j] - 'a'] - keyY[dict[i][j+1] - 'a']);
+        tot += dis * freq[i];
+    }
+    tot /= sumWeight;
+    tot /= keyWidth * SCALE;
+    printf("Best = %lf\n", tot);
+
+    tot = 0;
+    rep(i, lexicon_size)
+    {
+        double dis = 0;
+        dis += len(keyX[dict[i][0] - 'a'] - keyX['g' - 'a'], keyY[dict[i][0] - 'a'] - keyY['g' - 'a']);
+        rep(j, dict[i].length() - 1)
+            dis += len(keyX[dict[i][j] - 'a'] - keyX[dict[i][j+1] - 'a'],
+                       keyY[dict[i][j] - 'a'] - keyY[dict[i][j+1] - 'a']);
+        tot += dis * freq[i];
+    }
+    tot /= sumWeight;
+    tot /= keyWidth * SCALE;
+    printf("G-Keyboard = %lf\n", tot);
+
 
 }
 

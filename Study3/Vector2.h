@@ -82,6 +82,28 @@ vector<Vector2> temporalSampling(vector<Vector2> stroke, int num)
     return vec;
 }
 
+vector<Vector2> normalize(vector<Vector2> stroke)
+{
+    int num = stroke.size();
+    Vector2 center, minV(inf, inf), maxV(-inf, -inf);
+    rep(i, num)
+        center = center + stroke[i];
+    center = center / num;
+    vector<Vector2> vec(num);
+    rep(i, num)
+    {
+        vec[i] = stroke[i] - center;
+        minV.x = min(minV.x, vec[i].x);
+        minV.y = min(minV.y, vec[i].y);
+        maxV.x = max(maxV.x, vec[i].x);
+        maxV.y = max(maxV.y, vec[i].y);
+    }
+    double scale = min(maxV.x - minV.x, maxV.y - minV.y);
+    rep(i, num)
+        vec[i] = vec[i] / scale;
+    return vec;
+}
+
 enum Formula
 {
     Standard = 0,
