@@ -2,6 +2,7 @@
 #define KEYBOARD_H_
 
 #include "Common.h"
+#include "Vector2.h"
 
 using namespace std;
 

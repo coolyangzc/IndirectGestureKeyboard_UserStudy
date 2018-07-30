@@ -1,13 +1,11 @@
-#include "Common.h"
-#include "Vector2.h"
 #include "Keyboard.h"
+#include "DataReader.h"
 
 #include <map>
 #include <cmath>
 #include <cstdio>
 #include <vector>
 #include <cstring>
-#include <sstream>
 #include <fstream>
 #include <iostream>
 
@@ -18,16 +16,13 @@ const int USER_L = 18;
 const int THETA_NUM = 100;
 const double DELTA_T = 0.0005;
 
+const int SAMPLE_NUM = 32;
+
 int rk[THETA_NUM];
 double result[THETA_NUM];
 double rkCount[2][3][THETA_NUM][13]; //[scale][size][][rank]
 
-const int SAMPLE_NUM = 32;
-
 double dtw[MAXSAMPLE][MAXSAMPLE];
-
-string sentence[PHRASES], mode[PHRASES], scale[PHRASES];
-double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
 
 int wordCount[2][3]; //[scale][size]
 
@@ -36,12 +31,7 @@ int freq[LEXICON_SIZE];
 map<string, int> dict_map;
 vector<Vector2> dict_location[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
 
-vector<string> cmd, words;
-
-vector<double> time;
-vector<Vector2> world, relative;
-
-string name, userID;
+string  userID;
 fstream freqFout;
 
 void initLexicon()
@@ -68,79 +58,6 @@ void init()
     initLexicon();
 }
 
-void linePushBack(string s, double t, double x = 0, double y = 0, double rx = 0, double ry = 0)
-{
-    cmd.push_back(s);
-    time.push_back(t);
-    world.push_back(Vector2(x, y));
-    relative.push_back(Vector2(rx, ry));
-}
-
-void readData(int id)
-{
-    stringstream ss;
-    ss << id;
-    string fileName = "data/" + name + "_" + ss.str() + ".txt";
-    cout << fileName << endl;
-    fstream fin;
-    fin.open(fileName.c_str(), fstream::in);
-    getline(fin, sentence[id]);
-    fin >> mode[id];
-    fin >> widthRatio[id] >> heightRatio[id];
-    fin >> width[id] >> height[id];
-    if (width[id] > 2 * height[id])
-        scale[id] = "1x1";
-    else
-        scale[id] = "1x3";
-
-    keyboardSize[id] = (widthRatio[id] / 0.8) + 0.25f;
-
-    words.clear();
-    string word = "";
-    rep(i, sentence[id].length())
-        if (sentence[id][i] >= 'a' && sentence[id][i] <= 'z')
-            word += sentence[id][i];
-        else
-        {
-            words.push_back(word);
-            word = "";
-        }
-    if (word.length() > 0)
-        words.push_back(word);
-    double startTime = -1;
-    cmd.clear(); time.clear();
-    world.clear(); relative.clear();
-
-    string s;
-    double t, x, y, rx, ry, lastT;
-    while (fin >> s)
-    {
-        fin >> t;
-        if (s == "PhraseEnd")
-        {
-            linePushBack(s, t);
-            break;
-        }
-        if (s == "Backspace")
-        {
-            startTime = -1;
-            cmd.clear(); time.clear();
-            world.clear(); relative.clear();
-            //linePushBack(s, t);
-            continue;
-        }
-        lastT = t;
-        fin >> x >> y >> rx >> ry;
-        linePushBack(s, t, x, y, rx, ry);
-        if (s == "Began")
-        {
-            if (startTime == -1)
-                startTime = t;
-        }
-    }
-    fin.close();
-}
-
 bool outKeyboard(Vector2 v, float sc)
 {
     return v.x > 0.5 || v.x < -0.5 || v.y > (0.5 * 0.3 * sc) || v.y < -(0.5 * 0.3 * sc);
@@ -153,9 +70,9 @@ void calcCandidate(int id)
 
     if (scale[id] == "1x3")
         p = 1, sc = 3;
-    if (same(keyboardSize[id], 0.75))
+    if (same(keyboardSize[id], 1))
         q = 1;
-    else if (same(keyboardSize[id], 1))
+    else if (same(keyboardSize[id], 1.25))
         q = 2;
     rep(w, words.size())
     {
@@ -256,11 +173,10 @@ int main()
     init();
     FOR(p, USER_L - 1, USER_NUM - 1)
     {
-        name = user[p];
         userID = id[p];
         rep(i, PHRASES)
         {
-            readData(i);
+            readData(user[p], i);
             calcCandidate(i);
         }
         outputCandidate();
