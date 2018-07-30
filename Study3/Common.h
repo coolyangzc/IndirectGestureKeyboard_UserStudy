@@ -9,6 +9,7 @@
 #define For(i,n) for (int i=1; i<=n; ++i)
 #define FOR(i,a,b) for (int i=a; i<=b; ++i)
 #define sqr(x) ((x)*(x))
+#define mk make_pair
 
 const int PHRASES = 60;
 const double eps = 1e-6;

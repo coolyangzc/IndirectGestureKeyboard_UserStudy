@@ -11,17 +11,21 @@
 
 using namespace std;
 
-const int USER_L = 18;
+const int USER_L = 1;
 const bool CUT_OUTKEYBORAD_PART = false;
+const bool TEST_UNIGRAM_FREQ = false;
+const bool TEST_BIGRAM_FREQ = true;
 
-const int THETA_NUM = 100;
-const double DELTA_T = 0.0005;
+const int THETA_NUM = 100, GAMMA_NUM = 200;
+const double DELTA_T = 0.0005, DELTA_G = 1;
 
 const int SAMPLE_NUM = 32;
 
-int rk[THETA_NUM];
-double result[THETA_NUM];
-double rkCount[2][3][THETA_NUM][13]; //[scale][size][][rank]
+double bi_eps, uni_tot_freq;
+
+int rk[THETA_NUM + GAMMA_NUM];
+double result[THETA_NUM + GAMMA_NUM];
+double rkCount[2][3][THETA_NUM + GAMMA_NUM][13]; //[scale][size][][rank]
 
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
@@ -30,31 +34,57 @@ int wordCount[2][3]; //[scale][size]
 string dict[LEXICON_SIZE];
 int freq[LEXICON_SIZE];
 map<string, int> dict_map;
+map<pair<string, string>, double> bigram_map;
 vector<Vector2> dict_location[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
 
 string  userID;
-fstream freqFout;
+fstream freqFout, bigramFout;
 
 void initLexicon()
 {
     fstream fin;
     fin.open("ANC-written-noduplicate+pangram.txt", fstream::in);
-    string s;
     rep(i, LEXICON_SIZE)
     {
         fin >> dict[i] >> freq[i];
+        uni_tot_freq += freq[i];
         dict_map[dict[i]] = freq[i];
         dict_location[i][0] = temporalSampling(wordToPath(dict[i], 1), SAMPLE_NUM);
         dict_location[i][1] = temporalSampling(wordToPath(dict[i], 3), SAMPLE_NUM);
     }
     fin.close();
+
+    if (TEST_BIGRAM_FREQ)
+    {
+        string s1, s2;
+        fin.open("bigrams-written-prob.txt", fstream::in);
+        fin >> s1 >> bi_eps;
+        double prob;
+        while (!fin.eof())
+        {
+            fin >> s1 >> s2 >> prob;
+            bigram_map[mk(s1, s2)] = prob;
+        }
+        fin.close();
+    }
+
 }
 
 void init()
 {
-    string candFileName = "res/Freq_Study1.csv";
-    freqFout.open(candFileName.c_str(), fstream::out);
-    freqFout << "id,scale,size,theta(keywidth),top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
+    if (TEST_UNIGRAM_FREQ)
+    {
+        string freqFileName = "res/Freq_Study1.csv";
+        freqFout.open(freqFileName.c_str(), fstream::out);
+        freqFout << "id,scale,size,theta(keywidth),top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
+    }
+    if (TEST_BIGRAM_FREQ)
+    {
+        string freqFileName = "res/Bigram_Freq_Study1.csv";
+        bigramFout.open(freqFileName.c_str(), fstream::out);
+        bigramFout << "id,scale,size,gamma,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
+    }
+
     initKeyboard(dtw);
     initLexicon();
 }
@@ -89,7 +119,6 @@ void calcCandidate(int id)
             if (s == "Ended")
                 break;
         }
-        cout << word << " ";
         wordCount[p][q]++;
         int num = SAMPLE_NUM;
         vector<Vector2> location = temporalSampling(wordToPath(word, sc), num);
@@ -108,15 +137,36 @@ void calcCandidate(int id)
         else
             stroke_c = temporalSampling(rawstroke, num);
 
-
-
-        double f = dict_map[word];
+        double f = dict_map[word], bi_f = 0;
         if (f == 0) f = freq[LEXICON_SIZE - 1];
+
+        if (TEST_BIGRAM_FREQ)
+        {
+            if (w)
+            {
+                bi_f = bigram_map[mk(words[w - 1], words[w])];
+                if (bi_f == 0)
+                    bi_f = bi_eps / (dict_map[words[w - 1]] + LEXICON_SIZE * bi_eps);
+            }
+            else
+                bi_f = f / uni_tot_freq;
+            bi_f = log(bi_f);
+        }
+
+
+
         result[0] = match(stroke_c, location, dtw, DTW);
-        FOR(i, 6, THETA_NUM - 1)
-            result[i] = exp(-0.5 * sqr(result[0] / (DELTA_T * i))) * f;
-        rep(i, THETA_NUM)
+
+        rep(i, THETA_NUM + GAMMA_NUM)
             rk[i] = 1;
+
+        if (TEST_UNIGRAM_FREQ)
+            FOR(i, 6, THETA_NUM - 1)
+                result[i] = exp(-0.5 * sqr(result[0] / (DELTA_T * i))) * f;
+        if (TEST_BIGRAM_FREQ)
+            FOR(i, 6, GAMMA_NUM - 1)
+                result[i + THETA_NUM] = bi_f - (i * DELTA_G) * result[0];
+
         rep(j, LEXICON_SIZE)
         {
             if (word == dict[j])
@@ -126,22 +176,38 @@ void calcCandidate(int id)
                 continue;
             double disDTW = match(stroke_c, location, dtw, DTW);
             if (disDTW < result[0]) rk[0]++;
-            FOR(i, 6, THETA_NUM - 1)
-                if (rk[i] <=12 && exp(-0.5 * sqr(disDTW / (DELTA_T * i))) * freq[j] > result[i])
-                    rk[i]++;
+
+            if (TEST_UNIGRAM_FREQ)
+                FOR(i, 6, THETA_NUM - 1)
+                    if (rk[i] <=12 && exp(-0.5 * sqr(disDTW / (DELTA_T * i))) * freq[j] > result[i])
+                        rk[i]++;
+            if (TEST_BIGRAM_FREQ)
+            {
+                if (w)
+                {
+                    bi_f = bigram_map[mk(words[w - 1], dict[j])];
+                    if (bi_f == 0)
+                        bi_f = bi_eps / (dict_map[words[w - 1]] + LEXICON_SIZE * bi_eps);
+                }
+                else
+                    bi_f = f / uni_tot_freq;
+                bi_f = log(bi_f);
+                FOR(i, 6, GAMMA_NUM - 1)
+                    if (rk[i + THETA_NUM] <= 12 && bi_f - (i * DELTA_G) * disDTW > result[i + THETA_NUM])
+                        rk[i + THETA_NUM] ++;
+            }
+
         }
-        rep(i, THETA_NUM)
+        rep(i, THETA_NUM + GAMMA_NUM)
             if (rk[i] <= 12)
                 rkCount[p][q][i][rk[i]]++;
-        cout << rk[0] << ":" << dict_map[word] << endl;
     }
-    cout << endl;
 }
 
 void outputCandidate()
 {
     fstream& fout = freqFout;
-    cout << endl;
+    fstream& biFout = bigramFout;
     rep(p, 2)
     {
         string scale = (p==0)?"1x1":"1x3";
@@ -152,20 +218,33 @@ void outputCandidate()
                 keyboardSize = "1.00";
             else if (q == 2)
                 keyboardSize = "1.25";
-
-            rep(i, THETA_NUM)
-            {
-                if (i < 6) continue;
-                For(j, 12)
-                    rkCount[p][q][i][j] += rkCount[p][q][i][j-1];
-                fout<< userID << ","
-                    << scale << ","
-                    << keyboardSize << ","
-                    << i * DELTA_T / 0.1;
-                For(j, 12)
-                    fout << "," << rkCount[p][q][i][j] / wordCount[p][q];
-                fout << endl;
-            }
+            if (TEST_UNIGRAM_FREQ)
+                rep(i, THETA_NUM)
+                {
+                    if (i < 6) continue;
+                    For(j, 12)
+                        rkCount[p][q][i][j] += rkCount[p][q][i][j-1];
+                    fout<< userID << ","
+                        << scale << ","
+                        << keyboardSize << ","
+                        << i * DELTA_T / 0.1;
+                    For(j, 12)
+                        fout << "," << rkCount[p][q][i][j] / wordCount[p][q];
+                    fout << endl;
+                }
+            if (TEST_BIGRAM_FREQ)
+                FOR(i, THETA_NUM + 6, THETA_NUM + GAMMA_NUM - 1)
+                {
+                    For(j, 12)
+                        rkCount[p][q][i][j] += rkCount[p][q][i][j-1];
+                    biFout<< userID << ","
+                        << scale << ","
+                        << keyboardSize << ","
+                        << (i - THETA_NUM) * DELTA_G;
+                    For(j, 12)
+                        biFout << "," << rkCount[p][q][i][j] / wordCount[p][q];
+                    biFout << endl;
+                }
         }
     }
 }
