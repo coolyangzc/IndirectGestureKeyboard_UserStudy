@@ -12,7 +12,7 @@
 
 using namespace std;
 
-const int USER_L = 18;
+const int USER_L = 1;
 const bool TEST_SHAPE_ONLY = false;
 
 const int ALG_NUM = 6;
@@ -91,7 +91,6 @@ void calcCandidate(int id)
             if (s == "Ended")
                 break;
         }
-        cout << word << " ";
         wordCount[p][q]++;
         int num = SAMPLE_NUM;
         vector<Vector2> location = temporalSampling(wordToPath(word, sc), num);
@@ -141,7 +140,6 @@ void calcCandidate(int id)
             rep(i, 3)
                 if (rk[i] <= 12)
                     rkCount[p][q][i][rk[i]]++;
-            //cout << rk[0] << " " << rk[1] << ":" << dict_map[word] << endl;
             continue;
         }
 
@@ -214,15 +212,12 @@ void calcCandidate(int id)
         rep(i, ALG_NUM)
             if (rk[i] <= 12)
                 rkCount[p][q][i][rk[i]]++;
-        cout << rk[3] << ":" << dict_map[word] << endl;
     }
-    cout << endl;
 }
 
 void outputCandidate()
 {
     fstream& fout = candFout;
-    cout << endl;
     rep(p, 2)
     {
         string scale = (p==0)?"1x1":"1x3";

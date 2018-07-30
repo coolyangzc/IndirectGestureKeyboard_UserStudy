@@ -12,6 +12,7 @@
 using namespace std;
 
 const int USER_L = 18;
+const bool CUT_OUTKEYBORAD_PART = false;
 
 const int THETA_NUM = 100;
 const double DELTA_T = 0.0005;
@@ -93,14 +94,21 @@ void calcCandidate(int id)
         int num = SAMPLE_NUM;
         vector<Vector2> location = temporalSampling(wordToPath(word, sc), num);
 
-        int l = 0, r = rawstroke.size() - 1;
+        vector<Vector2> stroke_c;
+        if (CUT_OUTKEYBORAD_PART)
+        {
+            int l = 0, r = rawstroke.size() - 1;
+            while (outKeyboard(rawstroke[l], sc) && l < r) l++;
+            while (outKeyboard(rawstroke[r], sc) && l < r) r--;
+            vector <Vector2> stroke_cut;
+            FOR(i, l, r)
+                stroke_cut.push_back(rawstroke[i]);
+            stroke_c = temporalSampling(stroke_cut, num);
+        }
+        else
+            stroke_c = temporalSampling(rawstroke, num);
 
-        while (outKeyboard(rawstroke[l], sc) && l < r) l++;
-        while (outKeyboard(rawstroke[r], sc) && l < r) r--;
-        vector <Vector2> stroke_cut;
-        FOR(i, l, r)
-            stroke_cut.push_back(rawstroke[i]);
-        vector<Vector2> stroke_c = temporalSampling(stroke_cut, num);
+
 
         double f = dict_map[word];
         if (f == 0) f = freq[LEXICON_SIZE - 1];
