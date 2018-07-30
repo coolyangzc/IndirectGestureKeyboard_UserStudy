@@ -1,5 +1,6 @@
 #include "Common.h"
 #include "Vector2.h"
+#include "Keyboard.h"
 
 #include <map>
 #include <cmath>
@@ -12,8 +13,8 @@
 
 using namespace std;
 
-const int USER_L = 1;
-const bool TEST_SHAPE_ONLY = true;
+const int USER_L = 18;
+const bool TEST_SHAPE_ONLY = false;
 
 const int ALG_NUM = 6;
 int rk[ALG_NUM];
@@ -26,7 +27,6 @@ double dtw[MAXSAMPLE][MAXSAMPLE];
 
 string sentence[PHRASES], mode[PHRASES], scale[PHRASES];
 double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
-Vector2 keyPos[26];
 
 int wordCount[2][3]; //[scale][size]
 
@@ -42,30 +42,8 @@ vector<string> words;
 vector<double> time;
 vector<Vector2> world, relative;
 
-string name, userID, candFileName;
+string name, userID;
 fstream candFout;
-
-void initDTW()
-{
-    rep(i, MAXSAMPLE)
-        rep(j, MAXSAMPLE)
-            dtw[i][j] = inf;
-    dtw[0][0] = 0;
-}
-
-vector<Vector2> wordToPath(string word, float scale)
-{
-    vector<Vector2> pts;
-    int preKey = -1;
-    rep(i, word.length())
-    {
-        int key = word[i] - 'a';
-        if (key != preKey)
-            pts.push_back(Vector2(keyPos[key].x, keyPos[key].y * 0.3 * scale));
-        preKey = key;
-    }
-    return pts;
-}
 
 void initLexicon()
 {
@@ -84,32 +62,12 @@ void initLexicon()
     fin.close();
 }
 
-void calcKeyLayout()
-{
-    string line1 = "qwertyuiop";
-    string line2 = "asdfghjkl";
-    string line3 = "zxcvbnm";
-    rep(i, line1.length())
-    {
-        keyPos[line1[i] - 'a'] = Vector2(-0.45 + i * 0.1, 0.3333);
-    }
-    rep(i, line2.length())
-    {
-        keyPos[line2[i] - 'a'] = Vector2(-0.4 + i * 0.1, 0);
-    }
-    rep(i, line3.length())
-    {
-        keyPos[line3[i] - 'a'] = Vector2(-0.35 + i * 0.1, -0.333);
-    }
-}
-
 void init()
 {
-    candFileName = "res/Candidate_Study1.csv";
+    string candFileName = "res/Candidate_Study1.csv";
     candFout.open(candFileName.c_str(), fstream::out);
     candFout << "id,scale,size,algorithm,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
-    initDTW();
-    calcKeyLayout();
+    initKeyboard(dtw);
     initLexicon();
 }
 
@@ -172,7 +130,7 @@ void readData(int id)
             startTime = -1;
             cmd.clear(); time.clear();
             world.clear(); relative.clear();
-            linePushBack(s, t);
+            //linePushBack(s, t);
             continue;
         }
         lastT = t;

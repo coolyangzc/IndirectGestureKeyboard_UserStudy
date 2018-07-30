@@ -1,5 +1,6 @@
 #include "Common.h"
 #include "Vector2.h"
+#include "Keyboard.h"
 
 #include <cstdio>
 #include <vector>
@@ -15,7 +16,6 @@ string sentence[PHRASES], mode[PHRASES], scale[PHRASES];
 double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
 int wordCnt[PHRASES];
 double WPM[PHRASES];
-Vector2 keyPos[26];
 
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
@@ -27,25 +27,6 @@ vector<Vector2> world, relative;
 
 string name, userID, keyFileName, WPMFileName, disFileName;
 fstream keyFout, WPMFout, disFout;
-
-void calcKeyLayout()
-{
-    string line1 = "qwertyuiop";
-    string line2 = "asdfghjkl";
-    string line3 = "zxcvbnm";
-    rep(i, line1.length())
-    {
-        keyPos[line1[i] - 'a'] = Vector2(-0.45 + i * 0.1, 0.3333);
-    }
-    rep(i, line2.length())
-    {
-        keyPos[line2[i] - 'a'] = Vector2(-0.4 + i * 0.1, 0);
-    }
-    rep(i, line3.length())
-    {
-        keyPos[line3[i] - 'a'] = Vector2(-0.35 + i * 0.1, -0.333);
-    }
-}
 
 void initFstream()
 {
@@ -63,7 +44,7 @@ void initFstream()
 
 void init()
 {
-    calcKeyLayout();
+    initKeyboard(dtw);
     initFstream();
 }
 
@@ -125,7 +106,7 @@ void readData(int id)
             startTime = -1;
             cmd.clear(); time.clear();
             world.clear(); relative.clear();
-            linePushBack(s, t);
+            //linePushBack(s, t);
             continue;
         }
         lastT = t;
@@ -154,20 +135,6 @@ void outputWPM()
                 << WPM[i] << ","
                 << wordCnt[i] << endl;
     }
-}
-
-vector<Vector2> wordToPath(string word, int id)
-{
-    vector<Vector2> pts;
-    int preKey = -1;
-    rep(i, word.length())
-    {
-        int key = word[i] - 'a';
-        if (key != preKey)
-            pts.push_back(Vector2(keyPos[key].x * width[id], keyPos[key].y * height[id]));
-        preKey = key;
-    }
-    return pts;
 }
 
 void calcDistance(int id)

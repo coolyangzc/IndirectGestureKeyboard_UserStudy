@@ -1,5 +1,6 @@
 #include "Common.h"
 #include "Vector2.h"
+#include "Keyboard.h"
 
 #include <map>
 #include <cmath>
@@ -12,10 +13,11 @@
 
 using namespace std;
 
-const int USER_L = 1;
+const int USER_L = 18;
 
 const int THETA_NUM = 100;
 const double DELTA_T = 0.0005;
+
 int rk[THETA_NUM];
 double result[THETA_NUM];
 double rkCount[2][3][THETA_NUM][13]; //[scale][size][][rank]
@@ -26,7 +28,6 @@ double dtw[MAXSAMPLE][MAXSAMPLE];
 
 string sentence[PHRASES], mode[PHRASES], scale[PHRASES];
 double height[PHRASES], width[PHRASES], heightRatio[PHRASES], widthRatio[PHRASES], keyboardSize[PHRASES];
-Vector2 keyPos[26];
 
 int wordCount[2][3]; //[scale][size]
 
@@ -35,36 +36,13 @@ int freq[LEXICON_SIZE];
 map<string, int> dict_map;
 vector<Vector2> dict_location[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
 
-vector<string> cmd;
-vector<string> words;
+vector<string> cmd, words;
 
 vector<double> time;
 vector<Vector2> world, relative;
 
-string name, userID, candFileName;
-fstream candFout;
-
-void initDTW()
-{
-    rep(i, MAXSAMPLE)
-        rep(j, MAXSAMPLE)
-            dtw[i][j] = inf;
-    dtw[0][0] = 0;
-}
-
-vector<Vector2> wordToPath(string word, float scale)
-{
-    vector<Vector2> pts;
-    int preKey = -1;
-    rep(i, word.length())
-    {
-        int key = word[i] - 'a';
-        if (key != preKey)
-            pts.push_back(Vector2(keyPos[key].x, keyPos[key].y * 0.3 * scale));
-        preKey = key;
-    }
-    return pts;
-}
+string name, userID;
+fstream freqFout;
 
 void initLexicon()
 {
@@ -81,34 +59,13 @@ void initLexicon()
     fin.close();
 }
 
-void calcKeyLayout()
-{
-    string line1 = "qwertyuiop";
-    string line2 = "asdfghjkl";
-    string line3 = "zxcvbnm";
-    rep(i, line1.length())
-    {
-        keyPos[line1[i] - 'a'] = Vector2(-0.45 + i * 0.1, 0.3333);
-    }
-    rep(i, line2.length())
-    {
-        keyPos[line2[i] - 'a'] = Vector2(-0.4 + i * 0.1, 0);
-    }
-    rep(i, line3.length())
-    {
-        keyPos[line3[i] - 'a'] = Vector2(-0.35 + i * 0.1, -0.333);
-    }
-}
-
 void init()
 {
-    candFileName = "res/Freq_Study1.csv";
-    candFout.open(candFileName.c_str(), fstream::out);
-    candFout << "id,scale,size,theta(keywidth),top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
-    initDTW();
-    calcKeyLayout();
+    string candFileName = "res/Freq_Study1.csv";
+    freqFout.open(candFileName.c_str(), fstream::out);
+    freqFout << "id,scale,size,theta(keywidth),top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
+    initKeyboard(dtw);
     initLexicon();
-
 }
 
 void linePushBack(string s, double t, double x = 0, double y = 0, double rx = 0, double ry = 0)
@@ -139,7 +96,6 @@ void readData(int id)
     keyboardSize[id] = (widthRatio[id] / 0.8) + 0.25f;
 
     words.clear();
-    int alpha = sentence[id].length();
     string word = "";
     rep(i, sentence[id].length())
         if (sentence[id][i] >= 'a' && sentence[id][i] <= 'z')
@@ -170,7 +126,7 @@ void readData(int id)
             startTime = -1;
             cmd.clear(); time.clear();
             world.clear(); relative.clear();
-            linePushBack(s, t);
+            //linePushBack(s, t);
             continue;
         }
         lastT = t;
@@ -192,7 +148,7 @@ bool outKeyboard(Vector2 v, float sc)
 
 void calcCandidate(int id)
 {
-    fstream& fout = candFout;
+    fstream& fout = freqFout;
     int line = 0, p = 0, q = 0, sc = 1;
 
     if (scale[id] == "1x3")
@@ -259,18 +215,18 @@ void calcCandidate(int id)
 
 void outputCandidate()
 {
-    fstream& fout = candFout;
+    fstream& fout = freqFout;
     cout << endl;
     rep(p, 2)
     {
         string scale = (p==0)?"1x1":"1x3";
         rep(q, 3)
         {
-            string keyboardSize = "0.5";
+            string keyboardSize = "0.75";
             if (q == 1)
-                keyboardSize = "0.75";
+                keyboardSize = "1.00";
             else if (q == 2)
-                keyboardSize = "1";
+                keyboardSize = "1.25";
 
             rep(i, THETA_NUM)
             {
@@ -310,7 +266,7 @@ int main()
         outputCandidate();
         clean();
     }
-    candFout.close();
+    freqFout.close();
     return 0;
 }
 
