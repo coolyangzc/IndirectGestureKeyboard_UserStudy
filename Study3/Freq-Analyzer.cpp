@@ -14,9 +14,11 @@ using namespace std;
 const int USER_L = 1;
 const bool CUT_OUTKEYBORAD_PART = false;
 const bool TEST_UNIGRAM_FREQ = false;
+const bool SKIP_PANGRAMS = false;
 const bool TEST_BIGRAM_FREQ = true;
+const bool USE_KATZ_SMOOTHING = true;
 
-const int THETA_NUM = 100, GAMMA_NUM = 200;
+const int THETA_NUM = 100, GAMMA_NUM = 400;
 const double DELTA_T = 0.0005, DELTA_G = 1;
 
 const int SAMPLE_NUM = 32;
@@ -34,6 +36,7 @@ int wordCount[2][3]; //[scale][size]
 string dict[LEXICON_SIZE];
 int freq[LEXICON_SIZE];
 map<string, int> dict_map;
+map<string, double> katz_alpha;
 map<pair<string, string>, double> bigram_map;
 vector<Vector2> dict_location[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
 
@@ -43,7 +46,12 @@ fstream freqFout, bigramFout;
 void initLexicon()
 {
     fstream fin;
-    fin.open("ANC-written-noduplicate+pangram.txt", fstream::in);
+    if (USE_KATZ_SMOOTHING)
+        fin.open("unigrams-written.txt", fstream::in);
+    else
+        fin.open("ANC-written-noduplicate+pangram.txt", fstream::in);
+
+
     rep(i, LEXICON_SIZE)
     {
         fin >> dict[i] >> freq[i];
@@ -57,13 +65,32 @@ void initLexicon()
     if (TEST_BIGRAM_FREQ)
     {
         string s1, s2;
-        fin.open("bigrams-written-prob.txt", fstream::in);
-        fin >> s1 >> bi_eps;
         double prob;
-        while (!fin.eof())
+        if (USE_KATZ_SMOOTHING)
         {
-            fin >> s1 >> s2 >> prob;
-            bigram_map[mk(s1, s2)] = prob;
+            fin.open("bigrams-written-katz.txt", fstream::in);
+            int bigrams_num;
+            fin >> bigrams_num;
+            rep(i, bigrams_num)
+            {
+                fin >> s1 >> s2 >> prob;
+                bigram_map[mk(s1, s2)] = prob;
+            }
+            rep(i, LEXICON_SIZE)
+            {
+                fin >> s1 >> prob;
+                katz_alpha[s1] = prob;
+            }
+        }
+        else
+        {
+            fin.open("bigrams-written-prob.txt", fstream::in);
+            fin >> s1 >> bi_eps;
+            while (!fin.eof())
+            {
+                fin >> s1 >> s2 >> prob;
+                bigram_map[mk(s1, s2)] = prob;
+            }
         }
         fin.close();
     }
@@ -81,10 +108,11 @@ void init()
     if (TEST_BIGRAM_FREQ)
     {
         string freqFileName = "res/Bigram_Freq_Study1.csv";
+        if (USE_KATZ_SMOOTHING)
+            freqFileName = "res/Bigram_Katz_Freq_Study1.csv";
         bigramFout.open(freqFileName.c_str(), fstream::out);
         bigramFout << "id,scale,size,gamma,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12" << endl;
     }
-
     initKeyboard(dtw);
     initLexicon();
 }
@@ -94,8 +122,32 @@ bool outKeyboard(Vector2 v, float sc)
     return v.x > 0.5 || v.x < -0.5 || v.y > (0.5 * 0.3 * sc) || v.y < -(0.5 * 0.3 * sc);
 }
 
+double calcBigramProb(double freq, int w, int now_id = -1)
+{
+    double bi_f;
+    if (w)
+    {
+        string now = (now_id == -1)?words[w]:dict[now_id];
+        bi_f = bigram_map[mk(words[w - 1], now)];
+        if (bi_f == 0)
+            if (USE_KATZ_SMOOTHING)
+                bi_f = katz_alpha[words[w - 1]] * freq;
+            else
+                bi_f = bi_eps / (dict_map[words[w - 1]] + LEXICON_SIZE * bi_eps);
+    }
+    else
+        bi_f = freq / uni_tot_freq;
+    return log(bi_f);
+}
+
 void calcCandidate(int id)
 {
+    if (SKIP_PANGRAMS)
+    {
+        if (sentence[id] == "the quick brown fox jumps over the lazy dog" ||
+            sentence[id] == "the five boxing wizards jump quickly")
+            return;
+    }
     fstream& fout = freqFout;
     int line = 0, p = 0, q = 0, sc = 1;
 
@@ -138,22 +190,11 @@ void calcCandidate(int id)
             stroke_c = temporalSampling(rawstroke, num);
 
         double f = dict_map[word], bi_f = 0;
-        if (f == 0) f = freq[LEXICON_SIZE - 1];
+        if (f == 0)
+            f = freq[LEXICON_SIZE - 1];
 
         if (TEST_BIGRAM_FREQ)
-        {
-            if (w)
-            {
-                bi_f = bigram_map[mk(words[w - 1], words[w])];
-                if (bi_f == 0)
-                    bi_f = bi_eps / (dict_map[words[w - 1]] + LEXICON_SIZE * bi_eps);
-            }
-            else
-                bi_f = f / uni_tot_freq;
-            bi_f = log(bi_f);
-        }
-
-
+            bi_f = calcBigramProb(f, w);
 
         result[0] = match(stroke_c, location, dtw, DTW);
 
@@ -183,15 +224,7 @@ void calcCandidate(int id)
                         rk[i]++;
             if (TEST_BIGRAM_FREQ)
             {
-                if (w)
-                {
-                    bi_f = bigram_map[mk(words[w - 1], dict[j])];
-                    if (bi_f == 0)
-                        bi_f = bi_eps / (dict_map[words[w - 1]] + LEXICON_SIZE * bi_eps);
-                }
-                else
-                    bi_f = f / uni_tot_freq;
-                bi_f = log(bi_f);
+                bi_f = calcBigramProb(freq[j], w, j);
                 FOR(i, 6, GAMMA_NUM - 1)
                     if (rk[i + THETA_NUM] <= 12 && bi_f - (i * DELTA_G) * disDTW > result[i + THETA_NUM])
                         rk[i + THETA_NUM] ++;

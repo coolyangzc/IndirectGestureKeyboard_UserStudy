@@ -1,5 +1,3 @@
-#include "Common.h"
-#include "Vector2.h"
 #include "Keyboard.h"
 
 #include <cstdio>
