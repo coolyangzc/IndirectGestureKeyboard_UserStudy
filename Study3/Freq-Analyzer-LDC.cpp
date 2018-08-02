@@ -47,7 +47,7 @@ fstream freqFout, bigramFout;
 void initLexicon()
 {
     fstream fin;
-    fin.open("bigrams-LDC-10k-katz-1m.txt", fstream::in);
+    fin.open("bigrams-LDC-10k-katz-1m-phrase.txt", fstream::in);
     //fin.open("../../LDC2006T13 (Google 1T 5gram language model)/bigrams-LDC-10k-katz-compress.txt", fstream::in);
 
     string s1, s2;

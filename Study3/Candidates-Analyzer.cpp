@@ -53,7 +53,7 @@ void initLexicon()
         dict_shape[i][1] = normalize(dict_location[i][1]);
     }
     fin.close();
-    fin.open("bigrams-LDC-10k-katz-1m.txt", fstream::in);
+    fin.open("bigrams-LDC-10k-katz-1m-phrase.txt", fstream::in);
     string s1, s2;
     int bigrams_num;
     ll freq;
