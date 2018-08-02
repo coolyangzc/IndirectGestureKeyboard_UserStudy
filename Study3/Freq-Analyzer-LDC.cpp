@@ -18,7 +18,7 @@ const bool SKIP_PANGRAMS = false;
 const bool TEST_BIGRAM_FREQ = true;
 const bool USE_KATZ_SMOOTHING = true;
 
-const int THETA_NUM = 100, GAMMA_NUM = 400;
+const int THETA_NUM = 100, GAMMA_NUM = 300;
 const double DELTA_T = 0.0005, DELTA_G = 1;
 
 const int SAMPLE_NUM = 32;
@@ -52,7 +52,8 @@ void initLexicon()
 
     string s1, s2;
     int bigrams_num;
-    double freq, prob;
+    ll f;
+    double prob;
 
     fin >> bigrams_num;
     cout << bigrams_num << endl;
@@ -67,10 +68,11 @@ void initLexicon()
     fin >> lexicon_size;
     rep(i, lexicon_size)
     {
-        fin >> dict[i] >> freq >> prob;
-        dict_map[dict[i]] = freq;
+        fin >> dict[i] >> f >> prob;
+        freq[i] = f;
+        dict_map[dict[i]] = f;
         katz_alpha[dict[i]] = prob;
-        uni_tot_freq += freq;
+        uni_tot_freq += f;
         if (dict[i] != "<s>")
         {
             dict_location[i][0] = temporalSampling(wordToPath(dict[i], 1), SAMPLE_NUM);
@@ -117,20 +119,6 @@ double calcBigramProb(double freq, int w, int now_id = -1)
                 bi_f = katz_alpha[pre] * freq;
             else
                 bi_f = bi_eps / (dict_map[words[w - 1]] + LEXICON_SIZE * bi_eps);
-    /*
-    if (w)
-    {
-        string now = (now_id == -1)?words[w]:dict[now_id];
-        bi_f = bigram_map[mk(words[w - 1], now)];
-        if (bi_f == 0)
-            if (USE_KATZ_SMOOTHING)
-                bi_f = katz_alpha[words[w - 1]] * freq;
-            else
-                bi_f = bi_eps / (dict_map[words[w - 1]] + LEXICON_SIZE * bi_eps);
-    }
-    else
-        bi_f = freq / uni_tot_freq;
-    */
     return log(bi_f);
 }
 
