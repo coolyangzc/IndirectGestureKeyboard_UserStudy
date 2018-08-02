@@ -11,6 +11,8 @@
 #define sqr(x) ((x)*(x))
 #define mk make_pair
 
+typedef long long ll;
+
 const int PHRASES = 60;
 const double eps = 1e-6;
 const double INF = 1e10;
