@@ -138,7 +138,6 @@ void calcCandidate(int id)
         vector<Vector2> location = temporalSampling(wordToPath(word, sc), num);
         vector<Vector2> stroke = temporalSampling(rawstroke, num);
 
-
         double f = dict_map[word], bi_f = calcBigramProb(w);
         if (f == 0)
         {
@@ -198,7 +197,6 @@ void calcCandidate(int id)
                 }
             }
         }
-
         rep(i, ALG_NUM)
             if (rk[i] <= RANK)
                 rkCount[p][q][i][rk[i]]++;
