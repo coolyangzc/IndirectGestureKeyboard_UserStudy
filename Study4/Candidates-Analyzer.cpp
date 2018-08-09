@@ -230,15 +230,19 @@ void clean()
     memset(wordCount, 0, sizeof(wordCount));
 }
 
+stringstream ss;
+
 int main()
 {
     init();
     FOR(p, USER_L - 1, USER_NUM - 1)
     {
-        userID = id[p];
+        ss.clear();ss.str("");
+        ss << p + 1;
+        userID = ss.str();
         rep(i, 40)
         {
-            stringstream ss;
+            ss.clear();ss.str("");
             ss << i;
             string fileName = "data/" + user[p] + "_" + ss.str() + ".txt";
             readData(fileName, i);
@@ -247,7 +251,7 @@ int main()
 
         FOR(i, 40, PHRASES - 1)
         {
-            stringstream ss;
+            ss.clear();ss.str("");
             ss << i - 39;
             string fileName = "data/Direct/" + user[p] + "_" + ss.str() + ".txt";
             readData(fileName, i);

@@ -85,15 +85,19 @@ void calcHeat(int id)
     }
 }
 
+stringstream ss;
+
 int main()
 {
     init();
     FOR(u, USER_L - 1, USER_NUM - 1)
     {
-        userID = id[u];
+        ss.clear();ss.str("");
+        ss << u + 1;
+        userID = ss.str();
         rep(i, 40)
         {
-            stringstream ss;
+            ss.clear();ss.str("");
             ss << i;
             string fileName = "data/" + user[u] + "_" + ss.str() + ".txt";
             readData(fileName, i);
@@ -102,7 +106,7 @@ int main()
 
         FOR(i, 40, PHRASES - 1)
         {
-            stringstream ss;
+            ss.clear();ss.str("");
             ss << i - 39;
             string fileName = "data/Direct/" + user[u] + "_" + ss.str() + ".txt";
             readData(fileName, i);
