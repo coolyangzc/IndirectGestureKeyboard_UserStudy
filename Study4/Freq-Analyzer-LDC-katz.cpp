@@ -15,12 +15,14 @@ using namespace std;
 const int USER_L = 1;
 const int RANK = 13;
 
-const int ALG_NUM = 6; //SHARK2(no, unigram, bigram), DTW(no, unigram, bigram)
-int rk[ALG_NUM];
-double result[ALG_NUM];
-double rkCount[2][ALG_NUM][RANK + 1]; //[type][std;dtw;dtw*freq][rank]
-
+const int GAMMA_NUM = 300;
+const double DELTA_G = 1;
 const int SAMPLE_NUM = 32;
+
+
+int rk[GAMMA_NUM];
+double result[GAMMA_NUM];
+double rkCount[2][GAMMA_NUM][RANK + 1]; //[type][][rank]
 
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
@@ -35,7 +37,7 @@ map<pair<string, string>, double> bigram_map;
 vector<Vector2> dict_location[LEXICON_SIZE][2], dict_shape[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
 
 string userID;
-fstream candFout;
+fstream bigramFout;
 
 void initLexicon()
 {
@@ -78,9 +80,9 @@ void initLexicon()
 
 void init()
 {
-    string candFileName = "res/Candidate_Study2.csv";
-    candFout.open(candFileName.c_str(), fstream::out);
-    candFout << "id,usage,algorithm,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13" << endl;
+    string freqFileName = "res/Bigram_Freq_LDC_Katz_Study2.csv";
+    bigramFout.open(freqFileName.c_str(), fstream::out);
+    bigramFout << "id,usage,gamma,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13" << endl;
     initKeyboard(dtw);
     initLexicon();
 }
@@ -108,7 +110,7 @@ double calcBigramProb(int w, int now_id = -1)
 
 void calcCandidate(int id)
 {
-    fstream& fout = candFout;
+    fstream& fout = bigramFout;
     int line = 0, p = 0, sc = 3;
 
     if (mode[id] == "Direct")
@@ -139,16 +141,12 @@ void calcCandidate(int id)
             f = freq[LEXICON_SIZE - 1];
             cout << "Warning: OOV!" << endl;
         }
-        result[0] = match(stroke, location, dtw, Standard);
-        result[1] = exp(-0.5 * sqr(result[0] / 0.025)) * f;
-        result[2] = bi_f - 80 * result[0];
+        result[0] = match(stroke, location, dtw, DTW);
 
-        result[3] = match(stroke, location, dtw, DTW);
-        result[4] = exp(-0.5 * sqr(result[3] / 0.025)) * f;
-        result[5] = bi_f - 80 * result[3];
-
-        rep(alg, ALG_NUM)
-            rk[alg] = 1;
+        rep(i, GAMMA_NUM)
+            rk[i] = 1;
+        FOR(i, 6, GAMMA_NUM - 1)
+            result[i] = bi_f - (i * DELTA_G) * result[0];
         rep(j, LEXICON_SIZE)
         {
             if (word == dict[j])
@@ -156,43 +154,14 @@ void calcCandidate(int id)
             vector<Vector2>& location = dict_location[j][1];
             if (dist(location.back(), stroke.back()) > 0.3)
                 continue;
-            double disSHARK = match(stroke, location, dtw, Standard);
+            //double disSHARK = match(stroke, location, dtw, Standard);
             double disDTW = match(stroke, location, dtw, DTW);
             bi_f = calcBigramProb(w, j);
-            rep(alg, ALG_NUM)
-            {
-                if (rk[alg] > RANK)
-                    continue;
-                switch(alg)
-                {
-                case 0:
-                    if (disSHARK < result[alg])
-                        rk[alg]++;
-                    break;
-                case 1:
-                    if ((exp(-0.5 * sqr(disSHARK / 0.025)) * freq[j]) > result[alg])
-                        rk[alg]++;
-                    break;
-                case 2:
-                    if (bi_f - 80 * disSHARK > result[alg])
-                        rk[alg]++;
-                    break;
-                case 3:
-                    if (disDTW < result[alg])
-                        rk[alg]++;
-                    break;
-                case 4:
-                    if ((exp(-0.5 * sqr(disDTW / 0.025)) * freq[j]) > result[alg])
-                        rk[alg]++;
-                    break;
-                case 5:
-                    if (bi_f - 80 * disDTW > result[alg])
-                        rk[alg]++;
-                    break;
-                }
-            }
+            FOR(i, 6, GAMMA_NUM - 1)
+                if (rk[i] <= RANK && bi_f - (i * DELTA_G) * disDTW > result[i])
+                    rk[i] ++;
         }
-        rep(i, ALG_NUM)
+        rep(i, GAMMA_NUM)
             if (rk[i] <= RANK)
                 rkCount[p][i][rk[i]]++;
     }
@@ -200,24 +169,19 @@ void calcCandidate(int id)
 
 void outputCandidate()
 {
-    fstream& fout = candFout;
+    fstream& fout = bigramFout;
     rep(p, 2)
     {
         string usage = (p==0)?"Indirect":"Direct";
-        rep(alg, ALG_NUM)
+        FOR(i, 6, GAMMA_NUM - 1)
         {
             For(j, RANK)
-                rkCount[p][alg][j] += rkCount[p][alg][j-1];
+                rkCount[p][i][j] += rkCount[p][i][j-1];
             fout<< userID << ","
-                << usage << ",";
-            if (alg == 0) fout << "SHARK2";
-            if (alg == 1) fout << "SHARK2(Unigram)";
-            if (alg == 2) fout << "SHARK2(Bigram)";
-            if (alg == 3) fout << "DTW";
-            if (alg == 4) fout << "DTW(Unigram)";
-            if (alg == 5) fout << "DTW(Bigram)";
+                << usage << ","
+                << i * DELTA_G;
             For(j, RANK)
-                fout << "," << rkCount[p][alg][j] / wordCount[p];
+                fout << "," << rkCount[p][i][j] / wordCount[p];
             fout << endl;
         }
     }
@@ -259,7 +223,7 @@ int main()
         outputCandidate();
         clean();
     }
-    candFout.close();
+    bigramFout.close();
     return 0;
 }
 
