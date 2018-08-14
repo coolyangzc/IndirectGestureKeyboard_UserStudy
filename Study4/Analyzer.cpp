@@ -20,7 +20,7 @@ const int SAMPLE_NUM = 32;
 
 double dtw[MAXSAMPLE][MAXSAMPLE];
 
-int wordCount[2]; //[type]
+int block, wordCount[2]; //[type]
 double wpm[2];
 char qwertyRating[USER_NUM], gestureKeyboardRating[USER_NUM];
 
@@ -38,7 +38,7 @@ map<pair<string, string>, double> bigram_map;
 vector<Vector2> dict_location[LEXICON_SIZE][2], dict_shape[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
 
 string userID;
-fstream keyFout, WPMFout, disFout;
+fstream keyFout, WPMFout, timeFout, disFout;
 
 void initLexicon()
 {
@@ -106,9 +106,10 @@ void readQuestionnaire()
 
 void init()
 {
-    string fileName = "res/WPM_Study2.csv";
-    WPMFout.open(fileName.c_str(), fstream::out);
+    WPMFout.open("res/WPM_Study2.csv", fstream::out);
     WPMFout << "id,QWERTY,GK,usage,block,WPM,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13" << endl;
+    timeFout.open("res/Time_Study2.csv", fstream::out);
+    timeFout << "id,QWERTY,GK,usage,block,sentence,Gesture,Prepare,Gesture(%),Prepare(%),GestureSpeed(keyW/s)" << endl;
     initKeyboard(dtw);
     initLexicon();
     readQuestionnaire();
@@ -189,7 +190,7 @@ void calcCandidate(int id)
     wpm[p] += alpha / (lastT - startT) * 12;
 }
 
-void outputBlock(int id, int p, int block)
+void outputBlock(int id, int p)
 {
     fstream& fout = WPMFout;
     string usage = (p==0)?"Indirect":"Direct";
@@ -204,6 +205,48 @@ void outputBlock(int id, int p, int block)
     For(j, RANK)
         fout << "," << rkCount[p][0][j] / wordCount[p];
     fout << endl;
+}
+
+void outputTime(int userID, int id)
+{
+    double gesture = 0, prepare = 0, speed = 0, len = 0, draw = 0;
+    int wordCount = 0;
+    rep(i, cmd.size() - 1)
+        if (cmd[i] == "Ended")
+        {
+            gesture += draw;
+            speed += len / (width[id] / 10) /  draw;
+            wordCount ++;
+            len = draw = 0;
+            if (cmd[i+1] == "Began")
+                prepare += time[i+1] - time[i];
+        }
+        else
+        {
+            draw += time[i+1] - time[i];
+            len += dist(world[i], world[i+1]);
+        }
+    if (wordCount != words.size())
+    {
+        cout << words.size() << " " << wordCount << endl;
+        cout << "Word Count Error" << endl;
+        while(1);
+    }
+
+
+    double tot = gesture + prepare;
+    string usage = (mode[id]=="Direct")?"Direct":"Indirect";
+    timeFout << userID + 1 << ","
+             << qwertyRating[userID] << ","
+             << gestureKeyboardRating[userID] << ","
+             << usage << ","
+             << block << ","
+             << ((id>=40)?id-39:id+1) << ","
+             << gesture << ","
+             << prepare << ","
+             << gesture / tot << ","
+             << prepare / tot << ","
+             << speed / words.size() << endl;
 }
 
 void clean()
@@ -223,6 +266,7 @@ int main()
         ss.clear();ss.str("");
         ss << p + 1;
         userID = ss.str();
+        block = 1;
         rep(i, 40)
         {
             ss.clear();ss.str("");
@@ -230,13 +274,15 @@ int main()
             string fileName = "data/" + user[p] + "_" + ss.str() + ".txt";
             readData(fileName, i);
             calcCandidate(i);
+            outputTime(p, i);
             if ((i+1) % 10 == 0)
             {
-                outputBlock(p, 0, (i+1) / 10);
+                outputBlock(p, 0);
+                block++;
                 clean();
             }
         }
-
+        block = 1;
         FOR(i, 40, PHRASES - 1)
         {
             ss.clear();ss.str("");
@@ -244,14 +290,17 @@ int main()
             string fileName = "data/Direct/" + user[p] + "_" + ss.str() + ".txt";
             readData(fileName, i);
             calcCandidate(i);
+            outputTime(p, i);
             if ((i+1) % 10 == 0)
             {
-                outputBlock(p, 1, (i+1) / 10 - 4);
+                outputBlock(p, 1);
+                block++;
                 clean();
             }
         }
     }
     WPMFout.close();
+    timeFout.close();
     return 0;
 }
 
