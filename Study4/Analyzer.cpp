@@ -37,8 +37,7 @@ map<string, ll> unigram_map;
 map<pair<string, string>, double> bigram_map;
 vector<Vector2> dict_location[LEXICON_SIZE][2], dict_shape[LEXICON_SIZE][2]; //[scale: 0 for 1x1, 1 for 1x3]
 
-string userID;
-fstream keyFout, WPMFout, timeFout, disFout;
+fstream keyFout, WPMFout, timeFout, disFout, speedFout;
 
 void initLexicon()
 {
@@ -110,6 +109,8 @@ void init()
     WPMFout << "id,QWERTY,GK,usage,block,WPM,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13" << endl;
     timeFout.open("res/Time_Study2.csv", fstream::out);
     timeFout << "id,QWERTY,GK,usage,block,sentence,Gesture,Prepare,Gesture(%),Prepare(%),GestureSpeed(keyW/s)" << endl;
+    speedFout.open("res/Speed_Study2.csv", fstream::out);
+    speedFout << "id,QWERTY,GK,usage,block,sentence,word,part(#/10),GestureSpeed(keyW/s),Time(s)" << endl;
     initKeyboard(dtw);
     initLexicon();
     readQuestionnaire();
@@ -190,18 +191,24 @@ void calcCandidate(int id)
     wpm[p] += alpha / (lastT - startT) * 12;
 }
 
-void outputBlock(int id, int p)
+void outputBasicInfo(fstream& fout, int userID, int id)
+{
+    string usage = (mode[id]=="Direct")?"Direct":"Indirect";
+    fout << userID + 1 << ","
+         << qwertyRating[userID] << ","
+         << gestureKeyboardRating[userID] << ","
+         << usage << ","
+         << block << ",";
+}
+
+void outputBlock(int userID, int id, int p)
 {
     fstream& fout = WPMFout;
-    string usage = (p==0)?"Indirect":"Direct";
     For(j, RANK)
         rkCount[p][0][j] += rkCount[p][0][j-1];
-    fout<< userID << ","
-        << qwertyRating[id] << ","
-        << gestureKeyboardRating[id] << ","
-        << usage << ","
-        << block << ","
-        << wpm[p] / 10;
+    outputBasicInfo(fout, userID, id);
+
+    fout << wpm[p] / 10;
     For(j, RANK)
         fout << "," << rkCount[p][0][j] / wordCount[p];
     fout << endl;
@@ -209,44 +216,80 @@ void outputBlock(int id, int p)
 
 void outputTime(int userID, int id)
 {
-    double gesture = 0, prepare = 0, speed = 0, len = 0, draw = 0;
-    int wordCount = 0;
-    rep(i, cmd.size() - 1)
-        if (cmd[i] == "Ended")
-        {
-            gesture += draw;
-            speed += len / (width[id] / 10) /  draw;
-            wordCount ++;
-            len = draw = 0;
-            if (cmd[i+1] == "Began")
-                prepare += time[i+1] - time[i];
-        }
-        else
-        {
-            draw += time[i+1] - time[i];
-            len += dist(world[i], world[i+1]);
-        }
-    if (wordCount != words.size())
+    double gesture = 0, prepare = 0, speed = 0, len = 0, draw = 0, keyW = width[id] / 10;
+    int wordCount = 0, curWord = 0, l = 0, r = 0;
+    while (l < cmd.size() - 1)
     {
-        cout << words.size() << " " << wordCount << endl;
+        r = l;
+        while (cmd[r] != "Ended")
+        {
+            len += dist(world[r], world[r+1]);
+            r++;
+        }
+        draw = time[r] - time[l];
+        gesture += draw;
+        if (len > eps)
+        {
+            speed += len / keyW /  draw;
+            wordCount++;
+
+            len /= 10;
+            int part = 1;
+            double t = 0, g = 0, p = 0;
+            FOR(i, l, r - 1)
+            {
+                double d = dist(world[i+1], world[i]), dtime = time[i+1] - time[i];
+                while (g + d > len)
+                {
+                    p = (len - g) / d;
+                    t += dtime * p;
+                    outputBasicInfo(speedFout, userID, id);
+                    speedFout << ((id>=40)?id-39:id+1) << ","
+                              << words[curWord] << ","
+                              << part++ << ","
+                              << len / keyW / t << ","
+                              << t << endl;
+                    d -= len - g;
+                    dtime *= 1 - p;
+                    g = t = 0;
+                }
+                g += d;
+                t += dtime;
+            }
+            if (part <= 10)
+            {
+                outputBasicInfo(speedFout, userID, id);
+                speedFout << ((id>=40)?id-39:id+1) << ","
+                          << words[curWord] << ","
+                          << part << ","
+                          << len / keyW / t << ","
+                          << t << endl;
+            }
+
+        }
+
+        l = r + 1;
+        len = draw = 0;
+        curWord++;
+        if (cmd[l] == "Began")
+            prepare += time[l] - time[l - 1];
+    }
+
+    if (curWord != words.size())
+    {
+        cout << words.size() << " " << curWord << endl;
         cout << "Word Count Error" << endl;
         while(1);
     }
 
-
     double tot = gesture + prepare;
-    string usage = (mode[id]=="Direct")?"Direct":"Indirect";
-    timeFout << userID + 1 << ","
-             << qwertyRating[userID] << ","
-             << gestureKeyboardRating[userID] << ","
-             << usage << ","
-             << block << ","
-             << ((id>=40)?id-39:id+1) << ","
+    outputBasicInfo(timeFout, userID, id);
+    timeFout << ((id>=40)?id-39:id+1) << ","
              << gesture << ","
              << prepare << ","
              << gesture / tot << ","
              << prepare / tot << ","
-             << speed / words.size() << endl;
+             << speed / wordCount << endl;
 }
 
 void clean()
@@ -265,7 +308,6 @@ int main()
     {
         ss.clear();ss.str("");
         ss << p + 1;
-        userID = ss.str();
         block = 1;
         rep(i, 40)
         {
@@ -277,7 +319,7 @@ int main()
             outputTime(p, i);
             if ((i+1) % 10 == 0)
             {
-                outputBlock(p, 0);
+                outputBlock(p, i, 0);
                 block++;
                 clean();
             }
@@ -293,7 +335,7 @@ int main()
             outputTime(p, i);
             if ((i+1) % 10 == 0)
             {
-                outputBlock(p, 1);
+                outputBlock(p, i, 1);
                 block++;
                 clean();
             }
@@ -301,6 +343,7 @@ int main()
     }
     WPMFout.close();
     timeFout.close();
+    speedFout.close();
     return 0;
 }
 
