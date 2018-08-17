@@ -110,7 +110,7 @@ void init()
     timeFout.open("res/Time_Study2.csv", fstream::out);
     timeFout << "id,QWERTY,GK,usage,block,sentence,Gesture,Prepare,Gesture(%),Prepare(%),GestureSpeed(keyW/s)" << endl;
     speedFout.open("res/Speed_Study2.csv", fstream::out);
-    speedFout << "id,QWERTY,GK,usage,block,sentence,word,part(#/10),GestureSpeed(keyW/s),Time(s)" << endl;
+    speedFout << "id,QWERTY,GK,usage,block,sentence,word,part(#/50),GestureSpeed(keyW/s),Time(s)" << endl;
     initKeyboard(dtw);
     initLexicon();
     readQuestionnaire();
@@ -233,7 +233,7 @@ void outputTime(int userID, int id)
             speed += len / keyW /  draw;
             wordCount++;
 
-            len /= 10;
+            len /= 50;
             int part = 1;
             double t = 0, g = 0, p = 0;
             FOR(i, l, r - 1)
@@ -256,7 +256,7 @@ void outputTime(int userID, int id)
                 g += d;
                 t += dtime;
             }
-            if (part <= 10)
+            if (part <= 50)
             {
                 outputBasicInfo(speedFout, userID, id);
                 speedFout << ((id>=40)?id-39:id+1) << ","
