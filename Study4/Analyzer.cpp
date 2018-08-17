@@ -306,8 +306,6 @@ int main()
     init();
     FOR(p, USER_L - 1, USER_NUM - 1)
     {
-        ss.clear();ss.str("");
-        ss << p + 1;
         block = 1;
         rep(i, 40)
         {

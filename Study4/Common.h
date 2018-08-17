@@ -36,4 +36,4 @@ bool same(const double& x, const double& y)
     return (fabs(x-y) < eps);
 }
 
-#endif // VECTOR2_H_
+#endif // COMMON_H_
