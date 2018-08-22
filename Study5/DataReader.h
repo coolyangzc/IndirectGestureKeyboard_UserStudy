@@ -39,21 +39,20 @@ void linePushBack(string s, double t, double x = 0, double y = 0, double rx = 0,
 
 void cleanAll()
 {
-    cmd.clear(); time.clear();
+    /*cmd.clear(); time.clear();
     para.clear(); paraCnt.clear();
-    world.clear(); relative.clear();
+    world.clear(); relative.clear();*/
 
-    /*vector<string>().swap(cmd);
+    vector<string>().swap(cmd);
     vector<double>().swap(time);
     vector<string>().swap(para);
     vector<int>().swap(paraCnt);
     vector<Vector2>().swap(world);
-    vector<Vector2>().swap(relative);*/
+    vector<Vector2>().swap(relative);
 }
 
 void sentenceToWords(string sentence, vector<string>& words)
 {
-    words.clear();
     vector<string>().swap(words);
     string word = "";
     rep(i, sentence.length())
@@ -189,6 +188,7 @@ void calcListTimeSpan()
     cnt.startTime = cnt.endTime = -1;
     rep(i, cmd.size())
     {
+
         cnt.para = para[i];
         cnt.n = paraCnt[i];
         if (cmd[i] == "Candidates")
@@ -205,8 +205,11 @@ void calcListTimeSpan()
             cnt.type = Delete;
             if (para[i] == "LeftSwipe")
             {
-                cnt.startTime = span.back().startTime;
-                span.pop_back(); //Prepare
+                if (!span.empty())
+                {
+                    cnt.startTime = span.back().startTime;
+                    span.pop_back(); //Prepare
+                }
                 span.push_back(cnt);
             }
             else cout << "Unknown para for Delete: " << para[i] << i << endl;
@@ -290,8 +293,11 @@ void calcRadialTimeSpan()
             cnt.type = Delete;
             if (para[i] == "LeftSwipe")
             {
-                cnt.startTime = span.back().startTime;
-                span.pop_back(); //Prepare
+                if (!span.empty())
+                {
+                    cnt.startTime = span.back().startTime;
+                    span.pop_back(); //Prepare
+                }
                 span.push_back(cnt);
             }
             else cout << "Unknown para for Delete: " << para[i] << i << endl;

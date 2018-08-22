@@ -42,9 +42,9 @@ void init()
     timeFout << endl;
     tMeanFout << endl;
     tRatioFout << endl;
-    candFout << "top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13,all,"
-             << "top1(ratio),top2(ratio),top3(ratio),top4(ratio),top5(ratio),top6(ratio),top7(ratio)"
-             << "top8(ratio),top9(ratio),top10(ratio),top11(ratio),top12(ratio),top13(ratio)" << endl;
+    candFout << ",top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13,all"
+             << ",top1(ratio),top2(ratio),top3(ratio),top4(ratio),top5(ratio),top6(ratio),top7(ratio)"
+             << ",top8(ratio),top9(ratio),top10(ratio),top11(ratio),top12(ratio),top13(ratio)" << endl;
 }
 
 void clean()
@@ -71,9 +71,6 @@ void calcTimeDistribution(int user, int id)
     memset(timeCount, 0, sizeof(timeCount));
     rep(i, span.size())
     {
-        //cout << "  " << typeToString(span[i].type) << ": ";
-        //cout << span[i].startTime << " - ";
-        //cout << span[i].endTime << endl;
         timeNum[span[i].type]++;
         timeCount[span[i].type] += span[i].endTime - span[i].startTime;
         timeBlock[span[i].type] += span[i].endTime - span[i].startTime;
@@ -101,22 +98,41 @@ void calcTimeDistribution(int user, int id)
     }
 }
 
+void printTimeSpan()
+{
+    rep(i, span.size())
+    {
+        cout << "  " << typeToString(span[i].type) << ": ";
+        cout << span[i].startTime << " - ";
+        cout << span[i].endTime << "; ";
+        cout << span[i].para << "; ";
+        cout << span[i].n << endl;
+
+    }
+
+}
+
 void calcWPM(int user, int id)
 {
     int deleteCnt = 0, cancelCnt = 0, uncorrectCancel = 0, correct = 0, uncorrected = 0;
     vector<string> candidates;
     int wordP = -1;
+    bool same = false;
     rep(i, span.size())
     {
         if (span[i].type == Delete)
-            deleteCnt++, wordP--;
+        {
+            deleteCnt++, wordP = max(wordP - 1, -1);
+
+            if (candMethod[id] == "List" && same)
+                uncorrectCancel++;
+        }
         else if (span[i].type == Cancel)
         {
             cancelCnt++;
-            bool same = false;
+            same = false;
             rep(i, candidates.size())
             {
-                //cout << candidates[i] << ",";
                 if (candidates[i] == words[wordP])
                 {
                     same = true;
@@ -129,8 +145,7 @@ void calcWPM(int user, int id)
             if (candMethod[id] == "Radial")
                 wordP--;
         }
-
-        if (span[i].type == Gesture)
+        else if (span[i].type == Gesture)
         {
             sentenceToWords(span[i].para, candidates);
             wordP++;
@@ -160,14 +175,49 @@ void calcCandidate(int user, int id)
 {
     vector<int> tops;
     tops.clear();
-    //if (cand)
+    vector<string> candidates;
+    int wordP = -1;
+
     rep(i, span.size())
-        if (span[i].type == Select)
-            tops.push_back(span[i].n);
-        else if (span[i].type == Delete && !tops.empty())
-            tops.pop_back();
+    {
+        if (span[i].type == Delete)
+            wordP = max(wordP - 1, -1);
         else if (span[i].type == Cancel)
-            top[13]++;
+        {
+            if (candMethod[id] == "Radial")
+                wordP--;
+        }
+        else if (span[i].type == Gesture)
+        {
+            sentenceToWords(span[i].para, candidates);
+            wordP++;
+            int same = -1;
+            rep(j, candidates.size())
+            {
+                if (candidates[j] == words[wordP])
+                {
+                    top[same = j]++;
+                    break;
+                }
+            }
+            if (same < 0)
+                top[RANK]++;
+        }
+    }
+
+    if ((id+1) % 10 == 0)
+    {
+        For(i, RANK)
+            top[i] += top[i-1];
+        outputBasicInfo(candFout, user, id);
+        rep(i, RANK + 1)
+            candFout << "," << top[i];
+        rep(i, RANK)
+            candFout << "," << (float)top[i] / top[RANK];
+        candFout << endl;
+        memset(top, 0, sizeof(top));
+    }
+
 }
 
 stringstream ss;
@@ -184,13 +234,14 @@ int main()
             string fileName = "data/" + user[p] + "_" + ss.str() + ".txt";
             readData(fileName, i);
             calcTimeSpan(i);
+            //printTimeSpan();
             calcTimeDistribution(p, i);
             calcWPM(p, i);
-
-            //calcCandidate(p, i);
+            calcCandidate(p, i);
         }
     }
     WPMFout.close();
+    candFout.close();
     timeFout.close();
     tMeanFout.close();
     tRatioFout.close();
