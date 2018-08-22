@@ -42,11 +42,19 @@ void cleanAll()
     cmd.clear(); time.clear();
     para.clear(); paraCnt.clear();
     world.clear(); relative.clear();
+
+    /*vector<string>().swap(cmd);
+    vector<double>().swap(time);
+    vector<string>().swap(para);
+    vector<int>().swap(paraCnt);
+    vector<Vector2>().swap(world);
+    vector<Vector2>().swap(relative);*/
 }
 
 void sentenceToWords(string sentence, vector<string>& words)
 {
     words.clear();
+    vector<string>().swap(words);
     string word = "";
     rep(i, sentence.length())
         if (sentence[i] >= 'a' && sentence[i] <= 'z')
@@ -67,7 +75,7 @@ void readData(string fileName, int id)
     fin.open(fileName.c_str(), fstream::in);
     getline(fin, sentence[id]);
     getline(fin, inputText[id]);
-    cout << sentence[id] << endl;
+    //cout << sentence[id] << endl;
     if (sentence[id] != inputText[id])
     {
         cout << fileName << ": diff" << endl;
@@ -115,6 +123,7 @@ void readData(string fileName, int id)
             getline(fin, pa);
             if (pa.length() > 0)
                 pa = pa.substr(1, pa.length() - 1);
+            transform(pa.begin(), pa.end(), pa.begin(), ::tolower);
             linePushBack(s, t, pa, n);
             continue;
         }
@@ -170,7 +179,7 @@ string typeToString(int type)
     }
 }
 
-vector<TimeSpan> span;
+vector<TimeSpan> span, emptySpan;
 
 void calcListTimeSpan()
 {
@@ -259,6 +268,8 @@ void calcRadialTimeSpan()
 {
     bool inRest = false;
     span.clear();
+    //vector<TimeSpan>().swap(span);
+    //span.swap(emptySpan);
     TimeSpan cnt;
     cnt.startTime = cnt.endTime = -1;
     rep(i, cmd.size())

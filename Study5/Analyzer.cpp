@@ -13,19 +13,23 @@
 using namespace std;
 
 const int USER_L = 1;
+const int RANK = 13;
 
+int top[RANK + 1];
 int timeNum[TYPENUM];
 double timeCount[TYPENUM], timeBlock[TYPENUM];
 
-fstream timeFout, tMeanFout, tRatioFout, WPMFout;
+fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout;
 
 void init()
 {
     WPMFout.open("res/WPM_Study3.csv", fstream::out);
+    candFout.open("res/Candidates_Study3.csv", fstream::out);
     timeFout.open("res/Time_Study3.csv", fstream::out);
     tMeanFout.open("res/Time_Mean_Study3.csv", fstream::out);
     tRatioFout.open("res/Time_Ratio_Study3.csv", fstream::out);
     WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete" << endl;
+    candFout << "id,mode,cand,block,phrase";
     timeFout << "id,mode,cand,block,phrase";
     tMeanFout << "id,mode,cand,block,phrase";
     tRatioFout << "id,mode,cand,block,phrase";
@@ -38,6 +42,9 @@ void init()
     timeFout << endl;
     tMeanFout << endl;
     tRatioFout << endl;
+    candFout << "top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13,all,"
+             << "top1(ratio),top2(ratio),top3(ratio),top4(ratio),top5(ratio),top6(ratio),top7(ratio)"
+             << "top8(ratio),top9(ratio),top10(ratio),top11(ratio),top12(ratio),top13(ratio)" << endl;
 }
 
 void clean()
@@ -64,9 +71,9 @@ void calcTimeDistribution(int user, int id)
     memset(timeCount, 0, sizeof(timeCount));
     rep(i, span.size())
     {
-        cout << "  " << typeToString(span[i].type) << ": ";
-        cout << span[i].startTime << " - ";
-        cout << span[i].endTime << endl;
+        //cout << "  " << typeToString(span[i].type) << ": ";
+        //cout << span[i].startTime << " - ";
+        //cout << span[i].endTime << endl;
         timeNum[span[i].type]++;
         timeCount[span[i].type] += span[i].endTime - span[i].startTime;
         timeBlock[span[i].type] += span[i].endTime - span[i].startTime;
@@ -109,14 +116,14 @@ void calcWPM(int user, int id)
             bool same = false;
             rep(i, candidates.size())
             {
-                cout << candidates[i] << ",";
+                //cout << candidates[i] << ",";
                 if (candidates[i] == words[wordP])
                 {
                     same = true;
                     break;
                 }
             }
-            cout << endl;
+            //cout << endl;
             if (same)
                 uncorrectCancel++;
             if (candMethod[id] == "Radial")
@@ -149,6 +156,20 @@ void calcWPM(int user, int id)
             << endl;
 }
 
+void calcCandidate(int user, int id)
+{
+    vector<int> tops;
+    tops.clear();
+    //if (cand)
+    rep(i, span.size())
+        if (span[i].type == Select)
+            tops.push_back(span[i].n);
+        else if (span[i].type == Delete && !tops.empty())
+            tops.pop_back();
+        else if (span[i].type == Cancel)
+            top[13]++;
+}
+
 stringstream ss;
 
 int main()
@@ -165,6 +186,8 @@ int main()
             calcTimeSpan(i);
             calcTimeDistribution(p, i);
             calcWPM(p, i);
+
+            //calcCandidate(p, i);
         }
     }
     WPMFout.close();
