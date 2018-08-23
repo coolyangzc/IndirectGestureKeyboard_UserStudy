@@ -119,6 +119,7 @@ void calcWPM(int user, int id)
     vector<string> candidates;
     int wordP = -1;
     bool same = false;
+    double phraseEndTime = -1;
     rep(i, span.size())
     {
         if (span[i].type == Delete)
@@ -149,6 +150,13 @@ void calcWPM(int user, int id)
         {
             sentenceToWords(span[i].para, candidates);
             wordP++;
+            if (wordP + 1 == words.size())
+                phraseEndTime = span[i].endTime;
+        }
+        else if (span[i].type == Select)
+        {
+            if (wordP + 1 == words.size())
+                phraseEndTime = span[i].endTime;
         }
     }
     vector<string> inputWords;
@@ -160,7 +168,10 @@ void calcWPM(int user, int id)
             correct++;
     if (inputWords.size() > words.size())
         uncorrected += inputWords.size() - words.size();
-    double totTime = span.back().endTime - span.front().startTime;
+
+
+    //double totTime = span.back().endTime - span.front().startTime;
+    double totTime = phraseEndTime - span.front().startTime;
     double wpm = inputText[id].length() / totTime * 12;
     outputBasicInfo(WPMFout, user, id);
     WPMFout << ","
@@ -226,6 +237,7 @@ int main()
 {
     init();
     FOR(p, USER_L - 1, USER_NUM - 1)
+    //FOR(p, 12, 12)
     {
         rep(i, 80)
         {
@@ -234,6 +246,7 @@ int main()
             string fileName = "data/" + user[p] + "_" + ss.str() + ".txt";
             readData(fileName, i);
             calcTimeSpan(i);
+            //printTimeSpan();
             calcTimeDistribution(p, i);
             calcWPM(p, i);
             calcCandidate(p, i);
