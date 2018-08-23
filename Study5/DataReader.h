@@ -257,7 +257,11 @@ void calcListTimeSpan()
                 cnt.startTime = time[i];
         }
         else if (cmd[i] == "Stationary" || cmd[i] == "Moved" || cmd[i] == "Ended" || cmd[i] == "Expand")
+        {
             cnt.endTime = time[i];
+            if (cnt.startTime == -1)
+                cnt.startTime = time[i];
+        }
         else if (cmd[i] == "PhraseEnd")
         {
 
@@ -332,7 +336,11 @@ void calcRadialTimeSpan()
                 cnt.startTime = time[i];
         }
         else if (cmd[i] == "Stationary" || cmd[i] == "Moved" || cmd[i] == "Ended")
+        {
             cnt.endTime = time[i];
+            if (cnt.startTime == -1)
+                cnt.startTime = time[i];
+        }
         else if (cmd[i] == "NextCandidatePanel" || cmd[i] == "PhraseEnd")
         {
 

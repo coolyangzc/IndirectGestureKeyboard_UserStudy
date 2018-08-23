@@ -19,10 +19,12 @@ const double eps = 1e-6;
 const double INF = 1e10;
 const int LEXICON_SIZE = 10000;
 
-const int USER_NUM = 12;
+const int USER_NUM = 16;
 const std::string user[USER_NUM] =
-{"yzc", "zc", "gyz", "yyk", "yezp", "lxh", "wxy", "guyz", "plh", "maye", "cxs", "lzn"};
-//  1     2      3      4       5      6      7       8      9      10     11     12    13
+{"yzc", "zc", "gyz", "yyk", "yezp", "lxh", "wxy", "guyz", "plh", "maye", "cxs", "lzn",
+//  1     2      3      4       5      6      7       8      9      10     11     12
+ "lyq", "hhs", "xxh", "swn"};
+// 13     14     15     16
 
 int Random(int mo)
 {

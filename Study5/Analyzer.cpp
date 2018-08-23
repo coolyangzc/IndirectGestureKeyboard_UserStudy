@@ -42,9 +42,9 @@ void init()
     timeFout << endl;
     tMeanFout << endl;
     tRatioFout << endl;
-    candFout << ",top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13,all"
-             << ",top1(ratio),top2(ratio),top3(ratio),top4(ratio),top5(ratio),top6(ratio),top7(ratio)"
-             << ",top8(ratio),top9(ratio),top10(ratio),top11(ratio),top12(ratio),top13(ratio)" << endl;
+    candFout << ",Top1,Top2,Top3,Top4,Top5,Top6,Top7,Top8,Top9,Top10,Top11,Top12,Top13,All"
+             << ",Top1(ratio),Top2(ratio),Top3(ratio),Top4(ratio),Top5(ratio),Top6(ratio),Top7(ratio)"
+             << ",Top8(ratio),Top9(ratio),Top10(ratio),Top11(ratio),Top12(ratio),Top13(ratio)" << endl;
 }
 
 void clean()
@@ -77,6 +77,7 @@ void calcTimeDistribution(int user, int id)
     }
     rep(i, TYPENUM)
         timeFout << "," << timeCount[i];
+
     timeFout << endl;
 
     if ((id +1) % 10 == 0)
@@ -95,6 +96,7 @@ void calcTimeDistribution(int user, int id)
         tRatioFout << endl;
         memset(timeNum, 0, sizeof(timeNum));
         memset(timeBlock, 0, sizeof(timeBlock));
+
     }
 }
 
@@ -107,7 +109,6 @@ void printTimeSpan()
         cout << span[i].endTime << "; ";
         cout << span[i].para << "; ";
         cout << span[i].n << endl;
-
     }
 
 }
@@ -139,7 +140,6 @@ void calcWPM(int user, int id)
                     break;
                 }
             }
-            //cout << endl;
             if (same)
                 uncorrectCancel++;
             if (candMethod[id] == "Radial")
@@ -234,7 +234,6 @@ int main()
             string fileName = "data/" + user[p] + "_" + ss.str() + ".txt";
             readData(fileName, i);
             calcTimeSpan(i);
-            //printTimeSpan();
             calcTimeDistribution(p, i);
             calcWPM(p, i);
             calcCandidate(p, i);
