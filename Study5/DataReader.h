@@ -74,10 +74,11 @@ void readData(string fileName, int id)
     fin.open(fileName.c_str(), fstream::in);
     getline(fin, sentence[id]);
     getline(fin, inputText[id]);
-    //cout << sentence[id] << endl;
+
     if (sentence[id] != inputText[id])
     {
         cout << fileName << ": diff" << endl;
+        cout << sentence[id] << endl;
         cout << inputText[id] << endl;
     }
     transform(sentence[id].begin(), sentence[id].end(), sentence[id].begin(), ::tolower);
@@ -162,7 +163,7 @@ struct TimeSpan
 {
     Type type;
     double startTime, endTime;
-    int n;
+    int n, startLine, endLine;
     string para;
 };
 
@@ -199,6 +200,7 @@ void calcListTimeSpan()
             span.push_back(cnt);
             inRest = true;
             cnt.startTime = cnt.endTime;
+            cnt.startLine = cnt.endLine;
         }
         else if (cmd[i] == "Delete")
         {
@@ -208,6 +210,7 @@ void calcListTimeSpan()
                 if (!span.empty())
                 {
                     cnt.startTime = span.back().startTime;
+                    cnt.startLine = span.back().startLine;
                     span.pop_back(); //Prepare
                 }
                 span.push_back(cnt);
@@ -215,21 +218,25 @@ void calcListTimeSpan()
             else cout << "Unknown para for Delete: " << para[i] << i << endl;
             inRest = true;
             cnt.startTime = cnt.endTime;
+            cnt.startLine = cnt.endLine;
         }
         else if (cmd[i] == "Accept")
         {
             if (cmd[i+1] == "Candidates")
                 continue;
             cnt.type = Select;
+            cnt.endLine = i;
             if (span.back().type == Prepare)
             {
                 cnt.startTime = span.back().startTime;
+                cnt.startLine = span.back().startLine;
                 span.pop_back();
             }
 
             span.push_back(cnt);
             inRest = true;
             cnt.startTime = cnt.endTime;
+            cnt.startLine = cnt.endLine;
         }
         else if (cmd[i] == "Cancel")
         {
@@ -237,30 +244,43 @@ void calcListTimeSpan()
             if (span.back().type == Prepare)
             {
                 cnt.startTime = span.back().startTime;
+                cnt.startLine = span.back().startLine;
                 span.pop_back();
             }
             span.push_back(cnt);
             inRest = true;
             cnt.startTime = cnt.endTime;
+            cnt.startLine = cnt.endLine;
         }
         else if (cmd[i] == "Began")
         {
             if (inRest)
             {
                 cnt.endTime = time[i];
+                cnt.endLine = i;
                 cnt.type = Prepare;
                 span.push_back(cnt);
                 inRest = false;
                 cnt.startTime = time[i];
+                cnt.startLine = i;
             }
             if (cnt.startTime == -1)
+            {
                 cnt.startTime = time[i];
+                cnt.startLine = i;
+            }
+
         }
         else if (cmd[i] == "Stationary" || cmd[i] == "Moved" || cmd[i] == "Ended" || cmd[i] == "Expand")
         {
             cnt.endTime = time[i];
+            cnt.endLine = i;
             if (cnt.startTime == -1)
+            {
                 cnt.startTime = time[i];
+                cnt.startLine = i;
+            }
+
         }
         else if (cmd[i] == "PhraseEnd")
         {
@@ -275,8 +295,6 @@ void calcRadialTimeSpan()
 {
     bool inRest = false;
     span.clear();
-    //vector<TimeSpan>().swap(span);
-    //span.swap(emptySpan);
     TimeSpan cnt;
     cnt.startTime = cnt.endTime = -1;
     rep(i, cmd.size())
@@ -285,12 +303,13 @@ void calcRadialTimeSpan()
         cnt.n = paraCnt[i];
         if (cmd[i] == "Candidates")
         {
-            if (paraCnt[i] == 0)
-                continue;
+            //if (paraCnt[i] == 0)
+                //continue;
             cnt.type = Gesture;
             span.push_back(cnt);
             inRest = false;
             cnt.startTime = cnt.endTime;
+            cnt.startLine = cnt.endLine;
         }
         else if (cmd[i] == "Delete")
         {
@@ -300,6 +319,7 @@ void calcRadialTimeSpan()
                 if (!span.empty())
                 {
                     cnt.startTime = span.back().startTime;
+                    cnt.startLine = span.back().startLine;
                     span.pop_back(); //Prepare
                 }
                 span.push_back(cnt);
@@ -307,13 +327,16 @@ void calcRadialTimeSpan()
             else cout << "Unknown para for Delete: " << para[i] << i << endl;
             inRest = true;
             cnt.startTime = cnt.endTime;
+            cnt.startLine = cnt.endLine;
         }
         else if (cmd[i] == "Accept")
         {
             cnt.type = Select;
+            cnt.endLine = i;
             span.push_back(cnt);
             inRest = true;
             cnt.startTime = cnt.endTime;
+            cnt.startLine = cnt.endLine;
         }
         else if (cmd[i] == "Cancel")
         {
@@ -321,25 +344,37 @@ void calcRadialTimeSpan()
             span.push_back(cnt);
             inRest = true;
             cnt.startTime = cnt.endTime;
+            cnt.startLine = cnt.endLine;
         }
         else if (cmd[i] == "Began")
         {
             if (inRest)
             {
                 cnt.endTime = time[i];
+                cnt.endLine = i;
                 cnt.type = Prepare;
                 span.push_back(cnt);
                 inRest = false;
                 cnt.startTime = time[i];
+                cnt.startLine = i;
             }
             if (cnt.startTime == -1)
+            {
                 cnt.startTime = time[i];
+                cnt.startLine = i;
+            }
+
         }
         else if (cmd[i] == "Stationary" || cmd[i] == "Moved" || cmd[i] == "Ended")
         {
             cnt.endTime = time[i];
+            cnt.endLine = i;
             if (cnt.startTime == -1)
+            {
                 cnt.startTime = time[i];
+                cnt.startLine = i;
+            }
+
         }
         else if (cmd[i] == "NextCandidatePanel" || cmd[i] == "PhraseEnd")
         {

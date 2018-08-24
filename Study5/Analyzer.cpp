@@ -19,7 +19,7 @@ int top[RANK + 1];
 int timeNum[TYPENUM];
 double timeCount[TYPENUM], timeBlock[TYPENUM];
 
-fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout;
+fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout, speedFout;
 
 void init()
 {
@@ -28,11 +28,14 @@ void init()
     timeFout.open("res/Time_Study3.csv", fstream::out);
     tMeanFout.open("res/Time_Mean_Study3.csv", fstream::out);
     tRatioFout.open("res/Time_Ratio_Study3.csv", fstream::out);
+    speedFout.open("res/Speed_Study3.csv", fstream::out);
+
     WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete" << endl;
     candFout << "id,mode,cand,block,phrase";
     timeFout << "id,mode,cand,block,phrase";
     tMeanFout << "id,mode,cand,block,phrase";
     tRatioFout << "id,mode,cand,block,phrase";
+    speedFout << "id,mode,cand,block,phrase" << ",part(#/20),GestureSpeed(keyW/s),Time(s)" << endl;
     rep(i, TYPENUM)
     {
         timeFout << "," << typeToString(i);
@@ -54,7 +57,7 @@ void clean()
 
 void outputBasicInfo(fstream& fout, int user, int id)
 {
-    fout << user + 1 << ","
+    fout << user << ","
          //<< qwertyRating[user] << ","
          //<< gestureKeyboardRating[user] << ","
          << mode[id] << ","
@@ -105,6 +108,8 @@ void printTimeSpan()
     rep(i, span.size())
     {
         cout << "  " << typeToString(span[i].type) << ": ";
+        cout << span[i].startLine << " - ";
+        cout << span[i].endLine << "; ";
         cout << span[i].startTime << " - ";
         cout << span[i].endTime << "; ";
         cout << span[i].para << "; ";
@@ -171,7 +176,12 @@ void calcWPM(int user, int id)
 
 
     //double totTime = span.back().endTime - span.front().startTime;
+    if (phraseEndTime == -1)
+    {
+        while(1);
+    }
     double totTime = phraseEndTime - span.front().startTime;
+
     double wpm = inputText[id].length() / totTime * 12;
     outputBasicInfo(WPMFout, user, id);
     WPMFout << ","
@@ -231,13 +241,116 @@ void calcCandidate(int user, int id)
 
 }
 
+void calcSpeed(int user, int id)
+{
+    vector<Vector2> p;
+    vector<double> t;
+    double keyW = width[id] / 10, len = 0;
+    rep(s, span.size())
+        if (span[s].type == Gesture)
+        {
+            p.clear(); t.clear();
+            FOR(i, span[s].startLine + 1, span[s].endLine)
+                if (cmd[i] == "Began" || cmd[i] == "Moved" || cmd[i] == "Stationary" || cmd[i] == "Ended")
+                {
+                    p.push_back(world[i]);
+                    t.push_back(time[i]);
+                }
+            if (p.empty())
+                continue;
+            rep(i, p.size() - 1)
+                len += dist(p[i], p[i+1]);
+
+            double draw = t.back() - t.front();
+            if (len < eps)
+                continue;
+            len /= 20;
+            int part = 1;
+
+            double period = 0, g = 0, a = 0;
+            rep(i, p.size() - 1)
+            {
+                double d = dist(p[i+1], p[i]), dtime = t[i+1] - t[i];
+                while (g + d > len)
+                {
+                    a = (len - g) / d;
+                    period += dtime * a;
+                    outputBasicInfo(speedFout, user, id);
+                    speedFout << "," << part++ << ","
+                              << len / keyW / period << ","
+                              << period << endl;
+                    d -= len - g;
+                    dtime *= 1 - a;
+                    g = period = 0;
+                }
+                g += d;
+                period += dtime;
+            }
+            if (part <= 20)
+            {
+                outputBasicInfo(speedFout, user, id);
+                speedFout << "," << part << ","
+                          << len / keyW / period << ","
+                          << period << endl;
+            }
+        }
+
+
+    /*while (cmd[r] != "Ended")
+        {
+            len += dist(world[r], world[r+1]);
+            r++;
+        }
+        draw = time[r] - time[l];
+        gesture += draw;
+        if (len > eps)
+        {
+            speed += len / keyW /  draw;
+            wordCount++;
+
+            len /= 50;
+            int part = 1;
+            double t = 0, g = 0, p = 0;
+            FOR(i, l, r - 1)
+            {
+                double d = dist(world[i+1], world[i]), dtime = time[i+1] - time[i];
+                while (g + d > len)
+                {
+                    p = (len - g) / d;
+                    t += dtime * p;
+                    outputBasicInfo(speedFout, userID, id);
+                    speedFout << ((id>=40)?id-39:id+1) << ","
+                              << words[curWord] << ","
+                              << part++ << ","
+                              << len / keyW / t << ","
+                              << t << endl;
+                    d -= len - g;
+                    dtime *= 1 - p;
+                    g = t = 0;
+                }
+                g += d;
+                t += dtime;
+            }
+            if (part <= 50)
+            {
+                outputBasicInfo(speedFout, userID, id);
+                speedFout << ((id>=40)?id-39:id+1) << ","
+                          << words[curWord] << ","
+                          << part << ","
+                          << len / keyW / t << ","
+                          << t << endl;
+            }
+
+        }*/
+}
+
 stringstream ss;
 
 int main()
 {
     init();
-    FOR(p, USER_L - 1, USER_NUM - 1)
-    //FOR(p, 12, 12)
+    FOR(p, USER_L, USER_NUM)
+    //FOR(p, 16, 16)
     {
         rep(i, 80)
         {
@@ -250,11 +363,13 @@ int main()
             calcTimeDistribution(p, i);
             calcWPM(p, i);
             calcCandidate(p, i);
+            calcSpeed(p, i);
         }
     }
     WPMFout.close();
     candFout.close();
     timeFout.close();
+    speedFout.close();
     tMeanFout.close();
     tRatioFout.close();
     return 0;
