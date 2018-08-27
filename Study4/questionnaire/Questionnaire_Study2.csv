@@ -1,8 +1,8 @@
 ID,Age,Type in Daily,English Skill,QWERTY Keyboard,Gesture Keyboard,Touchscreen Device Experience,Length of Thumb
 1,23,One Thumb,3,5,5,6,70
 2,26,Two Thumbs,3,3,2,12,73
-3,23,0,0,0,0,0,0
-4,23,0,0,0,0,0,0
+3,23,One Thumb,3,4,1,5,60
+4,23,Two Thumbs,3,4,2,5,64
 5,23,Two Thumbs,3,4,2,8,62
 6,21,Two Thumbs,4,5,1,8,65
 7,23,Two Thumbs,2,3,1,5,62.5
