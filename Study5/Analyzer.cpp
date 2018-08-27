@@ -35,7 +35,11 @@ void init()
     timeFout << "id,mode,cand,block,phrase";
     tMeanFout << "id,mode,cand,block,phrase";
     tRatioFout << "id,mode,cand,block,phrase";
-    speedFout << "id,mode,cand,block,phrase" << ",part(#/20),GestureSpeed(keyW/s),Time(s)" << endl;
+    //speedFout << "id,mode,cand,block,phrase" << ",part(#/20),GestureSpeed(keyW/s),Time(s)" << endl;
+    speedFout << "id,mode,cand,block,phrase";
+    For(i, 50)
+        speedFout << "," << i;
+    speedFout << endl;
     rep(i, TYPENUM)
     {
         timeFout << "," << typeToString(i);
@@ -245,7 +249,7 @@ void calcSpeed(int user, int id)
 {
     vector<Vector2> p;
     vector<double> t;
-    double keyW = width[id] / 10, len = 0;
+    double keyW = width[id] / 10;
     rep(s, span.size())
         if (span[s].type == Gesture)
         {
@@ -258,13 +262,14 @@ void calcSpeed(int user, int id)
                 }
             if (p.empty())
                 continue;
+            double len = 0;
             rep(i, p.size() - 1)
                 len += dist(p[i], p[i+1]);
 
-            double draw = t.back() - t.front();
             if (len < eps)
                 continue;
-            len /= 20;
+            outputBasicInfo(speedFout, user, id);
+            len /= 50;
             int part = 1;
 
             double period = 0, g = 0, a = 0;
@@ -275,10 +280,8 @@ void calcSpeed(int user, int id)
                 {
                     a = (len - g) / d;
                     period += dtime * a;
-                    outputBasicInfo(speedFout, user, id);
-                    speedFout << "," << part++ << ","
-                              << len / keyW / period << ","
-                              << period << endl;
+                    part++;
+                    speedFout << "," << len / keyW / period;
                     d -= len - g;
                     dtime *= 1 - a;
                     g = period = 0;
@@ -286,62 +289,10 @@ void calcSpeed(int user, int id)
                 g += d;
                 period += dtime;
             }
-            if (part <= 20)
-            {
-                outputBasicInfo(speedFout, user, id);
-                speedFout << "," << part << ","
-                          << len / keyW / period << ","
-                          << period << endl;
-            }
-        }
-
-
-    /*while (cmd[r] != "Ended")
-        {
-            len += dist(world[r], world[r+1]);
-            r++;
-        }
-        draw = time[r] - time[l];
-        gesture += draw;
-        if (len > eps)
-        {
-            speed += len / keyW /  draw;
-            wordCount++;
-
-            len /= 50;
-            int part = 1;
-            double t = 0, g = 0, p = 0;
-            FOR(i, l, r - 1)
-            {
-                double d = dist(world[i+1], world[i]), dtime = time[i+1] - time[i];
-                while (g + d > len)
-                {
-                    p = (len - g) / d;
-                    t += dtime * p;
-                    outputBasicInfo(speedFout, userID, id);
-                    speedFout << ((id>=40)?id-39:id+1) << ","
-                              << words[curWord] << ","
-                              << part++ << ","
-                              << len / keyW / t << ","
-                              << t << endl;
-                    d -= len - g;
-                    dtime *= 1 - p;
-                    g = t = 0;
-                }
-                g += d;
-                t += dtime;
-            }
             if (part <= 50)
-            {
-                outputBasicInfo(speedFout, userID, id);
-                speedFout << ((id>=40)?id-39:id+1) << ","
-                          << words[curWord] << ","
-                          << part << ","
-                          << len / keyW / t << ","
-                          << t << endl;
-            }
-
-        }*/
+                speedFout << "," << len / keyW / period;
+            speedFout << endl;
+        }
 }
 
 stringstream ss;

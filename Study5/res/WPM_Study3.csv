@@ -528,7 +528,7 @@ id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCance
 7,FixStart,Radial,1,7,14.3143,5,5,0,0,0,0
 7,FixStart,Radial,1,8,14.6011,5,5,0,1,0,0
 7,FixStart,Radial,1,9,13.6869,7,7,0,0,0,0
-7,FixStart,Radial,1,10,17.0802,5,5,0,1,1,0
+7,FixStart,Radial,1,10,17.0802,5,5,0,1,0,0
 7,FixStart,Radial,2,11,16.6211,6,6,0,0,0,0
 7,FixStart,Radial,2,12,13.4978,8,8,0,0,0,0
 7,FixStart,Radial,2,13,14.5699,4,4,0,0,0,0
