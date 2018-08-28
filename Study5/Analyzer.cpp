@@ -19,7 +19,7 @@ int top[RANK + 1];
 int timeNum[TYPENUM];
 double timeCount[TYPENUM], timeBlock[TYPENUM];
 
-fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout, speedFout;
+fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout, heatFout, speedFout;
 
 void init()
 {
@@ -33,6 +33,7 @@ void init()
     WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete" << endl;
     candFout << "id,mode,cand,block,phrase";
     timeFout << "id,mode,cand,block,phrase";
+    heatFout << "id,mode,cand,block,phrase";
     tMeanFout << "id,mode,cand,block,phrase";
     tRatioFout << "id,mode,cand,block,phrase";
     //speedFout << "id,mode,cand,block,phrase" << ",part(#/20),GestureSpeed(keyW/s),Time(s)" << endl;
@@ -179,12 +180,13 @@ void calcWPM(int user, int id)
         uncorrected += inputWords.size() - words.size();
 
 
-    //double totTime = span.back().endTime - span.front().startTime;
     if (phraseEndTime == -1)
     {
         while(1);
     }
-    double totTime = phraseEndTime - span.front().startTime;
+    double totTime = span.back().endTime - span.front().startTime;
+    if (mode[id] == "FixStart")
+        totTime = phraseEndTime - span.front().startTime;
 
     double wpm = inputText[id].length() / totTime * 12;
     outputBasicInfo(WPMFout, user, id);
@@ -295,6 +297,11 @@ void calcSpeed(int user, int id)
         }
 }
 
+void calcHeat(int user, int id)
+{
+
+}
+
 stringstream ss;
 
 int main()
@@ -315,6 +322,7 @@ int main()
             calcWPM(p, i);
             calcCandidate(p, i);
             calcSpeed(p, i);
+            calcHeat(p, i);
         }
     }
     WPMFout.close();
