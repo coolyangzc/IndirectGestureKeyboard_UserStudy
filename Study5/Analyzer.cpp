@@ -19,7 +19,7 @@ int top[RANK + 1];
 int timeNum[TYPENUM];
 double timeCount[TYPENUM], timeBlock[TYPENUM];
 
-fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout, heatFout, speedFout;
+fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout, heatFout, speedFout, speedMFout;
 
 void init()
 {
@@ -29,6 +29,7 @@ void init()
     tMeanFout.open("res/Time_Mean_Study3.csv", fstream::out);
     tRatioFout.open("res/Time_Ratio_Study3.csv", fstream::out);
     speedFout.open("res/Speed_Study3.csv", fstream::out);
+    speedMFout.open("res/Speed_Mean_Study3.csv", fstream::out);
 
     WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete" << endl;
     candFout << "id,mode,cand,block,phrase";
@@ -36,7 +37,7 @@ void init()
     heatFout << "id,mode,cand,block,phrase";
     tMeanFout << "id,mode,cand,block,phrase";
     tRatioFout << "id,mode,cand,block,phrase";
-    //speedFout << "id,mode,cand,block,phrase" << ",part(#/20),GestureSpeed(keyW/s),Time(s)" << endl;
+    speedMFout << "id,mode,cand,block" << ",part(#/50),GestureSpeed(keyW/s)" << endl;
     speedFout << "id,mode,cand,block,phrase";
     For(i, 50)
         speedFout << "," << i;
@@ -55,16 +56,9 @@ void init()
              << ",Top8(ratio),Top9(ratio),Top10(ratio),Top11(ratio),Top12(ratio),Top13(ratio)" << endl;
 }
 
-void clean()
-{
-
-}
-
 void outputBasicInfo(fstream& fout, int user, int id)
 {
     fout << user << ","
-         //<< qwertyRating[user] << ","
-         //<< gestureKeyboardRating[user] << ","
          << mode[id] << ","
          << candMethod[id] << ","
          << (id / 10) % 4 + 1 << ","
@@ -247,6 +241,9 @@ void calcCandidate(int user, int id)
 
 }
 
+int speedCnt;
+double speed[100 + 1];
+
 void calcSpeed(int user, int id)
 {
     vector<Vector2> p;
@@ -273,6 +270,7 @@ void calcSpeed(int user, int id)
             outputBasicInfo(speedFout, user, id);
             len /= 50;
             int part = 1;
+            speedCnt++;
 
             double period = 0, g = 0, a = 0;
             rep(i, p.size() - 1)
@@ -282,6 +280,7 @@ void calcSpeed(int user, int id)
                 {
                     a = (len - g) / d;
                     period += dtime * a;
+                    speed[part] += len / keyW / period;
                     part++;
                     speedFout << "," << len / keyW / period;
                     d -= len - g;
@@ -292,9 +291,26 @@ void calcSpeed(int user, int id)
                 period += dtime;
             }
             if (part <= 50)
+            {
+                speed[part] += len / keyW / period;
                 speedFout << "," << len / keyW / period;
+            }
             speedFout << endl;
         }
+    if ((id + 1)% 10 == 0)
+    {
+        For(i, 50)
+        {
+            speedMFout << user << ","
+                       << mode[id] << ","
+                       << candMethod[id] << ","
+                       << (id / 10) % 4 + 1 << ","
+                       << i << ","
+                       << speed[i] / speedCnt << endl;
+        }
+        speedCnt = 0;
+        memset(speed, 0, sizeof(speed));
+    }
 }
 
 void calcHeat(int user, int id)
@@ -330,6 +346,7 @@ int main()
     timeFout.close();
     speedFout.close();
     tMeanFout.close();
+    speedMFout.close();
     tRatioFout.close();
     return 0;
 }

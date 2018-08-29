@@ -41,3 +41,7 @@ ID,mode,cand,Speed,Accuracy,Fatigue,Preference
 20,Normal,Radial,2,2,3,3
 21,Normal,List,4,3,4,4
 21,GStart,List,4,4,4,5
+22,Normal,Radial,3,4,3,3
+22,GStart,Radial,4,4,4,4
+23,GStart,Radial,3,4,4,5
+23,Normal,Radial,4,3,4,4
