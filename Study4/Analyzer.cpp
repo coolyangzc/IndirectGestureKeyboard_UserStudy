@@ -108,7 +108,7 @@ void init()
     WPMFout.open("res/WPM_Study2.csv", fstream::out);
     WPMFout << "id,QWERTY,GK,usage,block,WPM,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13" << endl;
     timeFout.open("res/Time_Study2.csv", fstream::out);
-    timeFout << "id,QWERTY,GK,usage,block,sentence,Gesture,Prepare,Gesture(%),Prepare(%),GestureSpeed(keyW/s)" << endl;
+    timeFout << "id,QWERTY,GK,usage,block,sentence,Gesture,Prepare,Gesture(%),Prepare(%),Gesture(M),Prepare(M),GestureSpeed(keyW/s)" << endl;
     speedFout.open("res/Speed_Study2.csv", fstream::out);
     speedFout << "id,QWERTY,GK,usage,block,sentence,word,part(#/50),GestureSpeed(keyW/s),Time(s)" << endl;
     initKeyboard(dtw);
@@ -217,7 +217,7 @@ void outputBlock(int userID, int id, int p)
 void outputTime(int userID, int id)
 {
     double gesture = 0, prepare = 0, speed = 0, len = 0, draw = 0, keyW = width[id] / 10;
-    int wordCount = 0, curWord = 0, l = 0, r = 0;
+    int wordCount = 0, curWord = 0, gestureCnt = 0, prepareCnt = 0, l = 0, r = 0;
     while (l < cmd.size() - 1)
     {
         r = l;
@@ -228,6 +228,7 @@ void outputTime(int userID, int id)
         }
         draw = time[r] - time[l];
         gesture += draw;
+        gestureCnt ++;
         if (len > eps)
         {
             speed += len / keyW /  draw;
@@ -272,7 +273,11 @@ void outputTime(int userID, int id)
         len = draw = 0;
         curWord++;
         if (cmd[l] == "Began")
+        {
             prepare += time[l] - time[l - 1];
+            prepareCnt ++;
+        }
+
     }
 
     if (curWord != words.size())
@@ -289,6 +294,8 @@ void outputTime(int userID, int id)
              << prepare << ","
              << gesture / tot << ","
              << prepare / tot << ","
+             << gesture / gestureCnt << ","
+             << prepare / prepareCnt << ","
              << speed / wordCount << endl;
 }
 
