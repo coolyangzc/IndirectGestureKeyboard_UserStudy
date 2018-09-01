@@ -106,7 +106,7 @@ void readQuestionnaire()
 void init()
 {
     WPMFout.open("res/WPM_Study2.csv", fstream::out);
-    WPMFout << "id,QWERTY,GK,usage,block,WPM,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13" << endl;
+    WPMFout << "id,QWERTY,GK,usage,block,WPM,words,top1,top2,top3,top4,top5,top6,top7,top8,top9,top10,top11,top12,top13" << endl;
     timeFout.open("res/Time_Study2.csv", fstream::out);
     timeFout << "id,QWERTY,GK,usage,block,sentence,Gesture,Prepare,Gesture(%),Prepare(%),Gesture(M),Prepare(M),GestureSpeed(keyW/s)" << endl;
     speedFout.open("res/Speed_Study2.csv", fstream::out);
@@ -208,7 +208,7 @@ void outputBlock(int userID, int id, int p)
         rkCount[p][0][j] += rkCount[p][0][j-1];
     outputBasicInfo(fout, userID, id);
 
-    fout << wpm[p] / 10;
+    fout << wpm[p] / 10 << "," << wordCount[p];
     For(j, RANK)
         fout << "," << rkCount[p][0][j] / wordCount[p];
     fout << endl;
