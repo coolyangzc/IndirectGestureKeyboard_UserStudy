@@ -1,0 +1,8 @@
+RM-ANOVA
+
+Heat Clean Std Dev
+	Start, x	F(1,13)=180.4472, p<.0001*
+	End, x		F(1,13)=3.4435, p=0.0863
+	Start, y	F(1,13)=154.8414, p<.0001*
+	End, y		F(1,13)=6.6320, p=0.0231*
+

@@ -17,6 +17,7 @@ double dtw[MAXSAMPLE][MAXSAMPLE];
 int s[26], t[26], tot;
 double sx[2][26], sy[2][26], tx[2][26], ty[2][26], scnt[2][26], tcnt[2][26];
 vector<Vector2> cor[2][26][2];
+vector<string> who[2][26][2];
 
 
 string userID;
@@ -33,7 +34,7 @@ void init()
     centerFout << "id,usage,type,key,x,y" << endl;
 
     cleanFout.open("res/Heat_Clean_Study2.csv", fstream::out);
-    cleanFout << "usage,type,key,x,y" << endl;
+    cleanFout << "id,usage,type,key,x,y" << endl;
 
     initKeyboard(dtw);
 }
@@ -67,6 +68,8 @@ void calcHeat(int id)
 
         cor[p][sc][0].push_back(Vector2(rawstroke.front().x, rawstroke.front().y));
         cor[p][tc][1].push_back(Vector2(rawstroke.back().x, rawstroke.back().y));
+        who[p][sc][0].push_back(userID);
+        who[p][tc][1].push_back(userID);
 
         sx[p][sc] += rawstroke.front().x;
         sy[p][sc] += rawstroke.front().y;
@@ -163,7 +166,7 @@ void calcCleanHeat()
                     if (abs(v[i].x - x) < 3 * sx && abs(v[i].y - y) < 3 * sy)
                     {
                         used++;
-                        cleanFout << usage << "," << type << "," << (char)(c + 'a')
+                        cleanFout << who[p][c][t][i] << "," << usage << "," << type << "," << (char)(c + 'a')
                                   << "," << v[i].x << "," << v[i].y << endl;
                     }
                 tot += n;

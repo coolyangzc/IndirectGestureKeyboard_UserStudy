@@ -110,7 +110,7 @@ void init()
     timeFout.open("res/Time_Study2.csv", fstream::out);
     timeFout << "id,QWERTY,GK,usage,block,sentence,Gesture,Prepare,Gesture(%),Prepare(%),Gesture(M),Prepare(M),GestureSpeed(keyW/s)" << endl;
     speedFout.open("res/Speed_Study2.csv", fstream::out);
-    speedFout << "id,QWERTY,GK,usage,block,sentence,word,part(#/50),GestureSpeed(keyW/s),Time(s)" << endl;
+    speedFout << "id,QWERTY,GK,usage,block,sentence,word,Time(#/100),GestureSpeed(keyW/s)" << endl;
     initKeyboard(dtw);
     initLexicon();
     readQuestionnaire();
@@ -234,37 +234,35 @@ void outputTime(int userID, int id)
             speed += len / keyW /  draw;
             wordCount++;
 
-            len /= 50;
+            double t_block = draw / 100;
             int part = 1;
-            double t = 0, g = 0, p = 0;
+            double d = 0, spend = 0, p = 0;
             FOR(i, l, r - 1)
             {
-                double d = dist(world[i+1], world[i]), dtime = time[i+1] - time[i];
-                while (g + d > len)
+                double ddist = dist(world[i+1], world[i]), dtime = time[i+1] - time[i];
+                while (spend + dtime > t_block)
                 {
-                    p = (len - g) / d;
-                    t += dtime * p;
+                    p = (t_block - spend) / dtime;
+                    d += ddist * p;
                     outputBasicInfo(speedFout, userID, id);
                     speedFout << ((id>=40)?id-39:id+1) << ","
                               << words[curWord] << ","
                               << part++ << ","
-                              << len / keyW / t << ","
-                              << t << endl;
-                    d -= len - g;
-                    dtime *= 1 - p;
-                    g = t = 0;
+                              << d / keyW / t_block << endl;
+                    ddist *= 1 - p;
+                    dtime -= t_block - spend;
+                    d = spend = 0;
                 }
-                g += d;
-                t += dtime;
+                d += ddist;
+                spend += dtime;
             }
-            if (part <= 50)
+            if (part <= 100)
             {
                 outputBasicInfo(speedFout, userID, id);
                 speedFout << ((id>=40)?id-39:id+1) << ","
                           << words[curWord] << ","
                           << part << ","
-                          << len / keyW / t << ","
-                          << t << endl;
+                          << d / keyW / t_block << endl;
             }
 
         }
