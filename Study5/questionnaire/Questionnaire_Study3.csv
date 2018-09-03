@@ -15,8 +15,8 @@ ID,mode,cand,Speed,Accuracy,Fatigue,Preference
 7,GStart,Radial,3,5,4,3
 8,Normal,List,3,3,4,4
 8,GStart,List,4,4,4,5
-9,Normal,Radial,3,4,5,3
-9,GStart,Radial,4,4,5,4
+9,GStart,List,4,4,3,3
+9,Noraml,List,2,2,2,2
 10,GStart,Radial,4,4,3,4
 10,Normal,Radial,3,3,4,3
 11,GStart,List,3,4,3,4
@@ -44,4 +44,6 @@ ID,mode,cand,Speed,Accuracy,Fatigue,Preference
 22,Normal,Radial,3,4,3,3
 22,GStart,Radial,4,4,4,4
 23,GStart,Radial,3,4,4,5
-23,Normal,Radial,4,3,4,4
+23,Normal,Radial,4,4,4,4
+24,Normal,Radial,5,5,5,5
+24,GStart,Radial,5,5,5,5
