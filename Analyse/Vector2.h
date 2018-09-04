@@ -85,7 +85,7 @@ vector<Vector2> temporalSampling(vector<Vector2> stroke, int num)
 vector<Vector2> normalize(vector<Vector2> stroke)
 {
     int num = stroke.size();
-    Vector2 center, minV(INF, INF), maxV(-INF, -INF);
+    Vector2 center, minV(inf, inf), maxV(-inf, -inf);
     rep(i, num)
         center = center + stroke[i];
     center = center / num;
@@ -129,10 +129,10 @@ double pointToSeg(const Vector2& p, const Vector2& a, const Vector2& b)
 }
 
 double match(const vector<Vector2>& A, vector<Vector2>& B,
-             double dtw[MAXSAMPLE][MAXSAMPLE], Formula formula, double terminate = INF)
+             double dtw[MAXSAMPLE][MAXSAMPLE], Formula formula, double terminate = inf)
 {
     if (A.size() != B.size() && formula != DTWL)
-        return INF;
+        return inf;
     double dis = 0;
     int num = A.size(), w;
     terminate *= num;
@@ -143,7 +143,7 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
         {
             dis += dist(A[i], B[i]);
             if (dis > terminate)
-                return INF;
+                return inf;
         }
         break;
 
@@ -152,14 +152,14 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
         w = 3;
         For(i, num)
         {
-            double gap = INF;
+            double gap = inf;
             FOR(j, max(1, i - w), min(i + w, num))
             {
                 dtw[i][j] = dist(A[i-1], B[j-1]) + min(dtw[i-1][j-1], min(dtw[i][j-1], dtw[i-1][j]));
                 gap = min(dtw[i][j], gap);
             }
             if (gap > terminate)
-                return INF;
+                return inf;
         }
         dis = dtw[num][num];
         break;
@@ -168,7 +168,7 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
         w = max(num * 0.1, 3.0);
         For(i, num)
         {
-            double gap = INF;
+            double gap = inf;
             FOR(j, max(1, i - w), min(i + w, num))
             {
                 double d = dist(A[i-1], B[j-1]);
@@ -178,7 +178,7 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
                 gap = min(dtw[i][j], gap);
             }
             if (gap > terminate)
-                return INF;
+                return inf;
         }
         dis = dtw[num][num];
         break;
@@ -187,14 +187,14 @@ double match(const vector<Vector2>& A, vector<Vector2>& B,
         int len = B.size() - 1;
         For(i, num)
         {
-            double gap = INF;
+            double gap = inf;
             For(j, min(i, len))
             {
                 dtw[i][j] = min(dtw[i-1][j-1], dtw[i-1][j]) + pointToSeg(A[i-1], B[j-1], B[j]);
                 gap = min(gap, dtw[i][j]);
             }
             //if (gap > terminate)
-                //return INF;
+                //return inf;
         }
         dis = dtw[num][len];
         break;
