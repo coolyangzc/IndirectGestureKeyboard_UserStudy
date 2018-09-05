@@ -1,7 +1,28 @@
 RM-ANOVA
 
 WPM
-	Mode 		F(1,22)=7.1899, p = 0.0136*
-	Cand		F(1,22)=0.0022, p = 0.9632
-	Mode*Cand	F(1,22)=0.1591, p = 0.6939
+	Mode 					F(1,22) = 7.1899, p = 0.0136*
+	Cand					F(1,22) = 0.0022, p = 0.9632
+	Mode*Cand				F(1,22) = 0.1591, p = 0.6939
+	
+	Block(Absolute)			F(3,66) = 15.3728, p < .0001*
+	Block(G-Keyboard)		F(3,66) = 10.2378, p < .0001*
+	
+	Block(Absolute*Pie)		F(3,33) = 16.1229, p < .0001*	
+	Block(Absolute*List)	F(3,33) = 5.2925, p = 0.0043*	
+	Block(G-Keyboard*Pie)	F(3,33) = 2.9801, p = 0.0454*
+	Block(G-Keyboard*List)	F(3,33) = 8.5539, p = 0.0002*	
 
+Accuracy
+	Top-1
+		Mode				F(1,22) = 55.0736, p < .0001*
+		Mode(Pie)			F(1,11) = 69.9681, p < .0001*
+		Mode(List)			F(1,11) = 16.5165, p = 0.0019*
+	Top-5
+		Mode				F(1,22) = 71.3015, p < .0001*
+		Mode(Pie)			F(1,11) = 63.3644, p < .0001*
+		Mode(List)			F(1,11) = 22.3920, p = .0006*
+	Top-13
+		Mode				F(1,22) = 50.8302, p < .0001*
+		Mode(Pie)			F(1,11) = 42.9033, p < .0001*
+		Mode(List)			F(1,11) = 18.9070, p = .0012*

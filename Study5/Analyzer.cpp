@@ -15,16 +15,17 @@ using namespace std;
 const int USER_L = 1;
 const int RANK = 13;
 
-int top[RANK + 1];
+int top[RANK + 1], topClean[RANK + 1];
 int timeNum[TYPENUM];
 double timeCount[TYPENUM], timeBlock[TYPENUM];
 
-fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout, heatFout, speedFout, speedMFout;
+fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout, candCleanFout, heatFout, speedFout, speedMFout;
 
 void init()
 {
     WPMFout.open("res/WPM_Study3.csv", fstream::out);
     candFout.open("res/Candidates_Study3.csv", fstream::out);
+    candCleanFout.open("res/Candidates_Clean_Study3.csv", fstream::out);
     timeFout.open("res/Time_Study3.csv", fstream::out);
     tMeanFout.open("res/Time_Mean_Study3.csv", fstream::out);
     tRatioFout.open("res/Time_Ratio_Study3.csv", fstream::out);
@@ -33,6 +34,7 @@ void init()
 
     WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete" << endl;
     candFout << "id,mode,cand,block,phrase";
+    candCleanFout << "id,mode,cand,block,phrase";
     timeFout << "id,mode,cand,block,phrase";
     heatFout << "id,mode,cand,block,phrase";
     tMeanFout << "id,mode,cand,block,phrase";
@@ -54,6 +56,9 @@ void init()
     candFout << ",Top1,Top2,Top3,Top4,Top5,Top6,Top7,Top8,Top9,Top10,Top11,Top12,Top13,All"
              << ",Top1(ratio),Top2(ratio),Top3(ratio),Top4(ratio),Top5(ratio),Top6(ratio),Top7(ratio)"
              << ",Top8(ratio),Top9(ratio),Top10(ratio),Top11(ratio),Top12(ratio),Top13(ratio)" << endl;
+    candCleanFout << ",Top1,Top2,Top3,Top4,Top5,Top6,Top7,Top8,Top9,Top10,Top11,Top12,Top13,All"
+                  << ",Top1(ratio),Top2(ratio),Top3(ratio),Top4(ratio),Top5(ratio),Top6(ratio),Top7(ratio)"
+                  << ",Top8(ratio),Top9(ratio),Top10(ratio),Top11(ratio),Top12(ratio),Top13(ratio)" << endl;
 }
 
 void outputBasicInfo(fstream& fout, int user, int id)
@@ -191,11 +196,8 @@ void calcWPM(int user, int id)
             << cancelCnt << "," << uncorrectCancel << "," << deleteCnt
             << endl;
 }
-
 void calcCandidate(int user, int id)
 {
-    vector<int> tops;
-    tops.clear();
     vector<string> candidates;
     int wordP = -1;
 
@@ -212,31 +214,68 @@ void calcCandidate(int user, int id)
         {
             sentenceToWords(span[i].para, candidates);
             wordP++;
+            if (wordP >= words.size())
+            {
+                top[RANK]++;
+                continue;
+            }
+
             int same = -1;
             rep(j, candidates.size())
             {
                 if (candidates[j] == words[wordP])
                 {
-                    top[same = j]++;
+                    top[same = j]++; topClean[j]++;
                     break;
                 }
             }
             if (same < 0)
+            {
+                //Length Check for Clean
                 top[RANK]++;
+                vector<Vector2> p; p.clear();
+                FOR(k, span[i].startLine + 1, span[i].endLine)
+                    if (cmd[k] == "Began" || cmd[k] == "Moved" || cmd[k] == "Stationary" || cmd[k] == "Ended")
+                        p.push_back(Vector2(relative[k].x, relative[k].y * 0.3 * 3));
+                double len = 0, lenWord = 0;
+                if (p.size() > 1)
+                    rep(k, p.size() - 1)
+                        len += dist(p[k], p[k+1]);
+                string word = (mode[id] == "FixStart")?"g":"" + words[wordP];
+
+                vector<Vector2> v = wordToPath(word, 3);
+                rep(k, v.size() - 1)
+                    lenWord += dist(v[k], v[k+1]);
+                if (len < lenWord * 3 + 0.1 && lenWord < len * 3 + 0.1)
+                    topClean[RANK]++;
+            }
         }
     }
 
     if ((id+1) % 10 == 0)
     {
         For(i, RANK)
+        {
             top[i] += top[i-1];
+            topClean[i] += topClean[i-1];
+        }
+
         outputBasicInfo(candFout, user, id);
+        outputBasicInfo(candCleanFout, user, id);
         rep(i, RANK + 1)
+        {
             candFout << "," << top[i];
+            candCleanFout << "," << topClean[i];
+        }
         rep(i, RANK)
+        {
             candFout << "," << (float)top[i] / top[RANK];
+            candCleanFout << "," << (float)topClean[i] / topClean[RANK];
+        }
         candFout << endl;
+        candCleanFout << endl;
         memset(top, 0, sizeof(top));
+        memset(topClean, 0, sizeof(topClean));
     }
 
 }
@@ -323,6 +362,7 @@ stringstream ss;
 int main()
 {
     init();
+    calcKeyLayout();
     FOR(p, USER_L, USER_NUM)
     //FOR(p, 16, 16)
     {
