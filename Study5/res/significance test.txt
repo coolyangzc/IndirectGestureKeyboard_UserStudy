@@ -28,32 +28,35 @@ Accuracy
 		Mode(List)			F(1,11) = 18.9070, p = .0012*
 
 Time(Mean)
-	Gesture(Pie)			F(1,11) = 2.7936, p = 0.1228
-	Gesture(List)			F(1,11) = 0.0234, p = 0.8812
+	Gesture(Pie)			F(1,11) = 2.7617, p = 0.1247
+	Gesture(List)			F(1,11) = 0.0364, p = 0.8521
 	
-	Prepare(Pie)			F(1,11) = 10.1095, p = 0.0088*
-	Prepare(List)			F(1,11) = 7.2449, p = 0.0210*
+	Prepare(Pie)			F(1,11) = 10.8504, p = 0.0072*
+	Prepare(List)			F(1,11) = 7.0661, p = 0.0223*
 	
-	Gesture+Prepare(Pie)	F(1,11) = 0.6566, p = 0.4349
-	Gesture+Prepare(List)	F(1,11) = 0.4516, p = 0.5155
+	Prepare+Gesture(Pie)	F(1,11) = 0.6213, p = 0.4472
+	Prepare+Gesture(List)	F(1,11) = 0.3860, p = 0.5471
 	
-	Select(Pie)				F(1,11) = 12.1761, p = 0.0051*
-	Select(List)			F(1,11) = 6.2609, p = 0.0294*
+	Select(Pie)				F(1,11) = 11.9187, p = 0.0054*
+	Select(List)			F(1,11) = 6.3471, p = 0.0285*
 	
-	Cancel(Pie)				F(1,11) = 3.0348, p = 0.1093
-	Cancel(List)			F(1,7) = 2.1604, p = 0.1851
+	Cancel(Pie)				F(1,11) = 3.7300, p = 0.0796
+	Cancel(List)			F(1,7) = 2.4818, p = 0.1592
 	
-	Gesture(Absolute)		F(1,22) = 0.2848, p = 0.5989
-	Gesture(G-Keyboard)		F(1,22) = 0.0911, p = 0.7656
+	Gesture(Absolute)		F(1,22) = 0.2674, p = 0.6102
+	Gesture(G-Keyboard)		F(1,22) = 0.0848, p = 0.7736
 	
-	Prepare(Absolute)		F(1,22) = 13.7785, p = 0.0012*
-	Prepare(G-Keyboard)		F(1,22) = 8.3376, p = 0.0085*
+	Prepare(Absolute)		F(1,22) = 13.6015, p = 0.0013*
+	Prepare(G-Keyboard)		F(1,22) = 8.4633, p = 0.0081*
 	
-	G+Prepare(Absolute)		F(1,22) = 0.6566, p = 0.4349
-	G+Prepare(G-Keyboard)	F(1,22) = 0.4404, p = 0.5138
+	G+Prepare(Absolute)		F(1,22) = 2.4392, p = 0.1326
+	G+Prepare(G-Keyboard)	F(1,22) = 0.4622, p = 0.5037
 	
-	Select(Absolute)		F(1,22) = 49.0463, p < .0001*
-	Select(G-Keyboard)		F(1,22) = 32.9349, p < .0001*
+	Select(Absolute)		F(1,22) = 50.2666, p < .0001*
+	Select(G-Keyboard)		F(1,22) = 32.2992, p < .0001*
 	
-	Cancel(Absolute)		F(1,20) = 36.5964, p < .0001*
-	Cancel(G-Keyboard)		F(1,19) = 36.7061, p < .0001*
+	Cancel(Absolute)		F(1,20) = 40.1759, p < .0001*
+	Cancel(G-Keyboard)		F(1,19) = 45.7355, p < .0001*
+	
+	Delete(Absolute)		F(1,19) = 3.2220, p = 0.0886
+	Delete(G-Keyboard)		F(1,21) = 0.1145, p = 0.7385

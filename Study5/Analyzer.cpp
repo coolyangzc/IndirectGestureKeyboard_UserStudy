@@ -34,7 +34,7 @@ void init()
     speedFout.open("res/Speed_Study3.csv", fstream::out);
     speedMFout.open("res/Speed_Mean_Study3.csv", fstream::out);
 
-    WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete" << endl;
+    WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete,noexpand" << endl;
     candFout << "id,mode,cand,block,phrase";
     candCleanFout << "id,mode,cand,block,phrase";
     timeFout << "id,mode,cand,block,phrase";
@@ -49,7 +49,7 @@ void init()
     speedFout << endl;
     rep(i, TYPENUM)
     {
-        timeFout << "," << typeToString(i);
+        timeFout << "," << typeToString(i) << "," << typeToString(i) << "(N)";
         tMeanFout << "," << typeToString(i) << "(Mean)";
         tMeanAllFout << "," << typeToString(i) << "(Mean)";
         tRatioFout << "," << typeToString(i) << "(Ratio)";
@@ -79,10 +79,12 @@ void outputBasicInfo(fstream& fout, int user, int id)
 void calcTimeDistribution(int user, int id)
 {
     outputBasicInfo(timeFout, user, id);
-
+    int timeN[TYPENUM];
+    memset(timeN, 0, sizeof(timeN));
     memset(timeCount, 0, sizeof(timeCount));
     rep(i, span.size())
     {
+        timeN[span[i].type]++;
         timeNum[span[i].type]++;
         timeCount[span[i].type] += span[i].endTime - span[i].startTime;
         timeBlock[span[i].type] += span[i].endTime - span[i].startTime;
@@ -91,7 +93,7 @@ void calcTimeDistribution(int user, int id)
         timeBlockA[span[i].type] += span[i].endTime - span[i].startTime;
     }
     rep(i, TYPENUM)
-        timeFout << "," << timeCount[i];
+        timeFout << "," << timeCount[i] << "," << timeN[i];
 
     timeFout << endl;
 
@@ -142,7 +144,7 @@ void printTimeSpan()
 
 void calcWPM(int user, int id)
 {
-    int deleteCnt = 0, cancelCnt = 0, uncorrectCancel = 0, correct = 0, uncorrected = 0;
+    int deleteCnt = 0, cancelCnt = 0, uncorrectCancel = 0, correct = 0, uncorrected = 0, noexpand = 0;
     vector<string> candidates;
     int wordP = -1;
     bool same = false;
@@ -153,12 +155,47 @@ void calcWPM(int user, int id)
         {
             deleteCnt++, wordP = max(wordP - 1, -1);
 
-            if (candMethod[id] == "List" && same)
-                uncorrectCancel++;
+            if (candMethod[id] == "List")
+            {
+                if (same)
+                {
+                    uncorrectCancel++;
+                    same = false;
+                }
+                if (i && span[i-1].type == Gesture)
+                    noexpand++;
+            }
+
         }
         else if (span[i].type == Cancel)
         {
             cancelCnt++;
+            if (same)
+            {
+                uncorrectCancel++;
+                same = false;
+            }
+
+            if (candMethod[id] == "Radial")
+            {
+                wordP--;
+                bool expand = false;
+                FOR(k, span[i].startLine + 1, span[i].endLine)
+                    if (cmd[k] == "NextCandidatePanel")
+                    {
+                        expand = true;
+                        break;
+                    }
+                if (!expand) noexpand++;
+            }
+
+        }
+        else if (span[i].type == Gesture)
+        {
+            sentenceToWords(span[i].para, candidates);
+            wordP++;
+            if (wordP + 1 == words.size())
+                phraseEndTime = span[i].endTime;
             same = false;
             rep(i, candidates.size())
             {
@@ -168,17 +205,6 @@ void calcWPM(int user, int id)
                     break;
                 }
             }
-            if (same)
-                uncorrectCancel++;
-            if (candMethod[id] == "Radial")
-                wordP--;
-        }
-        else if (span[i].type == Gesture)
-        {
-            sentenceToWords(span[i].para, candidates);
-            wordP++;
-            if (wordP + 1 == words.size())
-                phraseEndTime = span[i].endTime;
         }
         else if (span[i].type == Select)
         {
@@ -212,6 +238,7 @@ void calcWPM(int user, int id)
             << words.size() << ","
             << correct << "," << uncorrected << ","
             << cancelCnt << "," << uncorrectCancel << "," << deleteCnt
+            << "," << noexpand
             << endl;
 }
 void calcCandidate(int user, int id)
