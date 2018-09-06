@@ -51,6 +51,8 @@ for line in lines[1:]:
         ratiofd.write(data[0])
         p = 7
         for m in metric:
+            for k in range(6):
+                score[k] = float(data[p + k])
             ratiofd.write(',' + str(score[i]) + ',' + str(score[i + 3]))
             p += 6
         ratiofd.write('\n')
@@ -58,6 +60,8 @@ for line in lines[1:]:
         sizefd.write(data[0])
         p = 7
         for m in metric:
+            for k in range(6):
+                score[k] = float(data[p + k])
             sizefd.write(',' + str(score[i*3]) + ',' + str(score[i*3+1]) + ',' + str(score[i*3+2]))
             p += 6
         sizefd.write('\n')
