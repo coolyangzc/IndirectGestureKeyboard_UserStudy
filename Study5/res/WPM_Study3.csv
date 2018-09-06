@@ -760,7 +760,7 @@ id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCance
 10,FixStart,Radial,4,39,32.7572,5,5,0,0,0,0
 10,FixStart,Radial,4,40,37.7091,6,6,0,0,0,0
 10,Basic,Radial,1,1,23.5924,6,6,0,0,0,0
-10,Basic,Radial,1,2,11.3383,6,6,0,4,0,0
+10,Basic,Radial,1,2,11.3383,6,6,0,4,1,0
 10,Basic,Radial,1,3,26.167,5,5,0,0,0,0
 10,Basic,Radial,1,4,19.5903,7,7,0,1,0,0
 10,Basic,Radial,1,5,20.9333,5,5,0,0,0,0

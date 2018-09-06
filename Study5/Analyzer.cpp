@@ -16,10 +16,11 @@ const int USER_L = 1;
 const int RANK = 13;
 
 int top[RANK + 1], topClean[RANK + 1];
-int timeNum[TYPENUM];
+int timeNum[TYPENUM], timeNumA[TYPENUM];
 double timeCount[TYPENUM], timeBlock[TYPENUM];
+double timeBlockA[TYPENUM];
 
-fstream timeFout, tMeanFout, tRatioFout, WPMFout, candFout, candCleanFout, heatFout, speedFout, speedMFout;
+fstream timeFout, tMeanFout, tMeanAllFout, tRatioFout, WPMFout, candFout, candCleanFout, heatFout, speedFout, speedMFout;
 
 void init()
 {
@@ -28,6 +29,7 @@ void init()
     candCleanFout.open("res/Candidates_Clean_Study3.csv", fstream::out);
     timeFout.open("res/Time_Study3.csv", fstream::out);
     tMeanFout.open("res/Time_Mean_Study3.csv", fstream::out);
+    tMeanAllFout.open("res/Time_Mean_Sum_Study3.csv", fstream::out);
     tRatioFout.open("res/Time_Ratio_Study3.csv", fstream::out);
     speedFout.open("res/Speed_Study3.csv", fstream::out);
     speedMFout.open("res/Speed_Mean_Study3.csv", fstream::out);
@@ -38,6 +40,7 @@ void init()
     timeFout << "id,mode,cand,block,phrase";
     heatFout << "id,mode,cand,block,phrase";
     tMeanFout << "id,mode,cand,block,phrase";
+    tMeanAllFout << "id,mode,cand";
     tRatioFout << "id,mode,cand,block,phrase";
     speedMFout << "id,mode,cand,block" << ",part(#/50),GestureSpeed(keyW/s)" << endl;
     speedFout << "id,mode,cand,block,phrase";
@@ -48,10 +51,12 @@ void init()
     {
         timeFout << "," << typeToString(i);
         tMeanFout << "," << typeToString(i) << "(Mean)";
+        tMeanAllFout << "," << typeToString(i) << "(Mean)";
         tRatioFout << "," << typeToString(i) << "(Ratio)";
     }
     timeFout << endl;
     tMeanFout << endl;
+    tMeanAllFout << endl;
     tRatioFout << endl;
     candFout << ",Top1,Top2,Top3,Top4,Top5,Top6,Top7,Top8,Top9,Top10,Top11,Top12,Top13,All"
              << ",Top1(ratio),Top2(ratio),Top3(ratio),Top4(ratio),Top5(ratio),Top6(ratio),Top7(ratio)"
@@ -81,13 +86,16 @@ void calcTimeDistribution(int user, int id)
         timeNum[span[i].type]++;
         timeCount[span[i].type] += span[i].endTime - span[i].startTime;
         timeBlock[span[i].type] += span[i].endTime - span[i].startTime;
+
+        timeNumA[span[i].type]++;
+        timeBlockA[span[i].type] += span[i].endTime - span[i].startTime;
     }
     rep(i, TYPENUM)
         timeFout << "," << timeCount[i];
 
     timeFout << endl;
 
-    if ((id +1) % 10 == 0)
+    if ((id + 1) % 10 == 0)
     {
         outputBasicInfo(tMeanFout, user, id);
         outputBasicInfo(tRatioFout, user, id);
@@ -103,7 +111,17 @@ void calcTimeDistribution(int user, int id)
         tRatioFout << endl;
         memset(timeNum, 0, sizeof(timeNum));
         memset(timeBlock, 0, sizeof(timeBlock));
-
+    }
+    if ((id + 1) % 40 == 0)
+    {
+        tMeanAllFout << user << ","
+                     << mode[id] << ","
+                     << candMethod[id];
+        rep(i, TYPENUM)
+            tMeanAllFout << "," << timeBlockA[i] / timeNumA[i];
+        tMeanAllFout << endl;
+        memset(timeNumA, 0, sizeof(timeNumA));
+        memset(timeBlockA, 0, sizeof(timeBlockA));
     }
 }
 
@@ -386,6 +404,7 @@ int main()
     timeFout.close();
     speedFout.close();
     tMeanFout.close();
+    tMeanAllFout.close();
     speedMFout.close();
     tRatioFout.close();
     return 0;

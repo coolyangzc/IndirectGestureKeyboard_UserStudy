@@ -26,3 +26,34 @@ Accuracy
 		Mode				F(1,22) = 50.8302, p < .0001*
 		Mode(Pie)			F(1,11) = 42.9033, p < .0001*
 		Mode(List)			F(1,11) = 18.9070, p = .0012*
+
+Time(Mean)
+	Gesture(Pie)			F(1,11) = 2.7936, p = 0.1228
+	Gesture(List)			F(1,11) = 0.0234, p = 0.8812
+	
+	Prepare(Pie)			F(1,11) = 10.1095, p = 0.0088*
+	Prepare(List)			F(1,11) = 7.2449, p = 0.0210*
+	
+	Gesture+Prepare(Pie)	F(1,11) = 0.6566, p = 0.4349
+	Gesture+Prepare(List)	F(1,11) = 0.4516, p = 0.5155
+	
+	Select(Pie)				F(1,11) = 12.1761, p = 0.0051*
+	Select(List)			F(1,11) = 6.2609, p = 0.0294*
+	
+	Cancel(Pie)				F(1,11) = 3.0348, p = 0.1093
+	Cancel(List)			F(1,7) = 2.1604, p = 0.1851
+	
+	Gesture(Absolute)		F(1,22) = 0.2848, p = 0.5989
+	Gesture(G-Keyboard)		F(1,22) = 0.0911, p = 0.7656
+	
+	Prepare(Absolute)		F(1,22) = 13.7785, p = 0.0012*
+	Prepare(G-Keyboard)		F(1,22) = 8.3376, p = 0.0085*
+	
+	G+Prepare(Absolute)		F(1,22) = 0.6566, p = 0.4349
+	G+Prepare(G-Keyboard)	F(1,22) = 0.4404, p = 0.5138
+	
+	Select(Absolute)		F(1,22) = 49.0463, p < .0001*
+	Select(G-Keyboard)		F(1,22) = 32.9349, p < .0001*
+	
+	Cancel(Absolute)		F(1,20) = 36.5964, p < .0001*
+	Cancel(G-Keyboard)		F(1,19) = 36.7061, p < .0001*
