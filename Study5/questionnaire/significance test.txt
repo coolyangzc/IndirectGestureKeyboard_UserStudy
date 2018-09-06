@@ -1,0 +1,11 @@
+Wilcoxon signed-rank
+	Speed			Z = 70.000, p = .0330*
+	Accuracy		Z = 113.50, p = .0002* 
+	Fatigue			Z = 28.500, p = .3769
+	Preference		Z = 98.50, p = .0020* 
+
+Wilcoxon rank sums test (Similar to Mann-Whitney U test)
+	Speed			W = 628.5, Z = 0.87950, N = 24, p = .3791
+	Accuracy		N.S.
+	Fatigue			N.S.
+	Preference		N.S.
