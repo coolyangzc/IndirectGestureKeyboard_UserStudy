@@ -34,7 +34,8 @@ void init()
     speedFout.open("res/Speed_Study3.csv", fstream::out);
     speedMFout.open("res/Speed_Mean_Study3.csv", fstream::out);
 
-    WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,cancel,uncorrectCancel,delete,noexpand" << endl;
+    WPMFout << "id,mode,cand,block,phrase,WPM,N(words),correct,uncorrected,"
+            << "cancel,uncorrectCancel,delete,noexpand,wrongCancel(noexpand)" << endl;
     candFout << "id,mode,cand,block,phrase";
     candCleanFout << "id,mode,cand,block,phrase";
     timeFout << "id,mode,cand,block,phrase";
@@ -144,10 +145,10 @@ void printTimeSpan()
 
 void calcWPM(int user, int id)
 {
-    int deleteCnt = 0, cancelCnt = 0, uncorrectCancel = 0, correct = 0, uncorrected = 0, noexpand = 0;
+    int deleteCnt = 0, cancelCnt = 0, uncorrectCancel = 0, correct = 0, uncorrected = 0, noexpand = 0, wrongCancel = 0;
     vector<string> candidates;
     int wordP = -1;
-    bool same = false;
+    int same = 0;
     double phraseEndTime = -1;
     rep(i, span.size())
     {
@@ -157,25 +158,25 @@ void calcWPM(int user, int id)
 
             if (candMethod[id] == "List")
             {
+                if (i && span[i-1].type == Gesture)
+                {
+                    noexpand++;
+                    if (same > 5)
+                        wrongCancel++;
+                }
+
                 if (same)
                 {
                     uncorrectCancel++;
-                    same = false;
+                    same = 0;
                 }
-                if (i && span[i-1].type == Gesture)
-                    noexpand++;
+
             }
 
         }
         else if (span[i].type == Cancel)
         {
             cancelCnt++;
-            if (same)
-            {
-                uncorrectCancel++;
-                same = false;
-            }
-
             if (candMethod[id] == "Radial")
             {
                 wordP--;
@@ -186,9 +187,18 @@ void calcWPM(int user, int id)
                         expand = true;
                         break;
                     }
-                if (!expand) noexpand++;
+                if (!expand)
+                {
+                    noexpand++;
+                    if (same > 5)
+                        wrongCancel++;
+                }
             }
-
+            if (same)
+            {
+                uncorrectCancel++;
+                same = 0;
+            }
         }
         else if (span[i].type == Gesture)
         {
@@ -196,12 +206,12 @@ void calcWPM(int user, int id)
             wordP++;
             if (wordP + 1 == words.size())
                 phraseEndTime = span[i].endTime;
-            same = false;
+            same = 0;
             rep(i, candidates.size())
             {
                 if (candidates[i] == words[wordP])
                 {
-                    same = true;
+                    same = i+1;
                     break;
                 }
             }
@@ -238,7 +248,7 @@ void calcWPM(int user, int id)
             << words.size() << ","
             << correct << "," << uncorrected << ","
             << cancelCnt << "," << uncorrectCancel << "," << deleteCnt
-            << "," << noexpand
+            << "," << noexpand << "," << wrongCancel
             << endl;
 }
 void calcCandidate(int user, int id)

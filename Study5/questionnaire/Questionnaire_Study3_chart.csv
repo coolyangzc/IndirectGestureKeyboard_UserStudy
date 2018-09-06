@@ -1,0 +1,17 @@
+type,1,2,3,4,5
+Speed(Absolute&List),0,3,2,5,2
+Speed(Absolute&Pie),0,1,3,6,2
+Speed(G-Keyboard&List),0,0,4,5,3
+Speed(G-Keyboard&Pie),0,0,2,6,4
+Accuracy(Absolute&List),1,3,3,2,3
+Accuracy(Absolute&Pie),0,2,1,7,2
+Accuracy(G-Keyboard&List),0,0,2,7,3
+Accuracy(G-Keyboard&Pie),0,0,0,6,6
+Fatigue(Absolute&List),0,1,3,4,4
+Fatigue(Absolute&Pie),0,0,3,5,4
+Fatigue(G-Keyboard&List),0,1,2,5,4
+Fatigue(G-Keyboard&Pie),0,0,1,7,4
+Preference(Absolute&List),0,4,0,6,2
+Preference(Absolute&Pie),0,0,6,3,3
+Preference(G-Keyboard&List),0,0,2,5,5
+Preference(G-Keyboard&Pie),0,0,1,4,7
