@@ -136,11 +136,34 @@ void calcGestureLength()
     }
 }
 
+void calcForHeatMap()
+{
+    FILE *fout;
+    fout = fopen("res/length.txt", "w+");
+    int X = 10, Y = 30;
+    double dx = keyWidth / X, dy = keyHeight / Y;
+    rep(c, 26)
+    {
+        rep(i, X)
+            rep(j, Y)
+            {
+                double x = keyX[c] - keyWidth / 2 + (i + 0.5f) * dx;
+                double y = keyY[c] - keyHeight / 2 + (j + 0.5f) * dy;
+                double d = calc(x, y);
+                int px = x / keyWidth * X;
+                int py = y / keyHeight * Y;
+                fprintf(fout, "[%d,%d,\"%.2lf\"],", -py, px, (d - normalLength) / normalLength * 100);
+            }
+    }
+    fclose(fout);
+}
+
 int main()
 {
     initLexicon();
     initKeyLayout(keyWidth, keyHeight);
     initNormalGestureLength();
     calcGestureLength();
+    calcForHeatMap();
     return 0;
 }

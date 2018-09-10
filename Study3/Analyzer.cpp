@@ -23,14 +23,15 @@ vector<string> words;
 vector<double> time;
 vector<Vector2> world, relative;
 
-string name, userID, keyFileName, WPMFileName, disFileName;
-fstream keyFout, WPMFout, disFout;
+string name, userID, keyFileName, WPMFileName, disFileName, wordTimeFileName;
+fstream keyFout, WPMFout, disFout, wordTimeFout;
 
 void initFstream()
 {
     keyFileName = "res/Key_Study1.csv";
     WPMFileName = "res/WPM_Study1.csv";
     disFileName = "res/Distance_Study1.csv";
+    wordTimeFileName = "res/Word_Time_Study1.csv";
 
     keyFout.open(keyFileName.c_str(), fstream::out);
     keyFout << "id,scale,size,word,kind,keyWidth" << endl;
@@ -38,6 +39,8 @@ void initFstream()
     WPMFout << "id,scale,size,sentence,WPM,words" << endl;
     disFout.open(disFileName.c_str(), fstream::out);
     disFout << "id,scale,size,word,algorithm,distance" << endl;
+    wordTimeFout.open(wordTimeFileName.c_str(), fstream::out);
+    wordTimeFout << "id,scale,size,word,time,time/length" << endl;
 }
 
 void init()
@@ -146,12 +149,11 @@ void calcDistance(int id)
         vector<Vector2> rawstroke;
         while (line < cmd.size())
         {
-            string s = cmd[line];
             Vector2 p(relative[line].x * width[id], relative[line].y * height[id]);
             line++;
             if (rawstroke.size() == 0 || dist(rawstroke[rawstroke.size()-1], p) > eps)
                 rawstroke.push_back(p);
-            if (s == "Ended")
+            if (cmd[line] == "Ended")
                 break;
         }
         if (word.length() == 1)
@@ -200,6 +202,32 @@ void calcDistance(int id)
     }
 }
 
+void calcWordTime(int id)
+{
+    fstream& fout = wordTimeFout;
+    int line = 0;
+    rep(w, words.size())
+    {
+        double s = -1, t = -1;
+        while (line < cmd.size())
+        {
+            if (cmd[line] == "Began")
+                s = time[line];
+            line++;
+            if (cmd[line] == "Ended")
+            {
+                t = time[line];
+                if (s != -1)
+                    fout << userID << "," << scale[id] << "," << keyboardSize[id] << ","
+                         << words[w] << ","
+                         << t - s << "," << (t - s) / words[w].length() << endl;
+                break;
+            }
+
+        }
+    }
+}
+
 int main()
 {
     init();
@@ -215,6 +243,7 @@ int main()
         {
             readData(i);
             calcDistance(i);
+            calcWordTime(i);
         }
         outputWPM();
         //clean();
