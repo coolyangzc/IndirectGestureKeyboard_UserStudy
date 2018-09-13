@@ -296,7 +296,7 @@ void calcCandidate(int user, int id)
                 if (p.size() > 1)
                     rep(k, p.size() - 1)
                         len += dist(p[k], p[k+1]);
-                string word = (mode[id] == "FixStart")?"g":"" + words[wordP];
+                string word = ((mode[id] == "FixStart")?"g":"") + words[wordP];
 
                 vector<Vector2> v = wordToPath(word, 3);
                 rep(k, v.size() - 1)

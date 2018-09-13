@@ -223,7 +223,6 @@ void calcWordTime(int id)
                          << t - s << "," << (t - s) / words[w].length() << endl;
                 break;
             }
-
         }
     }
 }
