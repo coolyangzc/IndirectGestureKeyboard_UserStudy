@@ -99,7 +99,8 @@ float calcGestureClarity(int lexicon_size, const Vector2* keyPos)
             if (dist(pts[i][0], pts[j][0]) > 3 ||
                 dist(pts[i][SAMPLE_NUM - 1], pts[j][SAMPLE_NUM - 1]) > 3)
                 continue;
-            double now = match(pts[i], pts[j], dtw, Standard, best);
+            //double now = match(pts[i], pts[j], dtw, Standard, best);
+            double now = match(pts[i], pts[j], dtw, DTW, best);
             best = min(best, now);
         }
         totFreq += freq[i];
@@ -117,10 +118,19 @@ bool cmp(const pair<float, char> &a, const pair<float, char> &b)
         return false;
 }
 
+void initDTW(double dtw[MAXSAMPLE][MAXSAMPLE])
+{
+    rep(i, MAXSAMPLE)
+        rep(j, MAXSAMPLE)
+            dtw[i][j] = inf;
+    dtw[0][0] = 0;
+}
+
 int main()
 {
     initKeyLayout();
     initLexicon();
+    initDTW(dtw);
 
     cout  << "#:" << calcGestureClarity(LEXICON_SIZE, keyPos[LAYOUT]) << endl;
     rep(i, LEXICON_SIZE)

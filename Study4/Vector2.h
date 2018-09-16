@@ -46,15 +46,15 @@ vector<Vector2> temporalSampling(vector<Vector2> stroke, int num)
     double length = 0;
     int cnt = stroke.size();
     vector<Vector2> vec(num);
-    if (cnt == 1)
+
+    rep(i, cnt-1)
+        length += dist(stroke[i], stroke[i+1]);
+    if (cnt == 1 || length <= eps)
     {
         rep(i, num)
             vec[i] = stroke[0];
         return vec;
     }
-
-    rep(i, cnt-1)
-        length += dist(stroke[i], stroke[i+1]);
     double increment = length / (num - 1);
     Vector2 last = stroke[0];
     double distSoFar = 0;

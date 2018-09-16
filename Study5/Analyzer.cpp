@@ -20,7 +20,8 @@ int timeNum[TYPENUM], timeNumA[TYPENUM];
 double timeCount[TYPENUM], timeBlock[TYPENUM];
 double timeBlockA[TYPENUM];
 
-fstream timeFout, tMeanFout, tMeanAllFout, tRatioFout, WPMFout, candFout, candCleanFout, heatFout, speedFout, speedMFout;
+fstream timeFout, tMeanFout, tMeanAllFout, tRatioFout, WPMFout,
+        candFout, candCleanFout, heatFout, speedFout, speedMFout;
 
 void init()
 {
@@ -47,7 +48,7 @@ void init()
     speedFout << "id,mode,cand,block,phrase";
     For(i, 50)
         speedFout << "," << i;
-    speedFout << endl;
+    speedFout << ",Mean" << endl;
     rep(i, TYPENUM)
     {
         timeFout << "," << typeToString(i) << "," << typeToString(i) << "(N)";
@@ -75,7 +76,6 @@ void outputBasicInfo(fstream& fout, int user, int id)
          << (id / 10) % 4 + 1 << ","
          << id % 40 + 1;
 }
-
 
 void calcTimeDistribution(int user, int id)
 {
@@ -362,6 +362,7 @@ void calcSpeed(int user, int id)
             if (len < eps)
                 continue;
             outputBasicInfo(speedFout, user, id);
+            double meanSpeed = len / keyW / (t.back() - t.front());
             len /= 50;
             int part = 1;
             speedCnt++;
@@ -389,7 +390,7 @@ void calcSpeed(int user, int id)
                 speed[part] += len / keyW / period;
                 speedFout << "," << len / keyW / period;
             }
-            speedFout << endl;
+            speedFout << "," << meanSpeed << endl;
         }
     if ((id + 1)% 10 == 0)
     {
@@ -405,11 +406,6 @@ void calcSpeed(int user, int id)
         speedCnt = 0;
         memset(speed, 0, sizeof(speed));
     }
-}
-
-void calcHeat(int user, int id)
-{
-
 }
 
 stringstream ss;
@@ -433,7 +429,6 @@ int main()
             calcWPM(p, i);
             calcCandidate(p, i);
             calcSpeed(p, i);
-            calcHeat(p, i);
         }
     }
     WPMFout.close();

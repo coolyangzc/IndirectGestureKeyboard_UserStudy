@@ -128,11 +128,12 @@ void calcCandidate(int id)
             if (s == "Ended")
                 break;
         }
-        wordCount[p]++;
+
         int num = SAMPLE_NUM;
         vector<Vector2> location = temporalSampling(wordToPath(word, sc), num);
         vector<Vector2> stroke = temporalSampling(rawstroke, num);
 
+        wordCount[p]++;
         double f = dict_map[word], bi_f = calcBigramProb(w);
         if (f == 0)
         {
