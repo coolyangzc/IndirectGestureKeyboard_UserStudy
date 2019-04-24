@@ -19,6 +19,9 @@ Word Time(divided by word length)
 	Ratio		F(1,17)=14.9952, p=0.0012*
 	Size*Ratio	F(2,34)=2.0073, p=0.1500
 
+
+# Calculated using Candidate_Study1_backup4noshape:
+
 Top-1(SHARK2)
     Size        F(2,34)=4.0547, p=0.0263*
     Ratio       F(1,17)=63.6918, p<.0001*
