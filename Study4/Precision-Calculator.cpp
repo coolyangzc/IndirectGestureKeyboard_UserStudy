@@ -81,8 +81,6 @@ void calcPhrasePrecision(int user_id, int phrase_id)
 
 void calcUserGesturePrecision(int p)
 {
-    fstream& fout = avgPrecisionFout;
-
     stringstream ss;
     ss.clear(); ss.str("");
     ss << p + 1;
