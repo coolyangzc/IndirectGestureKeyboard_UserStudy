@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int df_effect, df_error;
+double df_effect, df_error;
 double F, eta2;
 
 int main()
@@ -11,8 +11,8 @@ int main()
 
     while (true)
     {
-        scanf("%d%d%lf", &df_effect, &df_error, &F);
+        scanf("%lf%lf%lf", &df_effect, &df_error, &F);
         eta2 = (F * df_effect) / (F * df_effect + df_error);
-        printf("F(%d, %d) = %lf, ¦Ç^2_p = %lf\n", df_effect, df_error, F, eta2);
+        printf("F(%lf, %lf) = %lf, ¦Ç^2_p = %lf\n", df_effect, df_error, F, eta2);
     }
 }

@@ -8,6 +8,7 @@
 #define rep(i,n) for (int i=0; i<n; ++i)
 #define For(i,n) for (int i=1; i<=n; ++i)
 #define FOR(i,a,b) for (int i=a; i<=b; ++i)
+#define FORD(i,a,b) for(int i=a; i>=b; --i)
 
 const double eps = 1e-6;
 const double inf = 1e10;
